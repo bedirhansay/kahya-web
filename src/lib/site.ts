@@ -41,7 +41,7 @@ export type Plan = {
   highlights: string[];
 };
 
-const paidHighlights = [
+export const paidHighlights = [
   "Sınırsız cari, personel ve şube",
   "Ödeme planları ve vade hatırlatmaları",
   "Personel, izin ve devam takibi",

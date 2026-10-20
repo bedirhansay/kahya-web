@@ -8,7 +8,11 @@ import { PageHero } from "@/components/PageHero";
 import { pricingFaq } from "@/content/faq";
 import { cn } from "@/lib/cn";
 import { faqLd, pageMetadata, softwareLd } from "@/lib/seo";
-import { formatTry, plans, site } from "@/lib/site";
+import { formatTry, paidHighlights, plans, site } from "@/lib/site";
+
+const selfServe = plans.filter((p) => p.monthly !== null);
+const enterprise = plans.find((p) => p.monthly === null)!;
+const storage = (gb: number) => (gb < 1 ? `${gb * 1000} MB` : `${gb} GB`);
 
 export const metadata: Metadata = pageMetadata({
   path: "/fiyatlar",
@@ -54,8 +58,8 @@ export default function PricingPage() {
 
       <section aria-label="Planlar" className="bg-paper">
         <div className="wrap -mt-8 pb-16 md:pb-24">
-          <ol className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
-            {plans.map((p) => {
+          <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {selfServe.map((p) => {
               const featured = p.slug === "pro";
               return (
                 <li
@@ -72,42 +76,65 @@ export default function PricingPage() {
                       <span className="rounded-md bg-mist px-2 py-0.5 text-xs font-bold text-petrol">Önerilen</span>
                     )}
                   </div>
-                  <p className="mt-2 min-h-[4.2rem] text-[0.93rem] text-muted">{p.summary}</p>
-                  <p className="mt-5 text-[2.1rem] font-extrabold tracking-[-0.035em] tabular-nums">
-                    {p.monthly === null ? "Teklif" : formatTry(p.monthly)}
-                    {p.monthly ? <span className="ml-1 text-base font-semibold text-muted">/ay</span> : null}
+                  <p className="mt-1.5 text-[0.93rem] text-muted">{p.summary}</p>
+                  <p className="mt-6 text-[2.4rem] leading-none font-extrabold tracking-[-0.04em] tabular-nums">
+                    {formatTry(p.monthly!)}
+                    {p.monthly ? <span className="ml-1 text-base font-semibold tracking-normal text-muted">/ay</span> : null}
                   </p>
-                  <p className="mt-1 min-h-5 text-sm text-muted">
-                    {p.yearly ? `Yıllık ${formatTry(p.yearly)}` : p.monthly === 0 ? "Süre sınırı yok" : "Sözleşmeye özel"}
+                  <p className="mt-2 text-sm text-muted">
+                    {p.yearly ? `Yıllık ödemede ${formatTry(p.yearly)}` : "Süre sınırı yok"}
                   </p>
-                  <ul className="mt-6 flex-1 space-y-2.5 text-[0.93rem]">
-                    <li className="flex gap-2.5 font-semibold">
-                      <Check size={17} className="mt-0.5 shrink-0 text-petrol" aria-hidden />
-                      {p.users === null ? "Sınırsız kullanıcı" : p.users === 1 ? "1 kullanıcı" : `${p.users} kullanıcı`}
-                    </li>
-                    {p.highlights.map((h) => (
-                      <li key={h} className="flex gap-2.5">
-                        <Check size={17} className="mt-0.5 shrink-0 text-petrol" aria-hidden />
-                        {h}
-                      </li>
-                    ))}
-                  </ul>
-                  {p.monthly === null ? (
-                    <a
-                      href={`mailto:${site.email}?subject=Kahya%20Kurumsal%20plan`}
-                      className="btn btn-line mt-7 w-full"
-                    >
-                      Teklif isteyin
-                    </a>
-                  ) : (
-                    <a href={site.app.register} className={cn("btn mt-7 w-full", featured ? "btn-petrol" : "btn-line")}>
-                      {p.trialDays ? "Ücretsiz deneyin" : "Ücretsiz başla"}
-                    </a>
-                  )}
+                  <dl className="mt-6 grid grid-cols-2 border-y border-line py-4">
+                    <div>
+                      <dt className="text-xs text-muted">Kullanıcı</dt>
+                      <dd className="mt-0.5 text-xl font-extrabold tabular-nums">{p.users}</dd>
+                    </div>
+                    <div className="border-l border-line pl-4">
+                      <dt className="text-xs text-muted">Dosya alanı</dt>
+                      <dd className="mt-0.5 text-xl font-extrabold tabular-nums">{storage(p.storageGb!)}</dd>
+                    </div>
+                  </dl>
+                  <p className="mt-4 flex-1 text-[0.93rem] text-muted">
+                    {p.monthly ? "Tüm temel modüller, sınırsız cari, personel ve şube." : "50 cari, 3 personel; görevler, projeler, takvim, talepler."}
+                  </p>
+                  <a href={site.app.register} className={cn("btn mt-6 w-full", featured ? "btn-petrol" : "btn-line")}>
+                    {p.trialDays ? "30 gün ücretsiz deneyin" : "Ücretsiz başlayın"}
+                  </a>
                 </li>
               );
             })}
           </ol>
+
+          <div className="mt-4 grid gap-8 rounded-[var(--radius-frame)] border border-line bg-mist p-6 md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:grid-cols-[minmax(0,1fr)_minmax(0,3fr)] md:p-8">
+            <h2 className="text-lg font-extrabold">Tüm ücretli planlarda</h2>
+            <ul className="grid gap-x-8 gap-y-3 text-[0.95rem] sm:grid-cols-2">
+              {paidHighlights.map((h) => (
+                <li key={h} className="flex gap-2.5">
+                  <Check size={17} className="mt-0.5 shrink-0 text-petrol" aria-hidden />
+                  {h}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div
+            id={enterprise.slug}
+            className="mt-4 flex scroll-mt-24 flex-col gap-6 rounded-[var(--radius-frame)] bg-pine-900 p-6 text-white md:flex-row md:items-center md:justify-between md:p-8"
+          >
+            <div>
+              <h2 className="text-lg font-extrabold">{enterprise.name}</h2>
+              <p className="mt-1.5 max-w-xl text-[0.95rem] text-white/75">
+                25 kişiden kalabalık ekipler için sınırsız kullanıcı ve dosya alanı, filo modülü ve öncelikli destek. Fiyat
+                sözleşmeye göre belirlenir.
+              </p>
+            </div>
+            <a
+              href={`mailto:${site.email}?subject=Kahya%20Kurumsal%20plan`}
+              className="btn btn-brass shrink-0"
+            >
+              Teklif isteyin
+            </a>
+          </div>
           <p className="mt-6 text-sm text-muted">Fiyatlar Türk lirasıdır. Kahya AI ayrı açılan bir eklentidir.</p>
         </div>
       </section>
