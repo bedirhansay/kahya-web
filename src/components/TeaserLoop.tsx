@@ -2,6 +2,8 @@
 
 import { useEffect, useRef } from "react";
 
+import { blurOf } from "@/components/Img";
+
 /** A silent teaser that plays only while on screen. */
 export function TeaserLoop({ slug, label }: { slug: string; label: string }) {
   const ref = useRef<HTMLVideoElement>(null);
@@ -17,6 +19,7 @@ export function TeaserLoop({ slug, label }: { slug: string; label: string }) {
     return () => io.disconnect();
   }, []);
 
+  const poster = `/media/teaser/${slug}.webp`;
   return (
     <video
       ref={ref}
@@ -24,7 +27,9 @@ export function TeaserLoop({ slug, label }: { slug: string; label: string }) {
       loop
       playsInline
       preload="none"
-      poster={`/media/teaser/${slug}.webp`}
+      poster={poster}
+      // Until the poster arrives, its blurred preview fills the frame.
+      style={{ backgroundImage: `url(${blurOf(poster)})`, backgroundSize: "cover" }}
       src={`/media/teaser/${slug}.mp4`}
       aria-label={label}
       className="aspect-video w-full rounded-[var(--radius-frame)] bg-pine-950 object-cover"

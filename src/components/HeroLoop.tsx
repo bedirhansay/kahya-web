@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { Img } from "@/components/Img";
 import { useSyncExternalStore } from "react";
 
 // Phones keep the still: the loop is decoration and costs ~3 MB.
@@ -26,7 +26,7 @@ export function HeroLoop() {
 
   return (
     <div className="relative aspect-video w-full overflow-hidden rounded-[18px] bg-pine-950">
-      <Image
+      <Img
         src="/media/hero/kahya-hero.webp"
         alt="Kahya ekranları: e-posta, görev detayı, cari kartı ve Kahya AI"
         fill

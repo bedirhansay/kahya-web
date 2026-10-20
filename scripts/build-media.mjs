@@ -140,4 +140,14 @@ for (const [file, at, name] of [
   await still(tmp, target, 1440, 86);
   execFileSync("rm", [tmp]);
 }
+// Tiny blurred previews, inlined as next/image placeholders so a slow image
+// shows its own colours and layout instead of an empty box.
+const blur = {};
+const walk = (dir) =>
+  readdirSync(dir, { withFileTypes: true }).flatMap((d) => (d.isDirectory() ? walk(join(dir, d.name)) : [join(dir, d.name)]));
+for (const file of [...walk(out("screens")), ...walk(out("media"))].filter((f) => f.endsWith(".webp")).sort()) {
+  const buf = await sharp(file).resize({ width: 16 }).webp({ quality: 50 }).toBuffer();
+  blur[file.slice(out().length)] = `data:image/webp;base64,${buf.toString("base64")}`;
+}
+writeFileSync(join(root, "src/content/generated/blur.json"), JSON.stringify(blur, null, 1) + "\n");
 console.log("media ok");

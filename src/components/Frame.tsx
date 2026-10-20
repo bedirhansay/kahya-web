@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { Img } from "@/components/Img";
 
 import { cn } from "@/lib/cn";
 
@@ -23,7 +23,7 @@ export function Frame({
   if (phone) {
     return (
       <div className={cn("mx-auto w-full max-w-[19rem] rounded-[2.4rem] bg-ink p-2.5 shadow-2xl", className)}>
-        <Image
+        <Img
           src={src}
           alt={alt}
           width={780}
@@ -42,7 +42,7 @@ export function Frame({
         <span className="size-2.5 rounded-full bg-[#e5e9e7]" />
         <span className="size-2.5 rounded-full bg-[#e5e9e7]" />
       </div>
-      <Image src={src} alt={alt} width={2000} height={1250} sizes={sizes} priority={priority} className="h-auto w-full" />
+      <Img src={src} alt={alt} width={2000} height={1250} sizes={sizes} priority={priority} className="h-auto w-full" />
     </figure>
   );
 }

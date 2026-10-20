@@ -1,6 +1,6 @@
 import { Check, Minus } from "lucide-react";
 import type { Metadata } from "next";
-import Image from "next/image";
+import { Img } from "@/components/Img";
 import Link from "next/link";
 
 import { CtaBand } from "@/components/CtaBand";
@@ -198,7 +198,7 @@ export default function HomePage() {
         <div className="wrap grid gap-12 py-20 md:py-28 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center">
           <div>
             <p className="inline-flex items-center gap-2 text-sm font-bold text-brass">
-              <Image src="/brand/kahya-mark.svg" alt="" width={20} height={20} unoptimized className="size-5" />
+              <Img src="/brand/kahya-mark.svg" alt="" width={20} height={20} unoptimized className="size-5" />
               Kahya AI
             </p>
             <h2 id="ai" className="title mt-4">
@@ -252,7 +252,7 @@ export default function HomePage() {
             ["06", "Onaylar tek dokunuşta"],
             ["07", "Bakiye ve vade hep önünüzde"],
           ].map(([n, alt]) => (
-            <Image
+            <Img
               key={n}
               src={`/screens/mobil/${n}.webp`}
               alt={alt}

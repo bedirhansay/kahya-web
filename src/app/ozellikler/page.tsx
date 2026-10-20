@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { Img } from "@/components/Img";
 import Link from "next/link";
 
 import { CtaBand } from "@/components/CtaBand";
@@ -42,7 +42,7 @@ export default function FeaturesPage() {
               <li key={f.slug}>
                 <Link href={`/ozellikler/${f.slug}`} className="group block">
                   <div className="frame aspect-[16/10] overflow-hidden">
-                    <Image
+                    <Img
                       src={f.screen.src}
                       alt={f.screen.alt}
                       width={2000}

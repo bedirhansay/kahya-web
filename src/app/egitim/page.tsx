@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { Img } from "@/components/Img";
 import Link from "next/link";
 
 import { CtaBand } from "@/components/CtaBand";
@@ -44,7 +44,7 @@ export default function TutorialsPage() {
               <li key={t.slug}>
                 <Link href={`/egitim/${t.slug}`} className="group block">
                   <div className="frame relative aspect-video">
-                    <Image
+                    <Img
                       src={`/media/egitim/${t.file}.webp`}
                       alt=""
                       fill

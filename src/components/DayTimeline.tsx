@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { Img } from "@/components/Img";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
@@ -70,7 +70,7 @@ export function DayTimeline({ steps }: { steps: DayStep[] }) {
               {step.linkLabel}
             </Link>
             <div className="frame mt-6 lg:hidden">
-              <Image src={step.screen} alt={step.alt} width={2000} height={1250} sizes="100vw" className="h-auto w-full" />
+              <Img src={step.screen} alt={step.alt} width={2000} height={1250} sizes="100vw" className="h-auto w-full" />
             </div>
           </li>
         ))}
@@ -79,7 +79,7 @@ export function DayTimeline({ steps }: { steps: DayStep[] }) {
         <div className="sticky top-[calc(50vh-min(22vw,17rem))]">
           <div className="frame relative aspect-[16/10]">
             {steps.map((step, i) => (
-              <Image
+              <Img
                 key={step.screen + i}
                 src={step.screen}
                 alt={active === i ? step.alt : ""}

@@ -1,6 +1,6 @@
 import { Check, PlayCircle } from "lucide-react";
 import type { Metadata } from "next";
-import Image from "next/image";
+import { Img } from "@/components/Img";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -153,7 +153,7 @@ export default async function FeaturePage({ params }: PageProps<"/ozellikler/[sl
               <li key={o.slug}>
                 <Link href={`/ozellikler/${o.slug}`} className="group block">
                   <div className="frame aspect-[16/10] overflow-hidden">
-                    <Image
+                    <Img
                       src={o.screen.src}
                       alt=""
                       width={2000}

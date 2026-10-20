@@ -1,7 +1,7 @@
 "use client";
 
 import { Play } from "lucide-react";
-import Image from "next/image";
+import { Img } from "@/components/Img";
 import { useRef, useState } from "react";
 
 import { cn } from "@/lib/cn";
@@ -52,7 +52,7 @@ export function VideoPlayer({ src, poster, title, duration, captions, aspect = "
           className="group absolute inset-0 size-full text-left"
           aria-label={`${title} videosunu oynat${duration ? `, ${duration}` : ""}`}
         >
-          <Image
+          <Img
             src={poster}
             alt=""
             fill
