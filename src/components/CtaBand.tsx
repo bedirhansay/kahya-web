@@ -1,7 +1,7 @@
 import { site } from "@/lib/site";
 
 export function CtaBand({
-  title = "Ofisinizi bugün Kahya’ya taşıyın.",
+  title = "Ofisinizi bugün Kahya’ya taşıyın",
   body = "Ücretsiz planla hemen başlayın. Ücretli planlar 30 gün ücretsiz denenir.",
 }: {
   title?: string;

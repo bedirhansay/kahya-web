@@ -138,7 +138,7 @@ export default async function TutorialPage({ params }: PageProps<"/egitim/[slug]
           )}
         </div>
       </nav>
-      <CtaBand title="Kendi ofisinizde deneyin." />
+      <CtaBand title="Kendi ofisinizde deneyin" />
     </>
   );
 }

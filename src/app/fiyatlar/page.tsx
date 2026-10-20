@@ -52,7 +52,7 @@ export default function PricingPage() {
       <JsonLd data={[softwareLd(), faqLd(pricingFaq)]} />
       <PageHero
         crumbs={[{ name: "Fiyatlar", path: "/fiyatlar" }]}
-        title="Ekibiniz kadar ödeyin."
+        title="Ekibiniz kadar ödeyin"
         lead="Ücretli planlarda tüm temel modüller ve sınırsız kayıt var; planları yalnızca kullanıcı sayısı ve dosya alanı ayırır. Her ücretli plan 30 gün ücretsiz denenir."
       />
 

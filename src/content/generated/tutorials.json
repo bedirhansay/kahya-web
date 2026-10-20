@@ -126,7 +126,7 @@
           "E-posta: firmanızın gelen kutusu Kahya’nın içinde",
           "Sekmeler: Kişiler, Faturalar, Bültenler otomatik ayrılır",
           "Bir e-postayı açın",
-          "Ekler ve gönderenin câri kaydı yanında",
+          "Ekler ve gönderenin cari kaydı yanında",
           "Yanıtla, ilet ya da göreve çevir"
         ]
       },
@@ -241,7 +241,7 @@
           "Projeler: her işin ilerlemesi ve bütçesi",
           "Yeni Proje’ye tıklayın",
           "Proje adını yazın",
-          "Müşteriyi seçin: proje câri kartında da görünür",
+          "Müşteriyi seçin: proje cari kartında da görünür",
           "Sorumluyu ve ekibi seçin",
           "Teslim tarihi ve bütçe",
           "Ekle"
@@ -262,7 +262,7 @@
   {
     "no": "06",
     "slug": "cari",
-    "title": "Câri: müşteri ve tedarikçi",
+    "title": "Cari: müşteri ve tedarikçi",
     "file": "06-cari",
     "seconds": 209,
     "lessons": [
@@ -281,7 +281,7 @@
       {
         "title": "Satış kaydı",
         "steps": [
-          "Câri kartı: bakiye ve tüm hareketler bir arada",
+          "Cari kartı: bakiye ve tüm hareketler bir arada",
           "Yaptığınız işi Yeni satış ile borç olarak yazın",
           "Tutarı girin",
           "Açıklama yazın",
@@ -579,7 +579,7 @@
       {
         "title": "Cari ekstre raporu",
         "steps": [
-          "Cari ekstre: bir câri seçin, dönemin dökümü hazır",
+          "Cari ekstre: bir cari seçin, dönemin dökümü hazır",
           "Yürüyen bakiye ile her hareketin etkisi görünür"
         ]
       },

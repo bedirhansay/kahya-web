@@ -124,7 +124,7 @@ export default function HomePage() {
             Kahya AI artık ofisinizde
           </p>
           <h1 className="display mx-auto mt-7 max-w-4xl">
-            Ofisinizin bütün parçaları, <span className="text-brass">bir arada.</span>
+            Ofisinizin bütün parçaları, <span className="text-brass">bir arada</span>
           </h1>
           <p className="lead mx-auto mt-6 max-w-2xl text-white/72">
             Cari bakiyeler, görevler, e-posta, personel ve izinler, talepler ve onaylar. Ayrı dosyalarda, mesajlarda ve
@@ -150,7 +150,7 @@ export default function HomePage() {
         <div className="wrap py-20 md:py-24">
           <div className="grid gap-6 md:grid-cols-[1fr_1.2fr] md:items-end">
             <h2 id="moduller" className="title max-w-xl">
-              Ofisin bütün işi, tek uygulamada.
+              Ofisin bütün işi, tek uygulamada
             </h2>
             <p className="lead max-w-xl text-muted md:justify-self-end">
               Kullanmadığınız bölümü kapatın, menüden kalksın. Ekran yalnızca ofisinizin işine göre sadeleşir.
@@ -168,7 +168,7 @@ export default function HomePage() {
                 </Link>
               </li>
             ))}
-            <li className="border-b border-line">
+            <li className="border-b border-line sm:col-span-2">
               <Link href="/ozellikler" className="flex h-full flex-col gap-1.5 bg-mist px-1 py-6 sm:px-6">
                 <span className="text-lg font-extrabold tracking-[-0.02em] text-petrol">Tüm özellikler</span>
                 <span className="text-[0.95rem] text-muted">Otomasyonlar, etiketler, özel alanlar, Excel’den aktarım…</span>
@@ -182,7 +182,7 @@ export default function HomePage() {
       <section aria-labelledby="bir-gun" className="bg-paper">
         <div className="wrap py-20 md:py-28">
           <h2 id="bir-gun" className="title max-w-2xl">
-            Kahya’da bir iş günü.
+            Kahya’da bir iş günü
           </h2>
           <p className="lead mt-5 max-w-2xl text-muted">
             Sabah özetinden ay sonu paketine kadar, bir ofisin günü Kahya’da böyle akar. Görüntüler uygulamanın kendisi.
@@ -202,7 +202,7 @@ export default function HomePage() {
               Kahya AI
             </p>
             <h2 id="ai" className="title mt-4">
-              Söyleyin, Kahya hazırlasın. Siz onaylayın.
+              Söyleyin, Kahya hazırlasın, siz onaylayın
             </h2>
             <p className="lead mt-5 text-white/72">
               Kayıtlarınıza bakarak soruları yanıtlar; görev, not, tahsilat, toplantı ve e-posta taslağı hazırlar. Her
@@ -234,7 +234,7 @@ export default function HomePage() {
         <div className="wrap py-20 md:py-28">
           <div className="grid gap-6 md:grid-cols-2 md:items-end">
             <h2 id="telefon" className="title max-w-xl">
-              Ofis cebinizde de açık.
+              Ofis cebinizde de açık
             </h2>
             <p className="lead max-w-xl text-muted">
               Kahya telefonda da tam çalışır. Ana ekrana ekleyin; izin isteyin, onay verin, bakiyeye bakın. Ayrı bir uygulama
@@ -316,7 +316,7 @@ export default function HomePage() {
         <div className="wrap grid gap-10 py-20 md:py-28 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:items-center">
           <div>
             <h2 id="film" className="title">
-              Yarım dakikada Kahya.
+              Yarım dakikada Kahya
             </h2>
             <p className="lead mt-5 text-white/72">
               Müşteriler bir dosyada, yazışmalar başka bir kutuda, bakiyeler tablolarda. Peki işler tam olarak nerede?
@@ -340,7 +340,7 @@ export default function HomePage() {
         <div className="wrap py-20 md:py-28">
           <div className="grid gap-6 md:grid-cols-2 md:items-end">
             <h2 id="fiyat" className="title max-w-lg">
-              Kullanıcı sayısına göre, açık fiyat.
+              Kullanıcı sayısına göre, açık fiyat
             </h2>
             <p className="lead max-w-xl text-muted">
               Ücretli planlarda tüm temel modüller ve sınırsız kayıt var. Ayıran yalnızca kullanıcı sayısı ve dosya alanı.

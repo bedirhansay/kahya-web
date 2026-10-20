@@ -41,7 +41,7 @@ export default function ContactPage() {
     <>
       <PageHero
         crumbs={[{ name: "İletişim", path: "/iletisim" }]}
-        title="Bize yazın."
+        title="Bize yazın"
         lead="Kahya, biHesap’ın ürünüdür. Sorunuzu e-postayla gönderin, ekibimiz dönüş yapsın."
       />
       <section className="bg-paper">

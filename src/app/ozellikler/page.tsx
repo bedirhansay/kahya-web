@@ -32,7 +32,7 @@ export default function FeaturesPage() {
     <>
       <PageHero
         crumbs={[{ name: "Özellikler", path: "/ozellikler" }]}
-        title="Bir ofisin ihtiyaç duyduğu her şey, aynı yerde."
+        title="Bir ofisin ihtiyaç duyduğu her şey, aynı yerde"
         lead="Her modül diğerlerine bağlı: e-posta göreve, görev projeye, proje müşterinin cari kartına. Kullanmadığınızı kapatın, menüden kalksın."
       />
       <section className="bg-paper">
@@ -66,7 +66,7 @@ export default function FeaturesPage() {
       <section aria-labelledby="araclar" className="border-t border-line bg-mist">
         <div className="wrap py-16 md:py-24">
           <h2 id="araclar" className="title max-w-2xl">
-            Her gün işinizi hızlandıran küçük şeyler.
+            Her gün işinizi hızlandıran küçük şeyler
           </h2>
           <dl className="mt-12 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
             {tools.map(([t, d]) => (

@@ -47,7 +47,7 @@ export default function FilmPage() {
       />
       <PageHero
         crumbs={[{ name: "Tanıtım filmi", path: "/tanitim-filmi" }]}
-        title="Kahya, iki dakikada."
+        title="Kahya, iki dakikada"
         lead="Bir ofisin günü, baştan sona. Görüntüler uygulamanın kendisi; firma ve kişiler örnek veridir."
       />
       <section className="bg-pine-950 pb-16 md:pb-24">

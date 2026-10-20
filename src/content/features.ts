@@ -32,7 +32,7 @@ export const features: Feature[] = [
     metaTitle: "Cari hesap takip programı",
     metaDescription:
       "Müşteri ve tedarikçi carilerinizi Kahya’da tutun: satış, tahsilat, alış ve ödeme kaydı, yürüyen bakiye, WhatsApp ve e-postayla ekstre paylaşımı.",
-    title: "Kim, kime, ne kadar borçlu? Her an belli.",
+    title: "Kim, kime, ne kadar borçlu? Her an belli",
     lead:
       "Müşteri ve tedarikçi kartlarında bakiye ve tüm hareketler bir arada durur. Satışı, tahsilatı, alışı ve ödemeyi kaydedin; bakiye anında güncellenir, ekstreyi tek tıkla paylaşın.",
     screen: { src: "/screens/cari.webp", alt: "Kahya’da bir müşterinin cari kartı: bakiye, hareketler ve yürüyen bakiye" },
@@ -82,7 +82,7 @@ export const features: Feature[] = [
     metaTitle: "Vade ve taksit takibi, ödeme planı",
     metaDescription:
       "Taksitli tahsilat planları, düzenli ödemeler ve vade hatırlatmaları. Vadesi gelen ve geciken ödemeleri Kahya’da tek listede görün.",
-    title: "Vadeler kâğıtta değil, önünüzde.",
+    title: "Vadeler kâğıtta değil, önünüzde",
     lead:
       "Taksitli anlaşmaları tek seferde kurun, kira ve abonelik gibi düzenli ödemeleri tanımlayın. Vadeler takvime ve Ana Sayfa’ya düşer; zamanı gelince hatırlatılırsınız.",
     screen: { src: "/screens/home.webp", alt: "Kahya Ana Sayfa: bu hafta vadesi gelen tahsilat ve ödemeler" },
@@ -125,7 +125,7 @@ export const features: Feature[] = [
     metaTitle: "Görev ve ekip takip programı",
     metaDescription:
       "Görev panosu, takımlara iş verme, takvim, toplantı ve duyurular. Kahya ile ofisinizin işini ve ekibini tek panodan yönetin.",
-    title: "Ekibin işi tek panoda.",
+    title: "Ekibin işi tek panoda",
     lead:
       "Görevleri kişiye ya da takıma verin, panoda Yapılacak’tan Tamamlandı’ya ilerletin. Toplantılar, vadeler, izinler ve teslimler aynı takvimde buluşur.",
     screen: { src: "/screens/claim.webp", alt: "Kahya’da görev detayı: durum, sorumlu, takım ve proje" },
@@ -171,7 +171,7 @@ export const features: Feature[] = [
     metaTitle: "Proje takip programı",
     metaDescription:
       "Müşteriye bağlı projeler, ilerleme ve proje sağlığı, görevler, toplantılar, dosyalar ve geçmiş. Kahya ile projelerinizi tek yerde izleyin.",
-    title: "Her projenin ilerlemesi en üstte.",
+    title: "Her projenin ilerlemesi en üstte",
     lead:
       "Projeyi müşteriye, sorumluya ve ekibe bağlayın; teslim tarihi ve bütçesini girin. Proje sayfasında ilerleme, görevler, toplantılar, dosyalar ve geçmiş ayrı sekmelerde durur.",
     screen: { src: "/screens/project.webp", alt: "Kahya proje detayı: ilerleme, bütçe, ekip ve görevler" },
@@ -205,7 +205,7 @@ export const features: Feature[] = [
     metaTitle: "Ofis için ortak e-posta kutusu",
     metaDescription:
       "Mevcut e-posta hesabınızı Kahya’ya bağlayın: gelen kutusu, gönderenin cari kaydı, tek tıkla e-postadan görev. IMAP/SMTP destekleyen sağlayıcılarla çalışır.",
-    title: "Gelen kutunuz da burada.",
+    title: "Gelen kutunuz da burada",
     lead:
       "Firmanızın e-postası Kahya’nın içinde. Kişiler, faturalar ve bültenler otomatik ayrılır; gönderenin cari kaydı ve ekler yanında görünür. İş isteyen e-postayı tek tıkla göreve çevirin.",
     screen: { src: "/screens/mail.webp", alt: "Kahya e-posta: gelen kutusu ve açık bir e-posta" },
@@ -243,10 +243,10 @@ export const features: Feature[] = [
     metaTitle: "Personel ve izin takip programı",
     metaDescription:
       "Personel kartları, departmanlar, devam takibi ve izinler. Çalışan izni telefondan ister, yönetici onaylar, izin takvime işlenir.",
-    title: "İzin telefondan istenir, takvime kendiliğinden işlenir.",
+    title: "İzin telefondan istenir, takvime kendiliğinden işlenir",
     lead:
       "Personeli işe giriş tarihi, departmanı ve görevine göre tutun. Çalışan izin talebini telefondan gönderir, yöneticisi onaylar; çalışana bildirim gider, izin takvime işlenir.",
-    screen: { src: "/screens/leave-phone.webp", alt: "Kahya’da telefondan izin talebi", phone: true },
+    screen: { src: "/screens/izinler.webp", alt: "Kahya’da izin talepleri: personel, tarih, gün sayısı, durum ve onaylayan" },
     teaser: "personel-izin",
     tutorials: ["personel-ve-izinler", "talepler-ve-onaylar"],
     points: [
@@ -282,7 +282,7 @@ export const features: Feature[] = [
     metaTitle: "Talep ve onay akışı yazılımı",
     metaDescription:
       "Avans, masraf, satın alma ve belge talepleri için onay akışı. Kendi talep formunuzu kurun, onay adımlarını izleyin, vekâlet verin.",
-    title: "Onaylar tek dokunuşta.",
+    title: "Onaylar tek dokunuşta",
     lead:
       "Avans, masraf, satın alma, belge… Talebi açan kişi, talebin kime gideceğini önceden görür. Onaylayan kişi kimin onayladığını ve sırada kimin olduğunu izler.",
     screen: { src: "/screens/talepler.webp", alt: "Kahya Talepler: onayımı bekleyen izin ve avans talepleri" },
@@ -324,7 +324,7 @@ export const features: Feature[] = [
     metaTitle: "Doküman, sözleşme ve demirbaş takibi",
     metaDescription:
       "Firmanın belgeleri tek yerde, sözleşmeler bitmeden hatırlatılır, demirbaş ve zimmet kimde kayıtlı. Paylaşılan linkleri izleyin ve kapatın.",
-    title: "Belgeler kaybolmaz, sözleşmeler sürpriz yapmaz.",
+    title: "Belgeler kaybolmaz, sözleşmeler sürpriz yapmaz",
     lead:
       "Dokümanları kimin göreceğini seçerek yükleyin. Sözleşmeleri bitiş tarihiyle girin; bitmeden kaç gün önce hatırlatılacağını siz belirleyin. Hangi cihazın kimde olduğu zimmet kaydında.",
     screen: { src: "/screens/contracts.webp", alt: "Kahya sözleşmeler listesi ve bitiş tarihleri" },
@@ -362,7 +362,7 @@ export const features: Feature[] = [
     metaTitle: "Alacak, borç ve nakit raporları",
     metaDescription:
       "Alacak ve borç yaşlandırma, gelir-gider, tahsilat-ödeme, cari ekstre ve aylık kategori raporları. Mali müşavir paketi ve Excel’e aktarma.",
-    title: "Ayın durumu tek bakışta.",
+    title: "Ayın durumu tek bakışta",
     lead:
       "Kimden ne alacaklı, kime ne borçlu olduğunuzu; ay ay gelir ve giderinizi; nakdin gerçekte ne zaman girip çıktığını görün. Ayın kayıtlarını mali müşavirinize tek dosyada gönderin.",
     screen: { src: "/screens/package.webp", alt: "Kahya Mali Müşavir Paketi ekranı" },
@@ -400,7 +400,7 @@ export const features: Feature[] = [
     metaTitle: "Kahya AI: ofisiniz için yapay zekâ asistanı",
     metaDescription:
       "Kahya AI kayıtlarınızı okuyup soruları yanıtlar, günün özetini çıkarır, fiş fotoğrafından kayıt ve tahsilat hatırlatması hazırlar. Hiçbir şeyi onayınız olmadan kaydetmez.",
-    title: "Söyleyin, Kahya hazırlasın. Siz onaylayın.",
+    title: "Söyleyin, Kahya hazırlasın, siz onaylayın",
     lead:
       "Kahya AI ofisinizin kayıtlarına bakarak yanıt verir ve iş hazırlar: görev, not, tahsilat, toplantı, e-posta taslağı. Her öneri bir kart olarak gelir; siz Onayla demeden hiçbir şey kaydedilmez.",
     screen: { src: "/screens/receipt.webp", alt: "Kahya AI sohbeti: fişten hazırlanan alış kaydı önerisi" },

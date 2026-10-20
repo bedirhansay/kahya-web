@@ -34,7 +34,7 @@ export default function TutorialsPage() {
       />
       <PageHero
         crumbs={[{ name: "Eğitim", path: "/egitim" }]}
-        title="Kahya’yı adım adım öğrenin."
+        title="Kahya’yı adım adım öğrenin"
         lead={`${tutorials.length} bölüm, toplam ${Math.round(total / 60)} dakika. Her bölüm uygulamanın gerçek kaydı; işlemin adımları ekranın solunda numaralı olarak akar.`}
       />
       <section className="bg-paper">
@@ -66,7 +66,7 @@ export default function TutorialsPage() {
           </ol>
         </div>
       </section>
-      <CtaBand title="İzlediniz, şimdi deneyin." />
+      <CtaBand title="İzlediniz, şimdi deneyin" />
     </>
   );
 }

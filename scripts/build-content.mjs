@@ -9,7 +9,7 @@ const src = process.env.KAHYA_SRC ?? resolve(root, "../../bihesap-kahya-app");
 const outDir = join(root, "src/content/generated");
 mkdirSync(outDir, { recursive: true });
 // Brand spelling on the web is "Kahya"; the circumflex only guides voice-over.
-const brand = (s) => s.replace(/Kâhya/g, "Kahya");
+const brand = (s) => s.replace(/Kâhya/g, "Kahya").replace(/Câri/g, "Cari").replace(/câri/g, "cari");
 
 const slugify = (s) =>
   s.toLocaleLowerCase("tr").replace(/ç/g, "c").replace(/ğ/g, "g").replace(/ı/g, "i").replace(/ö/g, "o")

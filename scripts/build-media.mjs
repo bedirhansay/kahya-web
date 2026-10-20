@@ -43,6 +43,20 @@ async function frame(video, at, target, width = 1280) {
   execFileSync("rm", [tmp]);
 }
 
+// Tutorials cut to dark title cards and a blank loading screen between
+// lessons; the sampled frame with the most detail is the app UI itself.
+function busiest(video, duration) {
+  const detail = (at) =>
+    Number(
+      execFileSync("ffmpeg", ["-v", "error", "-ss", String(at), "-i", video, "-frames:v", "1", "-vf", "entropy,metadata=print:key=lavfi.entropy.entropy.normal.Y:file=-", "-f", "null", "-"])
+        .toString()
+        .match(/entropy\.normal\.Y=([\d.]+)/)?.[1] ?? 0,
+    );
+  const candidates = [0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6].map((r) => Math.round(duration * r));
+  const scored = candidates.map((at) => [at, detail(at)]);
+  return scored.reduce((best, cur) => (cur[1] > best[1] ? cur : best))[0];
+}
+
 function vtt(srt, target) {
   if (!fresh(target)) return;
   const body = readFileSync(srt, "utf8").replace(/\r/g, "").replace(/Kâhya/g, "Kahya").replace(/(\d\d:\d\d:\d\d),(\d\d\d)/g, "$1.$2");
@@ -98,7 +112,7 @@ for (const f of readdirSync(tutorials).filter((f) => f.endsWith(".mp4"))) {
   const input = join(tutorials, f);
   ffmpeg(["-i", input, "-r", "15", ...h264(30, ["-tune", "stillimage", "-c:a", "aac", "-b:a", "64k", "-ac", "1"])], out("media/egitim", `${slug}.mp4`));
   const duration = Number(execFileSync("ffprobe", ["-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", input]).toString());
-  await frame(input, Math.round(duration * 0.3), out("media/egitim", `${slug}.webp`));
+  await frame(input, busiest(input, duration), out("media/egitim", `${slug}.webp`));
 }
 
 // App screenshots (desktop 2880×1800, phone 1170×2532)
@@ -115,7 +129,10 @@ for (const f of readdirSync(store).filter((f) => f.endsWith(".png"))) {
 
 // Stills cropped from tutorial recordings: the app window sits at a fixed
 // 1440×898 area of each 1920×1080 frame (below the window's title bar).
-for (const [file, at, name] of [["11-talepler.mp4", 45, "talepler"]]) {
+for (const [file, at, name] of [
+  ["11-talepler.mp4", 45, "talepler"],
+  ["10-personel.mp4", 60, "izinler"],
+]) {
   const target = out("screens", `${name}.webp`);
   if (!fresh(target)) continue;
   const tmp = target + ".png";
