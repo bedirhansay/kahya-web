@@ -1,0 +1,5 @@
+# Next.js 16 and eslint-visitor-keys@5 need Node >= 22.13 (see package.json
+# "engines"). The default Nixpacks nixpkgs snapshot ships an older Node 22,
+# so pin a nixpkgs tree that resolves a current Node 22.
+[phases.setup]
+nixpkgsArchive = "8a1b0127302ea51e05bf4ea5a291743fac442406"

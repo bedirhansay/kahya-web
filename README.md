@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kahya web sitesi
 
-## Getting Started
+Kahya by biHesap'ın tanıtım sitesi. Next.js 16 (App Router, Cache Components), Tailwind CSS 4, TypeScript.
+Tüm sayfalar derleme anında statik üretilir.
 
-First, run the development server:
+## Çalıştırma
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+nvm use            # Node >= 22.13
+pnpm install
+pnpm dev           # http://localhost:3000
+pnpm build && pnpm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+`NEXT_PUBLIC_SITE_URL` canonical adresleri, sitemap'i ve paylaşım kartlarını belirler; her ortamda ayarlayın (`.env.example`).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## İçerik nereden geliyor
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Ne | Kaynak | Güncelleme |
+|---|---|---|
+| Videolar, ekran görüntüleri, logolar | `../../bihesap-kahya-app/promo-video/out`, `promo-video/public/ui3`, `web/public/brand` | `pnpm media` (yalnız eksikleri üretir; `--force` hepsini) |
+| Eğitim bölümleri ve adımları, film metinleri | `promo-video/out/07-ogrenim/BENIOKU.md`, film `.srt` dosyaları | `pnpm content` → `src/content/generated/*.json` |
+| Özellik sayfaları | `src/content/features.ts` | elle; yalnız uygulamada olan özellikler |
+| Planlar ve fiyatlar | `src/lib/site.ts` | API plan seed'i (`api/src/modules/system/seeder/plan-seed.service.ts`) ile birlikte |
 
-## Learn More
+Kaynak klasör farklıysa: `KAHYA_SRC=/yol/bihesap-kahya-app pnpm media`.
 
-To learn more about Next.js, take a look at the following resources:
+Marka adı sitede her yerde **Kahya** (şapkasız) yazılır; betikler altyazı ve metinlerdeki "Kâhya"yı dönüştürür.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## SEO
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Sayfa başına canonical, Open Graph ve Twitter kartı (`src/lib/seo.ts` → `pageMetadata`)
+- JSON-LD (`schema-dts` ile tipli): Organization, WebSite, SoftwareApplication + fiyat teklifleri, FAQPage, BreadcrumbList, VideoObject (metinle), ItemList
+- `sitemap.xml` (görsel ve video uzantılarıyla), `robots.txt`, `manifest.webmanifest`, `llms.txt`
+- Özellik ve eğitim sayfalarına `next/og` ile üretilen paylaşım görselleri
+- Denetim: `npx lighthouse@12 <url> --only-categories=seo,accessibility,performance,best-practices`

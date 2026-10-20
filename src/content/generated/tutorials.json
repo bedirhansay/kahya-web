@@ -1,0 +1,688 @@
+[
+  {
+    "no": "01",
+    "slug": "baslarken",
+    "title": "Başlarken",
+    "file": "01-baslarken",
+    "seconds": 153,
+    "lessons": [
+      {
+        "title": "Firma profili",
+        "steps": [
+          "Firma ayarları → Firma profili sayfasını açın",
+          "Logonuzu yükleyin, marka renginizi seçin",
+          "İletişim bilgilerini düzenlemek için kaleme tıklayın",
+          "Telefon ve adresi yazın",
+          "Uygula ile onaylayın, sonra Kaydet",
+          "Vergi bilgileri faturalarda ve ekstrelerde kullanılır"
+        ]
+      },
+      {
+        "title": "Ekip arkadaşı davet etmek",
+        "steps": [
+          "Kullanıcılar listesinde ekibinizi görürsünüz",
+          "Davet et ile yeni bir ekip arkadaşı çağırın",
+          "E-posta adresini ve adını yazın",
+          "Rolünü seçin: ne görebileceğini rol belirler",
+          "Yöneticisini seçin: izin ve talepler önce ona gider",
+          "Çalışacağı şubeyi seçin",
+          "Davet gönder: kişiye e-postayla bağlantı gider"
+        ]
+      },
+      {
+        "title": "Roller ve yetkiler",
+        "steps": [
+          "Hazır roller: İşletme sahibi, Ofis yöneticisi, Ekip yöneticisi, Personel",
+          "Bir rolü açıp yetkilerini inceleyin",
+          "Her modülde görüntüle, oluştur, güncelle, sil, onayla ayrı ayrı",
+          "Kendi rolünüzü Yeni Rol ile oluşturabilirsiniz"
+        ]
+      },
+      {
+        "title": "Modüller ve kullanım",
+        "steps": [
+          "Modüller ve kullanım: kullanmadığınız bölümleri kapatın",
+          "Kapalı modüller menüden kalkar, ekran sadeleşir",
+          "Çoklu şube: birden fazla ofisiniz varsa açın"
+        ]
+      },
+      {
+        "title": "Şube eklemek",
+        "steps": [
+          "Şubeler: her ofisin kayıtları ayrı tutulur",
+          "Yeni Şube’ye tıklayın",
+          "Kısa bir şube kodu verin",
+          "Şube adını yazın",
+          "Ekle ile kaydedin",
+          "Ekibi şubeye Kullanıcılar sayfasından atarsınız"
+        ]
+      }
+    ]
+  },
+  {
+    "no": "02",
+    "slug": "ana-sayfa-ve-kisayollar",
+    "title": "Ana Sayfa ve kısayollar",
+    "file": "02-ana-sayfa",
+    "seconds": 121,
+    "lessons": [
+      {
+        "title": "Ana Sayfa",
+        "steps": [
+          "Ana Sayfa: günün özeti tek ekranda",
+          "Dönemi seçin: bugün, bu ay, çeyrek, yıl",
+          "Bu hafta vadesi gelen tahsilat ve ödemeler",
+          "Odak: şimdi, bu hafta ve takipteki işleriniz",
+          "Aşağıda nakit akışı, kurlar, ekip ve projeler"
+        ]
+      },
+      {
+        "title": "Ana Sayfa’yı özelleştirmek",
+        "steps": [
+          "Ana Sayfa’yı kendinize göre düzenleyin",
+          "Kutuyu kaldırarak bölümü gizleyin",
+          "Tutamaçtan sürükleyerek sıralayın, yan panele taşıyın",
+          "Varsayılana dön ile ilk hâline getirin",
+          "Kapat"
+        ]
+      },
+      {
+        "title": "Hızlı ara ve hızlı oluştur",
+        "steps": [
+          "Hızlı ara (⌘K) ile her şeye ulaşın",
+          "Bir müşteri, görev ya da işlem adı yazın",
+          "Sonuca tıklayın, doğrudan kaydı açar",
+          "“+” Hızlı oluştur: açık kayda göre tahsilat, satış, not…"
+        ]
+      },
+      {
+        "title": "Favoriler",
+        "steps": [
+          "Sık açtığınız bir kaydı açın",
+          "Yıldıza tıklayıp favorilere ekleyin",
+          "Favoriler menüde, tek tık uzağınızda"
+        ]
+      },
+      {
+        "title": "Bildirimler ve bekleyenler",
+        "steps": [
+          "Zil: onayınızı bekleyenler ve bildirimler",
+          "Bir bildirime tıklayınca ilgili kayıt açılır",
+          "Profil menüsünden tema, bildirim ve şifre ayarları"
+        ]
+      }
+    ]
+  },
+  {
+    "no": "03",
+    "slug": "e-posta",
+    "title": "E-posta",
+    "file": "03-e-posta",
+    "seconds": 110,
+    "lessons": [
+      {
+        "title": "Gelen kutusu",
+        "steps": [
+          "E-posta: firmanızın gelen kutusu Kahya’nın içinde",
+          "Sekmeler: Kişiler, Faturalar, Bültenler otomatik ayrılır",
+          "Bir e-postayı açın",
+          "Ekler ve gönderenin câri kaydı yanında",
+          "Yanıtla, ilet ya da göreve çevir"
+        ]
+      },
+      {
+        "title": "E-postayı göreve çevirmek",
+        "steps": [
+          "İş isteyen e-postayı açın",
+          "Göreve çevir’e tıklayın",
+          "Başlık e-postadan gelir; ekleri kopyalamak isteğe bağlı",
+          "Görev oluştur",
+          "Görev açılır: Düzenle ile sorumlu ve tarih verin",
+          "Projeyi seçin",
+          "Takıma verin: takımdan biri görevi alır",
+          "Bitiş tarihini seçin",
+          "Kaydet: e-posta ile görev birbirine bağlı kalır"
+        ]
+      },
+      {
+        "title": "Yanıtlamak",
+        "steps": [
+          "E-postayı açın",
+          "Yanıtla’ya tıklayın",
+          "Yanıtınızı yazın",
+          "Gönder: yanıt aynı yazışmada görünür"
+        ]
+      }
+    ]
+  },
+  {
+    "no": "04",
+    "slug": "gorevler-takimlar-ve-takvim",
+    "title": "Görevler, takımlar ve takvim",
+    "file": "04-gorevler-takimlar",
+    "seconds": 225,
+    "lessons": [
+      {
+        "title": "Görev oluşturmak",
+        "steps": [
+          "Görevler panosu: Yapılacak, Devam ediyor, Tamamlandı",
+          "Yeni Görev’e tıklayın",
+          "Görev başlığını yazın",
+          "Önceliği seçin",
+          "Projeye bağlayın",
+          "Bitiş tarihini seçin",
+          "Sorumluyu seçin; takip edenler de eklenebilir",
+          "Ekle: görev sorumlunun ekranına düşer"
+        ]
+      },
+      {
+        "title": "Görevi takıma vermek",
+        "steps": [
+          "Görevi kişiye değil takıma da verebilirsiniz",
+          "Görev başlığını yazın",
+          "Takımı seçin; sorumluyu boş bırakın",
+          "Görev takımın iş havuzuna düşer",
+          "Ekle"
+        ]
+      },
+      {
+        "title": "Takımdan görevi almak",
+        "steps": [
+          "Takım üyesi görevi panoda görür",
+          "Görevi açın",
+          "Üstlen: görevi alırsınız, ekip görür",
+          "Durumu ilerletin: Devam ediyor → Tamamlandı"
+        ]
+      },
+      {
+        "title": "Takımlar",
+        "steps": [
+          "Takımlar: Satış, Muhasebe, Proje Ekibi…",
+          "Bir takımı açın",
+          "Genel bakış: açık görevler ve yaklaşan teslimler",
+          "Üyeler: kim takımda, kim lider",
+          "Görevler: takımın iş havuzu"
+        ]
+      },
+      {
+        "title": "Toplantı planlamak",
+        "steps": [
+          "Takvim: toplantılar, vadeler, izinler ve teslimler bir arada",
+          "Toplantı Planla’ya tıklayın",
+          "Konuyu yazın",
+          "Gününü seçin; başlangıç ve bitiş saati",
+          "Müşteri ve projeye bağlayın",
+          "Katılımcıları davet edin; bildirim alırlar",
+          "Planla"
+        ]
+      },
+      {
+        "title": "Duyuru yayınlamak",
+        "steps": [
+          "Duyurular: tüm ekibe ya da seçili kişilere",
+          "Başlığı yazın",
+          "Duyuru metnini yazın",
+          "Kimler görsün: tüm firma ya da seçili kişi ve takımlar",
+          "Yayınla: duyuru Ana Sayfa’da görünür"
+        ]
+      }
+    ]
+  },
+  {
+    "no": "05",
+    "slug": "projeler",
+    "title": "Projeler",
+    "file": "05-projeler",
+    "seconds": 88,
+    "lessons": [
+      {
+        "title": "Proje oluşturmak",
+        "steps": [
+          "Projeler: her işin ilerlemesi ve bütçesi",
+          "Yeni Proje’ye tıklayın",
+          "Proje adını yazın",
+          "Müşteriyi seçin: proje câri kartında da görünür",
+          "Sorumluyu ve ekibi seçin",
+          "Teslim tarihi ve bütçe",
+          "Ekle"
+        ]
+      },
+      {
+        "title": "Proje detayı",
+        "steps": [
+          "Bir projeyi açın",
+          "İlerleme ve proje sağlığı en üstte",
+          "Görevler: projenin tüm işleri ve sorumluları",
+          "Toplantılar, bağlantılar ve dosyalar ayrı sekmelerde",
+          "Geçmiş: projede kim, ne zaman, ne yaptı"
+        ]
+      }
+    ]
+  },
+  {
+    "no": "06",
+    "slug": "cari",
+    "title": "Câri: müşteri ve tedarikçi",
+    "file": "06-cari",
+    "seconds": 209,
+    "lessons": [
+      {
+        "title": "Yeni müşteri ve açılış bakiyesi",
+        "steps": [
+          "Müşteriler: bakiyesi ve iletişimiyle tüm müşterileriniz",
+          "Yeni Müşteri’ye tıklayın",
+          "Müşteri adını yazın; zorunlu olan yalnız bu",
+          "Telefon ve e-posta ekleyin",
+          "Sorumlu kişiyi seçin",
+          "Önceden kalan bir borç varsa açılış bakiyesi girin",
+          "Ekle: müşteri kartı hazır"
+        ]
+      },
+      {
+        "title": "Satış kaydı",
+        "steps": [
+          "Câri kartı: bakiye ve tüm hareketler bir arada",
+          "Yaptığınız işi Yeni satış ile borç olarak yazın",
+          "Tutarı girin",
+          "Açıklama yazın",
+          "KDV oranını seçin",
+          "Kaydet: bakiye anında artar"
+        ]
+      },
+      {
+        "title": "Tahsilat",
+        "steps": [
+          "Para geldiğinde Tahsilat’a tıklayın",
+          "Gelen tutarı yazın",
+          "Nasıl geldiğini açıklamaya yazın",
+          "Kaydet: borç anında azalır",
+          "Hareket listede, yürüyen bakiyesiyle"
+        ]
+      },
+      {
+        "title": "Ekstre paylaşmak",
+        "steps": [
+          "Ekstre gönder’e tıklayın",
+          "WhatsApp, e-posta, link, PDF veya Excel",
+          "Linki kopyala: müşteriye gönderebileceğiniz bağlantı",
+          "WhatsApp ile paylaşın ya da QR kodu okutun",
+          "Ekstreyi gör: dönem hareketleri ve yürüyen bakiye",
+          "Müşteri linkten ekstreyi kendisi görür, giriş gerekmez"
+        ]
+      },
+      {
+        "title": "Tedarikçi: alış ve ödeme",
+        "steps": [
+          "Tedarikçiler: kime ne kadar borçlusunuz",
+          "Tedarikçiyi açın",
+          "Gelen faturayı Alış olarak girin",
+          "Ödediğinizde Ödeme yapın"
+        ]
+      },
+      {
+        "title": "Görüşme ve notlar",
+        "steps": [
+          "Notlar sekmesi: görüşmeler, notlar ve yorumlar",
+          "Görüşme Ekle ile bir görüşmeyi kaydedin",
+          "Konu ve özet yazın",
+          "Kaydet: kim, ne zaman konuştu herkes görür"
+        ]
+      }
+    ]
+  },
+  {
+    "no": "07",
+    "slug": "odeme-planlari-ve-vadeler",
+    "title": "Ödeme planları ve vadeler",
+    "file": "07-odeme-planlari",
+    "seconds": 114,
+    "lessons": [
+      {
+        "title": "Taksitli tahsilat planı",
+        "steps": [
+          "Tahsilat planları: taksitli anlaşmalarınız",
+          "Yeni Tahsilat Planı’na tıklayın",
+          "Aylık tekrarlı: eşit taksitleri tek seferde kurun",
+          "Plan adını yazın",
+          "Kimden alınacağını seçin",
+          "Aylık tutar ve her ayın kaçında",
+          "Başlangıç ve bitiş ayı: 3 taksit oluşur",
+          "Planı Ekle: vadeler takvime ve Ana Sayfa’ya düşer"
+        ]
+      },
+      {
+        "title": "Vadesi gelenler",
+        "steps": [
+          "Vadesi gelenler: geciken ve yaklaşan taksitler",
+          "Ödeme geldiyse Tahsilatı işle’ye tıklayın",
+          "Tarihi kontrol edin; taksit cariye tahsilat olarak işlenir",
+          "Tahsilatı Kaydet"
+        ]
+      },
+      {
+        "title": "Düzenli ödeme",
+        "steps": [
+          "Düzenli ödemeler: kira, aidat, abonelikler",
+          "Yeni Düzenli Ödeme’ye tıklayın",
+          "Adını yazın, sıklığı seçin",
+          "Masraf kategorisini seçin",
+          "Tutar ve ilk ödeme tarihi",
+          "Ekle: her ay vadesi gelince hatırlatılır"
+        ]
+      }
+    ]
+  },
+  {
+    "no": "08",
+    "slug": "masraflar-ve-kategoriler",
+    "title": "Masraflar ve kategoriler",
+    "file": "08-masraflar",
+    "seconds": 84,
+    "lessons": [
+      {
+        "title": "Masraf eklemek",
+        "steps": [
+          "Masraflar: bu ayki tüm giderleriniz",
+          "Masraf ekle’ye tıklayın",
+          "Tutarı girin",
+          "Kategoriyi seçin: raporlar kategoriye göre ayrılır",
+          "Açıklama ve belge numarası",
+          "Kaydet"
+        ]
+      },
+      {
+        "title": "Kategori eklemek",
+        "steps": [
+          "Kategoriler: gelir ve giderlerinizi gruplar",
+          "Yeni Kategori’ye tıklayın",
+          "Kategori adını yazın",
+          "Tipi seçin: Gider",
+          "Ekle"
+        ]
+      },
+      {
+        "title": "Masraf dağılımı",
+        "steps": [
+          "Masraf dağılımı: para nereye gidiyor?",
+          "Bir kategoriye tıklayıp hareketlerini görün"
+        ]
+      }
+    ]
+  },
+  {
+    "no": "09",
+    "slug": "dokumanlar-sozlesmeler-ve-demirbas",
+    "title": "Dokümanlar, sözleşmeler ve demirbaş",
+    "file": "09-dokumanlar",
+    "seconds": 147,
+    "lessons": [
+      {
+        "title": "Doküman yüklemek",
+        "steps": [
+          "Dokümanlar: firmanın tüm belgeleri tek yerde",
+          "Doküman Yükle’ye tıklayın",
+          "Dosyayı seçin ya da sürükleyin",
+          "Başlık ve kategori",
+          "Kimler görsün: özel, seçili kişiler ya da şirket",
+          "Yükle"
+        ]
+      },
+      {
+        "title": "Sözleşme ve hatırlatma",
+        "steps": [
+          "Sözleşmeler: bitmeden hatırlatılır",
+          "Yeni Sözleşme’ye tıklayın",
+          "Sözleşme adı ve karşı taraf",
+          "Başlangıç ve bitiş tarihi",
+          "Bitişten kaç gün önce hatırlatılsın",
+          "Bedeli girin ve ekleyin"
+        ]
+      },
+      {
+        "title": "Demirbaş ve zimmet",
+        "steps": [
+          "Demirbaş & Zimmet: kimde hangi cihaz var",
+          "Yeni Demirbaş’a tıklayın",
+          "Adı, marka ve seri no",
+          "Ekle",
+          "Demirbaşın kartını açın",
+          "Zimmet ver: cihazı alan kişiyi seçin",
+          "Kaydet: kimde, ne zamandan beri olduğu kayda geçer"
+        ]
+      },
+      {
+        "title": "Paylaşılan linkler",
+        "steps": [
+          "Paylaşılan linkler: dışarıya açtığınız her ekstre ve belge",
+          "Kaç kez açıldığını görün, istediğinizde kapatın"
+        ]
+      }
+    ]
+  },
+  {
+    "no": "10",
+    "slug": "personel-ve-izinler",
+    "title": "Personel ve izinler",
+    "file": "10-personel",
+    "seconds": 110,
+    "lessons": [
+      {
+        "title": "Personel eklemek",
+        "steps": [
+          "Personel listesi: ekip, işe giriş ve bakiyeler",
+          "Yeni Personel’e tıklayın",
+          "Adını ve telefonunu yazın",
+          "İşe giriş tarihi ve günlük ücret",
+          "Çalışma bilgileri: departman ve görev",
+          "Ekle: avans, maaş ve izinleri buradan yürür"
+        ]
+      },
+      {
+        "title": "Departman, devam ve izinler",
+        "steps": [
+          "Departmanlar ve kaç kişi çalıştığı",
+          "Devam takibi: çalışılan, gelinmeyen ve izinli günler",
+          "İzinler: kim, ne zaman, kaç gün"
+        ]
+      },
+      {
+        "title": "İzin talebi (telefondan)",
+        "steps": [
+          "Çalışan telefondan Talepler → İzinlerim’i açar",
+          "İzin Talebi’ne dokunur",
+          "Tarihleri seçer; gün sayısı otomatik hesaplanır",
+          "Kısa bir not yazar",
+          "Gönder: talep yöneticisine gider"
+        ]
+      },
+      {
+        "title": "İzni onaylamak",
+        "steps": [
+          "Yönetici bekleyen izinleri görür",
+          "Onayla’ya tıklayın",
+          "İsterseniz bir not ekleyin",
+          "Onayla: çalışana bildirim gider, izin takvime işlenir"
+        ]
+      }
+    ]
+  },
+  {
+    "no": "11",
+    "slug": "talepler-ve-onaylar",
+    "title": "Talepler ve onaylar",
+    "file": "11-talepler",
+    "seconds": 118,
+    "lessons": [
+      {
+        "title": "Talep açmak",
+        "steps": [
+          "Talepler: avans, masraf, satın alma, belge…",
+          "Yeni Talep’e tıklayın",
+          "Talep tipini seçin: Avans talebi",
+          "Tutarı ve açıklamayı yazın",
+          "Onay akışı: talebin kime gideceği önceden görünür",
+          "Gönder: onay zinciri otomatik başlar"
+        ]
+      },
+      {
+        "title": "Talebi onaylamak",
+        "steps": [
+          "Onayımı bekleyenler sekmesini açın",
+          "Talebi açın",
+          "Onay adımları: kim onayladı, sırada kim var",
+          "Onayla ya da gerekçesiyle reddedin"
+        ]
+      },
+      {
+        "title": "Vekâlet vermek",
+        "steps": [
+          "İzne çıkarken onaylarınızı bir vekile devredin",
+          "Vekili seçin",
+          "Tarih aralığını seçin",
+          "Gerekçe yazın",
+          "Kaydet: o tarihlerde talepler vekile gider"
+        ]
+      },
+      {
+        "title": "Talep tipleri",
+        "steps": [
+          "Talep tipleri: formlar ve onay zinciri sizin",
+          "Bir tipi açıp alanlarını ve onaylayıcılarını görün",
+          "Yeni Tip ile kendi formunuzu kurun"
+        ]
+      }
+    ]
+  },
+  {
+    "no": "12",
+    "slug": "raporlar",
+    "title": "Raporlar",
+    "file": "12-raporlar",
+    "seconds": 108,
+    "lessons": [
+      {
+        "title": "Alacaklar ve borçlar",
+        "steps": [
+          "Alacaklar ve Borçlar: kimden ne alacaksınız, kime ne borçlusunuz",
+          "Yaşlandırma: alacaklar kaç gündür bekliyor",
+          "Excel ya da PDF olarak indirin"
+        ]
+      },
+      {
+        "title": "Gelir, gider ve nakit",
+        "steps": [
+          "Gelir / Gider: ay ay kâr tablonuz",
+          "Tahsilat / Ödeme: nakit gerçekte ne zaman girdi, çıktı",
+          "Aylık kategori raporu: hangi gider kalemi büyüyor"
+        ]
+      },
+      {
+        "title": "Cari ekstre raporu",
+        "steps": [
+          "Cari ekstre: bir câri seçin, dönemin dökümü hazır",
+          "Yürüyen bakiye ile her hareketin etkisi görünür"
+        ]
+      },
+      {
+        "title": "Mali müşavir paketi",
+        "steps": [
+          "Mali Müşavir Paketi: ayın tüm kayıtları tek dosyada",
+          "Paketi hazırla’ya tıklayın",
+          "İndirip mali müşavirinize gönderin"
+        ]
+      },
+      {
+        "title": "Excel’e aktarmak",
+        "steps": [
+          "Her listeyi filtreleyip Excel’e aktarabilirsiniz",
+          "Filtre ekleyin: örneğin etikete göre",
+          "Excel’e Aktar: gördüğünüz liste dosya olur"
+        ]
+      }
+    ]
+  },
+  {
+    "no": "13",
+    "slug": "ayarlar-ve-araclar",
+    "title": "Ayarlar ve araçlar",
+    "file": "13-ayarlar",
+    "seconds": 125,
+    "lessons": [
+      {
+        "title": "Otomasyonlar",
+        "steps": [
+          "Otomasyonlar: hatırlatmaları Kahya yapar",
+          "Vadeden kaç gün önce hatırlatılsın: 1, 3 ya da 7 gün",
+          "Görev ve sözleşme bitiş tarihleri de hatırlatılır",
+          "Haftalık özet, temas kopan müşteri, tekrarlayan görevler"
+        ]
+      },
+      {
+        "title": "Etiketler",
+        "steps": [
+          "Etiketler: kayıtları renkle gruplayın",
+          "Etiket adını yazın",
+          "Bir renk seçin",
+          "Nerede kullanılacağını seçin",
+          "Ekle"
+        ]
+      },
+      {
+        "title": "Özel alanlar",
+        "steps": [
+          "Özel alanlar: kartlara kendi alanınızı ekleyin",
+          "Alan adını yazın",
+          "Hangi kayıtta görünsün: Müşteri",
+          "Alan tipini seçin",
+          "Ekle: alan müşteri formunda çıkar"
+        ]
+      },
+      {
+        "title": "Excel’den içe aktarma",
+        "steps": [
+          "Veri aktarımı: eski kayıtlarınızı Excel’den alın",
+          "Önce şablonu indirin, doldurun",
+          "Müşteri, tedarikçi, personel, açılış bakiyesi, hareket",
+          "Yüklemeden önce önizleme ve hata kontrolü yapılır"
+        ]
+      },
+      {
+        "title": "Silinenleri geri almak",
+        "steps": [
+          "Silinenler: silinen kayıtlar bir süre burada bekler",
+          "Aradığınız kaydı bulun",
+          "Geri yükle’ye tıklayın",
+          "Kayıt eski yerine döner"
+        ]
+      }
+    ]
+  },
+  {
+    "no": "14",
+    "slug": "kahya-ai",
+    "title": "Kahya AI",
+    "file": "14-kahya-ai",
+    "seconds": 75,
+    "lessons": [
+      {
+        "title": "Kahya’ya sormak",
+        "steps": [
+          "Kahya: menüden açın, sorunuzu yazın",
+          "Hazır sorulardan birine tıklayın",
+          "Kahya yanıtı hazırlar",
+          "Yeni konuşma başlatın",
+          "Görev isteyin: Kahya taslağı hazırlar",
+          "Kontrol edip Oluştur’a basın"
+        ]
+      },
+      {
+        "title": "Her sayfadan Kahya paneli",
+        "steps": [
+          "Her sayfadan Alt+K ile Kahya panelini açın",
+          "Sorunuzu seçin ya da yazın",
+          "Yanıt, bulunduğunuz sayfayı bırakmadan gelir"
+        ]
+      }
+    ]
+  }
+]
