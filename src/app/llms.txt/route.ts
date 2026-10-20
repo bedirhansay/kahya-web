@@ -1,7 +1,7 @@
 import { features } from "@/content/features";
 import { tutorials } from "@/content/tutorials";
 import { absoluteUrl } from "@/lib/seo";
-import { formatTry, plans, site } from "@/lib/site";
+import { site } from "@/lib/site";
 
 // A plain-text summary for AI search assistants (llmstxt.org).
 export function GET() {
@@ -14,13 +14,6 @@ export function GET() {
     "",
     "## Özellikler",
     ...features.map((f) => `- [${f.name}](${absoluteUrl(`/ozellikler/${f.slug}`)}): ${f.metaDescription}`),
-    "",
-    "## Fiyatlar",
-    ...plans.map(
-      (p) =>
-        `- ${p.name}: ${p.monthly === null ? "teklif üzerine" : p.monthly === 0 ? "ücretsiz" : `${formatTry(p.monthly)}/ay`}, ${p.users === null ? "sınırsız kullanıcı" : `${p.users} kullanıcı`}`,
-    ),
-    `- Ayrıntılar: ${absoluteUrl("/fiyatlar")}`,
     "",
     "## Eğitim",
     ...tutorials.map((t) => `- [${t.title}](${absoluteUrl(`/egitim/${t.slug}`)})`),

@@ -2,7 +2,7 @@ import { site } from "@/lib/site";
 
 export function CtaBand({
   title = "Ofisinizi bugün Kahya’ya taşıyın",
-  body = "Ücretsiz planla hemen başlayın. Ücretli planlar 30 gün ücretsiz denenir.",
+  body = "Hesabınızı birkaç dakikada açın; sorunuz varsa bize yazın.",
 }: {
   title?: string;
   body?: string;
@@ -16,7 +16,7 @@ export function CtaBand({
         </div>
         <div className="flex flex-wrap gap-3">
           <a href={site.app.register} className="btn btn-brass">
-            Ücretsiz başla
+            Hemen başla
           </a>
           <a href={`mailto:${site.email}?subject=Kahya%20hakk%C4%B1nda`} className="btn btn-line-dark">
             Bize yazın

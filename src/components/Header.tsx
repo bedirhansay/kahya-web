@@ -51,7 +51,7 @@ export function Header() {
             Giriş yap
           </a>
           <a href={site.app.register} className="btn btn-brass">
-            Ücretsiz başla
+            Hemen başla
           </a>
         </div>
         <MobileMenu />

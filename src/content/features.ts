@@ -21,7 +21,6 @@ export type Feature = {
   points: { title: string; body: string }[];
   faq: { q: string; a: string }[];
   /** Plan note shown under the points, when the module is not on every plan. */
-  planNote?: string;
 };
 
 export const features: Feature[] = [
@@ -106,7 +105,6 @@ export const features: Feature[] = [
         body: "Giderleri kategoriyle kaydedin; masraf dağılımı paranın nereye gittiğini gösterir.",
       },
     ],
-    planNote: "Ödeme planları ücretli planlarda açıktır.",
     faq: [
       {
         q: "Hatırlatmalar ne zaman gelir?",
@@ -157,10 +155,6 @@ export const features: Feature[] = [
       {
         q: "Bir e-postayı göreve çevirebilir miyim?",
         a: "Evet. E-postayı açıp Göreve çevir’e tıklarsınız; başlık e-postadan gelir, ekleri kopyalamak isteğe bağlıdır. E-posta ile görev birbirine bağlı kalır.",
-      },
-      {
-        q: "Ücretsiz planda görevler var mı?",
-        a: "Evet. Görevler, projeler, takvim, toplantılar ve duyurular ücretsiz planda da açıktır.",
       },
     ],
   },
@@ -263,7 +257,6 @@ export const features: Feature[] = [
         body: "Gün sayısı tarihlerden otomatik hesaplanır. Talep yöneticiye gider; onay ya da red gerekçesiyle çalışana bildirilir.",
       },
     ],
-    planNote: "Personel kartları her planda vardır; izin ve devam takibi ücretli planlarda açıktır.",
     faq: [
       {
         q: "Çalışanlarımın uygulama indirmesi gerekir mi?",
@@ -308,10 +301,6 @@ export const features: Feature[] = [
     ],
     faq: [
       {
-        q: "Talepler hangi planda var?",
-        a: "Talepler ve onaylar ücretsiz plan dahil tüm planlarda açıktır.",
-      },
-      {
         q: "Talebim kimde bekliyor, nasıl görürüm?",
         a: "Talebin onay adımlarında kimin onayladığı ve sırada kimin olduğu görünür. Talebi açarken de kime gideceğini önceden görürsünüz.",
       },
@@ -347,11 +336,14 @@ export const features: Feature[] = [
         body: "Dışarıya açtığınız her ekstre ve belge tek listede; kaç kez açıldığını görün, istediğinizde kapatın.",
       },
     ],
-    planNote: "Dokümanlar, sözleşmeler ve demirbaş ücretli planlarda açıktır.",
     faq: [
       {
-        q: "Ne kadar dosya alanım var?",
-        a: "Ücretsiz planda 200 MB, Başlangıç’ta 5 GB, Ekip’te 20 GB, Büyüyen’de 50 GB. Kurumsal planda alan sınırı yoktur.",
+        q: "Sözleşmenin bittiğini nasıl öğrenirim?",
+        a: "Sözleşmeyi bitiş tarihiyle girersiniz; bitmeden kaç gün önce hatırlatılacağını siz belirlersiniz.",
+      },
+      {
+        q: "Dışarıya paylaştığım bir belgeyi geri alabilir miyim?",
+        a: "Evet. Paylaşılan her ekstre ve belge tek listede durur; kaç kez açıldığını görür, istediğinizde linki kapatırsınız.",
       },
     ],
   },
@@ -385,7 +377,6 @@ export const features: Feature[] = [
         body: "Listeyi filtreleyin, gördüğünüz liste Excel dosyası olarak insin.",
       },
     ],
-    planNote: "Gelişmiş raporlar ve dışa aktarma ücretli planlarda açıktır.",
     faq: [
       {
         q: "Mali müşavirim Kahya’ya giriş yapmak zorunda mı?",
@@ -432,7 +423,6 @@ export const features: Feature[] = [
         body: "Uygulamada bir şeyi nasıl yapacağınızı sorun; Kahya adımları anlatır ve yetkiniz olan sayfaya götürür.",
       },
     ],
-    planNote: "Kahya AI ayrı açılan bir eklentidir. Firmanızda açtırmak için bize yazın.",
     faq: [
       {
         q: "Kahya AI kendi başına kayıt değiştirir mi?",

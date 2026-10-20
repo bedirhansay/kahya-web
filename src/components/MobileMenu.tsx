@@ -58,7 +58,7 @@ export function MobileMenu() {
           </nav>
           <div className="mt-8 grid gap-3">
             <a href={site.app.register} className="btn btn-brass w-full">
-              Ücretsiz başla
+              Hemen başla
             </a>
             <a href={site.app.login} className="btn btn-line-dark w-full">
               Giriş yap

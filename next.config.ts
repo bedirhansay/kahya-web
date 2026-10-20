@@ -18,6 +18,11 @@ const nextConfig: NextConfig = {
     formats: ["image/webp"],
     minimumCacheTTL: 60 * 60 * 24 * 30,
   },
+  async redirects() {
+    // Pricing is off the site until the new plans are set; temporary so the
+    // URL can come back.
+    return [{ source: "/fiyatlar", destination: "/", permanent: false }];
+  },
   async headers() {
     return [
       { source: "/:path*", headers: securityHeaders },

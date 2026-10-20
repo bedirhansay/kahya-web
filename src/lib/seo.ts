@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { BreadcrumbList, FAQPage, Organization, SoftwareApplication, VideoObject, WebSite, WithContext } from "schema-dts";
 
-import { plans, site } from "@/lib/site";
+import { site } from "@/lib/site";
 
 export const SITE_URL = site.url.replace(/\/$/, "");
 
@@ -68,7 +68,6 @@ export function websiteLd(): WithContext<WebSite> {
 }
 
 export function softwareLd(): WithContext<SoftwareApplication> {
-  const priced = plans.filter((p) => p.monthly !== null);
   return {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -84,20 +83,6 @@ export function softwareLd(): WithContext<SoftwareApplication> {
     image: absoluteUrl("/og/kahya-og.jpg"),
     screenshot: absoluteUrl("/screens/home.webp"),
     publisher: { "@id": orgId },
-    offers: {
-      "@type": "AggregateOffer",
-      priceCurrency: "TRY",
-      lowPrice: Math.min(...priced.map((p) => p.monthly!)),
-      highPrice: Math.max(...priced.map((p) => p.monthly!)),
-      offerCount: priced.length,
-      offers: priced.map((p) => ({
-        "@type": "Offer",
-        name: p.name,
-        price: p.monthly!,
-        priceCurrency: "TRY",
-        url: absoluteUrl(`/fiyatlar#${p.slug}`),
-      })),
-    },
   };
 }
 

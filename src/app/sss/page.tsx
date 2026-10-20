@@ -4,7 +4,7 @@ import { CtaBand } from "@/components/CtaBand";
 import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
-import { generalFaq, pricingFaq } from "@/content/faq";
+import { generalFaq } from "@/content/faq";
 import { features } from "@/content/features";
 import { faqLd, pageMetadata } from "@/lib/seo";
 
@@ -12,12 +12,11 @@ export const metadata: Metadata = pageMetadata({
   path: "/sss",
   title: "Sık sorulan sorular",
   description:
-    "Kahya hakkında sık sorulanlar: kurulum, ücretsiz plan, fiyatlar, cari takibi, e-posta, personel ve izinler, talepler, raporlar ve Kahya AI.",
+    "Kahya hakkında sık sorulanlar: kurulum, cari takibi, e-posta, personel ve izinler, talepler, raporlar ve Kahya AI.",
 });
 
 const groups = [
   { title: "Genel", items: generalFaq },
-  { title: "Fiyatlar", items: pricingFaq },
   ...features.map((f) => ({ title: f.name, items: f.faq })),
 ];
 

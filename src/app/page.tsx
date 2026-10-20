@@ -13,7 +13,7 @@ import { VideoPlayer } from "@/components/VideoPlayer";
 import { generalFaq } from "@/content/faq";
 import { features } from "@/content/features";
 import { faqLd, pageMetadata, softwareLd, videoLd } from "@/lib/seo";
-import { formatTry, plans, site } from "@/lib/site";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   ...pageMetadata({
@@ -94,7 +94,6 @@ const scope = {
 };
 
 export default function HomePage() {
-  const paid = plans.filter((p) => p.monthly);
   return (
     <>
       <JsonLd
@@ -132,13 +131,12 @@ export default function HomePage() {
           </p>
           <div className="mt-9 flex flex-wrap justify-center gap-3">
             <a href={site.app.register} className="btn btn-brass">
-              Ücretsiz başla
+              Hemen başla
             </a>
             <Link href="/tanitim-filmi" className="btn btn-line-dark">
               Tanıtım filmini izle, 2 dk
             </Link>
           </div>
-          <p className="mt-4 text-sm text-white/55">Kredi kartı gerekmez. Ücretli planlar 30 gün ücretsiz.</p>
           <div className="mx-auto mt-14 max-w-6xl md:mt-16">
             <HeroLoop />
           </div>
@@ -325,45 +323,6 @@ export default function HomePage() {
             title="Kahya reklam filmi"
             duration="0:36"
           />
-        </div>
-      </section>
-
-      {/* Pricing teaser */}
-      <section aria-labelledby="fiyat" className="bg-paper">
-        <div className="wrap py-20 md:py-28">
-          <div className="grid gap-6 md:grid-cols-2 md:items-end">
-            <h2 id="fiyat" className="title max-w-lg">
-              Kullanıcı sayısına göre, açık fiyat
-            </h2>
-            <p className="lead max-w-xl text-muted">
-              Ücretli planlarda tüm temel modüller ve sınırsız kayıt var. Ayıran yalnızca kullanıcı sayısı ve dosya alanı.
-            </p>
-          </div>
-          <div className="mt-12 grid border-y border-line sm:grid-cols-2 lg:grid-cols-4">
-            {[plans[0], ...paid].map((p) => (
-              <Link
-                key={p.slug}
-                href={`/fiyatlar#${p.slug}`}
-                className="group border-b border-line px-1 py-7 last:border-b-0 sm:px-6 sm:[&:nth-child(odd)]:border-r lg:border-b-0 lg:border-r lg:last:border-r-0"
-              >
-                <span className="block font-extrabold group-hover:text-petrol">{p.name}</span>
-                <span className="mt-3 block text-3xl font-extrabold tracking-[-0.03em] tabular-nums">
-                  {formatTry(p.monthly!)}
-                  <span className="ml-1 text-base font-semibold text-muted">{p.monthly ? "/ay" : ""}</span>
-                </span>
-                <span className="mt-2 block text-[0.95rem] text-muted">
-                  {p.users === 1 ? "1 kullanıcı" : `${p.users} kullanıcıya kadar`}
-                </span>
-              </Link>
-            ))}
-          </div>
-          <p className="mt-6 text-[0.95rem] text-muted">
-            Daha kalabalık ekipler ve filo modülü için{" "}
-            <Link href="/fiyatlar#enterprise" className="link">
-              Kurumsal plan
-            </Link>
-            .
-          </p>
         </div>
       </section>
 

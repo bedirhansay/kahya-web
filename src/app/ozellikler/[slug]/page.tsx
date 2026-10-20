@@ -53,7 +53,7 @@ export default async function FeaturePage({ params }: PageProps<"/ozellikler/[sl
       >
         <div className="mt-8 flex flex-wrap gap-3">
           <a href={site.app.register} className="btn btn-brass">
-            Ücretsiz başla
+            Hemen başla
           </a>
           {main && (
             <Link href={`/egitim/${main.slug}`} className="btn btn-line-dark">
@@ -76,7 +76,6 @@ export default async function FeaturePage({ params }: PageProps<"/ozellikler/[sl
             <h2 id="neler" className="title">
               {f.name}: neler var?
             </h2>
-            {f.planNote && <p className="mt-5 max-w-sm text-[0.96rem] text-muted">{f.planNote}</p>}
           </div>
           <dl className="grid gap-x-10 gap-y-9 sm:grid-cols-2">
             {f.points.map((p) => (
