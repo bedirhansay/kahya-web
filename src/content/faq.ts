@@ -17,7 +17,7 @@ export const generalFaq = [
   },
   {
     q: "Kahya fatura keser mi, kasa ve banka tutar mı?",
-    a: "Hayır. Kahya’da finans, cari bakiye takibidir: kimden alacaklı, kime borçlu olduğunuz. Fatura, kasa ve banka hesabı gerekiyorsa biHesap Ön Muhasebe’ye bakabilirsiniz.",
+    a: "Hayır. Kahya’da finans, cari bakiye takibidir: kimden alacaklı, kime borçlu olduğunuz. Fatura, kasa ve banka hesabı yoktur; resmî muhasebe için ayın kayıtlarını mali müşavirinize tek dosyada gönderirsiniz.",
   },
   {
     q: "Kim neyi görebilir?",

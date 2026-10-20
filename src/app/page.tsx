@@ -299,13 +299,6 @@ export default function HomePage() {
                   </li>
                 ))}
               </ul>
-              <p className="mt-5 text-sm text-muted">
-                Bunlar için{" "}
-                <a href={site.companyUrl} className="link">
-                  biHesap Ön Muhasebe
-                </a>
-                .
-              </p>
             </div>
           </div>
         </div>
