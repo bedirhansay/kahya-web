@@ -65,7 +65,7 @@ export default function FilmPage() {
       <section aria-labelledby="metin" className="bg-paper">
         <div className="wrap grid gap-10 py-16 md:py-24 lg:grid-cols-[minmax(0,0.6fr)_minmax(0,1.4fr)]">
           <div>
-            <h2 id="metin" className="title">
+            <h2 id="metin" data-reveal className="title">
               Film metni
             </h2>
             <p className="mt-4 max-w-xs text-[0.95rem] text-muted">
@@ -78,7 +78,7 @@ export default function FilmPage() {
           </div>
           <ol className="max-w-2xl space-y-4">
             {cues.map((c) => (
-              <li key={c.t + c.text} className="grid grid-cols-[3.5rem_1fr] gap-4 leading-relaxed">
+              <li key={c.t + c.text} data-reveal className="grid grid-cols-[3.5rem_1fr] gap-4 leading-relaxed">
                 <time className="pt-0.5 text-sm font-bold text-muted tabular-nums">{clock(c.t)}</time>
                 <p className="text-lg">{c.text}</p>
               </li>
@@ -89,7 +89,7 @@ export default function FilmPage() {
       <section aria-labelledby="kisa" className="border-t border-line bg-mist">
         <div className="wrap grid gap-10 py-16 md:py-24 md:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] md:items-center">
           <div>
-            <h2 id="kisa" className="title">
+            <h2 id="kisa" data-reveal className="title">
               Yarım dakikalık sürüm
             </h2>
             <p className="lead mt-4 text-muted">Acelesi olanlar için. Dikey sürümü telefonda daha rahat izlenir.</p>

@@ -32,7 +32,7 @@ export default function FaqPage() {
       <div className="bg-paper">
         <div className="wrap space-y-16 py-16 md:py-24">
           {groups.map((g) => (
-            <section key={g.title} aria-label={g.title} className="grid gap-6 lg:grid-cols-[minmax(0,0.6fr)_minmax(0,1.4fr)]">
+            <section key={g.title} aria-label={g.title} data-reveal className="grid gap-6 lg:grid-cols-[minmax(0,0.6fr)_minmax(0,1.4fr)]">
               <h2 className="text-2xl font-extrabold tracking-[-0.025em]">{g.title}</h2>
               <Faq items={g.items} />
             </section>

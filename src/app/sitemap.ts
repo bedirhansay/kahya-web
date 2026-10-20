@@ -15,7 +15,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...extra,
   });
   return [
-    page("/", 1, { images: [absoluteUrl("/media/hero/kahya-hero.webp")] }),
+    page("/", 1, {
+      images: ["home", "mail", "cari", "project", "ai", "brief"].map((n) => absoluteUrl(`/screens/${n}.webp`)),
+    }),
     page("/ozellikler", 0.9),
     ...features.map((f) => page(`/ozellikler/${f.slug}`, 0.8, { images: [absoluteUrl(f.screen.src)] })),
     page("/tanitim-filmi", 0.6, {

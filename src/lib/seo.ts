@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { BreadcrumbList, FAQPage, Organization, SoftwareApplication, VideoObject, WebSite, WithContext } from "schema-dts";
 
+import { features } from "@/content/features";
 import { site } from "@/lib/site";
 
 export const SITE_URL = site.url.replace(/\/$/, "");
@@ -81,7 +82,8 @@ export function softwareLd(): WithContext<SoftwareApplication> {
     operatingSystem: "Web, iOS, Android (tarayıcı)",
     inLanguage: "tr-TR",
     image: absoluteUrl("/og/kahya-og.jpg"),
-    screenshot: absoluteUrl("/screens/home.webp"),
+    screenshot: ["home", "cari", "mail", "project"].map((n) => absoluteUrl(`/screens/${n}.webp`)),
+    featureList: features.map((f) => f.name),
     publisher: { "@id": orgId },
   };
 }

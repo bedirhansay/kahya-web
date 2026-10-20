@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 
 import { Breadcrumbs } from "./Breadcrumbs";
 
@@ -15,12 +15,23 @@ export function PageHero({
   children?: ReactNode;
 }) {
   return (
-    <section className="grid-bg bg-pine-950 pb-16 pt-10 text-white md:pb-20 md:pt-14">
-      <div className="wrap">
+    <section className="relative overflow-hidden bg-pine-950 pb-16 pt-10 text-white md:pb-20 md:pt-14">
+      <div aria-hidden className="grid-bg absolute inset-0 [mask-image:linear-gradient(#000,transparent)]" />
+      <div aria-hidden className="aurora -right-32 -top-40 size-[26rem] bg-petrol-600/45" />
+      <div aria-hidden className="aurora -left-24 top-0 size-[16rem] bg-brass/12" style={{ animationDelay: "-7s" }} />
+      <div className="wrap relative">
         <Breadcrumbs items={crumbs} />
-        <h1 className="title mt-8 max-w-4xl">{title}</h1>
-        {lead && <p className="lead mt-5 max-w-2xl text-white/72">{lead}</p>}
-        {children}
+        <h1 className="intro title mt-8 max-w-4xl">{title}</h1>
+        {lead && (
+          <p className="intro lead mt-5 max-w-2xl text-white/72" style={{ "--d": "120ms" } as CSSProperties}>
+            {lead}
+          </p>
+        )}
+        {children && (
+          <div className="intro" style={{ "--d": "220ms" } as CSSProperties}>
+            {children}
+          </div>
+        )}
       </div>
     </section>
   );

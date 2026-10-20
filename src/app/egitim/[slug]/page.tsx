@@ -70,7 +70,7 @@ export default async function TutorialPage({ params }: PageProps<"/egitim/[slug]
       </section>
       <section aria-labelledby="adimlar" className="bg-paper">
         <div className="wrap grid gap-12 py-16 md:py-24 lg:grid-cols-[minmax(0,0.6fr)_minmax(0,1.4fr)]">
-          <div>
+          <div className="lg:sticky lg:top-24 lg:self-start">
             <h2 id="adimlar" className="title">
               Bu bölümde
             </h2>
@@ -100,7 +100,7 @@ export default async function TutorialPage({ params }: PageProps<"/egitim/[slug]
           </div>
           <div className="space-y-12">
             {t.lessons.map((l) => (
-              <article key={l.title} id={anchor(l.title)} className="scroll-mt-24 border-t border-line pt-6">
+              <article key={l.title} id={anchor(l.title)} data-reveal className="scroll-mt-24 border-t border-line pt-6">
                 <h3 className="text-xl font-extrabold tracking-[-0.02em]">{l.title}</h3>
                 <ol className="mt-5 space-y-3">
                   {l.steps.map((step, i) => (

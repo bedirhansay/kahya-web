@@ -4,6 +4,8 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
+import { Reveal } from "@/components/Reveal";
+import { Spotlight } from "@/components/Spotlight";
 import { organizationLd, SITE_URL, websiteLd } from "@/lib/seo";
 import { site } from "@/lib/site";
 
@@ -18,7 +20,7 @@ const jakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Kahya | Ofis yönetim yazılımı: cari, görev, personel ve onay",
+    default: "Kahya | Ofis Yönetim Programı: Cari, Görev, Personel ve İzin Takibi",
     template: "%s | Kahya",
   },
   description: site.description,
@@ -62,6 +64,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
         </main>
         <Footer />
+        <Reveal />
+        <Spotlight />
       </body>
     </html>
   );

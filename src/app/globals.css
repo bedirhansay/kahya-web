@@ -218,6 +218,260 @@ body {
   }
 }
 
+/* Scroll reveal (components/Reveal.tsx). `--d` staggers siblings. Content is
+   hidden only when scripts run, so it never stays invisible without them. */
+@media (prefers-reduced-motion: no-preference) and (scripting: enabled) {
+  [data-reveal] {
+    opacity: 0;
+    translate: 0 28px;
+    transition:
+      opacity 800ms var(--ease-out-quint),
+      translate 900ms var(--ease-out-quint),
+      scale 900ms var(--ease-out-quint);
+    transition-delay: var(--d, 0ms);
+  }
+  .js [data-reveal="zoom"] {
+    translate: 0 40px;
+    scale: 0.96;
+  }
+  .js [data-reveal="left"] {
+    translate: -36px 0;
+  }
+  [data-reveal][data-shown] {
+    opacity: 1;
+    translate: 0 0;
+    scale: 1;
+  }
+}
+
+/* Hero headline: words rise in one after another on first paint. No opacity,
+   so the headline counts as painted at once (it is the phone LCP). */
+@keyframes word-rise {
+  from {
+    transform: translateY(0.35em) rotate(2deg);
+    filter: blur(14px);
+  }
+  to {
+    transform: none;
+    filter: blur(0);
+  }
+}
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.word {
+  display: inline-block;
+  animation: word-rise 900ms var(--ease-out-quint) both;
+  animation-delay: calc(var(--i) * 90ms + 120ms);
+}
+/* Transform only, so the largest image still counts as painted at once (LCP). */
+@keyframes rise {
+  from {
+    transform: translateY(48px);
+  }
+  to {
+    transform: none;
+  }
+}
+.rise {
+  animation: rise 1200ms var(--ease-out-quint) both;
+}
+.intro {
+  animation: fade-up 900ms var(--ease-out-quint) both;
+  animation-delay: var(--d, 0ms);
+}
+
+/* Slow drifting light behind dark bands */
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(6%, -4%, 0) scale(1.08);
+  }
+  66% {
+    transform: translate3d(-5%, 3%, 0) scale(0.95);
+  }
+}
+.aurora {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(80px);
+  pointer-events: none;
+  animation: drift 18s ease-in-out infinite;
+}
+
+/* Brass shimmer across the accent words */
+@keyframes shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
+.shimmer {
+  background: linear-gradient(
+    100deg,
+    var(--color-brass) 0%,
+    var(--color-brass) 40%,
+    #fff3d6 50%,
+    var(--color-brass) 60%,
+    var(--color-brass) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 5s linear 1.4s infinite;
+}
+
+/* Floating notification cards around the hero screen */
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.bob {
+  animation: bob 6s ease-in-out infinite;
+  animation-delay: var(--b, 0s);
+}
+
+/* Endless module strip */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+.marquee-mask {
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+.marquee-mask:hover .marquee {
+  animation-play-state: paused;
+}
+
+/* Cursor spotlight on cards (components/Spotlight.tsx sets --x/--y) */
+.spot {
+  position: relative;
+  isolation: isolate;
+}
+.spot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 300ms ease;
+  background: radial-gradient(420px circle at var(--x, 50%) var(--y, 50%), rgb(111 165 141 / 0.22), transparent 60%);
+}
+.spot:hover::before {
+  opacity: 1;
+}
+
+/* Menu links: a brass underline grows from the left */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0.75rem;
+  right: 0.75rem;
+  bottom: 0.2rem;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--color-brass);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 300ms var(--ease-out-quint);
+}
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* Reading progress under the header; scroll-driven, no script */
+.scroll-progress {
+  transform: scaleX(0);
+}
+@supports (animation-timeline: scroll()) {
+  .scroll-progress {
+    animation: grow-x linear both;
+    animation-timeline: scroll(root);
+  }
+}
+@keyframes grow-x {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Typing dots in the Kahya AI demo */
+@keyframes dot {
+  0%,
+  80%,
+  100% {
+    opacity: 0.25;
+    transform: translateY(0);
+  }
+  40% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+.dot {
+  animation: dot 1.2s ease-in-out infinite;
+  animation-delay: var(--i, 0s);
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgb(227 178 97 / 0.55);
+  }
+  100% {
+    box-shadow: 0 0 0 14px rgb(227 178 97 / 0);
+  }
+}
+.pulse-ring {
+  animation: pulse-ring 1.6s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .word,
+  .intro,
+  .rise,
+  .aurora,
+  .bob,
+  .marquee,
+  .shimmer {
+    animation: none !important;
+  }
+  .scroll-progress {
+    display: none;
+  }
+  .marquee-mask {
+    overflow-x: auto;
+  }
+  .shimmer {
+    color: var(--color-brass);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

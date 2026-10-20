@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { Check, PlayCircle } from "lucide-react";
 import type { Metadata } from "next";
 import { Img } from "@/components/Img";
@@ -66,20 +67,20 @@ export default async function FeaturePage({ params }: PageProps<"/ozellikler/[sl
 
       <section className="bg-pine-950 pb-16 md:pb-24">
         <div className="wrap">
-          <Frame src={f.screen.src} alt={f.screen.alt} phone={f.screen.phone} dark priority sizes="(min-width: 1216px) 1152px, 100vw" />
+          <Frame className="rise" src={f.screen.src} alt={f.screen.alt} phone={f.screen.phone} dark priority sizes="(min-width: 1216px) 1152px, 100vw" />
         </div>
       </section>
 
       <section aria-labelledby="neler" className="bg-paper">
         <div className="wrap grid gap-12 py-16 md:py-24 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
-          <div>
-            <h2 id="neler" className="title">
+          <div data-reveal>
+            <h2 id="neler" className="title lg:sticky lg:top-24">
               {f.name}: neler var?
             </h2>
           </div>
           <dl className="grid gap-x-10 gap-y-9 sm:grid-cols-2">
-            {f.points.map((p) => (
-              <div key={p.title} className="border-t border-line pt-5">
+            {f.points.map((p, i) => (
+              <div key={p.title} data-reveal style={{ "--d": `${(i % 2) * 100}ms` } as CSSProperties} className="border-t border-line pt-5">
                 <dt className="flex items-start gap-2.5 font-extrabold">
                   <Check size={19} className="mt-0.5 shrink-0 text-petrol" aria-hidden />
                   {p.title}
@@ -94,7 +95,9 @@ export default async function FeaturePage({ params }: PageProps<"/ozellikler/[sl
       {f.teaser && (
         <section aria-label={`${f.name} kısa tanıtım`} className="bg-paper">
           <div className="wrap pb-16 md:pb-24">
-            <TeaserLoop slug={f.teaser} label={`${f.name} kısa tanıtım videosu`} />
+            <div data-reveal="zoom">
+              <TeaserLoop slug={f.teaser} label={`${f.name} kısa tanıtım videosu`} />
+            </div>
           </div>
         </section>
       )}
@@ -102,7 +105,7 @@ export default async function FeaturePage({ params }: PageProps<"/ozellikler/[sl
       {main && (
         <section aria-labelledby="adimlar" className="border-t border-line bg-mist">
           <div className="wrap py-16 md:py-24">
-            <h2 id="adimlar" className="title max-w-2xl">
+            <h2 id="adimlar" data-reveal className="title max-w-2xl">
               Adım adım
             </h2>
             <p className="lead mt-4 max-w-2xl text-muted">
@@ -113,8 +116,8 @@ export default async function FeaturePage({ params }: PageProps<"/ozellikler/[sl
               eğitim videosunda izleyin.
             </p>
             <div className="mt-12 grid gap-x-10 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
-              {main.lessons.slice(0, 3).map((lesson) => (
-                <div key={lesson.title}>
+              {main.lessons.slice(0, 3).map((lesson, li) => (
+                <div key={lesson.title} data-reveal style={{ "--d": `${li * 100}ms` } as CSSProperties}>
                   <h3 className="text-lg font-extrabold">{lesson.title}</h3>
                   <ol className="mt-4 space-y-2.5">
                     {lesson.steps.map((step, i) => (
@@ -135,10 +138,12 @@ export default async function FeaturePage({ params }: PageProps<"/ozellikler/[sl
 
       <section aria-labelledby="sorular" className="border-t border-line bg-paper">
         <div className="wrap grid gap-10 py-16 md:py-24 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)]">
-          <h2 id="sorular" className="title">
+          <h2 id="sorular" data-reveal className="title">
             Sorular
           </h2>
-          <Faq items={f.faq} />
+          <div data-reveal style={{ "--d": "120ms" } as CSSProperties}>
+            <Faq items={f.faq} />
+          </div>
         </div>
       </section>
 
@@ -148,8 +153,8 @@ export default async function FeaturePage({ params }: PageProps<"/ozellikler/[sl
             Kahya’da bunlar da var
           </h2>
           <ul className="mt-8 grid gap-8 md:grid-cols-3">
-            {others.map((o) => (
-              <li key={o.slug}>
+            {others.map((o, i) => (
+              <li key={o.slug} data-reveal="zoom" style={{ "--d": `${i * 100}ms` } as CSSProperties}>
                 <Link href={`/ozellikler/${o.slug}`} className="group block">
                   <div className="frame aspect-[16/10] overflow-hidden">
                     <Img
@@ -158,7 +163,7 @@ export default async function FeaturePage({ params }: PageProps<"/ozellikler/[sl
                       width={2000}
                       height={1250}
                       sizes="(min-width: 768px) 30vw, 100vw"
-                      className="h-full w-full object-cover object-top"
+                      className="h-full w-full object-cover object-top transition-transform duration-700 ease-[var(--ease-out-quint)] group-hover:scale-[1.04]"
                     />
                   </div>
                   <h3 className="mt-4 font-extrabold group-hover:text-petrol">{o.name}</h3>
