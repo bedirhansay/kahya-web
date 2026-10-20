@@ -26,6 +26,8 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       { source: "/:path*", headers: securityHeaders },
+      // Always re-fetched, so the old app's worker is replaced on the next visit.
+      { source: "/sw.js", headers: [{ key: "Cache-Control", value: "no-cache, no-store, must-revalidate" }] },
       {
         // Media is rebuilt by `pnpm media` with the same names; a week keeps
         // re-renders reachable without a cache-busting step.
