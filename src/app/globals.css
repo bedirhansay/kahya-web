@@ -32,6 +32,27 @@
   --text-lead--line-height: 1.6;
 
   --radius-frame: 14px;
+
+  /* Hero tour: the progress line under the active tab drives the auto-advance. */
+  --animate-tour-progress: tour-progress linear forwards;
+  @keyframes tour-progress {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+  @keyframes tour-settle {
+    from {
+      transform: rotateX(16deg) scale(0.94);
+      opacity: 0.6;
+    }
+    to {
+      transform: none;
+      opacity: 1;
+    }
+  }
   --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -173,6 +194,19 @@ body {
     box-shadow:
       0 0 0 1px rgb(255 255 255 / 0.1),
       0 40px 90px -30px rgb(0 0 0 / 0.7);
+  }
+
+  /* The hero screen leans back and settles flat as it scrolls into view;
+     browsers without scroll-driven animations just show it flat. */
+  @supports (animation-timeline: view()) {
+    @media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+      .tour-frame {
+        transform-origin: 50% 0;
+        animation: tour-settle linear both;
+        animation-timeline: view();
+        animation-range: entry 0% cover 40%;
+      }
+    }
   }
 
   /* Faint grid behind dark bands, as in the campaign films */

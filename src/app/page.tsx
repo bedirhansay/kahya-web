@@ -7,7 +7,7 @@ import { CtaBand } from "@/components/CtaBand";
 import { DayTimeline, type DayStep } from "@/components/DayTimeline";
 import { Faq } from "@/components/Faq";
 import { Frame } from "@/components/Frame";
-import { HeroLoop } from "@/components/HeroLoop";
+import { HeroTour } from "@/components/HeroTour";
 import { JsonLd } from "@/components/JsonLd";
 import { VideoPlayer } from "@/components/VideoPlayer";
 import { generalFaq } from "@/content/faq";
@@ -119,7 +119,7 @@ export default function HomePage() {
         />
         <div className="wrap relative pb-14 pt-16 text-center md:pb-20 md:pt-24">
           <p className="mx-auto inline-flex items-center gap-2 rounded-md border border-white/12 px-3 py-1.5 text-sm font-semibold text-white/80">
-            <span className="rounded bg-brass px-1.5 py-0.5 text-xs font-extrabold text-pine-950">YENİ</span>
+            <span className="rounded bg-brass px-1.5 py-0.5 text-xs font-bold text-pine-950">Yeni</span>
             Kahya AI artık ofisinizde
           </p>
           <h1 className="display mx-auto mt-7 max-w-4xl">
@@ -138,7 +138,7 @@ export default function HomePage() {
             </Link>
           </div>
           <div className="mx-auto mt-14 max-w-6xl md:mt-16">
-            <HeroLoop />
+            <HeroTour />
           </div>
         </div>
       </section>
