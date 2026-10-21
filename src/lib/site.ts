@@ -160,7 +160,7 @@ export const addons: Addon[] = [
     key: "website",
     name: "Kurumsal web sitesi",
     body: "Firmanıza özel, mobil uyumlu tanıtım sitesi; kurulumu biz yaparız. Barındırma ve bakım yıllık ayrıdır.",
-    price: 12000,
+    price: 13000,
     unit: "tek sefer",
   },
   {
