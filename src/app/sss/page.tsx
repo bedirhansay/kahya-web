@@ -4,7 +4,7 @@ import { CtaBand } from "@/components/CtaBand";
 import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
-import { generalFaq } from "@/content/faq";
+import { generalFaq, pricingFaq } from "@/content/faq";
 import { features } from "@/content/features";
 import { faqLd, pageMetadata } from "@/lib/seo";
 
@@ -17,6 +17,7 @@ export const metadata: Metadata = pageMetadata({
 
 const groups = [
   { title: "Genel", items: generalFaq },
+  { title: "Fiyatlar", items: pricingFaq },
   ...features.map((f) => ({ title: f.name, items: f.faq })),
 ];
 

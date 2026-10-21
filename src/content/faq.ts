@@ -24,3 +24,34 @@ export const generalFaq = [
     a: "Evet. Silinen kayıtlar bir süre Silinenler sayfasında bekler; Geri yükle ile eski yerine döner.",
   },
 ];
+
+export const pricingFaq = [
+  {
+    q: "Fiyatlara KDV dahil mi?",
+    a: "Hayır. Listedeki fiyatlar KDV hariçtir; ödemede %20 KDV eklenir. Örneğin Başlangıç 7.990 ₺ + KDV, KDV dahil 9.588 ₺’dir.",
+  },
+  {
+    q: "Aylık ödeme var mı?",
+    a: "Paketler ve eklentiler yıllık satılır. Yıl boyunca fiyatınız sabit kalır; aylık karşılığı Başlangıç’ta yaklaşık 666 ₺ + KDV’dir.",
+  },
+  {
+    q: "Fiyatlar neye göre değişiyor?",
+    a: "Paketlerde tüm temel modüller ve sınırsız kayıt vardır. Paketler kullanıcı sayısı ve dosya alanında ayrılır: Başlangıç 3, Ekip 10, Büyüyen 25 kullanıcı.",
+  },
+  {
+    q: "Paketimden birkaç kişi fazlası lazım, ne yapmalıyım?",
+    a: "Paket değiştirmeden Ek kullanıcı eklentisiyle kullanıcı ekleyebilirsiniz; kullanıcı başına yıllık 1.200 ₺ + KDV.",
+  },
+  {
+    q: "Paket ya da eklentiyi nasıl satın alırım?",
+    a: "Uygulamada Abonelik sayfasından talep edersiniz ya da bize yazarsınız. Ödeme bilgilerini size iletiriz; ödeme gelince paketiniz veya eklentiniz açılır ve faturanız kesilir.",
+  },
+  {
+    q: "Denemek mümkün mü?",
+    a: "Evet. Kayıt olduğunuzda 30 gün boyunca tüm modüller açık olarak denersiniz.",
+  },
+  {
+    q: "Kahya AI ve Filo fiyata dahil mi?",
+    a: "Kahya AI ve Filo modülü eklentidir; Filo, Kurumsal pakette dahildir. Uygulamada Abonelik sayfasından ya da bize yazarak açtırabilirsiniz.",
+  },
+];
