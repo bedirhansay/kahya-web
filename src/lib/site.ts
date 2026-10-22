@@ -3,8 +3,8 @@
  * Kahya API plan seed (api/src/modules/system/seeder/plan-seed.service.ts) and the add-on rows;
  * update both together.
  */
-// The web app moved to its own subdomain when this site took kahya.bihesap.co.
-export const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "https://app.kahya.bihesap.co";
+// The web app lives on its own subdomain; this site is kahya.bihesap.co.
+export const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "https://kahyaapp.bihesap.co";
 
 export const site = {
   name: "Kahya",
