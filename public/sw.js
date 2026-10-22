@@ -1,8 +1,10 @@
-// The Kahya web app lived on this origin before it moved to
-// app.kahya.bihesap.co. Browsers that still run its service worker keep
-// serving the old app (and reload-loop on its missing chunks). Serving this
-// worker at the same path replaces it: it clears the old caches, unregisters
-// itself and reloads open tabs onto the marketing site.
+// Retire worker. Kahya's web app once lived on this origin and later on
+// app.kahya.bihesap.co; browsers that still run its service worker keep
+// serving the old app. Serving this worker at the same path replaces it: it
+// clears the old caches, unregisters itself and reloads open tabs. The proxy
+// (coolify-proxy /traefik/dynamic/kahya-domain-move.yaml) also serves this file
+// as app.kahya.bihesap.co/sw.js, where the reload lands on the redirect to
+// kahyaapp.bihesap.co.
 self.addEventListener("install", () => self.skipWaiting());
 self.addEventListener("activate", (event) => {
   event.waitUntil(
