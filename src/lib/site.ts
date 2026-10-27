@@ -13,7 +13,7 @@ export const site = {
     "Kahya cari, görev, personel ve izin takibini, talep ve onayları tek yerde toplayan web tabanlı ofis yönetim programıdır. Ofis Yönetimi, CRM ve Finans & Cari çözümlerinden ihtiyacınız olanı seçersiniz.",
   // The marketing site's own address. Set NEXT_PUBLIC_SITE_URL in each environment.
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://kahya.bihesap.co",
-  email: "info@bihesap.co",
+  email: "iletisim@bihesap.co",
   company: "biHesap",
   companyUrl: "https://bihesap.co",
   city: "Bolu",
