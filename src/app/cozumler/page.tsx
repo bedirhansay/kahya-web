@@ -13,9 +13,9 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   path: "/cozumler",
-  title: "Çözümler: Ofis Yönetimi, Müşteri İlişkileri, Finans & Cari",
+  title: "Çözümler: Ofis Yönetimi, CRM, Finans & Cari",
   description:
-    "Kahya üç çözümden oluşur: Ofis Yönetimi, Müşteri İlişkileri ve Finans & Cari. E-posta, Stok, Teklif ve Kahya AI ek hizmet olarak açılır. Fiyat için bize yazın.",
+    "Kahya üç çözümden oluşur: Ofis Yönetimi, CRM (Müşteri İlişkileri) ve Finans & Cari. E-posta, Stok, Teklif ve Kahya AI ek hizmet olarak açılır. Fiyat için bize yazın.",
 });
 
 const quote = (what: string) => `mailto:${site.email}?subject=${encodeURIComponent(`Kahya fiyat talebi: ${what}`)}`;
@@ -36,6 +36,7 @@ export default function SolutionsPage() {
             {solutions.map((s) => (
               <li key={s.slug} id={s.slug} className="flex scroll-mt-24 flex-col bg-white p-6 md:p-8">
                 <h2 className="text-xl font-semibold">{s.name}</h2>
+                {s.subtitle && <p className="text-sm font-medium text-petrol">{s.subtitle}</p>}
                 <p className="mt-2 text-muted">{s.question}</p>
                 <ul className="mt-6 flex-1 space-y-2.5">
                   {s.points.map((p) => (

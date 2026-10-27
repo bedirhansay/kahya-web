@@ -105,7 +105,10 @@ export default function HomePage() {
                 className="grid scroll-mt-24 gap-8 py-10 md:py-14 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-center lg:gap-14"
               >
                 <div className={cn(i % 2 === 1 && "lg:order-2")}>
-                  <p className="text-sm font-semibold text-petrol">{s.name}</p>
+                  <p className="text-sm font-semibold text-petrol">
+                    {s.name}
+                    {s.subtitle && <span className="font-medium text-muted"> · {s.subtitle}</span>}
+                  </p>
                   <h3 className="mt-2 text-2xl font-semibold leading-snug md:text-[1.7rem]">{s.question}</h3>
                   <p className="mt-4 leading-relaxed text-muted">{s.body}</p>
                   <ul className="mt-6 space-y-2.5">

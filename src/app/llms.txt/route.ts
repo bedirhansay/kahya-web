@@ -17,7 +17,7 @@ export function GET() {
     ...features.map((f) => `- [${f.name}](${absoluteUrl(`/ozellikler/${f.slug}`)}): ${f.metaDescription}`),
     "",
     "## Çözümler",
-    ...solutions.map((x) => `- ${x.name}: ${x.points.join(", ")}`),
+    ...solutions.map((x) => `- ${x.name}${x.subtitle ? ` (${x.subtitle})` : ""}: ${x.points.join(", ")}`),
     "",
     "## Ek hizmetler",
     ...extras.map((x) => `- ${x.name}: ${x.body}`),

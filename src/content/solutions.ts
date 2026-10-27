@@ -5,6 +5,8 @@
 export type Solution = {
   slug: string;
   name: string;
+  /** Second line under the name, as the app shows it. */
+  subtitle?: string;
   question: string;
   body: string;
   points: string[];
@@ -36,7 +38,8 @@ export const solutions: Solution[] = [
   },
   {
     slug: "musteri-iliskileri",
-    name: "Müşteri İlişkileri",
+    name: "CRM",
+    subtitle: "Müşteri İlişkileri",
     question: "Hangi müşteriyle ne konuşuldu, bir sonraki arama ne zaman?",
     body: "Her görüşmeyi müşterinin kartına not edersiniz ve bir takip günü yazarsınız. Kimi ne zaman arayacağınız kâğıtta ya da akılda kalmaz.",
     points: [

@@ -4,6 +4,10 @@ export const generalFaq = [
     a: "Kahya, küçük ve orta ölçekli ofisler için web tabanlı bir ofis yönetim yazılımıdır. Cari bakiyeleri, ödeme planlarını, görevleri ve projeleri, e-postayı, personel ve izinleri, talep ve onayları, dokümanları ve raporları tek yerde toplar. biHesap’ın ürünüdür.",
   },
   {
+    q: "Kahya hangi çözümlerden oluşur?",
+    a: "Üç çözümden: Ofis Yönetimi (ekip, görev, izin ve onaylar), CRM yani Müşteri İlişkileri (görüşmeler ve takip günleri) ve Finans & Cari (cari, tahsilat, taksit, alacak ve borç raporları, ön muhasebe). İhtiyacınız olanı seçersiniz, kullanmadıklarınız menüde görünmez.",
+  },
+  {
     q: "Kurulum gerekir mi?",
     a: "Hayır. Kahya tarayıcıda çalışır. Bilgisayardan, tabletten ve telefondan açılır. Telefonda ana ekrana ekleyip uygulama gibi kullanabilirsiniz.",
   },
