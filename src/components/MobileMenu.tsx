@@ -34,33 +34,33 @@ export function MobileMenu() {
         aria-expanded={open}
         aria-controls="mobil-menu"
         aria-label={open ? "Menüyü kapat" : "Menüyü aç"}
-        className="grid size-11 place-items-center rounded-lg text-white hover:bg-white/8"
+        className="grid size-11 place-items-center rounded-lg text-ink hover:bg-mist"
       >
         {open ? <X size={22} /> : <Menu size={22} />}
       </button>
       {open && (
-        <div id="mobil-menu" className="fixed inset-x-0 bottom-0 top-16 overflow-y-auto bg-pine-950 px-5 pb-10 pt-4">
+        <div id="mobil-menu" className="fixed inset-x-0 bottom-0 top-16 overflow-y-auto bg-paper px-4 pb-10 pt-4">
           <nav aria-label="Mobil menü">
-            <ul className="divide-y divide-white/8 text-lg font-bold">
+            <ul className="divide-y divide-line text-lg font-semibold">
               {mainNav.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="block py-4 text-white">
+                  <Link href={item.href} className="block py-4 text-ink">
                     {item.label}
                   </Link>
                 </li>
               ))}
               <li>
-                <Link href="/tanitim-filmi" className="block py-4 text-white">
+                <Link href="/tanitim-filmi" className="block py-4 text-ink">
                   Tanıtım filmi
                 </Link>
               </li>
             </ul>
           </nav>
           <div className="mt-8 grid gap-3">
-            <a href={site.app.register} className="btn btn-brass w-full">
+            <a href={site.app.register} className="btn btn-petrol w-full">
               Hemen başla
             </a>
-            <a href={site.app.login} className="btn btn-line-dark w-full">
+            <a href={site.app.login} className="btn btn-line w-full">
               Giriş yap
             </a>
           </div>

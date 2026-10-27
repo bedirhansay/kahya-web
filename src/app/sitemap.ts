@@ -5,7 +5,7 @@ import { tutorials } from "@/content/tutorials";
 import { absoluteUrl } from "@/lib/seo";
 
 // Bump when content changes meaningfully; a fixed date keeps the build static.
-const updated = new Date("2026-10-20");
+const updated = new Date("2026-10-27");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const page = (path: string, priority: number, extra: Partial<MetadataRoute.Sitemap[number]> = {}) => ({
@@ -20,7 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }),
     page("/ozellikler", 0.9),
     ...features.map((f) => page(`/ozellikler/${f.slug}`, 0.8, { images: [absoluteUrl(f.screen.src)] })),
-    page("/fiyatlar", 0.9),
+    page("/cozumler", 0.9),
     page("/tanitim-filmi", 0.6, {
       videos: [
         {

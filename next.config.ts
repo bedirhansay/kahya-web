@@ -18,6 +18,9 @@ const nextConfig: NextConfig = {
     formats: ["image/webp"],
     minimumCacheTTL: 60 * 60 * 24 * 30,
   },
+  async redirects() {
+    return [{ source: "/fiyatlar", destination: "/cozumler", permanent: true }];
+  },
   async headers() {
     return [
       { source: "/:path*", headers: securityHeaders },

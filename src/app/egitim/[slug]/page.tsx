@@ -57,7 +57,7 @@ export default async function TutorialPage({ params }: PageProps<"/egitim/[slug]
         title={t.title}
         lead={`Bölüm ${t.no} · ${clock(t.seconds)} · ${t.lessons.length} işlem`}
       />
-      <section className="bg-pine-950 pb-16 md:pb-20">
+      <section className="bg-paper pb-16 pt-10 md:pb-20">
         <div className="wrap">
           <VideoPlayer
             src={`/media/egitim/${t.file}.mp4`}
@@ -100,8 +100,8 @@ export default async function TutorialPage({ params }: PageProps<"/egitim/[slug]
           </div>
           <div className="space-y-12">
             {t.lessons.map((l) => (
-              <article key={l.title} id={anchor(l.title)} data-reveal className="scroll-mt-24 border-t border-line pt-6">
-                <h3 className="text-xl font-extrabold tracking-[-0.02em]">{l.title}</h3>
+              <article key={l.title} id={anchor(l.title)} className="scroll-mt-24 border-t border-line pt-6">
+                <h3 className="text-xl font-semibold">{l.title}</h3>
                 <ol className="mt-5 space-y-3">
                   {l.steps.map((step, i) => (
                     <li key={step} className="flex gap-3.5 leading-snug">
@@ -122,7 +122,7 @@ export default async function TutorialPage({ params }: PageProps<"/egitim/[slug]
           {prev ? (
             <Link href={`/egitim/${prev.slug}`} className="group rounded-[var(--radius-frame)] border border-line p-5 hover:border-sage">
               <span className="text-sm text-muted">Önceki bölüm</span>
-              <span className="mt-1 block font-extrabold group-hover:text-petrol">{prev.title}</span>
+              <span className="mt-1 block font-semibold group-hover:text-petrol">{prev.title}</span>
             </Link>
           ) : (
             <span />
@@ -133,7 +133,7 @@ export default async function TutorialPage({ params }: PageProps<"/egitim/[slug]
               className="group rounded-[var(--radius-frame)] border border-line p-5 text-right hover:border-sage"
             >
               <span className="text-sm text-muted">Sonraki bölüm</span>
-              <span className="mt-1 block font-extrabold group-hover:text-petrol">{next.title}</span>
+              <span className="mt-1 block font-semibold group-hover:text-petrol">{next.title}</span>
             </Link>
           )}
         </div>

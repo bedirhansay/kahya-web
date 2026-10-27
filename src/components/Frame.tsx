@@ -2,7 +2,7 @@ import { Img } from "@/components/Img";
 
 import { cn } from "@/lib/cn";
 
-/** Real app screenshot in a minimal window frame. Desktop shots are 16:10. */
+/** Real app screenshot with a thin border. Desktop shots are 16:10. */
 export function Frame({
   src,
   alt,
@@ -22,7 +22,7 @@ export function Frame({
 }) {
   if (phone) {
     return (
-      <div className={cn("mx-auto w-full max-w-[19rem] rounded-[2.4rem] bg-ink p-2.5 shadow-2xl", className)}>
+      <div className={cn("mx-auto w-full max-w-[19rem] rounded-[2rem] border border-line bg-white p-2", className)}>
         <Img
           src={src}
           alt={alt}
@@ -30,18 +30,13 @@ export function Frame({
           height={1688}
           sizes="(min-width: 768px) 19rem, 80vw"
           priority={priority}
-          className="h-auto w-full rounded-[1.9rem]"
+          className="h-auto w-full rounded-[1.6rem]"
         />
       </div>
     );
   }
   return (
     <figure className={cn("frame", dark && "frame-dark", className)}>
-      <div className="flex h-7 items-center gap-1.5 border-b border-line bg-mist px-3" aria-hidden>
-        <span className="size-2.5 rounded-full bg-[#e5e9e7]" />
-        <span className="size-2.5 rounded-full bg-[#e5e9e7]" />
-        <span className="size-2.5 rounded-full bg-[#e5e9e7]" />
-      </div>
       <Img src={src} alt={alt} width={2000} height={1250} sizes={sizes} priority={priority} className="h-auto w-full" />
     </figure>
   );

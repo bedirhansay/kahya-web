@@ -5,7 +5,7 @@ export function Faq({ items }: { items: { q: string; a: string }[] }) {
     <div className="divide-y divide-line border-y border-line">
       {items.map((item) => (
         <details key={item.q} className="group">
-          <summary className="flex cursor-pointer list-none items-start justify-between gap-6 py-5 text-[1.06rem] font-bold [&::-webkit-details-marker]:hidden">
+          <summary className="flex cursor-pointer list-none items-start justify-between gap-6 py-5 text-[1.06rem] font-semibold [&::-webkit-details-marker]:hidden">
             <h3>{item.q}</h3>
             <Plus
               size={20}

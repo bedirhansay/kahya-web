@@ -1,4 +1,3 @@
-import type { CSSProperties } from "react";
 import { Mail, MonitorSmartphone, PlayCircle } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -47,15 +46,13 @@ export default function ContactPage() {
       />
       <section className="bg-paper">
         <div className="wrap grid gap-6 py-16 md:grid-cols-3 md:py-24">
-          {items.map(({ Icon, title, body, href, cta }, i) => (
+          {items.map(({ Icon, title, body, href, cta }) => (
             <div
               key={title}
-              data-reveal="zoom"
-              style={{ "--d": `${i * 100}ms` } as CSSProperties}
-              className="spot flex flex-col rounded-[var(--radius-frame)] border border-line bg-white p-7 transition-[translate,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_30px_60px_-30px_rgb(6_27_25/0.35)]"
+              className="flex flex-col rounded-[var(--radius-frame)] border border-line bg-white p-7"
             >
               <Icon size={24} className="text-petrol" aria-hidden />
-              <h2 className="mt-5 text-xl font-extrabold">{title}</h2>
+              <h2 className="mt-5 text-xl font-semibold">{title}</h2>
               <p className="mt-2 flex-1 leading-relaxed text-muted">{body}</p>
               {href.startsWith("/") ? (
                 <Link href={href} className="link mt-6">

@@ -14,7 +14,7 @@ const columns = [
     title: "Kahya",
     links: [
       { href: "/ozellikler/kahya-ai", label: "Kahya AI" },
-      { href: "/fiyatlar", label: "Fiyatlar" },
+      { href: "/cozumler", label: "Çözümler" },
       { href: "/tanitim-filmi", label: "Tanıtım filmi" },
       { href: "/egitim", label: "Eğitim videoları" },
       { href: "/sss", label: "Sık sorulanlar" },

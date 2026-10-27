@@ -1,19 +1,17 @@
 import type { Metadata, Viewport } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Inter } from "next/font/google";
 
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
-import { Reveal } from "@/components/Reveal";
-import { Spotlight } from "@/components/Spotlight";
 import { organizationLd, SITE_URL, websiteLd } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 import "./globals.css";
 
-const jakarta = Plus_Jakarta_Sans({
+const inter = Inter({
   subsets: ["latin", "latin-ext"],
-  variable: "--font-jakarta",
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -49,14 +47,14 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#061b19",
+  themeColor: "#f9fbfa",
   width: "device-width",
   initialScale: 1,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="tr" className={jakarta.variable}>
+    <html lang="tr" className={inter.variable}>
       <body className="flex min-h-dvh flex-col">
         <JsonLd data={[organizationLd(), websiteLd()]} />
         <Header />
@@ -64,8 +62,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
         </main>
         <Footer />
-        <Reveal />
-        <Spotlight />
       </body>
     </html>
   );

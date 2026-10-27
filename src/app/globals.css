@@ -22,37 +22,17 @@
   --color-brass-300: #f0cf94;
   --color-brass-700: #8a6420;
 
-  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 
-  --text-display: clamp(2.6rem, 1.6rem + 4.4vw, 5.2rem);
-  --text-display--line-height: 1.02;
-  --text-title: clamp(2rem, 1.4rem + 2.4vw, 3.25rem);
-  --text-title--line-height: 1.08;
-  --text-lead: clamp(1.075rem, 1rem + 0.35vw, 1.3rem);
+  --text-display: clamp(2.3rem, 1.6rem + 3vw, 4rem);
+  --text-display--line-height: 1.08;
+  --text-title: clamp(1.75rem, 1.35rem + 1.6vw, 2.6rem);
+  --text-title--line-height: 1.15;
+  --text-lead: clamp(1.05rem, 1rem + 0.25vw, 1.2rem);
   --text-lead--line-height: 1.6;
 
-  --radius-frame: 14px;
+  --radius-frame: 10px;
 
-  /* Hero tour: the progress line under the active tab drives the auto-advance. */
-  --animate-tour-progress: tour-progress linear forwards;
-  @keyframes tour-progress {
-    from {
-      transform: scaleX(0);
-    }
-    to {
-      transform: scaleX(1);
-    }
-  }
-  @keyframes tour-settle {
-    from {
-      transform: rotateX(16deg) scale(0.94);
-      opacity: 0.6;
-    }
-    to {
-      transform: none;
-      opacity: 1;
-    }
-  }
   --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -88,9 +68,9 @@ body {
 @layer components {
   .wrap {
     width: 100%;
-    max-width: 76rem;
+    max-width: 72rem;
     margin-inline: auto;
-    padding-inline: 1.25rem;
+    padding-inline: 1rem;
   }
   @media (min-width: 768px) {
     .wrap {
@@ -101,15 +81,15 @@ body {
   .display {
     font-size: var(--text-display);
     line-height: var(--text-display--line-height);
-    font-weight: 800;
-    letter-spacing: -0.04em;
+    font-weight: 650;
+    letter-spacing: -0.025em;
     text-wrap: balance;
   }
   .title {
     font-size: var(--text-title);
     line-height: var(--text-title--line-height);
-    font-weight: 800;
-    letter-spacing: -0.035em;
+    font-weight: 650;
+    letter-spacing: -0.02em;
     text-wrap: balance;
   }
   .lead {
@@ -123,20 +103,15 @@ body {
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    min-height: 2.875rem;
-    padding: 0.7rem 1.25rem;
-    border-radius: 10px;
-    font-weight: 700;
-    font-size: 0.975rem;
-    letter-spacing: -0.01em;
+    min-height: 2.75rem;
+    padding: 0.6rem 1.1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
     transition:
-      background-color 160ms ease,
-      color 160ms ease,
-      border-color 160ms ease,
-      transform 160ms var(--ease-out-quint);
-  }
-  .btn:active {
-    transform: translateY(1px);
+      background-color 150ms ease,
+      color 150ms ease,
+      border-color 150ms ease;
   }
   .btn-brass {
     background: var(--color-brass);
@@ -153,12 +128,11 @@ body {
     background: var(--color-petrol-600);
   }
   .btn-line-dark {
-    border: 1px solid rgb(255 255 255 / 0.22);
+    border: 1px solid rgb(255 255 255 / 0.3);
     color: #fff;
   }
   .btn-line-dark:hover {
-    border-color: rgb(255 255 255 / 0.5);
-    background: rgb(255 255 255 / 0.06);
+    border-color: rgb(255 255 255 / 0.6);
   }
   .btn-line {
     border: 1px solid var(--color-line);
@@ -166,7 +140,7 @@ body {
     background: #fff;
   }
   .btn-line:hover {
-    border-color: var(--color-sage);
+    border-color: var(--color-petrol);
   }
 
   /* Text links inside running copy */
@@ -181,294 +155,16 @@ body {
     text-decoration-color: currentColor;
   }
 
-  /* App screenshots: a quiet window frame, so real UI reads as the product */
+  /* App screenshots: a thin border, so the real UI reads as the product */
   .frame {
     border-radius: var(--radius-frame);
     background: #fff;
-    box-shadow:
-      0 0 0 1px rgb(16 32 30 / 0.08),
-      0 24px 60px -24px rgb(6 27 25 / 0.35);
+    border: 1px solid var(--color-line);
+    box-shadow: 0 1px 2px rgb(16 32 30 / 0.04);
     overflow: hidden;
   }
   .frame-dark {
-    box-shadow:
-      0 0 0 1px rgb(255 255 255 / 0.1),
-      0 40px 90px -30px rgb(0 0 0 / 0.7);
-  }
-
-  /* The hero screen leans back and settles flat as it scrolls into view;
-     browsers without scroll-driven animations just show it flat. */
-  @supports (animation-timeline: view()) {
-    @media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
-      .tour-frame {
-        transform-origin: 50% 0;
-        animation: tour-settle linear both;
-        animation-timeline: view();
-        animation-range: entry 0% cover 40%;
-      }
-    }
-  }
-
-  /* Faint grid behind dark bands, as in the campaign films */
-  .grid-bg {
-    background-image:
-      linear-gradient(rgb(255 255 255 / 0.035) 1px, transparent 1px),
-      linear-gradient(90deg, rgb(255 255 255 / 0.035) 1px, transparent 1px);
-    background-size: 56px 56px;
-  }
-}
-
-/* Scroll reveal (components/Reveal.tsx). `--d` staggers siblings. Content is
-   hidden only when scripts run, so it never stays invisible without them. */
-@media (prefers-reduced-motion: no-preference) and (scripting: enabled) {
-  [data-reveal] {
-    opacity: 0;
-    translate: 0 28px;
-    transition:
-      opacity 800ms var(--ease-out-quint),
-      translate 900ms var(--ease-out-quint),
-      scale 900ms var(--ease-out-quint);
-    transition-delay: var(--d, 0ms);
-  }
-  .js [data-reveal="zoom"] {
-    translate: 0 40px;
-    scale: 0.96;
-  }
-  .js [data-reveal="left"] {
-    translate: -36px 0;
-  }
-  [data-reveal][data-shown] {
-    opacity: 1;
-    translate: 0 0;
-    scale: 1;
-  }
-}
-
-/* Hero headline: words rise in one after another on first paint. No opacity,
-   so the headline counts as painted at once (it is the phone LCP). */
-@keyframes word-rise {
-  from {
-    transform: translateY(0.35em) rotate(2deg);
-    filter: blur(14px);
-  }
-  to {
-    transform: none;
-    filter: blur(0);
-  }
-}
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-.word {
-  display: inline-block;
-  animation: word-rise 900ms var(--ease-out-quint) both;
-  animation-delay: calc(var(--i) * 90ms + 120ms);
-}
-/* Transform only, so the largest image still counts as painted at once (LCP). */
-@keyframes rise {
-  from {
-    transform: translateY(48px);
-  }
-  to {
-    transform: none;
-  }
-}
-.rise {
-  animation: rise 1200ms var(--ease-out-quint) both;
-}
-.intro {
-  animation: fade-up 900ms var(--ease-out-quint) both;
-  animation-delay: var(--d, 0ms);
-}
-
-/* Slow drifting light behind dark bands */
-@keyframes drift {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-  33% {
-    transform: translate3d(6%, -4%, 0) scale(1.08);
-  }
-  66% {
-    transform: translate3d(-5%, 3%, 0) scale(0.95);
-  }
-}
-.aurora {
-  position: absolute;
-  border-radius: 9999px;
-  filter: blur(80px);
-  pointer-events: none;
-  animation: drift 18s ease-in-out infinite;
-}
-
-/* Brass shimmer across the accent words */
-@keyframes shimmer {
-  to {
-    background-position: -200% 0;
-  }
-}
-.shimmer {
-  background: linear-gradient(
-    100deg,
-    var(--color-brass) 0%,
-    var(--color-brass) 40%,
-    #fff3d6 50%,
-    var(--color-brass) 60%,
-    var(--color-brass) 100%
-  );
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: shimmer 5s linear 1.4s infinite;
-}
-
-/* Floating notification cards around the hero screen */
-@keyframes bob {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-.bob {
-  animation: bob 6s ease-in-out infinite;
-  animation-delay: var(--b, 0s);
-}
-
-/* Endless module strip */
-@keyframes marquee {
-  to {
-    transform: translateX(-50%);
-  }
-}
-.marquee {
-  display: flex;
-  width: max-content;
-  animation: marquee 40s linear infinite;
-}
-.marquee-mask {
-  overflow: hidden;
-  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
-}
-.marquee-mask:hover .marquee {
-  animation-play-state: paused;
-}
-
-/* Cursor spotlight on cards (components/Spotlight.tsx sets --x/--y) */
-.spot {
-  position: relative;
-  isolation: isolate;
-}
-.spot::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  border-radius: inherit;
-  opacity: 0;
-  transition: opacity 300ms ease;
-  background: radial-gradient(420px circle at var(--x, 50%) var(--y, 50%), rgb(111 165 141 / 0.22), transparent 60%);
-}
-.spot:hover::before {
-  opacity: 1;
-}
-
-/* Menu links: a brass underline grows from the left */
-.nav-link {
-  position: relative;
-}
-.nav-link::after {
-  content: "";
-  position: absolute;
-  left: 0.75rem;
-  right: 0.75rem;
-  bottom: 0.2rem;
-  height: 2px;
-  border-radius: 2px;
-  background: var(--color-brass);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 300ms var(--ease-out-quint);
-}
-.nav-link:hover::after {
-  transform: scaleX(1);
-}
-
-/* Reading progress under the header; scroll-driven, no script */
-.scroll-progress {
-  transform: scaleX(0);
-}
-@supports (animation-timeline: scroll()) {
-  .scroll-progress {
-    animation: grow-x linear both;
-    animation-timeline: scroll(root);
-  }
-}
-@keyframes grow-x {
-  to {
-    transform: scaleX(1);
-  }
-}
-
-/* Typing dots in the Kahya AI demo */
-@keyframes dot {
-  0%,
-  80%,
-  100% {
-    opacity: 0.25;
-    transform: translateY(0);
-  }
-  40% {
-    opacity: 1;
-    transform: translateY(-3px);
-  }
-}
-.dot {
-  animation: dot 1.2s ease-in-out infinite;
-  animation-delay: var(--i, 0s);
-}
-
-@keyframes pulse-ring {
-  0% {
-    box-shadow: 0 0 0 0 rgb(227 178 97 / 0.55);
-  }
-  100% {
-    box-shadow: 0 0 0 14px rgb(227 178 97 / 0);
-  }
-}
-.pulse-ring {
-  animation: pulse-ring 1.6s ease-out infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .word,
-  .intro,
-  .rise,
-  .aurora,
-  .bob,
-  .marquee,
-  .shimmer {
-    animation: none !important;
-  }
-  .scroll-progress {
-    display: none;
-  }
-  .marquee-mask {
-    overflow-x: auto;
-  }
-  .shimmer {
-    color: var(--color-brass);
+    border-color: rgb(255 255 255 / 0.14);
   }
 }
 
