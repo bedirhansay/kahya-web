@@ -1,35 +1,20 @@
-import { ArrowRight, Check, Minus, Play, X } from "lucide-react";
+import { ArrowRight, Check, DatabaseBackup, KeyRound, MapPin, Play, ShieldCheck, Undo2, X } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { AppStage } from "@/components/AppStage";
 import { CtaBand } from "@/components/CtaBand";
+import { DayTabs, type DayMoment } from "@/components/DayTabs";
 import { Faq } from "@/components/Faq";
-import { FeatureRow } from "@/components/FeatureRow";
 import { JsonLd } from "@/components/JsonLd";
-import {
-  AiMock,
-  ApprovalsMock,
-  ApprovalTimesMock,
-  BranchesMock,
-  CariMock,
-  LeavePhoneMock,
-  MailMock,
-  MailToTaskMock,
-  MeetingsMock,
-  MoneyHomeMock,
-  PaymentPlanMock,
-  RecentMeetingsMock,
-  StockMock,
-  TaskSummaryMock,
-} from "@/components/mock/screens";
+import { AiMock, CariMock, LeavePhoneMock, MailMock, MailToTaskMock, MeetingsMock, StockMock, TaskSummaryMock } from "@/components/mock/screens";
 import { SectorMock } from "@/components/mock/SectorMock";
 import { SectionHead } from "@/components/SectionHead";
 import { SectorTabs } from "@/components/SectorTabs";
-import { SolutionPicker } from "@/components/SolutionPicker";
 import { VideoPlayer } from "@/components/VideoPlayer";
 import { generalFaq } from "@/content/faq";
 import { featuredSectors, sectorBySlug } from "@/content/sectors";
-import { notIncluded, solutions, trust } from "@/content/solutions";
+import { extras, trust } from "@/content/solutions";
 import { faqLd, pageMetadata, softwareLd, videoLd } from "@/lib/seo";
 import { site } from "@/lib/site";
 
@@ -42,7 +27,6 @@ export const metadata: Metadata = {
   title: { absolute: "Kahya | Ofis Yönetim Programı: Görev, CRM, Cari ve Personel Takibi" },
 };
 
-const [ofis, crm, finans] = solutions;
 const tabSectors = featuredSectors.map((slug) => sectorBySlug(slug)!);
 
 const compare = [
@@ -53,6 +37,55 @@ const compare = [
   ["Taksit ne zaman?", "Takvime not düşülüyor, unutulursa geçiyor.", "Ödeme planı vadesinde hatırlatır."],
   ["Ay sonunda ne gönderilecek?", "Dosyalar tek tek toplanıyor.", "Mali Müşavir Paketi tek dosya olarak hazırlanır."],
 ] as const;
+
+const OFIS = { name: "Ofis Yönetimi", href: "/cozumler/ofis-yonetimi" };
+const CRM = { name: "CRM", href: "/cozumler/crm" };
+const FINANS = { name: "Finans & Cari", href: "/cozumler/finans-cari" };
+
+const day: DayMoment[] = [
+  {
+    key: "izin",
+    time: "09.10",
+    title: "Ayşe telefondan izin istedi",
+    text: "Talep yöneticinin Onayınızı bekleyenler listesine düştü. Tek dokunuşla onaylandı, izin takvime işlendi.",
+    solution: OFIS,
+    visual: <LeavePhoneMock />,
+  },
+  {
+    key: "eposta",
+    time: "11.30",
+    title: "Müşterinin e-postası göreve döndü",
+    text: "Karadeniz Gıda ekim raporunu istedi. E-posta sorumlusu, projesi ve bitiş tarihiyle Can’ın görevi oldu.",
+    solution: OFIS,
+    visual: <MailToTaskMock className="w-full max-w-xl" />,
+  },
+  {
+    key: "gorusme",
+    time: "14.00",
+    title: "Görüşme müşteri kartına yazıldı",
+    text: "Kuzey Mobilya yeni ofis için teklif istedi. Not ve takip günü kartta, o gün geldiğinde listede önünüze çıkar.",
+    solution: CRM,
+    visual: <MeetingsMock className="w-full max-w-xl" />,
+  },
+  {
+    key: "tahsilat",
+    time: "17.45",
+    title: "Tahsilat bakiyeye işlendi",
+    text: "Kuzey Mobilya ₺20.000 ödedi. Kayıt girildiği anda cari bakiye ve hesap ekstresi güncellendi.",
+    solution: FINANS,
+    visual: <CariMock className="w-full max-w-xl" />,
+  },
+  {
+    key: "ozet",
+    time: "18.30",
+    title: "Gün kimseyi aramadan kapandı",
+    text: "Görev Özeti kimin kaç iş bitirdiğini, nerede gecikme olduğunu gösteriyor.",
+    solution: OFIS,
+    visual: <TaskSummaryMock className="w-full max-w-xl" />,
+  },
+];
+
+const trustIcons = [MapPin, KeyRound, Undo2, ShieldCheck, DatabaseBackup];
 
 export default function HomePage() {
   return (
@@ -72,141 +105,67 @@ export default function HomePage() {
         ]}
       />
 
-      {/* Hero */}
-      <section className="band-dark overflow-hidden">
-        <div className="wrap grid gap-12 pb-16 pt-14 md:pt-20 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-center lg:pb-24">
-          <div>
-            <h1>
-              <span className="eyebrow block text-brass">Ofis yönetim programı</span>
-              <span className="display mt-5 block">
-                İşletmenizin <span className="accent">yönetim merkezi.</span>
-              </span>
-            </h1>
-            <p className="lead mt-6 max-w-xl text-white/75">
-              Ekip, müşteri ve cari tek uygulamada. Ofis Yönetimi, CRM ve Finans & Cari çözümlerinden ihtiyacınız olanı
-              seçin, gerisi menünüzde görünmesin.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a href={site.app.register} className="btn btn-brass">
-                Hemen başla
-                <ArrowRight size={17} aria-hidden />
-              </a>
-              <Link href="/tanitim-filmi" className="btn btn-line-dark">
-                <Play size={15} aria-hidden className="fill-current text-brass" />
-                Tanıtım filmi, 2 dk
-              </Link>
+      {/* Hero: the product itself, narrowed by the visitor's choice */}
+      <section className="hero-tint">
+        <div className="wrap pb-16 pt-12 md:pb-20 md:pt-16">
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.75fr)] lg:items-end lg:gap-14">
+            <h1 className="display max-w-3xl [font-size:clamp(2.4rem,1.5rem+2.9vw,4rem)]">Ekibiniz, müşterileriniz ve carileriniz tek uygulamada</h1>
+            <div>
+              <p className="lead text-muted">
+                Kahya ofisler için yönetim programı. İhtiyacınız olan çözümleri seçin, ekibiniz yalnızca işine yarayanı görsün.
+              </p>
+              <div className="mt-7 flex flex-wrap gap-3">
+                <a href={site.app.register} className="btn btn-brass">
+                  Hemen başla
+                </a>
+                <Link href="/tanitim-filmi" className="btn btn-line">
+                  <Play size={15} aria-hidden className="fill-current text-brand" />
+                  Tanıtım filmi, 2 dk
+                </Link>
+              </div>
             </div>
-            <ul className="mt-8 grid gap-2 text-[0.95rem] text-white/70 sm:grid-cols-2">
-              {["Kurulum yok, tarayıcıda açılır", "Telefonda da aynı Kahya", "Verileriniz Türkiye’de", "Bütün ekip içeride"].map((t) => (
-                <li key={t} className="flex items-center gap-2">
-                  <Check size={16} className="shrink-0 text-sage" aria-hidden />
-                  {t}
-                </li>
-              ))}
-            </ul>
           </div>
-          <div className="relative min-w-0 lg:pb-14">
-            <MoneyHomeMock className="lg:w-[88%]" />
-            <ApprovalsMock className="relative -mt-6 ml-auto w-[94%] lg:absolute lg:bottom-0 lg:right-0 lg:mt-0 lg:w-[78%]" />
+          <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[0.92rem] text-muted">
+            {["Kurulum yok, tarayıcıda açılır", "Telefonda da aynı Kahya", "Verileriniz Türkiye’de"].map((t) => (
+              <li key={t} className="flex items-center gap-2">
+                <Check size={16} className="shrink-0 text-brand" aria-hidden />
+                {t}
+              </li>
+            ))}
+          </ul>
+          <div className="mt-12 md:mt-16">
+            <AppStage />
           </div>
         </div>
       </section>
 
-      {/* Solutions picker */}
-      <section aria-labelledby="cozumler" className="band-dark border-t border-white/8">
-        <div className="wrap py-16 md:py-24">
+      {/* One office day */}
+      <section aria-labelledby="bir-gun" className="bg-white">
+        <div className="wrap py-16 md:py-20">
           <SectionHead
-            id="cozumler"
-            dark
-            eyebrow="Üç çözüm, tek uygulama"
-            title={
-              <>
-                İhtiyacınız olanı seçin. <span className="text-brass">Gerisi gizli kalsın.</span>
-              </>
-            }
-            lead="Kurulumda çözümünüzü seçersiniz. Menü, ana sayfa ve ayarlar seçiminize göre sadeleşir. Ekibiniz yalnızca işine yarayanı görür."
+            id="bir-gun"
+            title="Kahya’da bir ofis günü"
+            lead="Sabah gelen izin talebinden akşamki tahsilata kadar her iş bir kayıtta. Bir saate dokunun, o anın ekranını görün."
           />
           <div className="mt-12">
-            <SolutionPicker />
+            <DayTabs moments={day} />
           </div>
         </div>
       </section>
 
-      {/* Ofis Yönetimi, CRM, Finans */}
-      <section aria-label="Çözümler ayrıntılı" className="bg-paper">
-        <div className="wrap space-y-24 py-20 md:space-y-32 md:py-28">
-          <FeatureRow
-            id="ofis"
-            eyebrow={`${ofis.no} · ${ofis.name}`}
-            title={ofis.title}
-            lead={ofis.lead}
-            points={ofis.points}
-            primary={<TaskSummaryMock />}
-            secondary={<ApprovalTimesMock />}
-          >
-            <Link href="/cozumler/ofis-yonetimi" className="link mt-6 inline-flex items-center gap-1.5">
-              Ofis Yönetimi’ni inceleyin <ArrowRight size={15} aria-hidden />
-            </Link>
-          </FeatureRow>
-          <FeatureRow
-            id="ekip"
-            reverse
-            phone
-            eyebrow={`${ofis.no} · ${ofis.name}`}
-            title={ofis.more.title}
-            lead={ofis.more.lead}
-            points={ofis.more.points}
-            primary={<MailToTaskMock />}
-            secondary={<LeavePhoneMock />}
-          />
-          <FeatureRow
-            id="crm"
-            eyebrow={`${crm.no} · CRM · ${crm.subtitle}`}
-            title={crm.title}
-            lead={crm.lead}
-            points={crm.points}
-            primary={<MeetingsMock />}
-            secondary={<RecentMeetingsMock />}
-          >
-            <p className="mt-4 text-[0.95rem] text-muted">
-              <span className="tag">Ek hizmet</span> <strong className="font-semibold text-ink">Teklif:</strong> müşteriye
-              teklif hazırlayın ve takip edin.
-            </p>
-            <Link href="/cozumler/crm" className="link mt-5 inline-flex items-center gap-1.5">
-              CRM’i inceleyin <ArrowRight size={15} aria-hidden />
-            </Link>
-          </FeatureRow>
-          <FeatureRow
-            id="finans"
-            reverse
-            eyebrow={`${finans.no} · ${finans.name}`}
-            title={finans.title}
-            lead={finans.lead}
-            points={finans.points}
-            primary={<CariMock />}
-            secondary={<PaymentPlanMock />}
-          >
-            <Link href="/cozumler/finans-cari" className="link mt-6 inline-flex items-center gap-1.5">
-              Finans & Cari’yi inceleyin <ArrowRight size={15} aria-hidden />
-            </Link>
-          </FeatureRow>
-        </div>
-      </section>
-
-      {/* Compare */}
-      <section aria-labelledby="karsilastir" className="border-t border-line bg-white">
-        <div className="wrap py-20 md:py-28">
+      {/* Before and after */}
+      <section aria-labelledby="karsilastir" className="bg-white">
+        <div className="wrap py-16 md:py-20">
           <SectionHead
             id="karsilastir"
-            eyebrow="Her şey birbirine bağlı"
-            title="Excel, WhatsApp ve kâğıt yerine tek uygulama"
+            title="Excel, WhatsApp ve kâğıt yerine"
             lead="Bir ofisin her gün sorduğu sorular. Dağınık araçlarla ve Kahya ile cevabı nerede?"
           />
-          <div className="mt-12 overflow-hidden rounded-[16px] border border-line">
+          <div className="mt-12 overflow-hidden rounded-2xl border border-line">
             <div className="hidden grid-cols-[1fr_1fr_1.2fr] bg-mist text-sm font-semibold md:grid">
               <span className="px-5 py-3">Soru</span>
               <span className="px-5 py-3 text-muted">Excel, WhatsApp, kâğıt</span>
-              <span className="px-5 py-3 text-petrol">Kahya</span>
+              <span className="px-5 py-3 text-brand">Kahya</span>
             </div>
             <ul className="divide-y divide-line">
               {compare.map(([q, before, after]) => (
@@ -234,11 +193,10 @@ export default function HomePage() {
       </section>
 
       {/* Sectors */}
-      <section aria-labelledby="sektorler" className="border-t border-line bg-paper">
-        <div className="wrap py-20 md:py-28">
+      <section aria-labelledby="sektorler" className="bg-white">
+        <div className="wrap py-16 md:py-20">
           <SectionHead
             id="sektorler"
-            eyebrow="Sektörünüze göre"
             title="Sizin gibi bir ofiste Kahya"
             lead="Aynı uygulama, farklı işler. Sektörünüzü seçin, Kahya’nın sizde nasıl çalışacağını görün."
           />
@@ -254,133 +212,95 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Add-ons and branches */}
-      <section aria-label="Ek hizmetler" className="border-t border-line bg-white">
-        <div className="wrap space-y-24 py-20 md:space-y-32 md:py-28">
-          <FeatureRow
-            id="ek-hizmetler"
-            eyebrow="Ek hizmet · E-posta"
-            title="Mailiniz, carinizle konuşur"
-            lead="Kurumsal e-posta adresinizi bağlayın. Her e-posta kendi carisiyle eşleşir."
-            points={[
-              { term: "Yeni firma mı yazdı?", text: "tek tıkla cari olarak ekleyin." },
-              { term: "Gelen belge", text: "doğrudan carinin dosyasına." },
-              { term: "İş isteyen e-posta", text: "göreve dönüşür." },
-            ]}
-            primary={<MailMock />}
-          />
-          <FeatureRow
-            id="stok-ai"
-            reverse
-            eyebrow="Ek hizmet · Stok ve Kahya AI"
-            title={
-              <>
-                Stok satışla düşer. <span className="text-petrol">Kahya, verinizden yanıtlar.</span>
-              </>
-            }
-            lead="İhtiyacınız olduğunda ekleyin. İkisi de aynı kayıtlarla çalışır."
-            points={[
-              { term: "Stok", text: "depolar tek listede, kritik seviyeye ineni Kahya işaretler, satışta seçilen ürün stoktan düşer." },
-              { term: "Kahya AI", text: "sorun, Kahya kendi verinizden yanıtlasın. Siz onaylamadan hiçbir şey kaydedilmez." },
-            ]}
-            primary={<StockMock />}
-            secondary={<AiMock />}
-          >
-            <p className="mt-5 text-[0.95rem] text-muted">
-              Ayrıca <strong className="font-semibold text-ink">Teklif</strong> ve <strong className="font-semibold text-ink">Filo</strong>{" "}
-              ek hizmetleri var.{" "}
-              <Link href="/cozumler#ek-hizmetler" className="link">
-                Tüm ek hizmetler
-              </Link>
-            </p>
-          </FeatureRow>
-          <FeatureRow
-            id="her-yerde"
-            phone
-            eyebrow="Her yerde"
-            title="Birden fazla şube, tek merkez"
-            lead="Şubelerinizi ve ekibinizi tek hesaptan yönetin. Masada da cepte de aynı Kahya."
-            points={[
-              { term: "Şubeler", text: "her şubenin kaydı ayrı, raporu tek merkezde." },
-              { term: "Telefonda", text: "personel izni, onaylar ve cari tek dokunuşla." },
-              { term: "Çözümünüzü seçin", text: "menü ihtiyacınıza göre sadeleşir." },
-            ]}
-            primary={<BranchesMock />}
-            secondary={<LeavePhoneMock />}
-          />
+      {/* Add-ons */}
+      <section aria-labelledby="ek-hizmetler" className="bg-white">
+        <div className="wrap py-16 md:py-20">
+          <div className="stage grid gap-10 p-6 md:p-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-14">
+            <div className="min-w-0">
+              <SectionHead
+                id="ek-hizmetler"
+                title="İhtiyacınız olduğunda ekleyin"
+                lead="Ek hizmetler aynı kayıtlarla çalışır. Cari, görev ve müşteri kartı zaten Kahya’da."
+              />
+              <ul className="mt-8 divide-y divide-ink/10 border-y border-ink/10">
+                {extras.map((x) => (
+                  <li key={x.name} className="grid gap-1 py-4 sm:grid-cols-[7rem_1fr] sm:gap-4">
+                    <span className="font-semibold">
+                      {x.href ? (
+                        <Link href={x.href} className="link">
+                          {x.name}
+                        </Link>
+                      ) : (
+                        x.name
+                      )}
+                    </span>
+                    <span className="text-muted">{x.body}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="relative min-w-0 self-center">
+              <MailMock />
+              <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                <StockMock />
+                <AiMock />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Trust */}
-      <section aria-labelledby="guven" className="band-dark">
-        <div className="wrap grid gap-12 py-20 md:py-28 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16">
-          <SectionHead
-            id="guven"
-            dark
-            eyebrow="Türkiye için geliştirildi"
-            title="Verileriniz sizin, kontrol sizde"
-            lead="Kahya’yı ekibinize güvenle açmanız için temel kurallar."
-          />
-          <dl className="grid gap-x-10 gap-y-8 sm:grid-cols-2">
-            {trust.map((t, i) => (
-              <div key={t.term} className="border-t border-white/12 pt-5">
-                <dt className="flex items-baseline gap-3 font-semibold">
-                  <span className="eyebrow text-brass">{String(i + 1).padStart(2, "0")}</span>
-                  {t.term}
-                </dt>
-                <dd className="mt-2 leading-relaxed text-white/70">{t.text}</dd>
-              </div>
-            ))}
+      <section aria-labelledby="guven" className="bg-white">
+        <div className="wrap py-16 md:py-20">
+          <SectionHead id="guven" title="Verileriniz sizin, kontrol sizde" lead="Kahya’yı ekibinize güvenle açmanız için temel kurallar." />
+          <dl className="mt-12 grid gap-x-10 gap-y-9 sm:grid-cols-2 lg:grid-cols-3">
+            {trust.map((t, i) => {
+              const Icon = trustIcons[i] ?? ShieldCheck;
+              return (
+                <div key={t.term} className="flex gap-4">
+                  <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-brand-50 text-brand">
+                    <Icon size={19} aria-hidden />
+                  </span>
+                  <span>
+                    <dt className="font-semibold">{t.term}</dt>
+                    <dd className="mt-1 leading-relaxed text-muted">{t.text}</dd>
+                  </span>
+                </div>
+              );
+            })}
           </dl>
         </div>
       </section>
 
-      {/* Scope + film */}
-      <section aria-label="Kapsam ve tanıtım filmi" className="bg-paper">
-        <div className="wrap grid gap-14 py-20 md:py-28 lg:grid-cols-2 lg:gap-16">
-          <div>
-            <SectionHead
-              id="kapsam"
-              eyebrow="Açık konuşalım"
-              title="Kahya’da olmayanlar"
-              lead="Kahya ofisin işini ve alacak borç durumunu tutar. Muhasebe programınızın yerini almaz."
-            />
-            <ul className="mt-8 divide-y divide-line border-y border-line">
-              {notIncluded.map((t) => (
-                <li key={t} className="flex gap-3 py-3 text-muted">
-                  <Minus size={18} className="mt-0.5 shrink-0" aria-hidden />
-                  {t}
-                </li>
-              ))}
-            </ul>
-          </div>
+      {/* Film */}
+      <section aria-labelledby="film" className="bg-white">
+        <div className="wrap grid gap-10 py-16 md:py-20 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-center lg:gap-16">
           <div>
             <SectionHead
               id="film"
-              eyebrow="Tanıtım filmi"
               title="Yarım dakikada Kahya"
               lead="Müşteriler bir dosyada, yazışmalar başka bir kutuda, bakiyeler tablolarda. Hepsi tek yerde olunca ne değişir?"
             />
-            <VideoPlayer
-              src="/media/film/kahya-reklam.mp4"
-              poster="/media/film/kahya-reklam.webp"
-              captions="/media/film/kahya-reklam.vtt"
-              title="Kahya reklam filmi"
-              duration="0:36"
-              className="mt-8"
-            />
-            <Link href="/tanitim-filmi" className="link mt-4 inline-block">
+            <Link href="/tanitim-filmi" className="link mt-6 inline-block">
               İki dakikalık tanıtım filmi ve metni
             </Link>
           </div>
+          <VideoPlayer
+            src="/media/film/kahya-reklam.mp4"
+            poster="/media/film/kahya-reklam.webp"
+            captions="/media/film/kahya-reklam.vtt"
+            title="Kahya reklam filmi"
+            duration="0:36"
+          />
         </div>
       </section>
 
       {/* FAQ */}
-      <section aria-labelledby="sss" className="border-t border-line bg-white">
-        <div className="wrap grid gap-10 py-20 md:py-28 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16">
+      <section aria-labelledby="sss" className="bg-white">
+        <div className="wrap grid gap-10 pb-20 pt-4 md:pb-24 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16">
           <div>
-            <SectionHead id="sss" eyebrow="Sık sorulanlar" title="Aklınızdaki sorular" />
+            <SectionHead id="sss" title="Aklınızdaki sorular" />
             <Link href="/sss" className="link mt-5 inline-block">
               Tüm sorular
             </Link>

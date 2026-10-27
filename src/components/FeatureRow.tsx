@@ -41,7 +41,7 @@ export function FeatureRow({
       )}
     >
       <div className={cn(reverse && "lg:order-2")}>
-        <p className="eyebrow text-brass-700">{eyebrow}</p>
+        <p className="eyebrow text-brand">{eyebrow}</p>
         <h3 id={id} className="title mt-3">
           {title}
         </h3>

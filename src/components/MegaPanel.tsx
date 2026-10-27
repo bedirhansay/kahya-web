@@ -11,7 +11,7 @@ export function MegaPanel({ menu }: { menu: MegaMenu }) {
   return (
     <div
       className={cn(
-        "invisible absolute inset-x-0 top-full -translate-y-1 border-t border-white/8 bg-paper text-ink opacity-0 shadow-[0_24px_48px_-16px_rgb(6_27_25/0.35)]",
+        "invisible absolute inset-x-0 top-full -translate-y-1 border-t border-line bg-white text-ink opacity-0 shadow-[0_24px_48px_-16px_rgb(6_27_25/0.35)]",
         "transition duration-200 ease-out-quint group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100",
       )}
     >
@@ -19,7 +19,7 @@ export function MegaPanel({ menu }: { menu: MegaMenu }) {
         <div className={cn("grid gap-6", cards ? "grid-cols-1" : "grid-cols-3")}>
           {menu.columns.map((col) => (
             <div key={col.title}>
-              <p className="eyebrow mb-3 text-brass-700">{col.title}</p>
+              <p className="eyebrow mb-3 text-muted">{col.title}</p>
               <ul className={cn(cards ? "grid grid-cols-3 gap-3" : "grid gap-1")}>
                 {col.items.map((item) => (
                   <li key={item.href}>{cards ? <Card item={item} /> : <Row item={item} />}</li>
@@ -29,7 +29,7 @@ export function MegaPanel({ menu }: { menu: MegaMenu }) {
           ))}
         </div>
         <div className="band-dark flex flex-col rounded-xl p-5 text-white">
-          <p className="eyebrow text-brass">{menu.aside.eyebrow}</p>
+          <p className="eyebrow text-brass-300">{menu.aside.eyebrow}</p>
           <p className="mt-2 text-[1.05rem] font-bold leading-snug">{menu.aside.title}</p>
           <p className="mt-2 text-[0.85rem] leading-relaxed text-white/65">{menu.aside.text}</p>
           <ul className="mt-auto grid gap-0.5 pt-4 text-[0.88rem]">
@@ -60,7 +60,7 @@ export function MegaPanel({ menu }: { menu: MegaMenu }) {
 function Row({ item }: { item: NavLink }) {
   const Icon = item.icon;
   return (
-    <Link href={item.href} className="group/r flex items-start gap-3 rounded-lg p-2 -mx-2 transition hover:bg-white hover:shadow-sm">
+    <Link href={item.href} className="group/r flex items-start gap-3 rounded-lg p-2 -mx-2 transition hover:bg-mist">
       {Icon && (
         <span className="grid size-9 shrink-0 place-items-center rounded-lg border border-line bg-white text-brand transition group-hover/r:border-brand group-hover/r:bg-brand group-hover/r:text-white">
           <Icon size={17} aria-hidden />
@@ -87,8 +87,7 @@ function Card({ item }: { item: NavLink }) {
             <Icon size={19} aria-hidden />
           </span>
         )}
-        {item.no && <span className="font-mono text-[0.75rem] font-medium text-muted">{item.no}</span>}
-      </span>
+              </span>
       <span className="mt-4 block font-bold leading-tight">{item.label}</span>
       {item.hint && <span className="mt-1.5 block text-[0.83rem] leading-snug text-muted">{item.hint}</span>}
       {item.bullets && (

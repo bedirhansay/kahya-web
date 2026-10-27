@@ -1,4 +1,4 @@
-import { Check, Minus } from "lucide-react";
+import { Check } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -7,7 +7,7 @@ import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { pricingFaq } from "@/content/faq";
-import { extras, notIncluded, services, solutions } from "@/content/solutions";
+import { extras, services, solutions } from "@/content/solutions";
 import { faqLd, pageMetadata, softwareLd } from "@/lib/seo";
 import { site } from "@/lib/site";
 
@@ -35,8 +35,8 @@ export default function SolutionsPage() {
           <ol className="grid gap-px overflow-hidden rounded-[var(--radius-frame)] border border-line bg-line lg:grid-cols-3">
             {solutions.map((s) => (
               <li key={s.slug} id={s.slug} className="flex scroll-mt-24 flex-col bg-white p-6 md:p-8">
-                <p className="eyebrow text-brass-700">
-                  {s.no} · {s.kicker}
+                <p className="eyebrow text-brand">
+                  {s.kicker}
                 </p>
                 <h2 className="mt-3 text-2xl font-bold tracking-[-0.02em]">
                   <Link href={`/cozumler/${s.slug}`} className="hover:text-petrol">
@@ -72,7 +72,7 @@ export default function SolutionsPage() {
         </div>
       </section>
 
-      <section aria-labelledby="ek-hizmetler" className="border-t border-line bg-white">
+      <section aria-labelledby="ek-hizmetler" className="bg-white">
         <div className="wrap grid gap-10 py-16 md:py-24 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-14">
           <div>
             <h2 id="ek-hizmetler" className="title">
@@ -99,7 +99,7 @@ export default function SolutionsPage() {
         </div>
       </section>
 
-      <section aria-labelledby="hizmetler" className="border-t border-line bg-paper">
+      <section aria-labelledby="hizmetler" className="bg-paper">
         <div className="wrap grid gap-10 py-16 md:py-24 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-14">
           <div>
             <h2 id="hizmetler" className="title">
@@ -123,26 +123,7 @@ export default function SolutionsPage() {
         </div>
       </section>
 
-      <section aria-labelledby="olmayanlar" className="border-t border-line bg-white">
-        <div className="wrap grid gap-10 py-16 md:py-24 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-14">
-          <div>
-            <h2 id="olmayanlar" className="title">
-              Kahya’da olmayanlar
-            </h2>
-            <p className="lead mt-4 text-muted">Satın almadan önce bilin, yanlış iş için almayın.</p>
-          </div>
-          <ul className="divide-y divide-line border-y border-line">
-            {notIncluded.map((t) => (
-              <li key={t} className="flex gap-3 py-3.5 text-muted">
-                <Minus size={18} className="mt-0.5 shrink-0" aria-hidden />
-                {t}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <section aria-labelledby="sorular" className="border-t border-line bg-paper">
+      <section aria-labelledby="sorular" className="bg-paper">
         <div className="wrap grid gap-10 py-16 md:py-24 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-14">
           <h2 id="sorular" className="title">
             Satın alma soruları

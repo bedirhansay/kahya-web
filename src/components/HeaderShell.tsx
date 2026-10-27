@@ -2,7 +2,7 @@
 
 import { useEffect, useState, type ReactNode } from "react";
 
-/** Sticky dark header; `data-scrolled` is kept for styling hooks. */
+/** Sticky light header; a hairline and a soft shadow appear once the page scrolls. */
 export function HeaderShell({ children }: { children: ReactNode }) {
   const [scrolled, setScrolled] = useState(false);
 
@@ -16,7 +16,7 @@ export function HeaderShell({ children }: { children: ReactNode }) {
   return (
     <header
       data-scrolled={scrolled || undefined}
-      className="sticky top-0 z-50 border-b border-white/8 bg-pine-950 text-white"
+      className="sticky top-0 z-50 border-b border-transparent bg-white/90 text-ink backdrop-blur transition-[border-color,box-shadow] data-[scrolled]:border-line data-[scrolled]:shadow-[0_8px_24px_-18px_rgb(6_27_25/0.25)]"
     >
       {children}
     </header>

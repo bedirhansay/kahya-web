@@ -15,19 +15,19 @@ export function Header() {
     <HeaderShell>
       <a
         href="#icerik"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:rounded-md focus:bg-brass focus:px-3 focus:py-2 focus:text-pine-950"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:rounded-md focus:bg-petrol focus:px-3 focus:py-2 focus:text-white"
       >
         İçeriğe geç
       </a>
       <div className="wrap flex h-16 items-center gap-8">
-        <Logo />
+        <Logo tone="dark" />
         <nav aria-label="Ana menü" className="hidden lg:block">
-          <ul className="flex items-center gap-1 text-[0.94rem] font-medium text-white/75">
+          <ul className="flex items-center gap-1 text-[0.94rem] font-medium text-ink/75">
             {mainNav.map((item) => (
               <li key={item.href} className={cn("flex h-16 items-center", item.mega && "group")}>
                 <Link
                   href={item.href}
-                  className="inline-flex items-center gap-1 rounded-md px-3 py-2 hover:text-white group-hover:text-white"
+                  className="inline-flex items-center gap-1 rounded-md px-3 py-2 hover:text-ink group-hover:text-ink"
                 >
                   {item.label}
                   {item.mega && (
@@ -40,7 +40,7 @@ export function Header() {
           </ul>
         </nav>
         <div className="ml-auto hidden items-center gap-2 sm:flex">
-          <a href={site.app.login} className="btn px-3 text-white/80 hover:text-white">
+          <a href={site.app.login} className="btn px-3 text-ink/80 hover:text-ink">
             Giriş yap
           </a>
           <a href={site.app.register} className="btn btn-brass">

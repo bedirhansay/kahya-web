@@ -13,11 +13,11 @@
   --color-petrol-600: #14625b;
   --color-sage: #6fa58d;
   --color-mint: #bfdac8;
-  --color-mist: #efebe2;
-  --color-paper: #f8f5ef;
+  --color-mist: #eef3f1;
+  --color-paper: #ffffff;
   --color-ink: #10201e;
-  --color-muted: #4b5f5b;
-  --color-line: #e2ddd2;
+  --color-muted: #52625f;
+  --color-line: #e2e8e6;
   --color-brass: #e3b261;
   --color-brass-300: #f0cf94;
   --color-brass-700: #8a6420;
@@ -59,12 +59,12 @@ body {
 }
 
 ::selection {
-  background: var(--color-brass-300);
+  background: var(--color-mint);
   color: var(--color-pine-950);
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-brass);
+  outline: 2px solid var(--color-brand);
   outline-offset: 3px;
   border-radius: 6px;
 }
@@ -118,11 +118,11 @@ body {
       border-color 150ms ease;
   }
   .btn-brass {
-    background: var(--color-brass);
-    color: var(--color-pine-950);
+    background: var(--color-petrol);
+    color: #fff;
   }
   .btn-brass:hover {
-    background: var(--color-brass-300);
+    background: var(--color-petrol-600);
   }
   .btn-petrol {
     background: var(--color-petrol);
@@ -147,40 +147,31 @@ body {
     border-color: var(--color-petrol);
   }
 
-  /* Spaced mono label above headings: "01 · OFİS YÖNETİMİ" */
+  /* Small label above a heading, in the running type (no tracked capitals) */
   .eyebrow {
-    font-family: var(--font-mono);
-    font-size: 0.74rem;
-    font-weight: 500;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: -0.005em;
   }
-  /* "EK HİZMET" tag */
+  /* "Ek hizmet" tag */
   .tag {
     display: inline-flex;
     align-items: center;
-    border: 1px solid color-mix(in oklab, var(--color-brass) 70%, transparent);
-    border-radius: 5px;
-    padding: 0.05rem 0.4rem;
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+    border-radius: 6px;
+    padding: 0.05rem 0.45rem;
+    font-size: 0.72rem;
+    font-weight: 600;
     color: var(--color-brass-700);
-    background: color-mix(in oklab, var(--color-brass) 12%, transparent);
+    background: #fbf1dd;
     vertical-align: middle;
   }
   .tag-dark {
     color: var(--color-brass-300);
     background: color-mix(in oklab, var(--color-brass) 10%, transparent);
   }
-  /* Brass to sage, the deck's accent on the second line of a headline */
+  /* Kept for markup that splits a headline: one colour, no gradient word */
   .accent {
-    background: linear-gradient(90deg, var(--color-brass), var(--color-sage));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: inherit;
   }
   /* Dark bands: pine with a soft green light from below, as in the deck */
   .band-dark {
@@ -188,6 +179,33 @@ body {
       radial-gradient(60% 55% at 50% 110%, rgb(29 111 102 / 0.45), transparent 70%),
       var(--color-pine-950);
     color: #fff;
+  }
+  /* Opening of inner pages: white fading from a faint brand tint, no hard edge */
+  .hero-tint {
+    background: linear-gradient(180deg, var(--color-brand-50) 0%, #ffffff 100%);
+  }
+  /* The soft panel product pictures sit on */
+  .stage {
+    border-radius: 24px;
+    background:
+      radial-gradient(80% 70% at 85% 0%, rgb(29 111 102 / 0.10), transparent 70%),
+      var(--color-mist);
+  }
+  .stage-in {
+    animation: stage-in 260ms var(--ease-out-quint) both;
+  }
+  @keyframes stage-in {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+  }
+  .btn-light {
+    background: #fff;
+    color: var(--color-pine-950);
+  }
+  .btn-light:hover {
+    background: var(--color-mint);
   }
   .card-dark {
     border: 1px solid rgb(255 255 255 / 0.12);

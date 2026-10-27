@@ -102,7 +102,7 @@ export default async function FeaturePage({ params }: PageProps<"/ozellikler/[sl
       )}
 
       {main && (
-        <section aria-labelledby="adimlar" className="border-t border-line bg-mist">
+        <section aria-labelledby="adimlar" className="bg-white">
           <div className="wrap py-16 md:py-24">
             <h2 id="adimlar" className="title max-w-2xl">
               Adım adım
@@ -135,7 +135,7 @@ export default async function FeaturePage({ params }: PageProps<"/ozellikler/[sl
         </section>
       )}
 
-      <section aria-labelledby="sorular" className="border-t border-line bg-paper">
+      <section aria-labelledby="sorular" className="bg-paper">
         <div className="wrap grid gap-10 py-16 md:py-24 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)]">
           <h2 id="sorular" className="title">
             Sorular
@@ -146,7 +146,7 @@ export default async function FeaturePage({ params }: PageProps<"/ozellikler/[sl
         </div>
       </section>
 
-      <section aria-labelledby="diger" className="border-t border-line bg-paper">
+      <section aria-labelledby="diger" className="bg-paper">
         <div className="wrap py-16 md:py-20">
           <h2 id="diger" className="text-2xl font-semibold">
             Kahya’da bunlar da var

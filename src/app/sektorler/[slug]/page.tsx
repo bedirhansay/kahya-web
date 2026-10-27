@@ -1,4 +1,4 @@
-import { ArrowRight, Minus, X } from "lucide-react";
+import { ArrowRight, X } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -35,25 +35,24 @@ export default async function SectorPage({ params }: PageProps<"/sektorler/[slug
   return (
     <>
       <JsonLd data={faqLd(s.faq)} />
-      <section className="band-dark overflow-hidden">
+      <section className="hero-tint overflow-hidden">
         <div className="wrap grid gap-12 pb-16 pt-8 md:pt-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-center lg:pb-24">
           <div>
             <Breadcrumbs
-              dark
               items={[
                 { name: "Sektörler", path: "/sektorler" },
                 { name: s.name, path: `/sektorler/${s.slug}` },
               ]}
             />
-            <p className="eyebrow mt-10 text-brass">Sektörünüze göre Kahya</p>
+            <p className="eyebrow mt-10 text-brand">Sektörünüze göre Kahya</p>
             <h1 className="title mt-4 max-w-2xl">{s.seo.h1}</h1>
-            <p className="lead mt-5 max-w-xl text-white/75">{s.lead}</p>
+            <p className="lead mt-5 max-w-xl text-muted">{s.lead}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a href={site.app.register} className="btn btn-brass">
                 Hemen başla
                 <ArrowRight size={17} aria-hidden />
               </a>
-              <Link href="/cozumler" className="btn btn-line-dark">
+              <Link href="/cozumler" className="btn btn-line">
                 Çözümleri inceleyin
               </Link>
             </div>
@@ -78,7 +77,7 @@ export default async function SectorPage({ params }: PageProps<"/sektorler/[slug
         </div>
       </section>
 
-      <section aria-labelledby="kahya-ile" className="border-t border-line bg-white">
+      <section aria-labelledby="kahya-ile" className="bg-white">
         <div className="wrap py-16 md:py-24">
           <SectionHead id="kahya-ile" eyebrow="Kahya ile" title={`${s.name} Kahya’yı nasıl kullanır?`} />
           <ul className="mt-10 grid gap-5 lg:grid-cols-3">
@@ -86,8 +85,8 @@ export default async function SectorPage({ params }: PageProps<"/sektorler/[slug
               const sol = solutionBySlug(u.solution)!;
               return (
                 <li key={u.solution} className="flex flex-col rounded-[16px] border border-line bg-paper p-6">
-                  <p className="eyebrow text-brass-700">
-                    {sol.no} · {sol.kicker}
+                  <p className="eyebrow text-brand">
+                    {sol.kicker}
                   </p>
                   <h3 className="mt-2 text-xl font-bold">
                     {sol.name}
@@ -101,10 +100,10 @@ export default async function SectorPage({ params }: PageProps<"/sektorler/[slug
               );
             })}
           </ul>
-          <div className="mt-8 grid gap-5 md:grid-cols-2">
+          <div className="mt-8 max-w-2xl">
             {s.addons && s.addons.length > 0 && (
               <div className="rounded-[16px] border border-line p-6">
-                <p className="eyebrow text-brass-700">İşinize yarayacak ek hizmetler</p>
+                <p className="eyebrow text-brand">İşinize yarayacak ek hizmetler</p>
                 <p className="mt-3 flex flex-wrap gap-2">
                   {s.addons.map((a) => (
                     <span key={a} className="rounded-md border border-line bg-paper px-2.5 py-1 text-[0.95rem] font-semibold">
@@ -117,17 +116,6 @@ export default async function SectorPage({ params }: PageProps<"/sektorler/[slug
                 </Link>
               </div>
             )}
-            <div className="rounded-[16px] border border-dashed border-line p-6">
-              <p className="eyebrow text-muted">Bu sektörde Kahya’nın yapmadıkları</p>
-              <ul className="mt-3 space-y-1.5">
-                {s.notDone.map((t) => (
-                  <li key={t} className="flex gap-2.5 text-muted">
-                    <Minus size={17} className="mt-0.5 shrink-0" aria-hidden />
-                    {t}
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
           <p className="mt-6 text-sm text-muted">
             İhtiyacınız olmayan çözüm menüde görünmez. Sonradan bir diğerine ihtiyacınız olursa talep edersiniz.
@@ -135,7 +123,7 @@ export default async function SectorPage({ params }: PageProps<"/sektorler/[slug
         </div>
       </section>
 
-      <section aria-labelledby="sorular" className="border-t border-line bg-paper">
+      <section aria-labelledby="sorular" className="bg-paper">
         <div className="wrap grid gap-10 py-16 md:py-24 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16">
           <div>
             <SectionHead id="sorular" eyebrow="Sık sorulanlar" title="Sorular" />

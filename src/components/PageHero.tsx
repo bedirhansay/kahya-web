@@ -15,7 +15,7 @@ export function PageHero({
   children?: ReactNode;
 }) {
   return (
-    <section className="border-b border-line bg-paper pb-12 pt-8 md:pb-16 md:pt-12">
+    <section className="hero-tint pb-12 pt-8 md:pb-16 md:pt-12">
       <div className="wrap">
         <Breadcrumbs items={crumbs} />
         <h1 className="display mt-8 max-w-4xl">{title}</h1>

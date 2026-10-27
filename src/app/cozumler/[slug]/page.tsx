@@ -69,22 +69,20 @@ export default async function SolutionPage({ params }: PageProps<"/cozumler/[slu
   return (
     <>
       <JsonLd data={faqLd(s.faq)} />
-      <section className="band-dark overflow-hidden">
+      <section className="hero-tint overflow-hidden">
         <div className="wrap grid gap-12 pb-16 pt-8 md:pt-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-center lg:pb-24">
           <div>
             <Breadcrumbs
-              dark
               items={[
                 { name: "Çözümler", path: "/cozumler" },
                 { name: s.name, path: `/cozumler/${s.slug}` },
               ]}
             />
-            <p className="eyebrow mt-10 text-brass">
-              {s.no} · {s.name}
-              {s.subtitle && ` · ${s.subtitle}`}
+            <p className="eyebrow mt-10 text-brand">
+              {s.subtitle ? `${s.name}, ${s.subtitle}` : s.name}
             </p>
             <h1 className="title mt-4 max-w-2xl">{s.seo.h1}</h1>
-            <p className="lead mt-5 max-w-xl text-white/75">{s.lead}</p>
+            <p className="lead mt-5 max-w-xl text-muted">{s.lead}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a href={site.app.register} className="btn btn-brass">
                 Hemen başla
@@ -92,7 +90,7 @@ export default async function SolutionPage({ params }: PageProps<"/cozumler/[slu
               </a>
               <a
                 href={`mailto:${site.email}?subject=${encodeURIComponent(`Kahya fiyat talebi: ${s.name}`)}`}
-                className="btn btn-line-dark"
+                className="btn btn-line"
               >
                 Fiyat talep et
               </a>
@@ -128,7 +126,7 @@ export default async function SolutionPage({ params }: PageProps<"/cozumler/[slu
       </section>
 
       {related.length > 0 && (
-        <section aria-labelledby="ozellikler" className="border-t border-line bg-white">
+        <section aria-labelledby="ozellikler" className="bg-white">
           <div className="wrap py-16 md:py-24">
             <SectionHead id="ozellikler" eyebrow="Özellikler" title={`${s.name} içinde neler var?`} />
             <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -148,7 +146,7 @@ export default async function SolutionPage({ params }: PageProps<"/cozumler/[slu
         </section>
       )}
 
-      <section aria-labelledby="sorular" className="border-t border-line bg-paper">
+      <section aria-labelledby="sorular" className="bg-paper">
         <div className="wrap grid gap-10 py-16 md:py-24 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16">
           <div>
             <SectionHead id="sorular" eyebrow="Sık sorulanlar" title={`${s.name} hakkında`} />
@@ -171,15 +169,15 @@ export default async function SolutionPage({ params }: PageProps<"/cozumler/[slu
         </div>
       </section>
 
-      <section aria-labelledby="diger" className="border-t border-line bg-white">
+      <section aria-labelledby="diger" className="bg-white">
         <div className="wrap py-16 md:py-20">
           <SectionHead id="diger" eyebrow="Üç çözüm, tek uygulama" title="Diğer çözümler" />
           <ul className="mt-8 grid gap-4 md:grid-cols-2">
             {others.map((o) => (
               <li key={o.slug}>
                 <Link href={`/cozumler/${o.slug}`} className="group block rounded-[14px] border border-line p-6 hover:border-petrol">
-                  <span className="eyebrow text-brass-700">
-                    {o.no} · {o.kicker}
+                  <span className="eyebrow text-brand">
+                    {o.kicker}
                   </span>
                   <span className="mt-2 block text-xl font-bold group-hover:text-petrol">
                     {o.name}
