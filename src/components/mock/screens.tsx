@@ -461,6 +461,41 @@ export function AiMock({ className, dark }: { className?: string; dark?: boolean
   );
 }
 
+export function FleetMock({ className }: { className?: string }) {
+  return (
+    <MockWindow
+      title="Filo · Araçlar"
+      caption="Araç, sefer ve araç bazında gelir gider"
+      label="Filo: araçların bu ayki sefer sayısı, geliri ve gideri"
+      className={className}
+    >
+      <Panel>
+        <div className="grid grid-cols-[1fr_3rem_4.5rem_4.5rem] gap-2 border-b border-line px-3 py-2 text-[10.5px] font-semibold uppercase tracking-wide text-muted">
+          <span>Araç</span>
+          <span className="text-right">Sefer</span>
+          <span className="text-right">Gelir</span>
+          <span className="text-right">Gider</span>
+        </div>
+        {[
+          ["34 KHY 101", "Kamyon", 12, "₺186.000", "₺74.300"],
+          ["34 KHY 205", "Kamyonet", 18, "₺96.500", "₺31.800"],
+          ["06 KHY 330", "Tır", 7, "₺214.000", "₺121.600"],
+        ].map(([plate, kind, trips, inc, exp]) => (
+          <div key={plate as string} className="grid grid-cols-[1fr_3rem_4.5rem_4.5rem] items-center gap-2 border-b border-line px-3 py-2 last:border-0">
+            <span className="min-w-0">
+              <span className="block truncate font-semibold tabular-nums">{plate}</span>
+              <span className="block text-[11px] text-muted">{kind}</span>
+            </span>
+            <span className="text-right tabular-nums">{trips}</span>
+            <span className="text-right font-semibold tabular-nums text-brand">{inc}</span>
+            <span className="text-right tabular-nums text-[#b42318]">{exp}</span>
+          </div>
+        ))}
+      </Panel>
+    </MockWindow>
+  );
+}
+
 export function BranchesMock({ className }: { className?: string }) {
   return (
     <MockWindow

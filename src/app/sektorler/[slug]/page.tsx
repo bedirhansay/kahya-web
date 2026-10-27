@@ -1,4 +1,4 @@
-import { ArrowRight, X } from "lucide-react";
+import { ArrowRight, Minus, X } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -101,6 +101,34 @@ export default async function SectorPage({ params }: PageProps<"/sektorler/[slug
               );
             })}
           </ul>
+          <div className="mt-8 grid gap-5 md:grid-cols-2">
+            {s.addons && s.addons.length > 0 && (
+              <div className="rounded-[16px] border border-line p-6">
+                <p className="eyebrow text-brass-700">İşinize yarayacak ek hizmetler</p>
+                <p className="mt-3 flex flex-wrap gap-2">
+                  {s.addons.map((a) => (
+                    <span key={a} className="rounded-md border border-line bg-paper px-2.5 py-1 text-[0.95rem] font-semibold">
+                      {a}
+                    </span>
+                  ))}
+                </p>
+                <Link href="/cozumler#ek-hizmetler" className="link mt-4 inline-block text-[0.95rem]">
+                  Ek hizmetler ne yapar
+                </Link>
+              </div>
+            )}
+            <div className="rounded-[16px] border border-dashed border-line p-6">
+              <p className="eyebrow text-muted">Bu sektörde Kahya’nın yapmadıkları</p>
+              <ul className="mt-3 space-y-1.5">
+                {s.notDone.map((t) => (
+                  <li key={t} className="flex gap-2.5 text-muted">
+                    <Minus size={17} className="mt-0.5 shrink-0" aria-hidden />
+                    {t}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
           <p className="mt-6 text-sm text-muted">
             İhtiyacınız olmayan çözüm menüde görünmez. Sonradan bir diğerine ihtiyacınız olursa talep edersiniz.
           </p>

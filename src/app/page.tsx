@@ -28,7 +28,7 @@ import { SectorTabs } from "@/components/SectorTabs";
 import { SolutionPicker } from "@/components/SolutionPicker";
 import { VideoPlayer } from "@/components/VideoPlayer";
 import { generalFaq } from "@/content/faq";
-import { sectors } from "@/content/sectors";
+import { featuredSectors, sectorBySlug } from "@/content/sectors";
 import { notIncluded, solutions, trust } from "@/content/solutions";
 import { faqLd, pageMetadata, softwareLd, videoLd } from "@/lib/seo";
 import { site } from "@/lib/site";
@@ -43,6 +43,7 @@ export const metadata: Metadata = {
 };
 
 const [ofis, crm, finans] = solutions;
+const tabSectors = featuredSectors.map((slug) => sectorBySlug(slug)!);
 
 const compare = [
   ["İş kimde, ne durumda?", "Mesaj grubunda soruluyor.", "Görev sorumlusu ve durumuyla herkesin önünde."],
@@ -243,9 +244,12 @@ export default function HomePage() {
           />
           <div className="mt-10">
             <SectorTabs
-              sectors={sectors}
-              mocks={Object.fromEntries(sectors.map((s) => [s.slug, <SectorMock key={s.slug} kind={s.mock} />]))}
+              sectors={tabSectors}
+              mocks={Object.fromEntries(tabSectors.map((s) => [s.slug, <SectorMock key={s.slug} kind={s.mock} />]))}
             />
+            <Link href="/sektorler" className="link mt-6 inline-flex items-center gap-1.5">
+              Tüm sektörler <ArrowRight size={15} aria-hidden />
+            </Link>
           </div>
         </div>
       </section>

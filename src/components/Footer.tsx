@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { features } from "@/content/features";
-import { sectors } from "@/content/sectors";
+import { featuredSectors, sectors } from "@/content/sectors";
 import { solutions } from "@/content/solutions";
 import { site } from "@/lib/site";
 
@@ -17,7 +17,10 @@ const columns = [
   },
   {
     title: "Sektörler",
-    links: sectors.map((s) => ({ href: `/sektorler/${s.slug}`, label: s.name })),
+    links: [
+      ...featuredSectors.map((slug) => ({ href: `/sektorler/${slug}`, label: sectors.find((s) => s.slug === slug)!.name })),
+      { href: "/sektorler", label: "Tüm sektörler" },
+    ],
   },
   {
     title: "Özellikler",
