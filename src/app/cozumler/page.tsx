@@ -35,20 +35,34 @@ export default function SolutionsPage() {
           <ol className="grid gap-px overflow-hidden rounded-[var(--radius-frame)] border border-line bg-line lg:grid-cols-3">
             {solutions.map((s) => (
               <li key={s.slug} id={s.slug} className="flex scroll-mt-24 flex-col bg-white p-6 md:p-8">
-                <h2 className="text-xl font-semibold">{s.name}</h2>
-                {s.subtitle && <p className="text-sm font-medium text-petrol">{s.subtitle}</p>}
-                <p className="mt-2 text-muted">{s.question}</p>
+                <p className="eyebrow text-brass-700">
+                  {s.no} · {s.kicker}
+                </p>
+                <h2 className="mt-3 text-2xl font-bold tracking-[-0.02em]">
+                  <Link href={`/cozumler/${s.slug}`} className="hover:text-petrol">
+                    {s.name}
+                  </Link>
+                </h2>
+                {s.subtitle && <p className="text-sm font-medium text-muted">{s.subtitle}</p>}
+                <p className="mt-2 text-muted">{s.summary}</p>
                 <ul className="mt-6 flex-1 space-y-2.5">
                   {s.points.map((p) => (
-                    <li key={p} className="flex gap-3 text-[0.97rem]">
+                    <li key={p.term} className="flex gap-3 text-[0.97rem]">
                       <Check size={18} className="mt-0.5 shrink-0 text-petrol" aria-hidden />
-                      {p}
+                      <span>
+                        <strong className="font-semibold">{p.term}:</strong> <span className="text-muted">{p.text}</span>
+                      </span>
                     </li>
                   ))}
                 </ul>
-                <a href={quote(s.name)} className="btn btn-petrol mt-8 w-full">
-                  Fiyat talep et
-                </a>
+                <div className="mt-8 grid gap-2">
+                  <Link href={`/cozumler/${s.slug}`} className="btn btn-line w-full">
+                    Ayrıntılar
+                  </Link>
+                  <a href={quote(s.name)} className="btn btn-petrol w-full">
+                    Fiyat talep et
+                  </a>
+                </div>
               </li>
             ))}
           </ol>

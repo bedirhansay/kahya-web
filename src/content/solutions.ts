@@ -1,95 +1,191 @@
 /**
- * The three solutions Kahya is sold as, and the add-ons on top. Only what the app does today:
- * no cash/bank accounts, e-invoice, SMS, pipeline, online payment or third-party integrations.
+ * The three solutions Kahya is sold as, and the add-ons on top. Wording follows the campaign
+ * deck (promo-video/out/13-sunum-pdf). Only what the app does today: no cash/bank accounts,
+ * e-invoice, SMS, pipeline, online payment or third-party integrations.
  */
+export type Point = { term: string; text: string };
+
 export type Solution = {
-  slug: string;
+  slug: "ofis-yonetimi" | "crm" | "finans-cari";
+  no: string;
+  kicker: string;
   name: string;
   /** Second line under the name, as the app shows it. */
   subtitle?: string;
-  question: string;
-  body: string;
-  points: string[];
-  screen: { src: string; alt: string };
-  links: { href: string; label: string }[];
+  /** One line for cards and menus. */
+  summary: string;
+  title: string;
+  lead: string;
+  points: Point[];
+  /** Search-facing page title and h1 for /cozumler/[slug]. */
+  seo: { title: string; h1: string; description: string };
+  more: { title: string; lead: string; points: Point[] };
+  features: string[];
+  faq: { q: string; a: string }[];
 };
 
 export const solutions: Solution[] = [
   {
     slug: "ofis-yonetimi",
+    no: "01",
+    kicker: "Ekip ve işleyiş",
     name: "Ofis Yönetimi",
-    question: "Ekip bugün ne yaptı, kim izinde, onay kimde bekliyor?",
-    body: "Görevi kişiye ya da takıma verirsiniz, durumunu herkes aynı yerden görür. Çalışan izin ve avans talebini telefondan gönderir, siz bekleyenleri tek listede onaylarsınız.",
+    summary: "Ekip, görev, izin, onay, takvim, belgeler ve talepler.",
+    title: "Ekibiniz bugün ne yaptı?",
+    lead: "Kimseyi aramadan görün: kim kaç iş bitirdi, nerede gecikme var, hangi onay kimde bekliyor.",
     points: [
-      "Görevler, takımlar ve takvim",
-      "Personel kartları, izin ve devam takibi",
-      "Avans, masraf ve satın alma talepleri, onayınızı bekleyenler tek listede",
-      "Projeler, dokümanlar, sözleşmeler ve demirbaşlar",
-      "Duyurular, personel özeti ve onay süresi raporları",
+      { term: "Görev Özeti", text: "kişi bazında biten, geciken ve açık işler tek raporda." },
+      { term: "Onay süreleri", text: "hangi onay ne kadar sürdü, kimde takıldı." },
+      { term: "Ana Sayfa · Ekip bugün", text: "kim izinde, ne zaman dönüyor." },
     ],
-    screen: { src: "/screens/talepler.webp", alt: "Kahya talepler ekranı: onay bekleyen izin ve avans talepleri" },
-    links: [
-      { href: "/ozellikler/gorev-takibi", label: "Görevler" },
-      { href: "/ozellikler/personel-ve-izin", label: "Personel ve izin" },
-      { href: "/ozellikler/talep-ve-onay", label: "Talepler ve onaylar" },
-      { href: "/ozellikler/proje-yonetimi", label: "Projeler" },
-      { href: "/ozellikler/dokuman-ve-sozlesme", label: "Dokümanlar" },
+    seo: {
+      title: "Ofis Yönetim Programı: Görev, Personel, İzin ve Onay Takibi",
+      h1: "Ofis yönetim programı: görev, izin ve onaylar tek yerde",
+      description:
+        "Kahya Ofis Yönetimi ile görevleri kişiye ya da takıma verin, izin ve avans taleplerini telefondan alın, onayları tek listeden verin. Görev Özeti ve onay süreleri raporlarıyla ekibin durumunu görün.",
+    },
+    more: {
+      title: "Bütün ekip içeride",
+      lead: "Kahya yalnız yöneticinin değil, bütün ekibin aracı. Herkes kendi işini kendi ekranından yürütür.",
+      points: [
+        { term: "İzin", text: "personel telefondan ister, yönetici tek dokunuşla onaylar." },
+        { term: "E-posta → görev", text: "gelen e-posta göreve dönüşür. Sorumlusu, projesi ve bitiş tarihiyle." },
+        { term: "Talepler ve duyurular", text: "masraf talebi, onay akışı ve ekip duyurusu tek yerde." },
+      ],
+    },
+    features: ["gorev-takibi", "personel-ve-izin", "talep-ve-onay", "proje-yonetimi", "dokuman-ve-sozlesme"],
+    faq: [
+      {
+        q: "Çalışanlarım Kahya’yı kullanmak için ayrı bir uygulama indirmeli mi?",
+        a: "Hayır. Kahya tarayıcıda çalışır. Çalışan telefonundan açıp ana ekrana ekler, izin talebini oradan gönderir.",
+      },
+      {
+        q: "Bir görevi kişiye değil takıma verebilir miyim?",
+        a: "Evet. Sorumluyu boş bırakıp görevi takıma verirsiniz. İş takımın listesine düşer, uygun olan Üstlen ile alır ve ekip görür.",
+      },
+      {
+        q: "Onay kimde bekliyor, nasıl görürüm?",
+        a: "Talepler sayfasındaki Onayımı bekleyenler sekmesinde. Onay süreleri raporu da hangi talebin ne kadar beklediğini gösterir.",
+      },
+      {
+        q: "Hangi talepleri yönetebilirim?",
+        a: "İzin, avans, masraf ve satın alma talepleri hazır gelir. Kendi formunuzu ve onaylayıcılarını da tanımlayabilirsiniz.",
+      },
     ],
   },
   {
-    slug: "musteri-iliskileri",
+    slug: "crm",
+    no: "02",
+    kicker: "Müşteri ve görüşme",
     name: "CRM",
     subtitle: "Müşteri İlişkileri",
-    question: "Hangi müşteriyle ne konuşuldu, bir sonraki arama ne zaman?",
-    body: "Her görüşmeyi müşterinin kartına not edersiniz ve bir takip günü yazarsınız. Kimi ne zaman arayacağınız kâğıtta ya da akılda kalmaz.",
+    summary: "Müşteri görüşmeleri ve takip günleri. Teklif ek hizmet.",
+    title: "Her görüşme kayıtta",
+    lead: "Müşteriyle ne konuşuldu, sırada ne var? Ekipten kim bakarsa baksın aynı bilgiyi görür.",
     points: [
-      "Müşteri kartı ve görüşme geçmişi",
-      "Her müşteri için takip günü",
-      "Teklif ek hizmetiyle kendi antetli teklifiniz",
+      { term: "Görüşme kaydı", text: "müşteri kartında, kişisi ve notuyla." },
+      { term: "Takip günü", text: "takip günü gelen görüşmeler listede önünüze çıkar." },
+      { term: "Ana Sayfa · Son görüşmeler", text: "kimle en son ne konuşuldu, tek listede." },
     ],
-    screen: { src: "/screens/cari.webp", alt: "Kahya müşteri kartı: iletişim bilgileri ve hareketler" },
-    links: [{ href: "/ozellikler/cari-takibi", label: "Müşteri kartı" }],
+    seo: {
+      title: "CRM Programı: Müşteri Görüşme ve Takip Programı",
+      h1: "CRM programı: her müşteri görüşmesi kayıtta, takip günü unutulmaz",
+      description:
+        "Kahya CRM ile müşteri görüşmelerini kişisi ve notuyla kaydedin, takip günü yazın, takibi gelenler listede önünüze çıksın. Teklif ek hizmetiyle kendi antetli teklifinizi hazırlayın.",
+    },
+    more: {
+      title: "Müşteri bilgisi bir kişinin aklında kalmaz",
+      lead: "Görüşmeyi kim yaptıysa müşteri kartına yazar. Ertesi gün telefonu başka biri açsa da konu kaldığı yerden devam eder.",
+      points: [
+        { term: "Müşteri kartı", text: "iletişim bilgileri, kişiler, notlar ve görüşme geçmişi aynı yerde." },
+        { term: "Teklif", text: "kendi antetinizle hazırlayın, müşteri linkten açıp kabul etsin. Ek hizmet." },
+        { term: "E-posta", text: "müşterinin e-postaları kartında görünür. Ek hizmet." },
+      ],
+    },
+    features: ["cari-takibi", "e-posta"],
+    faq: [
+      {
+        q: "Kahya’nın CRM’i satış hunisi (pipeline) içeriyor mu?",
+        a: "Hayır. Kahya’nın CRM çözümü müşteri kartı, görüşme kaydı ve takip günü üzerine kuruludur. Fırsat ve satış hunisi yönetimi yoktur.",
+      },
+      {
+        q: "Takip günü gelen müşteriyi nasıl görürüm?",
+        a: "Görüşmeye takip günü yazarsınız. O gün geldiğinde görüşme Son görüşmeler listesinde önünüze çıkar.",
+      },
+      {
+        q: "Teklif hazırlayabilir miyim?",
+        a: "Evet, Teklif ek hizmetiyle. Kendi antetinizle teklif hazırlarsınız, müşteri linkten açıp kabul eder, kabul edilen teklif satışa dönüşür.",
+      },
+    ],
   },
   {
     slug: "finans-cari",
+    no: "03",
+    kicker: "Ön muhasebe",
     name: "Finans & Cari",
-    question: "Kim kime ne kadar borçlu, hangi taksit ne zaman?",
-    body: "Müşteri ve tedarikçi carilerini, tahsilat ve ödemeleri tutarsınız. Taksitli işlerde ödeme planı kurarsınız, vadesi gelen ödeme ana sayfada önünüze çıkar. Ay sonunda mali müşavirinize tek dosya gönderirsiniz.",
+    summary: "Cari hesaplar, tahsilat ve ödemeler, taksit planları, alacak raporları.",
+    title: "Kim kime borçlu, tek bakışta",
+    lead: "Ön muhasebe: cari hesaplarınız, tahsilat ve ödemeleriniz, vadeleriniz tek yerde.",
     points: [
-      "Müşteri, tedarikçi ve personel carileri",
-      "Tahsilat, ödeme ve yürüyen bakiye",
-      "Taksit ve ödeme planları",
-      "Alacak ve borç raporları",
-      "Gelir ve gider kaydıyla ön muhasebe",
+      { term: "Cari", text: "bakiye ve hesap ekstresi her müşteri ve tedarikçide." },
+      { term: "Tahsilat", text: "anında kayıtta, bakiyeye hemen yansır." },
+      { term: "Taksit", text: "ödeme planıyla vadeler takipte." },
+      { term: "Ana Sayfa", text: "para kartları ve vadesi geçenler." },
     ],
-    screen: { src: "/screens/home.webp", alt: "Kahya ana sayfa: aylık gelir, gider ve vadesi gelen ödemeler" },
-    links: [
-      { href: "/ozellikler/cari-takibi", label: "Cari takibi" },
-      { href: "/ozellikler/odeme-planlari", label: "Ödeme planları" },
-      { href: "/ozellikler/raporlar", label: "Raporlar" },
+    seo: {
+      title: "Cari Hesap Takip Programı: Tahsilat, Taksit ve Alacak Takibi",
+      h1: "Cari hesap takip programı: kim kime borçlu, tek bakışta",
+      description:
+        "Kahya Finans & Cari ile müşteri ve tedarikçi carilerini, tahsilat ve ödemeleri, taksitli ödeme planlarını takip edin. Alacak ve borç raporlarını alın, ekstreyi paylaşın, ay sonunda mali müşavirinize tek dosya gönderin.",
+    },
+    more: {
+      title: "Vade gelmeden önünüzde",
+      lead: "Taksitli anlaşmayı bir kez kurarsınız, taksitler tek seferde oluşur. Vadesi gelen ödeme Ana Sayfa’ya düşer.",
+      points: [
+        { term: "Ödeme planları", text: "taksit, kira ve aidat vadesinde hatırlatılır." },
+        { term: "Ekstre", text: "WhatsApp, e-posta, link, PDF ya da Excel olarak paylaşılır." },
+        { term: "Mali Müşavir Paketi", text: "ayın hareketleri ve ekstreler tek dosyada." },
+      ],
+    },
+    features: ["cari-takibi", "odeme-planlari", "raporlar"],
+    faq: [
+      {
+        q: "Kahya fatura keser mi, kasa ve banka tutar mı?",
+        a: "Hayır. Kahya’da finans, cari bakiye takibidir: kimden alacaklı, kime borçlu olduğunuz. Fatura, e-Fatura, kasa ve banka hesabı yoktur.",
+      },
+      {
+        q: "Muhasebe programımın yerine geçer mi?",
+        a: "Hayır. Kahya ön muhasebe tarafını tutar. Resmî kayıtlar için ayın hareketlerini Mali Müşavir Paketi ile tek dosyada mali müşavirinize gönderirsiniz.",
+      },
+      {
+        q: "Eski carilerimi ve açılış bakiyelerimi aktarabilir miyim?",
+        a: "Evet. Müşteri, tedarikçi ve açılış bakiyelerini Excel şablonuyla içe aktarırsınız. Yüklemeden önce önizleme ve hata kontrolü yapılır.",
+      },
     ],
   },
 ];
+
+export const solutionBySlug = (slug: string) => solutions.find((s) => s.slug === slug);
 
 export type Extra = { name: string; body: string; href?: string };
 
 export const extras: Extra[] = [
   {
     name: "E-posta",
-    body: "Firmanın e-posta kutusu Kahya’nın içinde. Gelen e-postayı müşterinin kartına bağlar ya da göreve çevirirsiniz.",
+    body: "Kurumsal e-posta adresinizi bağlayın. Her e-posta kendi carisiyle eşleşir, yeni firma tek tıkla cari olur.",
     href: "/ozellikler/e-posta",
   },
   {
     name: "Stok",
-    body: "Ürün ve depo kartları, giriş ve çıkış hareketleri. Satış girdiğinizde stok kendiliğinden düşer.",
+    body: "Depolar tek listede. Kritik seviyeye ineni Kahya işaretler, satışta seçilen ürün stoktan düşer.",
   },
   {
     name: "Teklif",
-    body: "Kendi antetinizle teklif hazırlarsınız. Müşteri linkten açıp kabul eder, kabul edilen teklif tek tıkla satışa döner.",
+    body: "Kendi antetinizle teklif hazırlarsınız. Müşteri linkten açıp kabul eder, kabul edilen teklif satışa döner.",
   },
   {
     name: "Kahya AI",
-    body: "Kayıtlarınıza bakarak soruları yanıtlar, görev ve tahsilat taslağı hazırlar. Siz onaylamadan hiçbir şey kaydedilmez.",
+    body: "Sorun, Kahya kendi verinizden yanıtlasın. Görev ve kayıt taslağı hazırlar, siz onaylamadan hiçbir şey kaydedilmez.",
     href: "/ozellikler/kahya-ai",
   },
   {
@@ -119,6 +215,16 @@ export const notIncluded = [
   "Fatura, e-Fatura ve resmî muhasebe kaydı",
   "Kasa ve banka hesabı",
   "SMS gönderimi",
+  "Satış hunisi ve fırsat yönetimi",
   "Online ödeme ve kartla satın alma",
   "Başka programlarla entegrasyon",
+];
+
+/** Facts we can stand behind. Nothing here is a certificate or a legal claim. */
+export const trust = [
+  { term: "Verileriniz Türkiye’de", text: "Kayıtlarınız Türkiye’deki sunucularda tutulur." },
+  { term: "Rol ve yetki", text: "Kim neyi görür, neyi değiştirir, neyi onaylar, modül modül siz belirlersiniz." },
+  { term: "Silinenler", text: "Silinen kayıt 30 gün Silinenler sayfasında bekler, Geri yükle ile döner." },
+  { term: "Destek erişimi", text: "Destek ekibi hesabınıza yalnız siz izin verirseniz girer, giriş kayıt altına alınır." },
+  { term: "Günlük yedek", text: "Veriler her gün yedeklenir." },
 ];

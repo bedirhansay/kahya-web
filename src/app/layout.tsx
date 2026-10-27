@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
 
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -9,9 +9,17 @@ import { site } from "@/lib/site";
 
 import "./globals.css";
 
-const inter = Inter({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin", "latin-ext"],
-  variable: "--font-inter",
+  variable: "--font-jakarta",
+  display: "swap",
+});
+
+// Small spaced labels ("01 · OFİS YÖNETİMİ"), as in the campaign deck.
+const mono = JetBrains_Mono({
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-jbmono",
+  weight: ["500"],
   display: "swap",
 });
 
@@ -47,14 +55,14 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f9fbfa",
+  themeColor: "#061b19",
   width: "device-width",
   initialScale: 1,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="tr" className={inter.variable}>
+    <html lang="tr" className={`${jakarta.variable} ${mono.variable}`}>
       <body className="flex min-h-dvh flex-col">
         <JsonLd data={[organizationLd(), websiteLd()]} />
         <Header />

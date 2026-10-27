@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 /*
- * Kahya palette, taken from the logo and the app shell:
- * pine/petrol = the app sidebar, brass = the logo's raised arm,
- * sage/mint = the logo's leg, mist = a cool, green-leaning paper.
+ * Kahya palette, as in the logo, the app and the campaign deck:
+ * pine/petrol = dark bands and the app's brand green, brass = the logo's raised arm,
+ * sage/mint = the logo's leg, paper = the deck's warm cream.
  */
 @theme {
   --color-pine-950: #061b19;
@@ -13,25 +13,29 @@
   --color-petrol-600: #14625b;
   --color-sage: #6fa58d;
   --color-mint: #bfdac8;
-  --color-mist: #eef3f0;
-  --color-paper: #f9fbfa;
+  --color-mist: #efebe2;
+  --color-paper: #f8f5ef;
   --color-ink: #10201e;
   --color-muted: #4b5f5b;
-  --color-line: #d8e3de;
+  --color-line: #e2ddd2;
   --color-brass: #e3b261;
   --color-brass-300: #f0cf94;
   --color-brass-700: #8a6420;
+  --color-brand: #1d6f66;
+  --color-brand-50: #ebf6f4;
+  --color-brand-100: #d2ebe7;
 
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jbmono), ui-monospace, monospace;
 
-  --text-display: clamp(2.3rem, 1.6rem + 3vw, 4rem);
-  --text-display--line-height: 1.08;
-  --text-title: clamp(1.75rem, 1.35rem + 1.6vw, 2.6rem);
-  --text-title--line-height: 1.15;
+  --text-display: clamp(2.5rem, 1.6rem + 3.8vw, 4.6rem);
+  --text-display--line-height: 1.04;
+  --text-title: clamp(1.9rem, 1.4rem + 1.9vw, 3rem);
+  --text-title--line-height: 1.1;
   --text-lead: clamp(1.05rem, 1rem + 0.25vw, 1.2rem);
   --text-lead--line-height: 1.6;
 
-  --radius-frame: 10px;
+  --radius-frame: 12px;
 
   --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -81,15 +85,15 @@ body {
   .display {
     font-size: var(--text-display);
     line-height: var(--text-display--line-height);
-    font-weight: 650;
-    letter-spacing: -0.025em;
+    font-weight: 700;
+    letter-spacing: -0.035em;
     text-wrap: balance;
   }
   .title {
     font-size: var(--text-title);
     line-height: var(--text-title--line-height);
-    font-weight: 650;
-    letter-spacing: -0.02em;
+    font-weight: 700;
+    letter-spacing: -0.03em;
     text-wrap: balance;
   }
   .lead {
@@ -143,6 +147,54 @@ body {
     border-color: var(--color-petrol);
   }
 
+  /* Spaced mono label above headings: "01 · OFİS YÖNETİMİ" */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  /* "EK HİZMET" tag */
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid color-mix(in oklab, var(--color-brass) 70%, transparent);
+    border-radius: 5px;
+    padding: 0.05rem 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-brass-700);
+    background: color-mix(in oklab, var(--color-brass) 12%, transparent);
+    vertical-align: middle;
+  }
+  .tag-dark {
+    color: var(--color-brass-300);
+    background: color-mix(in oklab, var(--color-brass) 10%, transparent);
+  }
+  /* Brass to sage, the deck's accent on the second line of a headline */
+  .accent {
+    background: linear-gradient(90deg, var(--color-brass), var(--color-sage));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  /* Dark bands: pine with a soft green light from below, as in the deck */
+  .band-dark {
+    background:
+      radial-gradient(60% 55% at 50% 110%, rgb(29 111 102 / 0.45), transparent 70%),
+      var(--color-pine-950);
+    color: #fff;
+  }
+  .card-dark {
+    border: 1px solid rgb(255 255 255 / 0.12);
+    background: linear-gradient(180deg, rgb(15 76 71 / 0.55), rgb(10 43 40 / 0.35));
+    border-radius: 14px;
+  }
+
   /* Text links inside running copy */
   .link {
     color: var(--color-petrol);
@@ -160,7 +212,7 @@ body {
     border-radius: var(--radius-frame);
     background: #fff;
     border: 1px solid var(--color-line);
-    box-shadow: 0 1px 2px rgb(16 32 30 / 0.04);
+    box-shadow: 0 24px 50px -30px rgb(6 27 25 / 0.35);
     overflow: hidden;
   }
   .frame-dark {

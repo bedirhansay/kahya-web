@@ -1,6 +1,7 @@
 import { features } from "@/content/features";
 import { tutorials } from "@/content/tutorials";
 import { absoluteUrl } from "@/lib/seo";
+import { sectors } from "@/content/sectors";
 import { extras, notIncluded, services, solutions } from "@/content/solutions";
 import { site } from "@/lib/site";
 
@@ -17,10 +18,13 @@ export function GET() {
     ...features.map((f) => `- [${f.name}](${absoluteUrl(`/ozellikler/${f.slug}`)}): ${f.metaDescription}`),
     "",
     "## Çözümler",
-    ...solutions.map((x) => `- ${x.name}${x.subtitle ? ` (${x.subtitle})` : ""}: ${x.points.join(", ")}`),
+    ...solutions.map((x) => `- [${x.name}${x.subtitle ? ` (${x.subtitle})` : ""}](${absoluteUrl(`/cozumler/${x.slug}`)}): ${x.summary}`),
     "",
     "## Ek hizmetler",
     ...extras.map((x) => `- ${x.name}: ${x.body}`),
+    "",
+    "## Sektörler",
+    ...sectors.map((x) => `- [${x.name}](${absoluteUrl(`/sektorler/${x.slug}`)})`),
     "",
     "## Hizmetler",
     ...services.map((x) => `- ${x.name}: ${x.body}`),

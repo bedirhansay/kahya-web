@@ -50,7 +50,7 @@ export function VideoPlayer({ src, poster, title, duration, captions, aspect = "
           type="button"
           onClick={() => setPlaying(true)}
           className="group absolute inset-0 size-full text-left"
-          aria-label={`${title} videosunu oynat${duration ? `, ${duration}` : ""}`}
+          aria-label={`${title}${duration ? ` ${duration}` : ""} oynat`}
         >
           <Img
             src={poster}

@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 
 import { features } from "@/content/features";
+import { sectors } from "@/content/sectors";
+import { solutions } from "@/content/solutions";
 import { tutorials } from "@/content/tutorials";
 import { absoluteUrl } from "@/lib/seo";
 
@@ -15,12 +17,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...extra,
   });
   return [
-    page("/", 1, {
-      images: ["home", "mail", "cari", "project", "ai", "brief"].map((n) => absoluteUrl(`/screens/${n}.webp`)),
-    }),
+    page("/", 1),
     page("/ozellikler", 0.9),
     ...features.map((f) => page(`/ozellikler/${f.slug}`, 0.8, { images: [absoluteUrl(f.screen.src)] })),
     page("/cozumler", 0.9),
+    ...solutions.map((s) => page(`/cozumler/${s.slug}`, 0.9)),
+    page("/sektorler", 0.7),
+    ...sectors.map((s) => page(`/sektorler/${s.slug}`, 0.7)),
     page("/tanitim-filmi", 0.6, {
       videos: [
         {

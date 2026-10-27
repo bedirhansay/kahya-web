@@ -1,6 +1,7 @@
+import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 
-import { features } from "@/content/features";
+import { cn } from "@/lib/cn";
 import { site } from "@/lib/site";
 
 import { HeaderShell } from "./HeaderShell";
@@ -18,40 +19,43 @@ export function Header() {
         İçeriğe geç
       </a>
       <div className="wrap flex h-16 items-center gap-8">
-        <Logo tone="dark" />
+        <Logo />
         <nav aria-label="Ana menü" className="hidden lg:block">
-          <ul className="flex items-center gap-1 text-[0.94rem] font-medium text-muted">
-            <li className="group relative">
-              <Link href="/ozellikler" className="rounded-md px-3 py-2 hover:text-ink">
-                Özellikler
-              </Link>
-              <div className="invisible absolute left-0 top-full pt-2 group-focus-within:visible group-hover:visible">
-                <ul className="grid w-[34rem] grid-cols-2 gap-x-2 rounded-lg border border-line bg-white p-2 shadow-lg">
-                  {features.map((f) => (
-                    <li key={f.slug}>
-                      <Link href={`/ozellikler/${f.slug}`} className="block rounded-lg px-3 py-2.5 hover:bg-mist">
-                        <span className="block text-[0.92rem] font-semibold text-ink">{f.name}</span>
-                        <span className="block text-[0.8rem] text-muted">{f.summary}</span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </li>
-            {mainNav.slice(1).map((item) => (
-              <li key={item.href}>
-                <Link href={item.href} className="rounded-md px-3 py-2 hover:text-ink">
+          <ul className="flex items-center gap-1 text-[0.94rem] font-medium text-white/75">
+            {mainNav.map((item) => (
+              <li key={item.href} className="group relative">
+                <Link href={item.href} className="inline-flex items-center gap-1 rounded-md px-3 py-2 hover:text-white">
                   {item.label}
+                  {item.children && <ChevronDown size={14} aria-hidden className="opacity-60" />}
                 </Link>
+                {item.children && (
+                  <div className="invisible absolute left-0 top-full pt-2 group-focus-within:visible group-hover:visible">
+                    <ul
+                      className={cn(
+                        "grid gap-x-2 rounded-xl border border-line bg-white p-2 shadow-xl",
+                        item.children.length > 6 ? "w-[34rem] grid-cols-2" : "w-[22rem]",
+                      )}
+                    >
+                      {item.children.map((c) => (
+                        <li key={c.href + c.label}>
+                          <Link href={c.href} className="block rounded-lg px-3 py-2.5 hover:bg-mist">
+                            <span className="block text-[0.92rem] font-semibold text-ink">{c.label}</span>
+                            {c.hint && <span className="block text-[0.8rem] text-muted">{c.hint}</span>}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </li>
             ))}
           </ul>
         </nav>
         <div className="ml-auto hidden items-center gap-2 sm:flex">
-          <a href={site.app.login} className="btn px-3 text-muted hover:text-ink">
+          <a href={site.app.login} className="btn px-3 text-white/80 hover:text-white">
             Giriş yap
           </a>
-          <a href={site.app.register} className="btn btn-petrol">
+          <a href={site.app.register} className="btn btn-brass">
             Hemen başla
           </a>
         </div>

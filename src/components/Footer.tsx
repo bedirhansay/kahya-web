@@ -1,20 +1,32 @@
 import Link from "next/link";
 
 import { features } from "@/content/features";
+import { sectors } from "@/content/sectors";
+import { solutions } from "@/content/solutions";
 import { site } from "@/lib/site";
 
 import { Logo } from "./Logo";
 
 const columns = [
   {
+    title: "Çözümler",
+    links: [
+      ...solutions.map((s) => ({ href: `/cozumler/${s.slug}`, label: s.name })),
+      { href: "/cozumler", label: "Ek hizmetler ve hizmetler" },
+    ],
+  },
+  {
+    title: "Sektörler",
+    links: sectors.map((s) => ({ href: `/sektorler/${s.slug}`, label: s.name })),
+  },
+  {
     title: "Özellikler",
-    links: features.slice(0, 7).map((f) => ({ href: `/ozellikler/${f.slug}`, label: f.name })),
+    links: features.slice(0, 6).map((f) => ({ href: `/ozellikler/${f.slug}`, label: f.name })),
   },
   {
     title: "Kahya",
     links: [
       { href: "/ozellikler/kahya-ai", label: "Kahya AI" },
-      { href: "/cozumler", label: "Çözümler" },
       { href: "/tanitim-filmi", label: "Tanıtım filmi" },
       { href: "/egitim", label: "Eğitim videoları" },
       { href: "/sss", label: "Sık sorulanlar" },
@@ -35,11 +47,11 @@ const columns = [
 export function Footer() {
   return (
     <footer className="bg-pine-950 text-white/70">
-      <div className="wrap grid gap-12 py-16 md:grid-cols-[1.3fr_repeat(3,1fr)]">
+      <div className="wrap grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-[1.3fr_repeat(5,1fr)]">
         <div className="max-w-xs">
           <Logo />
           <p className="mt-5 text-[0.95rem] leading-relaxed">
-            Ofis yönetim yazılımı. Cari, görevler, e-posta, personel ve onaylar tek yerde.
+            İşletmenizin yönetim merkezi. Ekip, müşteri ve cari tek uygulamada.
           </p>
           <p className="mt-5 text-sm">
             <a href={`mailto:${site.email}`} className="font-semibold text-white hover:text-brass">
