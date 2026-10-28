@@ -235,13 +235,13 @@ export function AppStage() {
               onClick={() => toggle(c.key)}
               className={cn(
                 "flex items-center gap-3 rounded-xl border px-4 py-3 text-left transition-colors",
-                on[c.key] ? "border-petrol bg-white shadow-[0_1px_0_rgb(6_27_25/0.04)]" : "border-line bg-transparent hover:border-petrol/50",
+                on[c.key] ? "border-brass/60 bg-surface" : "border-line bg-transparent hover:border-mint/40",
               )}
             >
               <span
                 className={cn(
                   "grid size-5 shrink-0 place-items-center rounded-md border transition-colors",
-                  on[c.key] ? "border-petrol bg-petrol text-white" : "border-ink/25 bg-white",
+                  on[c.key] ? "border-brass bg-brass text-pine-950" : "border-ink/30 bg-transparent",
                 )}
               >
                 {on[c.key] && <Check size={13} strokeWidth={3} aria-hidden />}
@@ -258,7 +258,7 @@ export function AppStage() {
       <div
         role="img"
         aria-label={`Kahya ana sayfası. Seçili çözümler: ${picked.join(", ")}. Menü ve kartlar seçime göre değişir.`}
-        className="mt-5 overflow-hidden rounded-2xl border border-ink/10 bg-[#f6f8f7] text-ink shadow-[0_40px_80px_-40px_rgb(6_27_25/0.45)]"
+        className="ui mt-5 overflow-hidden rounded-2xl border border-white/10 bg-[#f6f8f7] text-ink shadow-[0_0_0_1px_rgb(255_255_255/0.05),0_60px_120px_-40px_rgb(0_0_0/0.8)]"
       >
         <div aria-hidden className="flex min-h-[30rem]">
           {/* The app's rail */}

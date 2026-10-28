@@ -77,7 +77,7 @@ export default async function SectorPage({ params }: PageProps<"/sektorler/[slug
         </div>
       </section>
 
-      <section aria-labelledby="kahya-ile" className="bg-white">
+      <section aria-labelledby="kahya-ile">
         <div className="wrap py-16 md:py-24">
           <SectionHead id="kahya-ile" eyebrow="Kahya ile" title={`${s.name} Kahya’yı nasıl kullanır?`} />
           <ul className="mt-10 grid gap-5 lg:grid-cols-3">

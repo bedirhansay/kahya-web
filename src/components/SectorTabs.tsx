@@ -29,7 +29,7 @@ export function SectorTabs({ sectors, mocks }: { sectors: Sector[]; mocks: Recor
             onClick={() => setActive(x.slug)}
             className={cn(
               "shrink-0 rounded-lg border px-4 py-2 text-[0.95rem] font-semibold transition-colors",
-              x.slug === active ? "border-petrol bg-petrol text-white" : "border-line bg-white text-ink hover:border-petrol",
+              x.slug === active ? "border-brass bg-brass text-pine-950" : "border-line bg-surface text-ink hover:border-mint/50",
             )}
           >
             {x.tab}
@@ -40,7 +40,7 @@ export function SectorTabs({ sectors, mocks }: { sectors: Sector[]; mocks: Recor
         role="tabpanel"
         id={`panel-${s.slug}`}
         aria-labelledby={`tab-${s.slug}`}
-        className="mt-6 grid gap-8 rounded-[16px] border border-line bg-white p-5 md:p-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-center"
+        className="mt-6 grid gap-8 rounded-[16px] border border-line bg-surface p-5 md:p-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-center"
       >
         <div>
           <h3 className="text-2xl font-bold tracking-[-0.02em]">{s.name}</h3>

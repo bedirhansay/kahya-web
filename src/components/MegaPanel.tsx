@@ -11,7 +11,7 @@ export function MegaPanel({ menu }: { menu: MegaMenu }) {
   return (
     <div
       className={cn(
-        "invisible absolute inset-x-0 top-full -translate-y-1 border-t border-line bg-white text-ink opacity-0 shadow-[0_24px_48px_-16px_rgb(6_27_25/0.35)]",
+        "invisible absolute inset-x-0 top-full -translate-y-1 border-t border-line bg-surface text-ink opacity-0 shadow-[0_24px_48px_-16px_rgb(6_27_25/0.35)]",
         "transition duration-200 ease-out-quint group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100",
       )}
     >
@@ -62,7 +62,7 @@ function Row({ item }: { item: NavLink }) {
   return (
     <Link href={item.href} className="group/r flex items-start gap-3 rounded-lg p-2 -mx-2 transition hover:bg-mist">
       {Icon && (
-        <span className="grid size-9 shrink-0 place-items-center rounded-lg border border-line bg-white text-brand transition group-hover/r:border-brand group-hover/r:bg-brand group-hover/r:text-white">
+        <span className="grid size-9 shrink-0 place-items-center rounded-lg border border-line bg-surface text-brand transition group-hover/r:border-brand group-hover/r:bg-brand group-hover/r:text-pine-950">
           <Icon size={17} aria-hidden />
         </span>
       )}
@@ -79,11 +79,11 @@ function Card({ item }: { item: NavLink }) {
   return (
     <Link
       href={item.href}
-      className="group/c flex h-full flex-col rounded-xl border border-line bg-white p-4 transition hover:-translate-y-0.5 hover:border-brand hover:shadow-md"
+      className="group/c flex h-full flex-col rounded-xl border border-line bg-surface p-4 transition hover:-translate-y-0.5 hover:border-brand hover:shadow-md"
     >
       <span className="flex items-center justify-between">
         {Icon && (
-          <span className="grid size-10 place-items-center rounded-lg bg-brand-50 text-brand transition group-hover/c:bg-brand group-hover/c:text-white">
+          <span className="grid size-10 place-items-center rounded-lg bg-brand-50 text-brand transition group-hover/c:bg-brand group-hover/c:text-pine-950">
             <Icon size={19} aria-hidden />
           </span>
         )}

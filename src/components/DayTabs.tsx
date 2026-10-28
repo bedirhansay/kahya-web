@@ -41,10 +41,10 @@ export function DayTabs({ moments }: { moments: DayMoment[] }) {
                 on ? "bg-mist" : "hover:bg-mist/60",
               )}
             >
-              <span className={cn("w-12 shrink-0 pt-0.5 text-right text-[0.9rem] font-semibold tabular-nums", on ? "text-brand" : "text-muted")}>
+              <span className={cn("w-12 shrink-0 pt-0.5 text-right text-[0.9rem] font-semibold tabular-nums", on ? "text-brass" : "text-muted")}>
                 {x.time}
               </span>
-              <span aria-hidden className={cn("relative z-10 mt-[0.45rem] size-2.5 shrink-0 rounded-full ring-4 ring-white max-lg:hidden", on ? "bg-brand" : "bg-line")} />
+              <span aria-hidden className={cn("relative z-10 mt-[0.45rem] size-2.5 shrink-0 rounded-full ring-4 ring-paper max-lg:hidden", on ? "bg-brass" : "bg-line")} />
               <span className="min-w-0">
                 <span className="block font-semibold leading-snug">{x.title}</span>
                 {on && <span className="mt-1 block leading-relaxed text-muted">{x.text}</span>}

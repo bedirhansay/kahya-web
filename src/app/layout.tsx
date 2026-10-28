@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
+import { Bricolage_Grotesque, Instrument_Sans } from "next/font/google";
 
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -9,17 +9,16 @@ import { site } from "@/lib/site";
 
 import "./globals.css";
 
-const jakarta = Plus_Jakarta_Sans({
+// Headings: a grotesque with some ink in it. Running text: a calm, open sans.
+const display = Bricolage_Grotesque({
   subsets: ["latin", "latin-ext"],
-  variable: "--font-jakarta",
+  variable: "--font-bricolage",
   display: "swap",
 });
 
-// Small spaced labels ("01 · OFİS YÖNETİMİ"), as in the campaign deck.
-const mono = JetBrains_Mono({
+const body = Instrument_Sans({
   subsets: ["latin", "latin-ext"],
-  variable: "--font-jbmono",
-  weight: ["500"],
+  variable: "--font-body",
   display: "swap",
 });
 
@@ -62,7 +61,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="tr" className={`${jakarta.variable} ${mono.variable}`}>
+    <html lang="tr" className={`${display.variable} ${body.variable}`}>
       <body className="flex min-h-dvh flex-col">
         <JsonLd data={[organizationLd(), websiteLd()]} />
         <Header />

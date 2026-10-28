@@ -49,7 +49,7 @@ export default function ContactPage() {
           {items.map(({ Icon, title, body, href, cta }) => (
             <div
               key={title}
-              className="flex flex-col rounded-[var(--radius-frame)] border border-line bg-white p-7"
+              className="flex flex-col rounded-[var(--radius-frame)] border border-line bg-surface p-7"
             >
               <Icon size={24} className="text-petrol" aria-hidden />
               <h2 className="mt-5 text-xl font-semibold">{title}</h2>

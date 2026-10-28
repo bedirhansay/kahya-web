@@ -102,7 +102,7 @@ export default async function FeaturePage({ params }: PageProps<"/ozellikler/[sl
       )}
 
       {main && (
-        <section aria-labelledby="adimlar" className="bg-white">
+        <section aria-labelledby="adimlar">
           <div className="wrap py-16 md:py-24">
             <h2 id="adimlar" className="title max-w-2xl">
               Adım adım
@@ -121,7 +121,7 @@ export default async function FeaturePage({ params }: PageProps<"/ozellikler/[sl
                   <ol className="mt-4 space-y-2.5">
                     {lesson.steps.map((step, i) => (
                       <li key={step} className="flex gap-3 text-[0.96rem] leading-snug">
-                        <span className="grid size-6 shrink-0 place-items-center rounded-md bg-white text-xs font-bold text-petrol tabular-nums ring-1 ring-line">
+                        <span className="grid size-6 shrink-0 place-items-center rounded-md bg-surface text-xs font-bold text-petrol tabular-nums ring-1 ring-line">
                           {i + 1}
                         </span>
                         <span className="pt-0.5 text-ink/85">{step}</span>

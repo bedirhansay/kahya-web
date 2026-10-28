@@ -49,7 +49,7 @@ const columns = [
 
 export function Footer() {
   return (
-    <footer className="bg-pine-950 text-white/70">
+    <footer className="border-t border-line bg-pine-950 text-white/70">
       <div className="wrap grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-[1.3fr_repeat(5,1fr)]">
         <div className="max-w-xs">
           <Logo />

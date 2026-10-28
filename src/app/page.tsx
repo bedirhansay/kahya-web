@@ -105,42 +105,40 @@ export default function HomePage() {
         ]}
       />
 
-      {/* Hero: the product itself, narrowed by the visitor's choice */}
-      <section className="hero-tint">
-        <div className="wrap pb-16 pt-12 md:pb-20 md:pt-16">
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.75fr)] lg:items-end lg:gap-14">
-            <h1 className="display max-w-3xl [font-size:clamp(2.4rem,1.5rem+2.9vw,4rem)]">Ekibiniz, müşterileriniz ve carileriniz tek uygulamada</h1>
-            <div>
-              <p className="lead text-muted">
-                Kahya ofisler için yönetim programı. İhtiyacınız olan çözümleri seçin, ekibiniz yalnızca işine yarayanı görsün.
-              </p>
-              <div className="mt-7 flex flex-wrap gap-3">
-                <a href={site.app.register} className="btn btn-brass">
-                  Hemen başla
-                </a>
-                <Link href="/tanitim-filmi" className="btn btn-line">
-                  <Play size={15} aria-hidden className="fill-current text-brand" />
-                  Tanıtım filmi, 2 dk
-                </Link>
-              </div>
+      {/* Hero: the product itself, lit from behind, narrowed by the visitor's choice */}
+      <section className="hero-tint overflow-hidden">
+        <div className="wrap pb-16 pt-14 md:pb-24 md:pt-24">
+          <h1 className="display max-w-5xl">Ekibiniz, müşterileriniz ve carileriniz tek uygulamada</h1>
+          <div className="mt-8 flex flex-col gap-7 md:flex-row md:items-end md:justify-between">
+            <p className="lead max-w-xl text-muted">
+              Kahya ofisler için yönetim programı. İhtiyacınız olan çözümleri seçin, ekibiniz yalnızca işine yarayanı görsün.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <a href={site.app.register} className="btn btn-brass">
+                Hemen başla
+              </a>
+              <Link href="/tanitim-filmi" className="btn btn-line">
+                <Play size={15} aria-hidden className="fill-current text-brass" />
+                Tanıtım filmi, 2 dk
+              </Link>
             </div>
           </div>
           <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[0.92rem] text-muted">
             {["Kurulum yok, tarayıcıda açılır", "Telefonda da aynı Kahya", "Verileriniz Türkiye’de"].map((t) => (
               <li key={t} className="flex items-center gap-2">
-                <Check size={16} className="shrink-0 text-brand" aria-hidden />
+                <Check size={16} className="shrink-0 text-brass" aria-hidden />
                 {t}
               </li>
             ))}
           </ul>
-          <div className="mt-12 md:mt-16">
+          <div className="hero-lamp mt-14 md:mt-20">
             <AppStage />
           </div>
         </div>
       </section>
 
       {/* One office day */}
-      <section aria-labelledby="bir-gun" className="bg-white">
+      <section aria-labelledby="bir-gun">
         <div className="wrap py-16 md:py-20">
           <SectionHead
             id="bir-gun"
@@ -154,7 +152,7 @@ export default function HomePage() {
       </section>
 
       {/* Before and after */}
-      <section aria-labelledby="karsilastir" className="bg-white">
+      <section aria-labelledby="karsilastir">
         <div className="wrap py-16 md:py-20">
           <SectionHead
             id="karsilastir"
@@ -165,14 +163,14 @@ export default function HomePage() {
             <div className="hidden grid-cols-[1fr_1fr_1.2fr] bg-mist text-sm font-semibold md:grid">
               <span className="px-5 py-3">Soru</span>
               <span className="px-5 py-3 text-muted">Excel, WhatsApp, kâğıt</span>
-              <span className="px-5 py-3 text-brand">Kahya</span>
+              <span className="px-5 py-3 text-brass">Kahya</span>
             </div>
             <ul className="divide-y divide-line">
               {compare.map(([q, before, after]) => (
                 <li key={q} className="grid gap-2 px-5 py-4 md:grid-cols-[1fr_1fr_1.2fr] md:gap-0 md:p-0">
                   <span className="font-semibold md:px-5 md:py-4">{q}</span>
                   <span className="flex gap-2 text-muted md:px-5 md:py-4">
-                    <X size={17} className="mt-0.5 shrink-0 text-[#b42318]/70" aria-hidden />
+                    <X size={17} className="mt-0.5 shrink-0 text-[#f08a7e]/80" aria-hidden />
                     <span>
                       <span className="sr-only">Excel, WhatsApp ve kâğıtla: </span>
                       {before}
@@ -193,7 +191,7 @@ export default function HomePage() {
       </section>
 
       {/* Sectors */}
-      <section aria-labelledby="sektorler" className="bg-white">
+      <section aria-labelledby="sektorler">
         <div className="wrap py-16 md:py-20">
           <SectionHead
             id="sektorler"
@@ -213,7 +211,7 @@ export default function HomePage() {
       </section>
 
       {/* Add-ons */}
-      <section aria-labelledby="ek-hizmetler" className="bg-white">
+      <section aria-labelledby="ek-hizmetler">
         <div className="wrap py-16 md:py-20">
           <div className="stage grid gap-10 p-6 md:p-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-14">
             <div className="min-w-0">
@@ -251,7 +249,7 @@ export default function HomePage() {
       </section>
 
       {/* Trust */}
-      <section aria-labelledby="guven" className="bg-white">
+      <section aria-labelledby="guven">
         <div className="wrap py-16 md:py-20">
           <SectionHead id="guven" title="Verileriniz sizin, kontrol sizde" lead="Kahya’yı ekibinize güvenle açmanız için temel kurallar." />
           <dl className="mt-12 grid gap-x-10 gap-y-9 sm:grid-cols-2 lg:grid-cols-3">
@@ -274,7 +272,7 @@ export default function HomePage() {
       </section>
 
       {/* Film */}
-      <section aria-labelledby="film" className="bg-white">
+      <section aria-labelledby="film">
         <div className="wrap grid gap-10 py-16 md:py-20 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-center lg:gap-16">
           <div>
             <SectionHead
@@ -297,7 +295,7 @@ export default function HomePage() {
       </section>
 
       {/* FAQ */}
-      <section aria-labelledby="sss" className="bg-white">
+      <section aria-labelledby="sss">
         <div className="wrap grid gap-10 pb-20 pt-4 md:pb-24 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16">
           <div>
             <SectionHead id="sss" title="Aklınızdaki sorular" />

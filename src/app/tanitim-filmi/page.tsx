@@ -86,7 +86,7 @@ export default function FilmPage() {
           </ol>
         </div>
       </section>
-      <section aria-labelledby="kisa" className="bg-white">
+      <section aria-labelledby="kisa">
         <div className="wrap grid gap-10 py-16 md:py-24 md:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] md:items-center">
           <div>
             <h2 id="kisa" className="title">

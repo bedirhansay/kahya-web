@@ -13,26 +13,29 @@
   --color-petrol-600: #14625b;
   --color-sage: #6fa58d;
   --color-mint: #bfdac8;
-  --color-mist: #eef3f1;
-  --color-paper: #ffffff;
-  --color-ink: #10201e;
-  --color-muted: #52625f;
-  --color-line: #e2e8e6;
   --color-brass: #e3b261;
   --color-brass-300: #f0cf94;
   --color-brass-700: #8a6420;
-  --color-brand: #1d6f66;
-  --color-brand-50: #ebf6f4;
-  --color-brand-100: #d2ebe7;
 
-  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-jbmono), ui-monospace, monospace;
+  /* Site surfaces: the night pine of the logo. Light values return inside .ui (app pictures). */
+  --color-paper: #061b19;
+  --color-surface: #0b2925;
+  --color-mist: #0e302c;
+  --color-ink: #eef4f1;
+  --color-muted: #9db4ac;
+  --color-line: rgb(191 218 200 / 0.13);
+  --color-brand: #8fcfbd;
+  --color-brand-50: rgb(143 207 189 / 0.09);
+  --color-brand-100: rgb(143 207 189 / 0.16);
 
-  --text-display: clamp(2.5rem, 1.6rem + 3.8vw, 4.6rem);
-  --text-display--line-height: 1.04;
-  --text-title: clamp(1.9rem, 1.4rem + 1.9vw, 3rem);
-  --text-title--line-height: 1.1;
-  --text-lead: clamp(1.05rem, 1rem + 0.25vw, 1.2rem);
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-bricolage), var(--font-body), sans-serif;
+
+  --text-display: clamp(2.6rem, 1.5rem + 4.6vw, 5.4rem);
+  --text-display--line-height: 0.98;
+  --text-title: clamp(2rem, 1.4rem + 2.2vw, 3.3rem);
+  --text-title--line-height: 1.04;
+  --text-lead: clamp(1.05rem, 1rem + 0.3vw, 1.22rem);
   --text-lead--line-height: 1.6;
 
   --radius-frame: 12px;
@@ -41,7 +44,23 @@
 }
 
 :root {
+  color-scheme: dark;
+}
+
+/* Kahya's own screens stay as they are in the app: light, on the dark page */
+.ui,
+.frame {
   color-scheme: light;
+  --color-paper: #ffffff;
+  --color-surface: #ffffff;
+  --color-mist: #eef3f1;
+  --color-ink: #10201e;
+  --color-muted: #52625f;
+  --color-line: #e2e8e6;
+  --color-brand: #1d6f66;
+  --color-brand-50: #ebf6f4;
+  --color-brand-100: #d2ebe7;
+  color: var(--color-ink);
 }
 
 html {
@@ -59,12 +78,12 @@ body {
 }
 
 ::selection {
-  background: var(--color-mint);
+  background: var(--color-brass);
   color: var(--color-pine-950);
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-brand);
+  outline: 2px solid var(--color-brass);
   outline-offset: 3px;
   border-radius: 6px;
 }
@@ -82,18 +101,23 @@ body {
     }
   }
 
+  .display,
+  .title {
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+  }
   .display {
     font-size: var(--text-display);
     line-height: var(--text-display--line-height);
     font-weight: 700;
-    letter-spacing: -0.035em;
+    letter-spacing: -0.04em;
     text-wrap: balance;
   }
   .title {
     font-size: var(--text-title);
     line-height: var(--text-title--line-height);
-    font-weight: 700;
-    letter-spacing: -0.03em;
+    font-weight: 650;
+    letter-spacing: -0.035em;
     text-wrap: balance;
   }
   .lead {
@@ -117,19 +141,21 @@ body {
       color 150ms ease,
       border-color 150ms ease;
   }
+  /* The one bright thing on the page: the logo's brass arm */
   .btn-brass {
-    background: var(--color-petrol);
-    color: #fff;
+    background: var(--color-brass);
+    color: var(--color-pine-950);
+    box-shadow: 0 10px 30px -12px rgb(227 178 97 / 0.55);
   }
   .btn-brass:hover {
-    background: var(--color-petrol-600);
+    background: var(--color-brass-300);
   }
   .btn-petrol {
-    background: var(--color-petrol);
-    color: #fff;
+    background: var(--color-mint);
+    color: var(--color-pine-950);
   }
   .btn-petrol:hover {
-    background: var(--color-petrol-600);
+    background: #d5e8db;
   }
   .btn-line-dark {
     border: 1px solid rgb(255 255 255 / 0.3);
@@ -139,12 +165,12 @@ body {
     border-color: rgb(255 255 255 / 0.6);
   }
   .btn-line {
-    border: 1px solid var(--color-line);
+    border: 1px solid rgb(191 218 200 / 0.28);
     color: var(--color-ink);
-    background: #fff;
   }
   .btn-line:hover {
-    border-color: var(--color-petrol);
+    border-color: var(--color-mint);
+    background: rgb(191 218 200 / 0.06);
   }
 
   /* Small label above a heading, in the running type (no tracked capitals) */
@@ -161,8 +187,8 @@ body {
     padding: 0.05rem 0.45rem;
     font-size: 0.72rem;
     font-weight: 600;
-    color: var(--color-brass-700);
-    background: #fbf1dd;
+    color: var(--color-brass-300);
+    background: rgb(227 178 97 / 0.12);
     vertical-align: middle;
   }
   .tag-dark {
@@ -176,20 +202,40 @@ body {
   /* Dark bands: pine with a soft green light from below, as in the deck */
   .band-dark {
     background:
-      radial-gradient(60% 55% at 50% 110%, rgb(29 111 102 / 0.45), transparent 70%),
-      var(--color-pine-950);
+      radial-gradient(55% 80% at 15% 100%, rgb(227 178 97 / 0.22), transparent 70%),
+      radial-gradient(60% 90% at 90% 0%, rgb(29 111 102 / 0.6), transparent 70%),
+      var(--color-pine-900);
     color: #fff;
   }
-  /* Opening of inner pages: white fading from a faint brand tint, no hard edge */
+  /* Opening of inner pages: the night page lit from the top corners */
   .hero-tint {
-    background: linear-gradient(180deg, var(--color-brand-50) 0%, #ffffff 100%);
+    background:
+      radial-gradient(50% 60% at 82% 0%, rgb(227 178 97 / 0.13), transparent 70%),
+      radial-gradient(70% 70% at 10% 0%, rgb(29 111 102 / 0.35), transparent 70%);
+  }
+  /* Home opening: a brass lamp lighting the product from behind */
+  .hero-lamp {
+    position: relative;
+    isolation: isolate;
+  }
+  .hero-lamp::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 18% 6% auto;
+    height: 70%;
+    background:
+      radial-gradient(45% 55% at 50% 40%, rgb(227 178 97 / 0.28), transparent 70%),
+      radial-gradient(70% 70% at 50% 60%, rgb(29 111 102 / 0.55), transparent 72%);
+    filter: blur(30px);
   }
   /* The soft panel product pictures sit on */
   .stage {
     border-radius: 24px;
+    border: 1px solid var(--color-line);
     background:
-      radial-gradient(80% 70% at 85% 0%, rgb(29 111 102 / 0.10), transparent 70%),
-      var(--color-mist);
+      radial-gradient(80% 70% at 85% 0%, rgb(227 178 97 / 0.08), transparent 70%),
+      var(--color-surface);
   }
   .stage-in {
     animation: stage-in 260ms var(--ease-out-quint) both;
@@ -215,10 +261,10 @@ body {
 
   /* Text links inside running copy */
   .link {
-    color: var(--color-petrol);
+    color: var(--color-brass-300);
     font-weight: 600;
     text-decoration: underline;
-    text-decoration-color: color-mix(in oklab, var(--color-petrol) 35%, transparent);
+    text-decoration-color: color-mix(in oklab, var(--color-brass) 40%, transparent);
     text-underline-offset: 3px;
   }
   .link:hover {
@@ -230,7 +276,9 @@ body {
     border-radius: var(--radius-frame);
     background: #fff;
     border: 1px solid var(--color-line);
-    box-shadow: 0 24px 50px -30px rgb(6 27 25 / 0.35);
+    box-shadow:
+      0 0 0 1px rgb(255 255 255 / 0.04),
+      0 40px 80px -30px rgb(0 0 0 / 0.7);
     overflow: hidden;
   }
   .frame-dark {

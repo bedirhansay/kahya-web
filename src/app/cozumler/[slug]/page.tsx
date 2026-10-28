@@ -126,7 +126,7 @@ export default async function SolutionPage({ params }: PageProps<"/cozumler/[slu
       </section>
 
       {related.length > 0 && (
-        <section aria-labelledby="ozellikler" className="bg-white">
+        <section aria-labelledby="ozellikler">
           <div className="wrap py-16 md:py-24">
             <SectionHead id="ozellikler" eyebrow="Özellikler" title={`${s.name} içinde neler var?`} />
             <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -169,7 +169,7 @@ export default async function SolutionPage({ params }: PageProps<"/cozumler/[slu
         </div>
       </section>
 
-      <section aria-labelledby="diger" className="bg-white">
+      <section aria-labelledby="diger">
         <div className="wrap py-16 md:py-20">
           <SectionHead id="diger" eyebrow="Üç çözüm, tek uygulama" title="Diğer çözümler" />
           <ul className="mt-8 grid gap-4 md:grid-cols-2">

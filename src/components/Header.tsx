@@ -20,7 +20,7 @@ export function Header() {
         İçeriğe geç
       </a>
       <div className="wrap flex h-16 items-center gap-8">
-        <Logo tone="dark" />
+        <Logo />
         <nav aria-label="Ana menü" className="hidden lg:block">
           <ul className="flex items-center gap-1 text-[0.94rem] font-medium text-ink/75">
             {mainNav.map((item) => (

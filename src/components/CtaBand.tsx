@@ -15,7 +15,7 @@ export function CtaBand({
           <p className="lead mt-4 text-white/80">{body}</p>
         </div>
         <div className="flex flex-wrap gap-3">
-          <a href={site.app.register} className="btn btn-light">
+          <a href={site.app.register} className="btn btn-brass">
             Hemen başla
           </a>
           <a href={`mailto:${site.email}?subject=Kahya%20hakk%C4%B1nda`} className="btn btn-line-dark">

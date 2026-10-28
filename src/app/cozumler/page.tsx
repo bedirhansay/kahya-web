@@ -34,7 +34,7 @@ export default function SolutionsPage() {
         <div className="wrap py-12 md:py-20">
           <ol className="grid gap-px overflow-hidden rounded-[var(--radius-frame)] border border-line bg-line lg:grid-cols-3">
             {solutions.map((s) => (
-              <li key={s.slug} id={s.slug} className="flex scroll-mt-24 flex-col bg-white p-6 md:p-8">
+              <li key={s.slug} id={s.slug} className="flex scroll-mt-24 flex-col bg-surface p-6 md:p-8">
                 <p className="eyebrow text-brand">
                   {s.kicker}
                 </p>
@@ -72,7 +72,7 @@ export default function SolutionsPage() {
         </div>
       </section>
 
-      <section aria-labelledby="ek-hizmetler" className="bg-white">
+      <section aria-labelledby="ek-hizmetler">
         <div className="wrap grid gap-10 py-16 md:py-24 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-14">
           <div>
             <h2 id="ek-hizmetler" className="title">

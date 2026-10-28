@@ -9,7 +9,7 @@ export function Faq({ items }: { items: { q: string; a: string }[] }) {
             <h3>{item.q}</h3>
             <Plus
               size={20}
-              className="mt-1 shrink-0 text-petrol transition-transform duration-200 group-open:rotate-45"
+              className="mt-1 shrink-0 text-brass transition-transform duration-200 group-open:rotate-45"
               aria-hidden
             />
           </summary>

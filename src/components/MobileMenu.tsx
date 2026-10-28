@@ -39,7 +39,7 @@ export function MobileMenu() {
         {open ? <X size={22} /> : <Menu size={22} />}
       </button>
       {open && (
-        <div id="mobil-menu" className="fixed inset-x-0 bottom-0 top-16 overflow-y-auto bg-white px-4 pb-10 pt-4">
+        <div id="mobil-menu" className="fixed inset-x-0 bottom-0 top-16 overflow-y-auto bg-surface px-4 pb-10 pt-4">
           <nav aria-label="Mobil menü">
             <ul className="divide-y divide-line text-lg font-semibold">
               {mainNav.map((item) => (

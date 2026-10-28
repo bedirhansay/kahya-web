@@ -45,7 +45,7 @@ export function MockPhone({ label, className, children }: { label: string; class
     <div
       role="img"
       aria-label={label}
-      className={cn("w-[15.5rem] rounded-[2.2rem] border-[6px] border-ink bg-[#fbfaf7] p-3 text-[12px] text-ink shadow-2xl", className)}
+      className={cn("ui w-[15.5rem] rounded-[2.2rem] border-[6px] border-ink bg-[#fbfaf7] p-3 text-[12px] text-ink shadow-2xl", className)}
     >
       <div aria-hidden className="mx-auto mb-3 h-1.5 w-16 rounded-full bg-ink/15" />
       <div aria-hidden>{children}</div>

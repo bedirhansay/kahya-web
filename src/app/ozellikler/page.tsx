@@ -65,7 +65,7 @@ export default function FeaturesPage() {
           </ul>
         </div>
       </section>
-      <section aria-labelledby="araclar" className="bg-white">
+      <section aria-labelledby="araclar">
         <div className="wrap py-16 md:py-24">
           <h2 id="araclar" className="title max-w-2xl">
             Her gün işinizi hızlandıran küçük şeyler
