@@ -270,6 +270,142 @@ body {
   }
 }
 
+/*
+ * Site motion (SiteMotion.tsx): inner-page openings enter on the first paint (CSS only, the h1 is painted from the
+ * first frame); blocks below rise out of a light blur as they enter, 60ms apart; app pictures tip back into place
+ * with the scroll; cards carry a cursor light; point lists take turns. Hooks wait for html.sm, so without JS the
+ * page is complete.
+ */
+@keyframes sm-rise {
+  from {
+    opacity: 0;
+    translate: 0 24px;
+  }
+}
+@keyframes sm-head {
+  from {
+    opacity: 0.01;
+    filter: blur(8px);
+    translate: 0 0.25em;
+  }
+}
+@keyframes sm-pic {
+  from {
+    opacity: 0;
+    transform: perspective(1400px) translateY(44px) rotateX(12deg) scale(0.96);
+  }
+}
+@keyframes sm-bar {
+  from {
+    scale: 0 1;
+  }
+}
+@keyframes sm-glint {
+  0% {
+    translate: -60% 0;
+  }
+  60%,
+  100% {
+    translate: 260% 0;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  main > section.hero-tint :is(h1) {
+    animation: sm-head 0.8s var(--ease-out-quint) both 0.05s;
+  }
+  main > section.hero-tint :is(nav, .eyebrow) {
+    animation: sm-rise 0.6s var(--ease-out-quint) both;
+  }
+  main > section.hero-tint .lead {
+    animation: sm-rise 0.7s var(--ease-out-quint) both 0.28s;
+  }
+  main > section.hero-tint :is(.btn, ul, dl) {
+    animation: sm-rise 0.7s var(--ease-out-quint) both 0.4s;
+  }
+  main > section.hero-tint :is(.frame, .stage, [role="img"].ui) {
+    animation: sm-pic 1.1s var(--ease-out-quint) both 0.35s;
+  }
+
+  html.sm [data-sm=""] {
+    opacity: 0;
+    translate: 0 28px;
+    filter: blur(6px);
+  }
+  html.sm [data-sm="in"] {
+    transition:
+      opacity 0.75s var(--ease-out-quint),
+      translate 0.75s var(--ease-out-quint),
+      filter 0.75s ease;
+    transition-delay: calc(var(--sm-i, 0) * 60ms);
+  }
+
+  html.sm [data-depth] {
+    transform-origin: 50% 100%;
+    transform: perspective(1400px) translateY(calc((1 - var(--sm-v, 1)) * 40px)) rotateX(calc((1 - var(--sm-v, 1)) * 10deg))
+      scale(calc(0.95 + var(--sm-v, 1) * 0.05));
+    opacity: calc(0.3 + var(--sm-v, 1) * 0.7);
+    will-change: transform;
+  }
+
+  [data-turns] > li {
+    position: relative;
+    transition: color 0.4s;
+  }
+  [data-turns] > li > span:first-child {
+    transition:
+      background-color 0.4s,
+      box-shadow 0.4s;
+  }
+  [data-turns] > li[data-lit] > span:first-child {
+    background: var(--color-brass);
+    box-shadow: 0 0 0 4px rgb(227 178 97 / 0.14), 0 0 12px rgb(227 178 97 / 0.5);
+  }
+  [data-turns] > li[data-lit]::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 1px;
+    background: linear-gradient(90deg, rgb(227 178 97 / 0.2), var(--color-brass));
+    transform-origin: left;
+    animation: sm-bar 2.6s linear both;
+  }
+
+  .band-dark {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .band-dark::after {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 40%;
+    z-index: -1;
+    pointer-events: none;
+    background: linear-gradient(100deg, transparent, rgb(240 207 148 / 0.07), transparent);
+    animation: sm-glint 9s ease-in-out infinite;
+  }
+}
+[data-card] {
+  position: relative;
+  isolation: isolate;
+}
+[data-card]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  background: radial-gradient(240px circle at var(--mx, 50%) var(--my, 50%), rgb(227 178 97 / 0.09), transparent 70%);
+}
+[data-card]:hover::after {
+  opacity: 1;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

@@ -3,6 +3,7 @@ import { Bricolage_Grotesque, Instrument_Sans } from "next/font/google";
 
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { SiteMotion } from "@/components/SiteMotion";
 import { JsonLd } from "@/components/JsonLd";
 import { organizationLd, SITE_URL, websiteLd } from "@/lib/seo";
 import { site } from "@/lib/site";
@@ -72,6 +73,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
         </main>
         <Footer />
+        <SiteMotion />
       </body>
     </html>
   );
