@@ -256,14 +256,14 @@ export default function HomePage() {
             {trust.map((t, i) => {
               const Icon = trustIcons[i] ?? ShieldCheck;
               return (
-                <div key={t.term} className="flex gap-4">
-                  <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-brand-50 text-brand">
-                    <Icon size={19} aria-hidden />
-                  </span>
-                  <span>
-                    <dt className="font-semibold">{t.term}</dt>
-                    <dd className="mt-1 leading-relaxed text-muted">{t.text}</dd>
-                  </span>
+                <div key={t.term} className="relative min-h-10 pl-14">
+                  <dt className="font-semibold">
+                    <span className="absolute left-0 top-0 grid size-10 place-items-center rounded-xl bg-brand-50 text-brand">
+                      <Icon size={19} aria-hidden />
+                    </span>
+                    {t.term}
+                  </dt>
+                  <dd className="mt-1 leading-relaxed text-muted">{t.text}</dd>
                 </div>
               );
             })}

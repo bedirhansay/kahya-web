@@ -16,10 +16,13 @@ const display = Bricolage_Grotesque({
   display: "swap",
 });
 
+// Not preloaded: only the heading font (the LCP h1) is on the critical path; body text paints in the
+// size-adjusted fallback and swaps.
 const body = Instrument_Sans({
   subsets: ["latin", "latin-ext"],
   variable: "--font-body",
   display: "swap",
+  preload: false,
 });
 
 export const metadata: Metadata = {
