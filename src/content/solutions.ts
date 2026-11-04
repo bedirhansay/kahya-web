@@ -79,7 +79,7 @@ export const solutions: Solution[] = [
     kicker: "Müşteri ve görüşme",
     name: "CRM",
     subtitle: "Müşteri İlişkileri",
-    summary: "Müşteri görüşmeleri ve takip günleri. Teklif ek hizmet.",
+    summary: "Müşteri görüşmeleri ve takip günleri. Teklif Büyüyen ve üstünde dahil.",
     title: "Her görüşme kayıtta",
     lead: "Müşteriyle ne konuşuldu, sırada ne var? Ekipten kim bakarsa baksın aynı bilgiyi görür.",
     points: [
@@ -91,7 +91,7 @@ export const solutions: Solution[] = [
       title: "CRM Programı: Müşteri Görüşme ve Takip Programı",
       h1: "CRM programı: her müşteri görüşmesi kayıtta, takip günü unutulmaz",
       description:
-        "Kahya CRM ile müşteri görüşmelerini kişisi ve notuyla kaydedin, takip günü yazın, takibi gelenler listede önünüze çıksın. Teklif ek hizmetiyle kendi antetli teklifinizi hazırlayın.",
+        "Kahya CRM ile müşteri görüşmelerini kişisi ve notuyla kaydedin, takip günü yazın, takibi gelenler listede önünüze çıksın. Teklif ile kendi antetli teklifinizi hazırlayın (Büyüyen ve üstü paketlerde dahil, altında ek hizmet).",
     },
     more: {
       title: "Müşteri bilgisi bir kişinin aklında kalmaz",
@@ -114,7 +114,7 @@ export const solutions: Solution[] = [
       },
       {
         q: "Teklif hazırlayabilir miyim?",
-        a: "Evet, Teklif ek hizmetiyle. Kendi antetinizle teklif hazırlarsınız, müşteri linkten açıp kabul eder, kabul edilen teklif satışa dönüşür.",
+        a: "Evet. Teklif Büyüyen ve üstü paketlerde dahil, altında ek hizmet. Kendi antetinizle teklif hazırlarsınız, müşteri linkten açıp kabul eder, kabul edilen teklif satışa dönüşür.",
       },
     ],
   },
@@ -181,7 +181,7 @@ export const extras: Extra[] = [
   },
   {
     name: "Teklif",
-    body: "Kendi antetinizle teklif hazırlarsınız. Müşteri linkten açıp kabul eder, kabul edilen teklif satışa döner.",
+    body: "Büyüyen ve üstü paketlerde dahil, altında ek hizmet. Kendi antetinizle teklif hazırlarsınız. Müşteri linkten açıp kabul eder, kabul edilen teklif satışa döner.",
   },
   {
     name: "Kahya AI",
@@ -190,7 +190,7 @@ export const extras: Extra[] = [
   },
   {
     name: "Filo",
-    body: "Araçlar, seferler ve araç bazında gelir gider takibi.",
+    body: "Kurumsal pakette dahil, diğer paketlerde ek hizmet. Araçlar, seferler ve araç bazında gelir gider takibi.",
   },
 ];
 

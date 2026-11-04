@@ -15,7 +15,7 @@ export const metadata: Metadata = pageMetadata({
   path: "/cozumler",
   title: "Çözümler: Ofis Yönetimi, CRM, Finans & Cari",
   description:
-    "Kahya üç çözümden oluşur: Ofis Yönetimi, CRM (Müşteri İlişkileri) ve Finans & Cari. E-posta, Teklif ve Kahya AI ek hizmet olarak açılır, Stok Ekip ve üstü paketlerde dahil. Fiyat kullanıcı sayısına (paket) ve ek hizmetlere göre verilir.",
+    "Kahya üç çözümden oluşur: Ofis Yönetimi, CRM (Müşteri İlişkileri) ve Finans & Cari. E-posta ve Kahya AI ek hizmettir; Stok Ekip, Teklif Büyüyen ve üstü paketlerde dahil. Fiyat kullanıcı sayısına (paket) ve ek hizmetlere göre verilir.",
 });
 
 const quote = (what: string) => `mailto:${site.email}?subject=${encodeURIComponent(`Kahya fiyat talebi: ${what}`)}`;
@@ -27,7 +27,7 @@ export default function SolutionsPage() {
       <PageHero
         crumbs={[{ name: "Çözümler", path: "/cozumler" }]}
         title="İhtiyacınız olanı seçin, gerisi gizli kalsın"
-        lead="Kahya üç çözümden oluşur. Birini, ikisini ya da üçünü birden kullanabilirsiniz. Fiyat kullanıcı sayısına (paket: Başlangıç, Ekip, Büyüyen ve Kurumsal) ve ek hizmetlere göre verilir."
+        lead="Kahya üç çözümden oluşur. Birini, ikisini ya da üçünü birden kullanabilirsiniz. Fiyat kullanıcı sayısına (paket: Ücretsiz, Başlangıç, Ekip, Büyüyen ve Kurumsal) ve ek hizmetlere göre verilir."
       />
 
       <section aria-label="Çözümler" className="bg-paper">

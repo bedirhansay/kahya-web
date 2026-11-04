@@ -194,7 +194,7 @@ export const sectors: Sector[] = [
       },
       {
         q: "Servis araçlarını takip edebilir miyim?",
-        a: "Evet, Filo ek hizmetiyle. Araçlar, seferler ve araç bazında gelir gider takip edilir.",
+        a: "Evet. Filo Kurumsal pakette dahil, diğer paketlerde ek hizmet. Araçlar, seferler ve araç bazında gelir gider takip edilir.",
       },
     ],
   },
@@ -327,7 +327,7 @@ export const sectors: Sector[] = [
     faq: [
       {
         q: "Araçlarımı Kahya’da takip edebilir miyim?",
-        a: "Evet, Filo ek hizmetiyle. Araçları, seferleri ve araç bazında gelir ve gideri kaydedersiniz.",
+        a: "Evet. Filo Kurumsal pakette dahil, diğer paketlerde ek hizmet. Araçları, seferleri ve araç bazında gelir ve gideri kaydedersiniz.",
       },
       {
         q: "Araçların konumunu görebilir miyim?",
@@ -559,7 +559,7 @@ export const sectors: Sector[] = [
       },
       {
         q: "Kabul edilen teklif satışa dönüşür mü?",
-        a: "Evet, Teklif ek hizmetiyle. Müşteri teklifi linkten açıp kabul eder, kabul edilen teklif tek tıkla satışa döner.",
+        a: "Evet. Teklif Büyüyen ve üstü paketlerde dahil, altında ek hizmet. Müşteri teklifi linkten açıp kabul eder, kabul edilen teklif tek tıkla satışa döner.",
       },
     ],
   },
