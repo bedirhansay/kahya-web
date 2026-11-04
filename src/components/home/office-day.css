@@ -121,21 +121,31 @@
 
 /* One job through the office: on a wide screen the section holds still while scrolling walks the four steps. */
 .od-flow { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 56px; perspective: 1600px; }
-.od-rail { position: absolute; left: 4%; right: 4%; top: 31px; height: 1px; background: var(--od-line-2); }
-.od-rail b { position: absolute; inset: 0 auto 0 0; width: var(--fill, 0%); background: linear-gradient(90deg, rgb(227 178 97 / 0.2), var(--color-brass)); transition: width 0.6s var(--od-out); }
-.od-rail i { position: absolute; top: -3px; left: var(--fill, 0%); width: 7px; height: 7px; border-radius: 50%; background: var(--color-brass); box-shadow: 0 0 14px 3px rgb(227 178 97 / 0.6); transition: left 0.6s var(--od-out); }
-.od-node { position: relative; isolation: isolate; border: 1px solid var(--od-line); border-radius: 16px; background: var(--od-panel); padding: 18px; transition: border-color 0.5s, background 0.5s, transform 0.6s var(--od-out), opacity 0.6s; }
-.od-node.on { border-color: rgb(227 178 97 / 0.5); background: rgb(227 178 97 / 0.06); }
-.od-node .badge { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: var(--od-ground); border: 1px solid var(--od-line-2); font-size: 13px; color: var(--color-muted); position: relative; z-index: 1; transition: 0.5s; }
-.od-node.on .badge { border-color: var(--color-brass); color: var(--color-brass); }
-.od-node h3 { margin-top: 16px; font-family: var(--font-display); font-weight: 650; font-size: 20px; line-height: 1.2; }
-.od-rec { margin-top: 14px; border: 1px solid var(--od-line); border-radius: 10px; padding: 10px 12px; background: rgb(4 17 15 / 0.5); font-size: 13.5px; }
-.od-rec b { display: block; font-size: 16px; margin-top: 2px; }
-.od-st { display: inline-flex; margin-top: 8px; font-size: 12px; border-radius: 6px; padding: 1px 7px; background: rgb(191 218 200 / 0.08); color: var(--color-muted); transition: 0.5s; }
-.od-node.on .od-st { background: rgb(143 207 189 / 0.14); color: var(--od-mint); }
-.od-node ul { margin-top: 14px; font-size: 14px; color: var(--color-muted); display: grid; gap: 6px; }
-.od-node li::before { content: "✓"; color: var(--od-mint); margin-right: 8px; }
-.od-plan { margin-top: 12px; font-size: 12.5px; color: var(--color-brass); }
+/* The steps, on their own track above the cards: a hairline that fills with brass as the job moves on. */
+.od-steps { grid-column: 1 / -1; position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; height: 11px; margin-bottom: 14px; }
+.od-steps::before, .od-steps::after { content: ""; position: absolute; top: 5px; left: 5px; height: 1px; }
+.od-steps::before { right: calc(25% - 17px); background: var(--od-line-2); }
+.od-steps::after { width: calc((75% + 12px) * var(--fill, 0)); background: linear-gradient(90deg, rgb(227 178 97 / 0.25), var(--color-brass)); transition: width 0.6s var(--od-out); }
+.od-steps li { position: relative; z-index: 1; width: 11px; height: 11px; border-radius: 50%; background: var(--od-ground); border: 1px solid var(--od-line-2); transition: background 0.4s, border-color 0.4s, box-shadow 0.4s; }
+.od-steps li.on { background: var(--color-brass); border-color: var(--color-brass); box-shadow: 0 0 0 4px rgb(227 178 97 / 0.14), 0 0 14px rgb(227 178 97 / 0.45); }
+
+.od-node { position: relative; isolation: isolate; display: flex; flex-direction: column; border: 1px solid var(--od-line); border-radius: 16px; padding: 20px;
+  background: linear-gradient(180deg, rgb(191 218 200 / 0.05), rgb(191 218 200 / 0.015));
+  transition: border-color 0.5s, box-shadow 0.5s, transform 0.6s var(--od-out), opacity 0.6s; }
+.od-node.on { border-color: rgb(227 178 97 / 0.28); box-shadow: inset 0 1px 0 rgb(227 178 97 / 0.35), 0 24px 60px -36px rgb(227 178 97 / 0.35); }
+.od-node header { display: flex; align-items: center; gap: 12px; }
+.od-ico { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; background: rgb(143 207 189 / 0.08); color: var(--color-muted); border: 1px solid var(--od-line); transition: 0.5s; }
+.od-node.on .od-ico { background: rgb(227 178 97 / 0.12); color: var(--color-brass); border-color: rgb(227 178 97 / 0.3); }
+.od-node h3 { font-family: var(--font-display); font-weight: 650; font-size: 19px; line-height: 1.2; }
+.od-who2 { margin-top: 20px; font-size: 13px; color: var(--od-faint); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.od-fig { margin-top: 4px; font-family: var(--font-display); font-weight: 700; font-size: 22px; line-height: 1.15; letter-spacing: -0.01em; }
+.od-st { display: flex; align-items: center; gap: 8px; margin-top: 8px; font-size: 13px; color: var(--color-muted); transition: color 0.5s; }
+.od-st::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--od-line-2); flex: none; transition: background 0.5s; }
+.od-node.on .od-st { color: var(--od-mint); } .od-node.on .od-st::before { background: var(--od-mint); }
+.od-node ul { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--od-line); font-size: 13.5px; color: var(--color-muted); display: grid; gap: 6px; }
+.od-node li { display: flex; align-items: center; gap: 8px; }
+.od-node li::before { content: ""; width: 4px; height: 4px; border-radius: 50%; background: var(--od-faint); flex: none; }
+.od-plan { margin-top: auto; padding-top: 14px; font-size: 12.5px; color: var(--color-brass); }
 
 /* Kahya AI and the team's week */
 .od-bento { display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 16px; margin-top: 56px; padding-bottom: 120px; perspective: 1600px; }
@@ -222,7 +232,7 @@
     .od-m .od-pin { height: 240vh; }
     .od-m .od-pin > .od-pin-in { position: sticky; top: 64px; min-height: calc(100vh - 64px); display: flex; flex-direction: column; justify-content: center; padding-bottom: 40px; }
     .od-m .od-pin .od-node:not(.on) { opacity: 0.55; transform: translateZ(-60px) scale(0.97); }
-    .od-m .od-pin .od-node.on { transform: translateY(-6px); }
+    .od-m .od-pin .od-node.on { transform: translateY(-4px); }
   }
 }
 
@@ -232,7 +242,7 @@
   .od-ask { left: 12px; }
   .od-stage { margin-top: 0; }
   .od-sat-2 { display: none; } .od-sat-3 { right: 8px; }
-  .od-flow { grid-template-columns: 1fr 1fr; } .od-rail { display: none; }
+  .od-flow { grid-template-columns: 1fr 1fr; } .od-steps { display: none; }
   .od-bento { grid-template-columns: 1fr; }
 }
 @media (max-width: 600px) {

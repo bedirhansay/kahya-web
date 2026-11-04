@@ -1,3 +1,4 @@
+import { FileCheck2, HandCoins, Package, ReceiptText } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties } from "react";
@@ -56,10 +57,10 @@ const Sat = ({ n, d, icon, bg, fg, title, sub, cls }: { n: 1 | 2 | 3; d: number;
 );
 
 const flow = [
-  { h: "Teklif", who: "Ege Muhasebe Bürosu", what: "₺7.500,00", st: "Müşteri linkten kabul etti", li: ["Kendi antetinizle", "Linkten onay"], plan: "Büyüyen paketten itibaren" },
-  { h: "Satış", who: "Ekim hizmet bedeli", what: "FT-2026-0409", st: "Tek tıkla satışa döndü", li: ["KDV'li kalemler", "Vade ve taksit"] },
-  { h: "Stok", who: "Satışta seçilen ürün", what: "Stoktan düştü", st: "Kritik seviye işaretlenir", li: ["Birden çok depo", "Hareket geçmişi"], plan: "Ekip paketten itibaren" },
-  { h: "Tahsilat", who: "Karadeniz Gıda San. ve Tic.", what: "+₺48.200,00", st: "Cariye işlendi, bakiye güncel", li: ["Ekstre linki", "Vade hatırlatma"] },
+  { Icon: FileCheck2, h: "Teklif", who: "Ege Muhasebe Bürosu", what: "₺7.500,00", st: "Müşteri linkten kabul etti", li: ["Kendi antetinizle", "Linkten onay"], plan: "Büyüyen paketten itibaren" },
+  { Icon: ReceiptText, h: "Satış", who: "Ekim hizmet bedeli", what: "FT-2026-0409", st: "Tek tıkla satışa döndü", li: ["KDV'li kalemler", "Vade ve taksit"] },
+  { Icon: Package, h: "Stok", who: "Satışta seçilen ürün", what: "Stoktan düştü", st: "Kritik seviye işaretlenir", li: ["Birden çok depo", "Hareket geçmişi"], plan: "Ekip paketten itibaren" },
+  { Icon: HandCoins, h: "Tahsilat", who: "Karadeniz Gıda San. ve Tic.", what: "+₺48.200,00", st: "Cariye işlendi, bakiye güncel", li: ["Ekstre linki", "Vade hatırlatma"] },
 ];
 
 const week: [string, ("" | "off" | "leave")[]][] = [
@@ -214,25 +215,28 @@ export function OfficeDay() {
               <p>Teklif kabul edilince satışa döner, ürün stoktan düşer, tahsilat cariye işlenir. Aynı şeyi dört ayrı yere yazmazsınız.</p>
             </div>
             <div className="od-flow">
-              <div className="od-rail" aria-hidden>
-                <b />
-                <i />
-              </div>
-              {flow.map((f, i) => (
+              <ol className="od-steps" aria-hidden style={v({ "--fill": 1 })}>
+                {flow.map((f) => (
+                  <li key={f.h} className="on" />
+                ))}
+              </ol>
+              {flow.map(({ Icon, ...f }, i) => (
                 <article key={f.h} className="od-node on" data-r style={v({ "--i": i })}>
-                  <span className="badge">{i + 1}</span>
-                  <h3>{f.h}</h3>
-                  <div className="od-rec">
-                    {f.who}
-                    <b className="num">{f.what}</b>
-                    <span className="od-st">{f.st}</span>
-                  </div>
+                  <header>
+                    <span className="od-ico">
+                      <Icon size={18} strokeWidth={1.8} aria-hidden />
+                    </span>
+                    <h3>{f.h}</h3>
+                  </header>
+                  <p className="od-who2">{f.who}</p>
+                  <p className="od-fig num">{f.what}</p>
+                  <p className="od-st">{f.st}</p>
                   <ul>
                     {f.li.map((l) => (
                       <li key={l}>{l}</li>
                     ))}
                   </ul>
-                  {f.plan ? <div className="od-plan">{f.plan}</div> : null}
+                  {f.plan ? <p className="od-plan">{f.plan}</p> : null}
                 </article>
               ))}
             </div>

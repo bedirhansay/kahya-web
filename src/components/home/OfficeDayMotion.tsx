@@ -115,10 +115,12 @@ export function OfficeDayMotion() {
     // One job through the office: wide screens walk it with the scroll (the section is pinned); others on a timer.
     const flow = $("od-flow");
     const nodes = flow ? [...flow.querySelectorAll<HTMLElement>(".od-node")] : [];
-    const rail = flow?.querySelector<HTMLElement>(".od-rail");
+    const steps = flow?.querySelector<HTMLElement>(".od-steps");
+    const dots = steps ? [...steps.children] : [];
     const show = (step: number) => {
       nodes.forEach((n, i) => n.classList.toggle("on", i <= step));
-      rail?.style.setProperty("--fill", `${(Math.max(0, step) / (nodes.length - 1)) * 100}%`);
+      dots.forEach((d, i) => d.classList.toggle("on", i <= step));
+      steps?.style.setProperty("--fill", String(Math.max(0, step) / (nodes.length - 1)));
     };
     if (flow && nodes.length && !reduce) {
       show(-1);

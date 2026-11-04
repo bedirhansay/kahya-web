@@ -22,11 +22,11 @@ export function DayTabs({ moments }: { moments: DayMoment[] }) {
 
   return (
     <div className="grid gap-6 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-10">
-      <div role="tablist" aria-label="Bir ofis günü" aria-orientation="vertical" className="relative">
-        {/* the day's line, behind the times */}
-        <span aria-hidden className="absolute bottom-6 left-[3.1rem] top-6 w-px bg-line max-lg:hidden" />
-        {moments.map((x) => {
+      <div role="tablist" aria-label="Bir ofis günü" aria-orientation="vertical" className="relative self-start">
+        {moments.map((x, i) => {
           const on = x.key === active;
+          const past = i < moments.findIndex((y) => y.key === active);
+          const last = i === moments.length - 1;
           return (
             <button
               key={x.key}
@@ -44,7 +44,17 @@ export function DayTabs({ moments }: { moments: DayMoment[] }) {
               <span className={cn("w-12 shrink-0 pt-0.5 text-right text-[0.9rem] font-semibold tabular-nums", on ? "text-brass" : "text-muted")}>
                 {x.time}
               </span>
-              <span aria-hidden className={cn("relative z-10 mt-[0.45rem] size-2.5 shrink-0 rounded-full ring-4 ring-paper max-lg:hidden", on ? "bg-brass" : "bg-line")} />
+              {/* the day's line: from this dot to the next one, brass for the hours already passed */}
+              {!last && (
+                <span
+                  aria-hidden
+                  className={cn(
+                    "absolute left-[calc(0.75rem+3rem+1rem+0.3125rem-0.5px)] top-[calc(0.875rem+0.45rem+0.3125rem)] h-full w-px max-lg:hidden",
+                    past || on ? "bg-brass/45" : "bg-line",
+                  )}
+                />
+              )}
+              <span aria-hidden className={cn("relative z-10 mt-[0.45rem] size-2.5 shrink-0 rounded-full ring-4 ring-paper max-lg:hidden", on ? "bg-brass" : past ? "bg-brass/60" : "bg-line")} />
               <span className="min-w-0">
                 <span className="block font-semibold leading-snug">{x.title}</span>
                 {on && <span className="mt-1 block leading-relaxed text-muted">{x.text}</span>}
