@@ -190,7 +190,7 @@ export const sectors: Sector[] = [
     faq: [
       {
         q: "Parça stoğunu takip edebilir miyim?",
-        a: "Evet, Stok ek hizmetiyle. Depolar tek listede durur, kritik seviyeye inen ürün işaretlenir, satışta seçilen ürün stoktan düşer.",
+        a: "Evet. Stok Ekip ve üstü paketlerde dahil, Başlangıç’ta ek hizmet. Depolar tek listede durur, kritik seviyeye inen ürün işaretlenir, satışta seçilen ürün stoktan düşer.",
       },
       {
         q: "Servis araçlarını takip edebilir miyim?",
@@ -238,7 +238,7 @@ export const sectors: Sector[] = [
       },
       {
         q: "Satış girdiğimde stok düşer mi?",
-        a: "Evet, Stok ek hizmetiyle. Satışta seçtiğiniz ürün stoktan düşer, kritik seviyeye inen ürün işaretlenir.",
+        a: "Evet. Stok Ekip ve üstü paketlerde dahil, Başlangıç’ta ek hizmet. Satışta seçtiğiniz ürün stoktan düşer, kritik seviyeye inen ürün işaretlenir.",
       },
     ],
   },

@@ -32,7 +32,7 @@ export function GET() {
     "## Kahya’da olmayanlar",
     ...notIncluded.map((x) => `- ${x}`),
     "",
-    `Fiyat sitede yayınlanmaz. Seçilen çözüme göre teklif verilir: ${site.email}. Ayrıntılar: ${absoluteUrl("/cozumler")}`,
+    `Rakamlar sitede yayınlanmaz. Fiyat kullanıcı sayısına (paket: Başlangıç, Ekip, Büyüyen ve Kurumsal) ve ek hizmetlere göre verilir: ${site.email}. Ayrıntılar: ${absoluteUrl("/cozumler")}`,
     "",
     "## Eğitim",
     ...tutorials.map((t) => `- [${t.title}](${absoluteUrl(`/egitim/${t.slug}`)})`),

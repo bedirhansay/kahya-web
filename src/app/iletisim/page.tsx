@@ -9,14 +9,14 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   path: "/iletisim",
   title: "İletişim",
-  description: "Kahya ekibine yazın: kurumsal plan teklifi, Kahya AI eklentisi, kurulum ve veri aktarımı soruları için.",
+  description: "Kahya ekibine yazın: kurumsal plan teklifi, Kahya AI ek hizmeti, kurulum ve veri aktarımı soruları için.",
 });
 
 const items = [
   {
     Icon: Mail,
     title: "E-posta",
-    body: "Kurumsal plan teklifi, Kahya AI eklentisi, veri aktarımı ya da herhangi bir soru için.",
+    body: "Kurumsal plan teklifi, Kahya AI ek hizmeti, veri aktarımı ya da herhangi bir soru için.",
     href: `mailto:${site.email}?subject=Kahya`,
     cta: site.email,
   },

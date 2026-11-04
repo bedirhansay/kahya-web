@@ -32,7 +32,7 @@ export const generalFaq = [
 export const pricingFaq = [
   {
     q: "Fiyatlar neden sitede yazmıyor?",
-    a: "Fiyat, seçtiğiniz çözümlere, ek hizmetlere ve kullanıcı sayısına göre değişir. Bize yazın, ihtiyacınıza göre fiyat verelim.",
+    a: "Fiyat kullanıcı sayısına (paket) ve ek hizmetlere göre verilir. Paketler: Başlangıç, Ekip, Büyüyen ve Kurumsal. Bize yazın, ihtiyacınıza uyan paketi ve fiyatını iletelim.",
   },
   {
     q: "Nasıl satın alırım?",

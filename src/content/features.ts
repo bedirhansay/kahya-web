@@ -430,7 +430,7 @@ export const features: Feature[] = [
       },
       {
         q: "Kahya AI herkes için açık mı?",
-        a: "Kahya AI ayrı açılan bir eklentidir. Firma yöneticisi veri işleme koşullarını onayladıktan sonra, yetkisi olan kullanıcılar kullanır.",
+        a: "Her firmada ayda 100 soru ücretsiz, daha fazlası Kahya AI ek hizmetiyle. Firma yöneticisi veri işleme koşullarını onayladıktan sonra, yetkisi olan kullanıcılar kullanır.",
       },
       {
         q: "Konuşmalar ne kadar saklanır?",

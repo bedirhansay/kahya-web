@@ -177,7 +177,7 @@ export const extras: Extra[] = [
   },
   {
     name: "Stok",
-    body: "Depolar tek listede. Kritik seviyeye ineni Kahya işaretler, satışta seçilen ürün stoktan düşer.",
+    body: "Ekip ve üstü paketlerde dahil, Başlangıç’ta ek hizmet. Depolar tek listede. Kritik seviyeye ineni Kahya işaretler, satışta seçilen ürün stoktan düşer.",
   },
   {
     name: "Teklif",
@@ -185,7 +185,7 @@ export const extras: Extra[] = [
   },
   {
     name: "Kahya AI",
-    body: "Sorun, Kahya kendi verinizden yanıtlasın. Görev ve kayıt taslağı hazırlar, siz onaylamadan hiçbir şey kaydedilmez.",
+    body: "Sorun, Kahya kendi verinizden yanıtlasın. Görev ve kayıt taslağı hazırlar, siz onaylamadan hiçbir şey kaydedilmez. Her firmada ayda 100 soru ücretsiz, daha fazlası Kahya AI ek hizmetiyle.",
     href: "/ozellikler/kahya-ai",
   },
   {
