@@ -49,6 +49,7 @@ export const solutions: Solution[] = [
       lead: "Kahya yalnız yöneticinin değil, bütün ekibin aracı. Herkes kendi işini kendi ekranından yürütür.",
       points: [
         { term: "İzin", text: "personel telefondan ister, yönetici tek dokunuşla onaylar." },
+        { term: "Puantaj", text: "her gün giriş-çıkış saati ve yevmiyesiyle; ayın hakediş toplamı personelin kartında." },
         { term: "E-posta → görev", text: "gelen e-posta göreve dönüşür. Sorumlusu, projesi ve bitiş tarihiyle." },
         { term: "Talepler ve duyurular", text: "masraf talebi, onay akışı ve ekip duyurusu tek yerde." },
       ],

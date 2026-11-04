@@ -343,7 +343,7 @@ export const sectors: Sector[] = [
       title: "Güvenlik ve Temizlik Şirketleri için Personel, İzin ve Müşteri Sözleşmesi Takibi",
       h1: "Güvenlik ve temizlik hizmet firmaları için Kahya",
       description:
-        "Kalabalık saha personelinin izin ve devam takibi, avans talepleri, müşteri sözleşmeleri ve aylık hizmet bedelleri tek yerde. Kahya ile kim izinde, hangi sözleşme bitiyor, kim ödemedi, görün.",
+        "Kalabalık saha personelinin izin ve puantaj takibi, avans talepleri, müşteri sözleşmeleri ve aylık hizmet bedelleri tek yerde. Kahya ile kim izinde, hangi sözleşme bitiyor, kim ödemedi, görün.",
     },
     lead: "Çok sayıda saha personeli, birçok müşteri sözleşmesi ve her ay kesilen hizmet bedeli.",
     pains: [
@@ -355,7 +355,7 @@ export const sectors: Sector[] = [
       {
         solution: "ofis-yonetimi",
         points: [
-          { term: "İzin ve devam", text: "çalışılan, gelinmeyen ve izinli günler. Kim ne zaman, kaç gün izinde." },
+          { term: "İzin ve puantaj", text: "çalışılan, gelinmeyen ve izinli günler, giriş-çıkış saati ve yevmiyesiyle." },
           { term: "Avans talepleri", text: "personel telefondan ister, onay tek listede." },
           { term: "Sözleşmeler", text: "müşteri sözleşmesi bitiş tarihiyle, bitmeden hatırlatılır." },
         ],
@@ -367,11 +367,11 @@ export const sectors: Sector[] = [
     ],
     addons: ["E-posta"],
     mock: "approvals",
-    notDone: ["Vardiya planlama", "Puantaj ve bordro", "Personel konum (GPS) takibi"],
+    notDone: ["Vardiya planlama", "Bordro ve SGK", "Personel konum (GPS) takibi"],
     faq: [
       {
         q: "Vardiya planı yapabilir miyim?",
-        a: "Hayır. Kahya’da vardiya planlama yoktur. İzin, devam ve talepleri takip edersiniz.",
+        a: "Hayır. Kahya’da vardiya planlama yoktur. İzin, günlük puantaj ve talepleri takip edersiniz.",
       },
       {
         q: "Personel izinlerini telefondan isteyebilir mi?",

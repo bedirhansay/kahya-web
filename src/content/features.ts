@@ -232,11 +232,11 @@ export const features: Feature[] = [
   },
   {
     slug: "personel-ve-izin",
-    name: "Personel ve izinler",
-    summary: "İzin talebi telefondan, onay tek dokunuşta.",
-    metaTitle: "Personel ve izin takip programı",
+    name: "Personel, izin ve puantaj",
+    summary: "İzin talebi telefondan, günlük puantaj ve yevmiye tek kartta.",
+    metaTitle: "Personel, izin ve puantaj takip programı",
     metaDescription:
-      "Personel kartları, departmanlar, devam takibi ve izinler. Çalışan izni telefondan ister, yönetici onaylar, izin takvime işlenir.",
+      "Personel kartları, izinler ve günlük puantaj: yevmiye ve aylık hakediş takibi. Çalışan izni telefondan ister, yönetici onaylar, izin puantaja işlenir.",
     title: "İzin telefondan istenir, takvime kendiliğinden işlenir",
     lead:
       "Personeli işe giriş tarihi, departmanı ve görevine göre tutun. Çalışan izin talebini telefondan gönderir, yöneticisi onaylar. Çalışana bildirim gider, izin takvime işlenir.",
@@ -249,8 +249,8 @@ export const features: Feature[] = [
         body: "Ad, telefon, işe giriş tarihi, günlük ücret, departman ve görev. Avans, maaş ve izinler bu karttan yürür.",
       },
       {
-        title: "Devam takibi",
-        body: "Çalışılan, gelinmeyen ve izinli günler. Kim ne zaman, kaç gün izinde.",
+        title: "Günlük puantaj",
+        body: "Her gün için çalıştı, gelmedi ya da izinli; giriş ve çıkış saati ve o günün yevmiyesi. Ayın hakediş toplamı personelin Puantaj sekmesinde.",
       },
       {
         title: "İzin talebi ve onayı",
@@ -265,6 +265,10 @@ export const features: Feature[] = [
       {
         q: "İzne çıkan yöneticinin onayları ne olur?",
         a: "Yönetici, izin tarihleri için onaylarını bir vekile devreder. O tarihlerde talepler vekile gider.",
+      },
+      {
+        q: "Kahya bordro hazırlar mı?",
+        a: "Hayır. Kahya’da günlük puantaj, yevmiye ve aylık hakediş toplamı tutulur; bordro ve SGK bildirgesi hazırlanmaz.",
       },
     ],
   },
