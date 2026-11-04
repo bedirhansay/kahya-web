@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { Accent } from "@/components/Accent";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CtaBand } from "@/components/CtaBand";
 import { Faq } from "@/components/Faq";
@@ -23,7 +24,11 @@ export async function generateMetadata({ params }: PageProps<"/sektorler/[slug]"
   const { slug } = await params;
   const s = sectorBySlug(slug);
   if (!s) return {};
-  return pageMetadata({ path: `/sektorler/${s.slug}`, title: s.seo.title, description: s.seo.description });
+  return pageMetadata({
+    path: `/sektorler/${s.slug}`,
+    title: s.seo.title,
+    description: s.seo.description,
+  });
 }
 
 export default async function SectorPage({ params }: PageProps<"/sektorler/[slug]">) {
@@ -44,8 +49,10 @@ export default async function SectorPage({ params }: PageProps<"/sektorler/[slug
                 { name: s.name, path: `/sektorler/${s.slug}` },
               ]}
             />
-            <p className="eyebrow mt-10 text-brand">Sektörünüze göre Kahya</p>
-            <h1 className="title mt-4 max-w-2xl">{s.seo.h1}</h1>
+            <p className="chip mt-4">Sektörünüze göre Kahya</p>
+            <h1 className="title mt-4 max-w-2xl">
+              <Accent>{s.seo.h1}</Accent>
+            </h1>
             <p className="lead mt-5 max-w-xl text-muted">{s.lead}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a href={site.app.register} className="btn btn-brass">
@@ -66,7 +73,7 @@ export default async function SectorPage({ params }: PageProps<"/sektorler/[slug
       <section aria-labelledby="tanidik" className="bg-paper">
         <div className="wrap grid gap-10 py-16 md:py-24 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16">
           <SectionHead id="tanidik" eyebrow="Tanıdık geldi mi?" title="Bugün nerede takılıyor?" />
-          <ul className="divide-y divide-line border-y border-line">
+          <ul data-points className="grid">
             {s.pains.map((p) => (
               <li key={p} className="flex gap-3 py-4 text-[1.02rem]">
                 <X size={18} className="mt-1 shrink-0 text-[#b42318]/70" aria-hidden />
@@ -85,15 +92,13 @@ export default async function SectorPage({ params }: PageProps<"/sektorler/[slug
               const sol = solutionBySlug(u.solution)!;
               return (
                 <li key={u.solution} className="flex flex-col rounded-[16px] border border-line bg-paper p-6">
-                  <p className="eyebrow text-brand">
-                    {sol.kicker}
-                  </p>
+                  <p className="eyebrow text-brand">{sol.kicker}</p>
                   <h3 className="mt-2 text-xl font-bold">
                     {sol.name}
                     {sol.subtitle && <span className="ml-2 text-sm font-medium text-muted">{sol.subtitle}</span>}
                   </h3>
                   <Points items={u.points} className="mt-4 flex-1" />
-                  <Link href={`/cozumler/${sol.slug}`} className="link mt-5 inline-flex items-center gap-1.5">
+                  <Link href={`/cozumler/${sol.slug}`} className="link mt-3 inline-flex min-h-11 items-center gap-1.5">
                     Çözümü inceleyin <ArrowRight size={15} aria-hidden />
                   </Link>
                 </li>
@@ -106,7 +111,10 @@ export default async function SectorPage({ params }: PageProps<"/sektorler/[slug
                 <p className="eyebrow text-brand">İşinize yarayacak ek hizmetler</p>
                 <p className="mt-3 flex flex-wrap gap-2">
                   {s.addons.map((a) => (
-                    <span key={a} className="rounded-md border border-line bg-paper px-2.5 py-1 text-[0.95rem] font-semibold">
+                    <span
+                      key={a}
+                      className="rounded-md border border-line bg-paper px-2.5 py-1 text-[0.95rem] font-semibold"
+                    >
                       {a}
                     </span>
                   ))}

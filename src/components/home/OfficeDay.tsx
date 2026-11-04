@@ -40,11 +40,38 @@ const Check = () => (
   </svg>
 );
 
-const Sat = ({ n, d, icon, bg, fg, title, sub, cls }: { n: 1 | 2 | 3; d: number; icon: string; bg: string; fg: string; title: string; sub: string; cls?: string }) => (
+const Sat = ({
+  n,
+  d,
+  icon,
+  bg,
+  fg,
+  title,
+  sub,
+  cls,
+}: {
+  n: 1 | 2 | 3;
+  d: number;
+  icon: string;
+  bg: string;
+  fg: string;
+  title: string;
+  sub: string;
+  cls?: string;
+}) => (
   <div className={`od-sat od-sat-${n}`} aria-hidden style={v({ "--d": `${d}ms` })}>
     <div>
       <span className="ic" style={{ background: bg, color: fg }}>
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <svg
+          width="15"
+          height="15"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
           <path d={icon} />
         </svg>
       </span>
@@ -56,11 +83,34 @@ const Sat = ({ n, d, icon, bg, fg, title, sub, cls }: { n: 1 | 2 | 3; d: number;
   </div>
 );
 
+/** One job through the office: the same customer's offer becomes the sale, leaves the stock and is paid into the cari. */
 const flow = [
-  { Icon: FileCheck2, h: "Teklif", who: "Ege Muhasebe Bürosu", what: "₺7.500,00", st: "Müşteri linkten kabul etti", li: ["Kendi antetinizle", "Linkten onay"], plan: "Büyüyen paketten itibaren" },
-  { Icon: ReceiptText, h: "Satış", who: "Ekim hizmet bedeli", what: "FT-2026-0409", st: "Tek tıkla satışa döndü", li: ["KDV'li kalemler", "Vade ve taksit"] },
-  { Icon: Package, h: "Stok", who: "Satışta seçilen ürün", what: "Stoktan düştü", st: "Kritik seviye işaretlenir", li: ["Birden çok depo", "Hareket geçmişi"], plan: "Ekip paketten itibaren" },
-  { Icon: HandCoins, h: "Tahsilat", who: "Karadeniz Gıda San. ve Tic.", what: "+₺48.200,00", st: "Cariye işlendi, bakiye güncel", li: ["Ekstre linki", "Vade hatırlatma"] },
+  {
+    Icon: FileCheck2,
+    h: "Teklif",
+    d: "Kendi antetinizle gönderin; müşteri linkten açıp onaylasın.",
+    plan: "Büyüyen paketten itibaren",
+    ref: "TKL-0112",
+  },
+  {
+    Icon: ReceiptText,
+    h: "Satış",
+    d: "Kabul edilen teklif tek tıkla satışa döner; kalemler, KDV ve vade olduğu gibi gelir.",
+    ref: "FT-0409",
+  },
+  {
+    Icon: Package,
+    h: "Stok",
+    d: "Satılan ürün depodan düşer; kritik seviyenin altına inen ürün işaretlenir.",
+    plan: "Ekip paketten itibaren",
+    ref: "−5 adet",
+  },
+  {
+    Icon: HandCoins,
+    h: "Tahsilat",
+    d: "Ödeme cariye işlenir; bakiye ve hesap ekstresi aynı anda güncellenir.",
+    ref: "+₺7.500",
+  },
 ];
 
 const week: [string, ("" | "off" | "leave")[]][] = [
@@ -92,19 +142,31 @@ export function OfficeDay() {
           <h1 aria-label={H1}>
             {H1.split(" ").map((w, i) => (
               <span key={i} aria-hidden>
-                <span className="w" style={v({ "--i": i })}>
+                <span className={i === 3 ? "w grad grad-a" : i > 3 ? "w grad grad-b" : "w"} style={v({ "--i": i })}>
                   {w}
                 </span>{" "}
               </span>
             ))}
           </h1>
           <p className="od-lead" data-in style={v({ "--d": "520ms" })}>
-            Tahsilat, teklif, stok ve ekibin puantajı aynı kayıtta. Kahya bu kayıtlardan cevap verir; telefonda da masada da.
+            Tahsilat, teklif, stok ve ekibin puantajı aynı kayıtta. Kahya bu kayıtlardan cevap verir; telefonda da
+            masada da.
           </p>
           <div className="od-cta" data-in style={v({ "--d": "640ms" })}>
             <a href={site.app.register} className="btn btn-brass">
               Hemen başla
-              <svg className="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+              <svg
+                className="arr"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden
+              >
                 <path d="M5 12h14M13 6l6 6-6 6" />
               </svg>
             </a>
@@ -116,7 +178,14 @@ export function OfficeDay() {
             </Link>
           </div>
           <ul className="od-checks" data-in style={v({ "--d": "760ms" })}>
-            {["Cari ve tahsilat", "Tekliften satışa", "Stok ve depolar", "Personel ve puantaj", "Görev ve onaylar", "Kahya AI"].map((t) => (
+            {[
+              "Cari ve tahsilat",
+              "Tekliften satışa",
+              "Stok ve depolar",
+              "Personel ve puantaj",
+              "Görev ve onaylar",
+              "Kahya AI",
+            ].map((t) => (
               <li key={t}>
                 <Check />
                 {t}
@@ -127,9 +196,34 @@ export function OfficeDay() {
 
         <div className="od-stage" id="od-stage">
           <div className="od-depth">
-            <Sat n={1} d={1400} icon={SAT} bg="rgb(143 207 189 / 0.14)" fg="#8fcfbd" title="+₺48.200" sub="Tahsilat, cariye işlendi" cls="num pos" />
-            <Sat n={2} d={1600} icon="M5 12l5 5 9-10" bg="rgb(227 178 97 / 0.14)" fg="#e3b261" title="Teklif kabul edildi" sub="Linkten onay, satışa döndü" />
-            <Sat n={3} d={1800} icon={icons.clock.d} bg="rgb(191 218 200 / 0.1)" fg="#eef4f1" title="Ahmet T. işe giriş" sub="Puantaj, 08:58" />
+            <Sat
+              n={1}
+              d={1400}
+              icon={SAT}
+              bg="rgb(79 214 170 / 0.12)"
+              fg="#4fd6aa"
+              title="+₺48.200"
+              sub="Tahsilat, cariye işlendi"
+              cls="num pos"
+            />
+            <Sat
+              n={2}
+              d={1600}
+              icon="M5 12l5 5 9-10"
+              bg="rgb(79 214 170 / 0.12)"
+              fg="#4fd6aa"
+              title="Teklif kabul edildi"
+              sub="Linkten onay, satışa döndü"
+            />
+            <Sat
+              n={3}
+              d={1800}
+              icon={icons.clock.d}
+              bg="rgb(255 255 255 / 0.06)"
+              fg="#a3b8b2"
+              title="Ahmet T. işe giriş"
+              sub="Puantaj, 08:58"
+            />
             <div className="od-tilt" id="od-tilt">
               <div className="od-ghost od-ghost-2" aria-hidden>
                 <span>Teklifler</span>
@@ -138,7 +232,11 @@ export function OfficeDay() {
                 <span>Cariler</span>
               </div>
               <div className="od-deskin">
-                <div className="od-desk" role="img" aria-label="Kahya'da bir ofis günü, örnek veriyle: bu ayın geliri, vadesi geçen alacak, işteki ekip ve gün içindeki kayıtlar">
+                <div
+                  className="od-desk"
+                  role="img"
+                  aria-label="Kahya'da bir ofis günü, örnek veriyle: bu ayın geliri, vadesi geçen alacak, işteki ekip ve gün içindeki kayıtlar"
+                >
                   <div className="od-head" aria-hidden>
                     <b>Bugün</b>
                     <span className="sub" id="od-today">
@@ -171,7 +269,12 @@ export function OfficeDay() {
       <nav className="od-strip" aria-label="Kahya'nın hazır geldiği sektörler">
         <div className="od-track">
           {[...strip, ...strip].map((s, i) => (
-            <Link key={`${s.slug}-${i}`} href={`/sektorler/${s.slug}`} tabIndex={i < strip.length ? undefined : -1} aria-hidden={i < strip.length ? undefined : true}>
+            <Link
+              key={`${s.slug}-${i}`}
+              href={`/sektorler/${s.slug}`}
+              tabIndex={i < strip.length ? undefined : -1}
+              aria-hidden={i < strip.length ? undefined : true}
+            >
               {short[s.slug]}
             </Link>
           ))}
@@ -189,7 +292,7 @@ export function OfficeDay() {
             <div key={rest} className="od-fact" data-r style={v({ "--i": i })}>
               <b>
                 {n ? (
-                  <span className="num" data-count={n}>
+                  <span className="num grad" data-count={n}>
                     {n}
                   </span>
                 ) : null}
@@ -203,42 +306,163 @@ export function OfficeDay() {
         <section className="od-s od-pin" id="od-flow" aria-labelledby="od-flow-h">
           <div className="od-pin-in">
             <div className="od-sh" data-sh>
-              <h2 id="od-flow-h" aria-label="Bir iş, baştan sona aynı kayıtta.">
-                {"Bir iş, baştan sona aynı kayıtta.".split(" ").map((w, i) => (
+              <p className="chip">Tek kayıt</p>
+              <h2 style={{ marginTop: 20 }} id="od-flow-h" aria-label="Bir iş, baştan sona aynı kayıtta.">
+                {"Bir iş, baştan sona aynı kayıtta.".split(" ").map((w, i, arr) => (
                   <span key={i} aria-hidden>
-                    <span className="w" style={v({ "--i": i })}>
+                    <span className={i >= arr.length - 2 ? "w grad grad-b" : "w"} style={v({ "--i": i })}>
                       {w}
                     </span>{" "}
                   </span>
                 ))}
               </h2>
-              <p>Teklif kabul edilince satışa döner, ürün stoktan düşer, tahsilat cariye işlenir. Aynı şeyi dört ayrı yere yazmazsınız.</p>
+              <p>
+                Teklif kabul edilince satışa döner, ürün stoktan düşer, tahsilat cariye işlenir. Aynı şeyi dört ayrı
+                yere yazmazsınız.
+              </p>
             </div>
-            <div className="od-flow">
-              <ol className="od-steps" aria-hidden style={v({ "--fill": 1 })}>
-                {flow.map((f) => (
-                  <li key={f.h} className="on" />
+            <div className="od-walk" id="od-walk">
+              <ol className="od-wsteps">
+                {flow.map(({ Icon, ...f }, i) => (
+                  <li key={f.h} className={i === 0 ? "on" : undefined}>
+                    <button type="button" aria-pressed={i === 0} data-step={i}>
+                      <span className="od-wn num">{String(i + 1).padStart(2, "0")}</span>
+                      <span className="od-wt">
+                        <span className="od-wh">
+                          <Icon size={18} strokeWidth={1.8} aria-hidden />
+                          {f.h}
+                        </span>
+                        <span className="od-wd">
+                          <span>
+                            {f.d}
+                            {f.plan ? <em>{f.plan}</em> : null}
+                          </span>
+                        </span>
+                      </span>
+                    </button>
+                  </li>
                 ))}
               </ol>
-              {flow.map(({ Icon, ...f }, i) => (
-                <article key={f.h} className="od-node on" data-r style={v({ "--i": i })}>
-                  <header>
-                    <span className="od-ico">
-                      <Icon size={18} strokeWidth={1.8} aria-hidden />
-                    </span>
-                    <h3>{f.h}</h3>
-                  </header>
-                  <p className="od-who2">{f.who}</p>
-                  <p className="od-fig num">{f.what}</p>
-                  <p className="od-st">{f.st}</p>
-                  <ul>
-                    {f.li.map((l) => (
-                      <li key={l}>{l}</li>
+              <div className="od-win">
+                <div className="od-wbar">
+                  <span className="od-wcust">
+                    Ege Muhasebe Bürosu <span className="od-sample">Örnek veri</span>
+                  </span>
+                  <ol className="od-chain" aria-label="Bağlı kayıtlar">
+                    {flow.map((f, i) => (
+                      <li key={f.h} className={i === 0 ? "on" : undefined}>
+                        {f.ref}
+                      </li>
                     ))}
-                  </ul>
-                  {f.plan ? <p className="od-plan">{f.plan}</p> : null}
-                </article>
-              ))}
+                  </ol>
+                </div>
+                <div className="od-panes">
+                  <div className="od-pane on">
+                    <div className="od-ph">
+                      <span>
+                        <small>Teklif</small>
+                        <b className="num">TKL-2026-0112</b>
+                      </span>
+                      <span className="od-tag ok">Kabul edildi</span>
+                    </div>
+                    <div className="od-lines">
+                      <div>
+                        <span>
+                          Ergonomik ofis sandalyesi <small>5 × ₺1.250,00</small>
+                        </span>
+                        <b className="num">₺6.250,00</b>
+                      </div>
+                      <div>
+                        <span>KDV %20</span>
+                        <b className="num">₺1.250,00</b>
+                      </div>
+                      <div className="tot">
+                        <span>Toplam</span>
+                        <b className="num">₺7.500,00</b>
+                      </div>
+                    </div>
+                    <p className="od-pfoot">Müşteri 3 Kasım 14:20&apos;de linkten açtı ve onayladı.</p>
+                  </div>
+                  <div className="od-pane" aria-hidden>
+                    <div className="od-ph">
+                      <span>
+                        <small>Satış</small>
+                        <b className="num">FT-2026-0409</b>
+                      </span>
+                      <span className="od-tag">Vade 30 gün</span>
+                    </div>
+                    <div className="od-lines">
+                      <div>
+                        <span>
+                          Ergonomik ofis sandalyesi <small>5 × ₺1.250,00</small>
+                        </span>
+                        <b className="num">₺6.250,00</b>
+                      </div>
+                      <div>
+                        <span>KDV %20</span>
+                        <b className="num">₺1.250,00</b>
+                      </div>
+                      <div className="tot">
+                        <span>Toplam</span>
+                        <b className="num">₺7.500,00</b>
+                      </div>
+                    </div>
+                    <p className="od-pfoot">TKL-2026-0112 tekliften oluşturuldu; hiçbir alan yeniden yazılmadı.</p>
+                  </div>
+                  <div className="od-pane" aria-hidden>
+                    <div className="od-ph">
+                      <span>
+                        <small>Stok</small>
+                        <b>Ergonomik ofis sandalyesi</b>
+                      </span>
+                      <span className="od-tag warn">Kritik seviyede</span>
+                    </div>
+                    <div className="od-lines">
+                      <div>
+                        <span>Ana depo</span>
+                        <b className="num">18 → 13 adet</b>
+                      </div>
+                      <div>
+                        <span>Şube depo</span>
+                        <b className="num">6 adet</b>
+                      </div>
+                      <div className="tot">
+                        <span>Satış FT-2026-0409</span>
+                        <b className="num warn">−5 adet</b>
+                      </div>
+                    </div>
+                    <p className="od-pfoot">Kritik seviye 15 adet; altına inen ürün stok listesinde işaretlenir.</p>
+                  </div>
+                  <div className="od-pane" aria-hidden>
+                    <div className="od-ph">
+                      <span>
+                        <small>Cari</small>
+                        <b>Ege Muhasebe Bürosu</b>
+                      </span>
+                      <span className="od-tag ok">Bakiye ₺0,00</span>
+                    </div>
+                    <div className="od-lines">
+                      <div>
+                        <span>
+                          Satış FT-2026-0409 <small>3 Kasım</small>
+                        </span>
+                        <b className="num">₺7.500,00</b>
+                      </div>
+                      <div>
+                        <span>
+                          Tahsilat, havale <small>4 Kasım</small>
+                        </span>
+                        <b className="num pos">−₺7.500,00</b>
+                      </div>
+                      <div className="tot">
+                        <span>Bakiye</span>
+                        <b className="num">₺0,00</b>
+                      </div>
+                    </div>
+                    <p className="od-pfoot">Hesap ekstresi müşteriye link olarak gider.</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -246,15 +470,18 @@ export function OfficeDay() {
         <section className="od-s" aria-labelledby="od-ai-h">
           <div className="od-sh" data-sh>
             <h2 id="od-ai-h" aria-label="Sorun, Kahya kendi kayıtlarınızdan cevap versin.">
-              {"Sorun, Kahya kendi kayıtlarınızdan cevap versin.".split(" ").map((w, i) => (
+              {"Sorun, Kahya kendi kayıtlarınızdan cevap versin.".split(" ").map((w, i, arr) => (
                 <span key={i} aria-hidden>
-                  <span className="w" style={v({ "--i": i })}>
+                  <span className={i >= arr.length - 2 ? "w grad grad-b" : "w"} style={v({ "--i": i })}>
                     {w}
                   </span>{" "}
                 </span>
               ))}
             </h2>
-            <p>Kahya yalnızca erişebildiğiniz kayıtlara bakar, her cevabın kaynağını gösterir ve bir şey kaydetmeden önce onayınızı ister.</p>
+            <p>
+              Kahya yalnızca erişebildiğiniz kayıtlara bakar, her cevabın kaynağını gösterir ve bir şey kaydetmeden önce
+              onayınızı ister.
+            </p>
           </div>
           <div className="od-bento">
             <AskKahya />
@@ -274,15 +501,20 @@ export function OfficeDay() {
                   <div key={name} className="od-wrow">
                     <b>{name}</b>
                     {days.map((c, x) => (
-                      <i key={x} className={c || undefined} style={v({ "--i": x + y })} title={c === "off" ? "Gelmedi" : c === "leave" ? "İzinli" : "Çalıştı"} />
+                      <i
+                        key={x}
+                        className={c || undefined}
+                        style={v({ "--i": x + y })}
+                        title={c === "off" ? "Gelmedi" : c === "leave" ? "İzinli" : "Çalıştı"}
+                      />
                     ))}
                   </div>
                 ))}
               </div>
               <div className="od-legend">
-                <span style={v({ "--c": "rgb(143 207 189 / 0.5)" })}>Çalıştı</span>
-                <span style={v({ "--c": "rgb(227 178 97 / 0.6)" })}>İzinli</span>
-                <span style={v({ "--c": "rgb(240 138 108 / 0.55)" })}>Gelmedi</span>
+                <span style={v({ "--c": "rgb(79 214 170 / 0.45)" })}>Çalıştı</span>
+                <span style={v({ "--c": "rgb(227 178 97 / 0.55)" })}>İzinli</span>
+                <span style={v({ "--c": "rgb(255 143 115 / 0.55)" })}>Gelmedi</span>
               </div>
               <div className="od-total">
                 <span className="k">Ayın hakediş toplamı</span>

@@ -18,7 +18,7 @@ export function CtaBand({
           <a href={site.app.register} className="btn btn-brass">
             Hemen başla
           </a>
-          <a href={`mailto:${site.email}?subject=Kahya%20hakk%C4%B1nda`} className="btn btn-line-dark">
+          <a href="/iletisim" className="btn btn-line-dark">
             Bize yazın
           </a>
         </div>

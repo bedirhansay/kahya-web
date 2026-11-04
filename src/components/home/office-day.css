@@ -5,7 +5,7 @@
  * OfficeDayMotion after hydration), so the page is complete without JS. Reduced motion: still.
  */
 .od {
-  --od-ground: #04110f;
+  --od-ground: #040f0e;
   --od-coral: #f08a6c;
   --od-faint: #6c857e;
   --od-panel: rgb(191 218 200 / 0.045);
@@ -17,8 +17,9 @@
   --od-spring: linear(0, 0.22 5%, 0.56 11%, 0.86 17%, 1.04 23%, 1.1 28%, 1.09 33%, 1.04 41%, 1 50%, 0.985 60%, 0.995 75%, 1);
   position: relative;
   background:
-    radial-gradient(900px 600px at 12% -8%, rgb(20 98 91 / 0.55), transparent 70%),
-    radial-gradient(700px 520px at 92% 18%, rgb(227 178 97 / 0.13), transparent 70%),
+    radial-gradient(760px 560px at 22% 8%, rgb(16 160 125 / 0.34), transparent 70%),
+    radial-gradient(820px 600px at 82% 30%, rgb(20 98 91 / 0.42), transparent 70%),
+    radial-gradient(500px 360px at 70% 70%, rgb(227 178 97 / 0.07), transparent 70%),
     linear-gradient(var(--od-ground) 85%, var(--color-paper));
   background-repeat: no-repeat;
   overflow-x: clip;
@@ -29,14 +30,14 @@
 .od-beams { position: absolute; inset: 0 0 auto; height: 980px; pointer-events: none; overflow: hidden; mask: linear-gradient(#000 40%, transparent); }
 .od-beams i { position: absolute; top: 0; bottom: 0; width: 1px; background: linear-gradient(transparent, rgb(191 218 200 / 0.08) 20%, rgb(191 218 200 / 0.08) 80%, transparent); }
 .od-beams i::after { content: ""; position: absolute; left: -1px; width: 3px; height: 140px; top: -140px; border-radius: 2px; opacity: 0;
-  background: linear-gradient(transparent, rgb(240 207 148 / 0.9), transparent); filter: drop-shadow(0 0 6px rgb(227 178 97 / 0.8)); }
-.od-beams i:nth-child(1) { left: 8%; } .od-beams i:nth-child(2) { left: 47%; } .od-beams i:nth-child(3) { left: 93%; }
+  background: linear-gradient(transparent, rgb(191 232 218 / 0.9), transparent); filter: drop-shadow(0 0 6px rgb(134 212 187 / 0.8)); }
+.od-beams i:nth-child(1) { left: 3%; } .od-beams i:nth-child(2) { left: 50%; } .od-beams i:nth-child(3) { left: 97%; }
 
 /* Hero */
 .od-hero { position: relative; display: grid; grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr); gap: 56px; align-items: start; padding-top: 72px; padding-bottom: 88px; }
 .od-pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px 6px 8px; border: 1px solid var(--od-line-2); border-radius: 999px; font-size: 13.5px; color: var(--color-muted); background: rgb(4 17 15 / 0.5); }
 .od-pill b { color: var(--color-brass); font-weight: 600; }
-.od-pill .dot { width: 18px; height: 18px; border-radius: 50%; background: rgb(227 178 97 / 0.16); display: grid; place-items: center; }
+.od-pill .dot { width: 18px; height: 18px; border-radius: 50%; background: rgb(134 212 187 / 0.16); display: grid; place-items: center; }
 .od-pill .dot::after { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--color-brass); }
 .od h1 { margin-top: 22px; font-family: var(--font-display); font-weight: 800; font-size: clamp(44px, 4.7vw, 70px); line-height: 1.04; text-wrap: balance; letter-spacing: -0.02em; }
 .od-lead { margin-top: 22px; max-width: 30em; font-size: 18.5px; line-height: 1.6; color: var(--color-muted); }
@@ -58,7 +59,7 @@
 .od-desk { position: relative; border: 1px solid var(--od-line-2); border-radius: 20px; padding: 16px; background: linear-gradient(180deg, rgb(13 40 36 / 0.96), rgb(7 24 21 / 0.98));
   box-shadow: 0 50px 110px -30px rgb(0 0 0 / 0.75), 0 1px 0 rgb(255 255 255 / 0.06) inset; }
 .od-desk::before { content: ""; position: absolute; inset: -1px; border-radius: 20px; padding: 1px; pointer-events: none;
-  background: linear-gradient(140deg, rgb(227 178 97 / 0.45), transparent 32%, transparent 70%, rgb(143 207 189 / 0.3));
+  background: linear-gradient(140deg, rgb(134 212 187 / 0.45), transparent 32%, transparent 70%, rgb(143 207 189 / 0.3));
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; }
 .od-head { display: flex; align-items: center; gap: 10px; padding: 2px 4px 14px; font-size: 14px; white-space: nowrap; }
 .od-head b { font-family: var(--font-display); font-weight: 650; font-size: 15px; }
@@ -73,7 +74,7 @@
 .od-delta { display: inline-flex; margin-top: 6px; font-size: 12.5px; color: var(--od-mint); background: rgb(143 207 189 / 0.1); border-radius: 6px; padding: 1px 7px; }
 .od-bars { display: flex; align-items: flex-end; gap: 7px; height: 92px; margin-top: 16px; contain: layout paint; }
 .od-bars span { flex: 1; border-radius: 5px 5px 2px 2px; background: rgb(143 207 189 / 0.18); height: var(--h); transform-origin: bottom; transition: height 1s var(--od-out); }
-.od-bars span.now { background: linear-gradient(180deg, var(--color-brass), rgb(227 178 97 / 0.35)); }
+.od-bars span.now { background: linear-gradient(180deg, var(--color-brass), rgb(134 212 187 / 0.35)); }
 .od-days { display: flex; gap: 7px; margin-top: 6px; font-size: 11px; color: var(--od-faint); } .od-days span { flex: 1; text-align: center; }
 .od-stack { display: grid; gap: 12px; }
 .od-mini { display: flex; justify-content: space-between; align-items: baseline; }
@@ -119,71 +120,88 @@
 .od-sh h2 { font-family: var(--font-display); font-weight: 750; font-size: clamp(34px, 4vw, 54px); line-height: 1.08; letter-spacing: -0.015em; }
 .od-sh p { margin-top: 16px; font-size: 18px; color: var(--color-muted); }
 
-/* One job through the office: on a wide screen the section holds still while scrolling walks the four steps. */
-.od-flow { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 56px; perspective: 1600px; }
-/* The steps, on their own track above the cards: a hairline that fills with brass as the job moves on. */
-.od-steps { grid-column: 1 / -1; position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; height: 11px; margin-bottom: 14px; }
-.od-steps::before, .od-steps::after { content: ""; position: absolute; top: 5px; left: 5px; height: 1px; }
-.od-steps::before { right: calc(25% - 17px); background: var(--od-line-2); }
-.od-steps::after { width: calc((75% + 12px) * var(--fill, 0)); background: linear-gradient(90deg, rgb(227 178 97 / 0.25), var(--color-brass)); transition: width 0.6s var(--od-out); }
-.od-steps li { position: relative; z-index: 1; width: 11px; height: 11px; border-radius: 50%; background: var(--od-ground); border: 1px solid var(--od-line-2); transition: background 0.4s, border-color 0.4s, box-shadow 0.4s; }
-.od-steps li.on { background: var(--color-brass); border-color: var(--color-brass); box-shadow: 0 0 0 4px rgb(227 178 97 / 0.14), 0 0 14px rgb(227 178 97 / 0.45); }
+/* One job through the office: the steps on the left, one app window on the right showing the same job at that step. */
+.od-walk { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 5vw, 80px); align-items: center; margin-top: 56px; }
+.od-wsteps { }
+.od-wsteps li { position: relative; }
+/* The bar under the lit step: how far the job is through it. */
+.od-wsteps li::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px; background: linear-gradient(90deg, rgb(134 212 187 / 0.3), var(--color-brass)); transform-origin: left; transform: scaleX(0); }
+.od-wsteps li.on::after { transform: scaleX(var(--p, 1)); }
+.od-wsteps button { display: grid; grid-template-columns: 44px minmax(0, 1fr); width: 100%; padding: 22px 0; text-align: left; cursor: pointer; color: var(--od-faint); transition: color 0.4s; }
+.od-wsteps button:hover { color: #cfe0d9; }
+.od-wsteps li.on button { color: var(--color-ink); }
+.od-wn { padding-top: 4px; font-size: 13px; letter-spacing: 0.04em; transition: color 0.4s; }
+.od-wsteps li.on .od-wn { color: var(--color-brass); }
+.od-wh { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 650; font-size: 22px; line-height: 1.2; }
+.od-wh svg { transition: color 0.4s; } .od-wsteps li.on .od-wh svg { color: var(--color-brass); }
+/* The description opens under the lit step (grid rows, so it can ease open). */
+.od-wd { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.5s var(--od-out); }
+.od-wd > span { overflow: hidden; color: var(--color-muted); font-size: 16px; line-height: 1.55; }
+.od-wd em { display: block; margin-top: 6px; font-style: normal; font-size: 13.5px; color: var(--color-brass); }
+.od-wsteps li.on .od-wd { grid-template-rows: 1fr; } .od-wsteps li.on .od-wd > span { padding-top: 8px; }
 
-.od-node { position: relative; isolation: isolate; display: flex; flex-direction: column; border: 1px solid var(--od-line); border-radius: 16px; padding: 20px;
-  background: linear-gradient(180deg, rgb(191 218 200 / 0.05), rgb(191 218 200 / 0.015));
-  transition: border-color 0.5s, box-shadow 0.5s, transform 0.6s var(--od-out), opacity 0.6s; }
-.od-node.on { border-color: rgb(227 178 97 / 0.28); box-shadow: inset 0 1px 0 rgb(227 178 97 / 0.35), 0 24px 60px -36px rgb(227 178 97 / 0.35); }
-.od-node header { display: flex; align-items: center; gap: 12px; }
-.od-ico { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; background: rgb(143 207 189 / 0.08); color: var(--color-muted); border: 1px solid var(--od-line); transition: 0.5s; }
-.od-node.on .od-ico { background: rgb(227 178 97 / 0.12); color: var(--color-brass); border-color: rgb(227 178 97 / 0.3); }
-.od-node h3 { font-family: var(--font-display); font-weight: 650; font-size: 19px; line-height: 1.2; }
-.od-who2 { margin-top: 20px; font-size: 13px; color: var(--od-faint); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.od-fig { margin-top: 4px; font-family: var(--font-display); font-weight: 700; font-size: 22px; line-height: 1.15; letter-spacing: -0.01em; }
-.od-st { display: flex; align-items: center; gap: 8px; margin-top: 8px; font-size: 13px; color: var(--color-muted); transition: color 0.5s; }
-.od-st::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--od-line-2); flex: none; transition: background 0.5s; }
-.od-node.on .od-st { color: var(--od-mint); } .od-node.on .od-st::before { background: var(--od-mint); }
-.od-node ul { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--od-line); font-size: 13.5px; color: var(--color-muted); display: grid; gap: 6px; }
-.od-node li { display: flex; align-items: center; gap: 8px; }
-.od-node li::before { content: ""; width: 4px; height: 4px; border-radius: 50%; background: var(--od-faint); flex: none; }
-.od-plan { margin-top: auto; padding-top: 14px; font-size: 12.5px; color: var(--color-brass); }
+.od-win { position: relative; isolation: isolate; border: 1px solid var(--od-line-2); border-radius: 20px; background: linear-gradient(180deg, rgb(191 218 200 / 0.06), rgb(191 218 200 / 0.015)), var(--od-ground); box-shadow: 0 40px 100px -50px rgb(0 0 0 / 0.8), 0 0 0 1px rgb(255 255 255 / 0.02) inset; overflow: hidden; }
+.od-wbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 22px; border-bottom: 1px solid var(--od-line); }
+.od-wcust { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 15px; }
+.od-chain { display: flex; align-items: center; gap: 6px; font-size: 12.5px; }
+.od-chain li { display: flex; align-items: center; gap: 6px; color: var(--od-faint); transition: color 0.4s; white-space: nowrap; }
+.od-chain li + li::before { content: ""; width: 14px; height: 1px; background: var(--od-line-2); transition: background 0.4s; }
+.od-chain li.on, .od-chain li.past { color: var(--color-brass); } .od-chain li.on + li::before, .od-chain li.past + li::before { background: rgb(134 212 187 / 0.5); }
+.od-chain li.past { color: rgb(134 212 187 / 0.6); }
+.od-panes { display: grid; padding: 26px 26px 22px; }
+.od-pane { grid-area: 1 / 1; transition: opacity 0.5s, transform 0.6s var(--od-out), filter 0.5s; }
+.od-pane:not(.on) { opacity: 0; transform: translateY(14px); filter: blur(6px); pointer-events: none; }
+.od-ph { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.od-ph small { display: block; font-size: 13px; color: var(--od-faint); }
+.od-ph b { display: block; margin-top: 2px; font-family: var(--font-display); font-weight: 700; font-size: 28px; line-height: 1.15; letter-spacing: -0.01em; }
+.od-tag { flex: none; border: 1px solid var(--od-line-2); border-radius: 8px; padding: 5px 10px; font-size: 12.5px; color: var(--color-muted); }
+.od-tag.ok { border-color: rgb(143 207 189 / 0.35); color: var(--od-mint); } .od-tag.warn { border-color: rgb(240 138 108 / 0.4); color: var(--od-coral); }
+.od-lines { margin-top: 22px; border-top: 1px solid var(--od-line); font-size: 15px; }
+.od-lines > div { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 13px 0; border-bottom: 1px solid var(--od-line); color: #cfe0d9; }
+.od-lines small { margin-left: 8px; color: var(--od-faint); font-size: 13px; }
+.od-lines b { font-weight: 600; white-space: nowrap; } .od-lines b.warn { color: var(--od-coral); } .od-lines b.pos { color: var(--od-mint); }
+.od-lines .tot { border-bottom: 0; font-weight: 600; color: var(--color-ink); } .od-lines .tot b { font-size: 17px; }
+.od-pfoot { margin-top: 8px; font-size: 13.5px; color: var(--color-muted); }
 
 /* Kahya AI and the team's week */
-.od-bento { display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 16px; margin-top: 56px; padding-bottom: 120px; perspective: 1600px; }
-.od-box { position: relative; isolation: isolate; border: 1px solid var(--od-line); border-radius: 20px; background: var(--od-panel); padding: 26px; }
+.od-bento { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: clamp(24px, 3vw, 48px); margin-top: 56px; padding-bottom: 120px; perspective: 1600px; }
+/* No outer box: the heading and text stand on the ground, the one window (answer, week) carries the frame. */
+.od-box { position: relative; isolation: isolate; }
+.od-bento .od-box:first-child { padding-right: clamp(0px, 3vw, 48px); border-right: 1px solid var(--od-line); }
 .od-box h3 { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 650; font-size: 24px; line-height: 1.2; letter-spacing: -0.01em; }
 .od-box > p { margin-top: 8px; color: var(--color-muted); font-size: 15.5px; max-width: 34em; }
 .od-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
 .od-chip { font-size: 13.5px; border: 1px solid var(--od-line-2); border-radius: 999px; padding: 6px 12px; color: #cfe0d9; background: rgb(4 17 15 / 0.4); transition: border-color 0.3s, color 0.3s; cursor: pointer; }
-.od-chip:hover { border-color: rgb(227 178 97 / 0.5); }
+.od-chip:hover { border-color: rgb(134 212 187 / 0.5); }
 .od-chip[aria-pressed="true"] { border-color: var(--color-brass); color: var(--color-brass); }
-.od-answer { margin-top: 16px; border: 1px solid var(--od-line); border-radius: 14px; background: rgb(4 17 15 / 0.55); padding: 16px; min-height: 352px; }
+.od-answer { position: relative; margin-top: 22px; border: 1px solid var(--od-line-2); border-radius: 18px; background: linear-gradient(180deg, rgb(191 218 200 / 0.06), rgb(191 218 200 / 0.015)), var(--od-ground); box-shadow: 0 40px 100px -50px rgb(0 0 0 / 0.8); padding: 22px; min-height: 352px; }
 .od-who { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--color-muted); } .od-who span { margin-left: auto; color: var(--od-faint); }
 .od-arow { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--od-line); font-size: 14.5px; }
 .od-arow .ck { width: 18px; height: 18px; border-radius: 5px; background: var(--color-petrol-600); display: grid; place-items: center; color: var(--color-ink); font-size: 11px; flex: none; }
 .od-arow small { display: block; color: var(--color-muted); font-size: 12.5px; }
 .od-arow .amt { margin-left: auto; font-weight: 600; white-space: nowrap; }
 .od-afoot { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 12px; font-size: 12.5px; color: var(--od-faint); }
-.od-afoot .ok { margin-left: auto; background: var(--color-brass); color: #1d1405; border-radius: 9px; padding: 7px 12px; font-weight: 600; font-size: 13px; }
+.od-afoot .ok { margin-left: auto; background: var(--color-brass); color: #072622; border-radius: 9px; padding: 7px 12px; font-weight: 600; font-size: 13px; }
 .od-note { margin-top: 10px; font-size: 12.5px; color: var(--od-faint); }
 .od-typing { display: none; gap: 5px; padding: 12px 2px; } .od-typing i { width: 6px; height: 6px; border-radius: 50%; background: var(--color-muted); }
 .od-answer.think .od-typing { display: flex; } .od-answer.think .step { display: none; }
-.od-week { margin-top: 18px; display: grid; gap: 6px; }
+.od-week { margin-top: 22px; display: grid; gap: 6px; border: 1px solid var(--od-line-2); border-radius: 18px; background: linear-gradient(180deg, rgb(191 218 200 / 0.06), rgb(191 218 200 / 0.015)), var(--od-ground); padding: 20px; }
 .od-wrow { display: grid; grid-template-columns: 78px repeat(5, 1fr); gap: 5px; align-items: center; font-size: 12.5px; }
 .od-wrow b { font-weight: 500; color: #cfe0d9; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .od-wrow i { height: 24px; border-radius: 6px; background: rgb(143 207 189 / 0.16); transform-origin: left; }
-.od-wrow i.off { background: rgb(240 138 108 / 0.22); } .od-wrow i.leave { background: rgb(227 178 97 / 0.25); }
+.od-wrow i.off { background: rgb(240 138 108 / 0.22); } .od-wrow i.leave { background: rgb(134 212 187 / 0.25); }
 .od-wrow.hd { color: var(--od-faint); } .od-wrow.hd span { text-align: center; }
 .od-legend { display: flex; gap: 14px; margin-top: 12px; font-size: 12px; color: var(--color-muted); }
 .od-legend span::before { content: ""; display: inline-block; width: 9px; height: 9px; border-radius: 3px; margin-right: 6px; background: var(--c); }
 .od-total { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--od-line); }
 
 /* Pointer light on cards (fine pointers only). */
-.od-node::after, .od-box::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: -1; opacity: 0; transition: opacity 0.3s;
-  background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), rgb(227 178 97 / 0.09), transparent 70%); }
+.od-win::after, .od-answer::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: -1; opacity: 0; transition: opacity 0.3s;
+  background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), rgb(134 212 187 / 0.09), transparent 70%); }
 @media (hover: hover) and (pointer: fine) {
-  .od-node:hover, .od-box:hover { border-color: rgb(227 178 97 / 0.32); }
-  .od-box { transition: transform 0.3s var(--od-out), border-color 0.3s; } .od-box:hover { transform: translateY(-3px) scale(1.005); }
-  .od-node:hover::after, .od-box:hover::after { opacity: 1; }
+  .od-answer:hover { border-color: rgb(134 212 187 / 0.32); }
+  .od-answer, .od-week { transition: border-color 0.3s; }
+  .od-win:hover::after, .od-answer:hover::after { opacity: 1; }
 }
 
 /* ---- Motion ---- */
@@ -220,7 +238,7 @@
 
   /* Scroll reveals (only once JS is up): rise into place, cards also tip back from a slight lean. */
   .od-m [data-r] { opacity: 0; transform: translateY(18px); transition: opacity 0.6s var(--od-std), transform 0.8s var(--od-out); transition-delay: calc(var(--i, 0) * 90ms); }
-  .od-m .od-box[data-r], .od-m .od-node[data-r] { transform: translateY(36px) rotateX(10deg); transform-origin: 50% 100%; }
+  .od-m .od-box[data-r], .od-m .od-win[data-r] { transform: translateY(36px) rotateX(10deg); transform-origin: 50% 100%; }
   .od-m [data-r].in { opacity: 1; transform: none; }
   .od-m .od-sh h2 .w { display: inline-block; opacity: 0; filter: blur(8px); transform: translateY(0.3em); transition: opacity 0.6s var(--od-std), filter 0.6s var(--od-std), transform 0.7s var(--od-out); transition-delay: calc(var(--i) * 60ms); }
   .od-m .od-sh.in h2 .w { opacity: 1; filter: none; transform: none; }
@@ -229,10 +247,8 @@
 
   /* Pinned walk on wide screens: inactive steps sit back, the current one comes forward. */
   @media (min-width: 1081px) {
-    .od-m .od-pin { height: 240vh; }
-    .od-m .od-pin > .od-pin-in { position: sticky; top: 64px; min-height: calc(100vh - 64px); display: flex; flex-direction: column; justify-content: center; padding-bottom: 40px; }
-    .od-m .od-pin .od-node:not(.on) { opacity: 0.55; transform: translateZ(-60px) scale(0.97); }
-    .od-m .od-pin .od-node.on { transform: translateY(-4px); }
+    .od-m .od-pin { height: 320vh; }
+    .od-m .od-pin > .od-pin-in { position: sticky; top: 72px; min-height: calc(100vh - 72px); display: flex; flex-direction: column; justify-content: center; padding-bottom: 40px; }
   }
 }
 
@@ -242,7 +258,7 @@
   .od-ask { left: 12px; }
   .od-stage { margin-top: 0; }
   .od-sat-2 { display: none; } .od-sat-3 { right: 8px; }
-  .od-flow { grid-template-columns: 1fr 1fr; } .od-steps { display: none; }
+  .od-walk { grid-template-columns: 1fr; gap: 32px; }
   .od-bento { grid-template-columns: 1fr; }
 }
 @media (max-width: 600px) {
@@ -259,7 +275,67 @@
   .od-sat { display: none; } .od-beams i:nth-child(-n + 2) { display: none; } .od-beams i:nth-child(3) { left: auto; right: 6px; }
   .od-facts { grid-template-columns: 1fr 1fr; gap: 22px 0; } .od-fact:nth-child(3) { border-left: 0; padding-left: 0; }
   .od-s { padding-top: 88px; }
-  .od-flow { grid-template-columns: 1fr; }
-  .od-box { padding: 18px; } .od-wrow { grid-template-columns: 64px repeat(5, 1fr); }
+  .od-chain { display: none; } .od-panes { padding: 20px 18px 16px; } .od-ph b { font-size: 22px; }
+  .od-bento .od-box:first-child { padding-right: 0; border-right: 0; } .od-wrow { grid-template-columns: 64px repeat(5, 1fr); }
   .od-head .sub { display: none; }
+}
+
+/* Behind the window: a faint grid fading out from its centre and a brass light, so the window sits in a space. */
+.od-walk { position: relative; }
+.od-win-wrap { position: relative; }
+.od-walk::before { content: ""; position: absolute; z-index: -1; top: -12%; bottom: -12%; right: -6%; width: 64%; pointer-events: none;
+  background-image: linear-gradient(rgb(191 218 200 / 0.06) 1px, transparent 1px), linear-gradient(90deg, rgb(191 218 200 / 0.06) 1px, transparent 1px);
+  background-size: 44px 44px; mask-image: radial-gradient(closest-side, #000 30%, transparent); }
+.od-walk::after { content: ""; position: absolute; z-index: -1; top: 10%; right: 8%; width: 46%; height: 70%; pointer-events: none; border-radius: 50%;
+  background: radial-gradient(closest-side, rgb(134 212 187 / 0.14), transparent); filter: blur(30px); }
+@media (max-width: 1080px) { .od-walk::before { width: 100%; right: 0; top: 40%; } .od-walk::after { top: 50%; width: 80%; } }
+
+/*
+ * The windows as the app looks in its dark mode (Kahya green): deep petrol surfaces, green accents. The month's
+ * income is the app home's date card, its one gradient (petrol with a faint gold light at a corner).
+ */
+.od-desk, .od-ask, .od-sat > div, .od-win, .od-answer, .od-week {
+  --od-line: rgb(255 255 255 / 0.07); --od-line-2: rgb(255 255 255 / 0.11); --od-faint: #7f9792; --color-muted: #a3b8b2; --od-mint: #4fd6aa; --od-coral: #ff8f73; --color-ink: #eaf3f0;
+  color: #eaf3f0;
+}
+.od-desk, .od-win, .od-answer, .od-week {
+  background: linear-gradient(180deg, #0c201e, #081715); border-color: rgb(255 255 255 / 0.09);
+  box-shadow: 0 60px 120px -40px rgb(0 0 0 / 0.9), inset 0 1px 0 rgb(255 255 255 / 0.05);
+}
+.od-desk::before { display: none; }
+.od-desk .od-cell, .od-desk .od-log { background: #0f2724; border-color: var(--od-line); }
+.od-desk .od-log::after { background: linear-gradient(transparent, #0f2724); }
+.od-desk .od-meter { background: rgb(255 255 255 / 0.07); }
+.od-desk .od-ppl span { border-color: #0f2724; color: #fff; }
+.od-desk .od-grid > .od-cell:first-child {
+  position: relative; overflow: hidden; color: #fff; border-color: rgb(79 214 170 / 0.25);
+  background: radial-gradient(120% 90% at 100% 0%, rgb(227 178 97 / 0.2), transparent 55%), linear-gradient(150deg, #16756a, #0c3e39 70%);
+}
+.od-desk .od-grid > .od-cell:first-child .k { color: rgb(255 255 255 / 0.72); }
+.od-desk .od-grid > .od-cell:first-child .od-delta { color: #c9f0e2; background: rgb(255 255 255 / 0.1); }
+.od-desk .od-grid > .od-cell:first-child .od-bars span { background: rgb(255 255 255 / 0.16); }
+.od-desk .od-grid > .od-cell:first-child .od-bars span.now { background: linear-gradient(180deg, #fff, rgb(255 255 255 / 0.45)); }
+.od-desk .od-grid > .od-cell:first-child .od-days { color: rgb(255 255 255 / 0.55); }
+/* The toasts and the answer card: opaque, so the records under them never show through. */
+.od-ask, .od-sat > div { background: #102926; border-color: rgb(255 255 255 / 0.12); box-shadow: 0 24px 60px -18px rgb(0 0 0 / 0.85); }
+.od-ghost { border-color: rgb(255 255 255 / 0.08); background: linear-gradient(180deg, rgb(255 255 255 / 0.04), rgb(255 255 255 / 0.01)); }
+.od-ghost span { color: rgb(238 244 241 / 0.45); }
+.od-desk .gold { color: #4fd6aa; }
+.od-win .od-wbar { background: rgb(255 255 255 / 0.025); }
+.od-win .od-lines > div { color: #c9d8d4; }
+.od-win .od-chain li.on, .od-win .od-chain li.past { color: #4fd6aa; }
+.od-win .od-chain li.on + li::before, .od-win .od-chain li.past + li::before { background: rgb(79 214 170 / 0.5); }
+.od-win .od-tag.ok, .od-desk .od-tag.ok { border-color: rgb(79 214 170 / 0.35); color: #4fd6aa; background: rgb(79 214 170 / 0.08); }
+.od-win .od-tag.warn { border-color: rgb(255 143 115 / 0.35); color: #ff8f73; background: rgb(255 143 115 / 0.08); }
+.od-answer .od-arow .ck { background: #16756a; color: #fff; }
+.od-answer .od-afoot .ok { background: #16756a; color: #fff; }
+.od-answer .od-typing i { background: #7f9792; }
+.od-week .od-wrow b { color: #c9d8d4; }
+.od-week .od-wrow i { background: rgb(79 214 170 / 0.22); } .od-week .od-wrow i.off { background: rgb(255 143 115 / 0.3); } .od-week .od-wrow i.leave { background: rgb(227 178 97 / 0.3); }
+
+/* On a phone: no reading text under 14px, and every tap is at least 44px tall. */
+@media (max-width: 767px) {
+  .od-wn, .od .k, .od-sample, .od-legend, .od-pill { font-size: 14px; }
+  .od-chip { font-size: 14.5px; min-height: 44px; padding-block: 11px; }
+  .od-track a { padding-block: 14px; }
 }

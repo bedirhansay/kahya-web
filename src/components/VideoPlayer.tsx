@@ -46,12 +46,7 @@ export function VideoPlayer({ src, poster, title, duration, captions, aspect = "
           {captions && <track kind="captions" src={captions} srcLang="tr" label="Türkçe" default />}
         </video>
       ) : (
-        <button
-          type="button"
-          onClick={() => setPlaying(true)}
-          className="group absolute inset-0 size-full text-left"
-          aria-label={`${title}${duration ? ` ${duration}` : ""} oynat`}
-        >
+        <button type="button" onClick={() => setPlaying(true)} className="group absolute inset-0 size-full text-left">
           <Img
             src={poster}
             alt=""
@@ -68,6 +63,8 @@ export function VideoPlayer({ src, poster, title, duration, captions, aspect = "
             <span className="text-white">
               <span className="block font-bold">{title}</span>
               {duration && <span className="block text-sm text-white/70">{duration}</span>}
+              {/* The button is named by what it shows, plus what it does. */}
+              <span className="sr-only"> oynat</span>
             </span>
           </span>
         </button>

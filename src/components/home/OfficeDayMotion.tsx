@@ -19,7 +19,14 @@ export function OfficeDayMotion() {
     const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T | null;
 
     const today = $("od-today");
-    if (today) today.textContent = new Date().toLocaleDateString("tr-TR", { day: "numeric", month: "long", weekday: "long" }).replace(/ (\S+)$/, ", $1");
+    if (today)
+      today.textContent = new Date()
+        .toLocaleDateString("tr-TR", {
+          day: "numeric",
+          month: "long",
+          weekday: "long",
+        })
+        .replace(/ (\S+)$/, ", $1");
 
     // Count a figure up in place.
     const count = (el: HTMLElement, from: number, to: number, ms: number, fmt: (n: number) => string) => {
@@ -39,7 +46,10 @@ export function OfficeDayMotion() {
       const r = el.getBoundingClientRect();
       return r.top < innerHeight && r.bottom > 0;
     };
-    const countFacts = () => root.querySelectorAll<HTMLElement>("[data-count]").forEach((b) => count(b, 0, Number(b.dataset.count), 900, (n) => String(Math.round(n))));
+    const countFacts = () =>
+      root
+        .querySelectorAll<HTMLElement>("[data-count]")
+        .forEach((b) => count(b, 0, Number(b.dataset.count), 900, (n) => String(Math.round(n))));
     if (!reduce) {
       revealables.forEach((el) => inView(el) && el.classList.add("in"));
       root.classList.add("od-m");
@@ -52,7 +62,11 @@ export function OfficeDayMotion() {
             el.classList.add("in");
             if (el.id === "od-facts") countFacts();
             // Done rising: drop the hook so hover and state styles own the transform again.
-            if (el.hasAttribute("data-r")) setTimeout(() => el.removeAttribute("data-r"), 1000 + (Number(el.style.getPropertyValue("--i")) || 0) * 90);
+            if (el.hasAttribute("data-r"))
+              setTimeout(
+                () => el.removeAttribute("data-r"),
+                1000 + (Number(el.style.getPropertyValue("--i")) || 0) * 90,
+              );
           }),
         { threshold: 0.18, rootMargin: "0px 0px -8% 0px" },
       );
@@ -61,7 +75,9 @@ export function OfficeDayMotion() {
     }
 
     // Depth: the window leans toward the pointer; the records around it move at their own depth; scrolling tips it back.
-    const stage = $("od-stage"), tilt = $("od-tilt"), hero = $("od-hero");
+    const stage = $("od-stage"),
+      tilt = $("od-tilt"),
+      hero = $("od-hero");
     if (!reduce && stage && tilt && hero) {
       let raf = 0;
       const onScroll = () => {
@@ -80,7 +96,8 @@ export function OfficeDayMotion() {
           cancelAnimationFrame(praf);
           praf = requestAnimationFrame(() => {
             const r = stage.getBoundingClientRect();
-            const x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+            const x = (e.clientX - r.left) / r.width - 0.5,
+              y = (e.clientY - r.top) / r.height - 0.5;
             tilt.style.setProperty("--ry", (x * 6).toFixed(2) + "deg");
             tilt.style.setProperty("--rx", (-y * 5).toFixed(2) + "deg");
             stage.style.setProperty("--px", (-x).toFixed(3));
@@ -95,14 +112,16 @@ export function OfficeDayMotion() {
         };
         hero.addEventListener("pointermove", move);
         hero.addEventListener("pointerleave", leave);
-        off.push(() => (hero.removeEventListener("pointermove", move), hero.removeEventListener("pointerleave", leave)));
+        off.push(
+          () => (hero.removeEventListener("pointermove", move), hero.removeEventListener("pointerleave", leave)),
+        );
       }
     }
 
     // Cards: a soft light follows the cursor inside.
     if (fine) {
       const light = (e: PointerEvent) => {
-        const c = (e.target as HTMLElement).closest<HTMLElement>(".od-node, .od-box");
+        const c = (e.target as HTMLElement).closest<HTMLElement>(".od-win, .od-answer");
         if (!c) return;
         const r = c.getBoundingClientRect();
         c.style.setProperty("--mx", e.clientX - r.left + "px");
@@ -112,43 +131,73 @@ export function OfficeDayMotion() {
       off.push(() => root.removeEventListener("pointermove", light));
     }
 
-    // One job through the office: wide screens walk it with the scroll (the section is pinned); others on a timer.
+    // One job through the office: wide screens walk it with the scroll (the section is pinned), others on a timer;
+    // picking a step stops the walk there.
     const flow = $("od-flow");
-    const nodes = flow ? [...flow.querySelectorAll<HTMLElement>(".od-node")] : [];
-    const steps = flow?.querySelector<HTMLElement>(".od-steps");
-    const dots = steps ? [...steps.children] : [];
-    const show = (step: number) => {
-      nodes.forEach((n, i) => n.classList.toggle("on", i <= step));
-      dots.forEach((d, i) => d.classList.toggle("on", i <= step));
-      steps?.style.setProperty("--fill", String(Math.max(0, step) / (nodes.length - 1)));
+    const walk = $("od-walk");
+    const items = walk ? [...walk.querySelectorAll<HTMLElement>(".od-wsteps > li")] : [];
+    const chain = walk ? [...walk.querySelectorAll<HTMLElement>(".od-chain > li")] : [];
+    const panes = walk ? [...walk.querySelectorAll<HTMLElement>(".od-pane")] : [];
+    let step = 0,
+      held = false;
+    const show = (k: number, p = 1) => {
+      items.forEach((li, i) => {
+        li.classList.toggle("on", i === k);
+        li.querySelector("button")?.setAttribute("aria-pressed", String(i === k));
+      });
+      items[k]?.style.setProperty("--p", p.toFixed(3));
+      chain.forEach((li, i) => (li.classList.toggle("on", i === k), li.classList.toggle("past", i < k)));
+      panes.forEach((pn, i) => (pn.classList.toggle("on", i === k), pn.setAttribute("aria-hidden", String(i !== k))));
     };
-    if (flow && nodes.length && !reduce) {
-      show(-1);
-      let timer: ReturnType<typeof setInterval> | undefined, step = -1, fraf = 0;
+    items.forEach((li, i) =>
+      li.querySelector("button")?.addEventListener("click", () => {
+        held = true;
+        show((step = i));
+      }),
+    );
+    if (flow && items.length && !reduce) {
+      let timer: ReturnType<typeof setInterval> | undefined,
+        t0 = 0,
+        fraf = 0;
+      const STEP_MS = 3600;
       const byScroll = () => {
         cancelAnimationFrame(fraf);
         fraf = requestAnimationFrame(() => {
+          if (held) return;
           const r = flow.getBoundingClientRect();
-          const p = Math.max(0, Math.min(0.999, -r.top / Math.max(1, r.height - innerHeight)));
-          const s = r.top < innerHeight * 0.5 ? Math.floor(p * nodes.length) : -1;
-          if (s !== step) show((step = s));
+          const q = Math.max(0, Math.min(0.999, -r.top / Math.max(1, r.height - innerHeight))) * items.length;
+          show((step = Math.floor(q)), q - Math.floor(q));
         });
       };
-      const io = new IntersectionObserver(([en]) => {
-        if (wide.matches || !en) return;
-        if (en.isIntersecting && !timer) {
-          step = -1;
-          timer = setInterval(() => show((step = (step + 1) % (nodes.length + 1)) === nodes.length ? -1 : step), 1500);
+      // Timer: the lit step's bar fills, then the next step.
+      const tick = () => {
+        if (held || document.hidden) return;
+        const p = (performance.now() - t0) / STEP_MS;
+        if (p >= 1) {
+          t0 = performance.now();
+          step = (step + 1) % items.length;
         }
-        if (!en.isIntersecting && timer) {
-          clearInterval(timer);
-          timer = undefined;
-        }
-      }, { threshold: 0.35 });
+        show(step, Math.min(1, p % 1));
+      };
+      const io = new IntersectionObserver(
+        ([en]) => {
+          if (wide.matches || !en) return;
+          if (en.isIntersecting && !timer) {
+            t0 = performance.now();
+            timer = setInterval(tick, 60);
+          }
+          if (!en.isIntersecting && timer) {
+            clearInterval(timer);
+            timer = undefined;
+          }
+        },
+        { threshold: 0.35 },
+      );
       io.observe(flow);
       const onScroll = () => wide.matches && byScroll();
       addEventListener("scroll", onScroll, { passive: true });
-      byScroll();
+      if (wide.matches) byScroll();
+      else show(0, 0);
       off.push(() => (io.disconnect(), removeEventListener("scroll", onScroll), timer && clearInterval(timer)));
     }
 

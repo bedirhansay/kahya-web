@@ -7,7 +7,16 @@ import { DayTabs, type DayMoment } from "@/components/DayTabs";
 import { Faq } from "@/components/Faq";
 import { OfficeDay } from "@/components/home/OfficeDay";
 import { JsonLd } from "@/components/JsonLd";
-import { AiMock, CariMock, LeavePhoneMock, MailMock, MailToTaskMock, MeetingsMock, StockMock, TaskSummaryMock } from "@/components/mock/screens";
+import {
+  AiMock,
+  CariMock,
+  LeavePhoneMock,
+  MailMock,
+  MailToTaskMock,
+  MeetingsMock,
+  StockMock,
+  TaskSummaryMock,
+} from "@/components/mock/screens";
 import { SectorMock } from "@/components/mock/SectorMock";
 import { SectionHead } from "@/components/SectionHead";
 import { SectorTabs } from "@/components/SectorTabs";
@@ -24,7 +33,9 @@ export const metadata: Metadata = {
     title: "Kahya | Ofis Yönetim Programı: Görev, CRM, Cari ve Personel Takibi",
     description: site.description,
   }),
-  title: { absolute: "Kahya | Ofis Yönetim Programı: Görev, CRM, Cari ve Personel Takibi" },
+  title: {
+    absolute: "Kahya | Ofis Yönetim Programı: Görev, CRM, Cari ve Personel Takibi",
+  },
 };
 
 const tabSectors = featuredSectors.map((slug) => sectorBySlug(slug)!);
@@ -33,7 +44,11 @@ const compare = [
   ["İş kimde, ne durumda?", "Mesaj grubunda soruluyor.", "Görev sorumlusu ve durumuyla herkesin önünde."],
   ["Bu hafta kim izinli?", "İzin kâğıdı ya da mesaj.", "İzin telefondan istenir, onaylanınca takvime işlenir."],
   ["Müşteriyle en son ne konuşuldu?", "Görüşen kişinin aklında.", "Görüşme müşteri kartında, takip günüyle."],
-  ["Kim kime ne kadar borçlu?", "Ayrı tablolarda, elle toplanıyor.", "Cari bakiye her tahsilatta kendiliğinden güncellenir."],
+  [
+    "Kim kime ne kadar borçlu?",
+    "Ayrı tablolarda, elle toplanıyor.",
+    "Cari bakiye her tahsilatta kendiliğinden güncellenir.",
+  ],
   ["Taksit ne zaman?", "Takvime not düşülüyor, unutulursa geçiyor.", "Ödeme planı vadesinde hatırlatır."],
   ["Ay sonunda ne gönderilecek?", "Dosyalar tek tek toplanıyor.", "Mali Müşavir Paketi tek dosya olarak hazırlanır."],
 ] as const;
@@ -109,10 +124,11 @@ export default function HomePage() {
       <OfficeDay />
 
       {/* One office day */}
-      <section aria-labelledby="bir-gun">
+      <section aria-labelledby="bir-gun" className="chapter">
         <div className="wrap py-16 md:py-20">
           <SectionHead
             id="bir-gun"
+            eyebrow="Bir gün"
             title="Kahya’da bir ofis günü"
             lead="Sabah gelen izin talebinden akşamki tahsilata kadar her iş bir kayıtta. Bir saate dokunun, o anın ekranını görün."
           />
@@ -127,6 +143,7 @@ export default function HomePage() {
         <div className="wrap py-16 md:py-20">
           <SectionHead
             id="karsilastir"
+            eyebrow="Neden Kahya"
             title="Excel, WhatsApp ve kâğıt yerine"
             lead="Bir ofisin her gün sorduğu sorular. Dağınık araçlarla ve Kahya ile cevabı nerede?"
           />
@@ -162,10 +179,11 @@ export default function HomePage() {
       </section>
 
       {/* Sectors */}
-      <section aria-labelledby="sektorler">
+      <section aria-labelledby="sektorler" className="chapter chapter-r">
         <div className="wrap py-16 md:py-20">
           <SectionHead
             id="sektorler"
+            eyebrow="Sektörler"
             title="Sizin gibi bir ofiste Kahya"
             lead="Aynı uygulama, farklı işler. Sektörünüzü seçin, Kahya’nın sizde nasıl çalışacağını görün."
           />
@@ -174,7 +192,7 @@ export default function HomePage() {
               sectors={tabSectors}
               mocks={Object.fromEntries(tabSectors.map((s) => [s.slug, <SectorMock key={s.slug} kind={s.mock} />]))}
             />
-            <Link href="/sektorler" className="link mt-6 inline-flex items-center gap-1.5">
+            <Link href="/sektorler" className="link mt-4 inline-flex min-h-11 items-center gap-1.5">
               Tüm sektörler <ArrowRight size={15} aria-hidden />
             </Link>
           </div>
@@ -184,14 +202,15 @@ export default function HomePage() {
       {/* Add-ons */}
       <section aria-labelledby="ek-hizmetler">
         <div className="wrap py-16 md:py-20">
-          <div className="stage grid gap-10 p-6 md:p-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-14">
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-20">
             <div className="min-w-0">
               <SectionHead
                 id="ek-hizmetler"
+                eyebrow="Ek hizmetler"
                 title="İhtiyacınız olduğunda ekleyin"
                 lead="Ek hizmetler aynı kayıtlarla çalışır. Cari, görev ve müşteri kartı zaten Kahya’da."
               />
-              <ul className="mt-8 divide-y divide-ink/10 border-y border-ink/10">
+              <ul data-points className="mt-8 grid">
                 {extras.map((x) => (
                   <li key={x.name} className="grid gap-1 py-4 sm:grid-cols-[7rem_1fr] sm:gap-4">
                     <span className="font-semibold">
@@ -208,7 +227,7 @@ export default function HomePage() {
                 ))}
               </ul>
             </div>
-            <div className="relative min-w-0 self-center">
+            <div className="stage relative min-w-0 self-center p-2 sm:p-8">
               <MailMock />
               <div className="mt-4 grid gap-4 sm:grid-cols-2">
                 <StockMock />
@@ -222,7 +241,12 @@ export default function HomePage() {
       {/* Trust */}
       <section aria-labelledby="guven">
         <div className="wrap py-16 md:py-20">
-          <SectionHead id="guven" title="Verileriniz sizin, kontrol sizde" lead="Kahya’yı ekibinize güvenle açmanız için temel kurallar." />
+          <SectionHead
+            id="guven"
+            eyebrow="Güven"
+            title="Verileriniz sizin, kontrol sizde"
+            lead="Kahya’yı ekibinize güvenle açmanız için temel kurallar."
+          />
           <dl className="mt-12 grid gap-x-10 gap-y-9 sm:grid-cols-2 lg:grid-cols-3">
             {trust.map((t, i) => {
               const Icon = trustIcons[i] ?? ShieldCheck;
@@ -243,15 +267,16 @@ export default function HomePage() {
       </section>
 
       {/* Film */}
-      <section aria-labelledby="film">
+      <section aria-labelledby="film" className="chapter">
         <div className="wrap grid gap-10 py-16 md:py-20 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-center lg:gap-16">
           <div>
             <SectionHead
               id="film"
+              eyebrow="Tanıtım"
               title="Yarım dakikada Kahya"
               lead="Müşteriler bir dosyada, yazışmalar başka bir kutuda, bakiyeler tablolarda. Hepsi tek yerde olunca ne değişir?"
             />
-            <Link href="/tanitim-filmi" className="link mt-6 inline-block">
+            <Link href="/tanitim-filmi" className="link mt-4 inline-flex min-h-11 items-center">
               İki dakikalık tanıtım filmi ve metni
             </Link>
           </div>
@@ -267,10 +292,10 @@ export default function HomePage() {
 
       {/* FAQ */}
       <section aria-labelledby="sss">
-        <div className="wrap grid gap-10 pb-20 pt-4 md:pb-24 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16">
+        <div className="wrap grid gap-10 py-20 md:py-28 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16">
           <div>
-            <SectionHead id="sss" title="Aklınızdaki sorular" />
-            <Link href="/sss" className="link mt-5 inline-block">
+            <SectionHead id="sss" eyebrow="Sorular" title="Aklınızdaki sorular" />
+            <Link href="/sss" className="link mt-3 inline-flex min-h-11 items-center">
               Tüm sorular
             </Link>
           </div>

@@ -3,20 +3,47 @@
 export type IconKey = "in" | "ok" | "box" | "clock" | "warn";
 
 export const icons: Record<IconKey, { bg: string; fg: string; d: string }> = {
-  in: { bg: "rgb(143 207 189 / 0.14)", fg: "#8fcfbd", d: "M12 5v14M5 12l7 7 7-7" },
-  ok: { bg: "rgb(227 178 97 / 0.14)", fg: "#e3b261", d: "M5 12l5 5 9-10" },
-  box: { bg: "rgb(191 218 200 / 0.1)", fg: "#9db4ac", d: "M3 7l9-4 9 4-9 4-9-4zM3 7v10l9 4 9-4V7" },
-  clock: { bg: "rgb(143 207 189 / 0.14)", fg: "#8fcfbd", d: "M12 7v5l3 2M12 3a9 9 0 100 18 9 9 0 000-18z" },
-  warn: { bg: "rgb(240 138 108 / 0.14)", fg: "#f08a6c", d: "M12 8v5M12 16v.5M10.3 3.9L2 18a2 2 0 001.7 3h16.6a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z" },
+  in: { bg: "rgb(79 214 170 / 0.12)", fg: "#4fd6aa", d: "M12 5v14M5 12l7 7 7-7" },
+  ok: { bg: "rgb(79 214 170 / 0.12)", fg: "#4fd6aa", d: "M5 12l5 5 9-10" },
+  box: { bg: "rgb(255 255 255 / 0.06)", fg: "#a3b8b2", d: "M3 7l9-4 9 4-9 4-9-4zM3 7v10l9 4 9-4V7" },
+  clock: { bg: "rgb(79 214 170 / 0.12)", fg: "#4fd6aa", d: "M12 7v5l3 2M12 3a9 9 0 100 18 9 9 0 000-18z" },
+  warn: {
+    bg: "rgb(255 143 115 / 0.12)",
+    fg: "#ff8f73",
+    d: "M12 8v5M12 16v.5M10.3 3.9L2 18a2 2 0 001.7 3h16.6a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z",
+  },
 };
 
-export type DayEvent = { t: string; i: IconKey; txt: string; sub: string; a: string; cls?: "pos" | "gold" | "warn"; income?: true };
+export type DayEvent = {
+  t: string;
+  i: IconKey;
+  txt: string;
+  sub: string;
+  a: string;
+  cls?: "pos" | "gold" | "warn";
+  income?: true;
+};
 
 /** The office's day, oldest first. The window shows the newest on top. */
 export const dayEvents: DayEvent[] = [
   { t: "09:12", i: "clock", txt: "Puantaj", sub: "Ahmet T. giriş yaptı, 08:58", a: "" },
-  { t: "09:40", i: "in", txt: "Müşteriden tahsilat", sub: "Karadeniz Gıda San. ve Tic.", a: "+₺48.200", cls: "pos", income: true },
-  { t: "10:05", i: "ok", txt: "Teklif kabul edildi", sub: "Ege Muhasebe Bürosu, satışa döndü", a: "₺7.500", cls: "gold" },
+  {
+    t: "09:40",
+    i: "in",
+    txt: "Müşteriden tahsilat",
+    sub: "Karadeniz Gıda San. ve Tic.",
+    a: "+₺48.200",
+    cls: "pos",
+    income: true,
+  },
+  {
+    t: "10:05",
+    i: "ok",
+    txt: "Teklif kabul edildi",
+    sub: "Ege Muhasebe Bürosu, satışa döndü",
+    a: "₺7.500",
+    cls: "gold",
+  },
   { t: "10:31", i: "box", txt: "Stoktan düştü", sub: "Satışta seçilen ürün, ana depo", a: "" },
   { t: "11:15", i: "warn", txt: "Vadesi geçti", sub: "Akdeniz Yapı Malzemeleri, 50 gün", a: "₺29.000", cls: "warn" },
   { t: "11:48", i: "clock", txt: "İzin onaylandı", sub: "Murat K., Çarşamba ve Perşembe", a: "" },
@@ -26,7 +53,14 @@ export const INCOME_BEFORE = 521150;
 export const INCOME_AFTER = 569350;
 
 /** `p`: the sentence around one bold figure (before, figure, after). */
-export type Answer = { q: string; p: [string, string, string]; src: string; ok: string; cls: "pos" | "gold" | "warn"; rows: [string, string, string][] };
+export type Answer = {
+  q: string;
+  p: [string, string, string];
+  src: string;
+  ok: string;
+  cls: "pos" | "gold" | "warn";
+  rows: [string, string, string][];
+};
 
 export const answers: Answer[] = [
   {

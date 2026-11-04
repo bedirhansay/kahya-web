@@ -23,7 +23,12 @@ export async function generateMetadata({ params }: PageProps<"/egitim/[slug]">):
     title: `${t.title}, eğitim videosu`,
     description: tutorialDescription(t),
     type: "video.other",
-    image: { url: `/egitim/${t.slug}/opengraph-image`, width: 1200, height: 630, alt: t.title },
+    image: {
+      url: `/egitim/${t.slug}/opengraph-image`,
+      width: 1200,
+      height: 630,
+      alt: t.title,
+    },
   });
 }
 
@@ -100,7 +105,7 @@ export default async function TutorialPage({ params }: PageProps<"/egitim/[slug]
           </div>
           <div className="space-y-12">
             {t.lessons.map((l) => (
-              <article key={l.title} id={anchor(l.title)} className="scroll-mt-24 border-t border-line pt-6">
+              <article key={l.title} id={anchor(l.title)} className="scroll-mt-24 pt-6">
                 <h3 className="text-xl font-semibold">{l.title}</h3>
                 <ol className="mt-5 space-y-3">
                   {l.steps.map((step, i) => (
@@ -120,7 +125,10 @@ export default async function TutorialPage({ params }: PageProps<"/egitim/[slug]
       <nav aria-label="Bölümler" className="border-t border-line bg-paper">
         <div className="wrap grid gap-4 py-10 sm:grid-cols-2">
           {prev ? (
-            <Link href={`/egitim/${prev.slug}`} className="group rounded-[var(--radius-frame)] border border-line p-5 hover:border-sage">
+            <Link
+              href={`/egitim/${prev.slug}`}
+              className="group rounded-[var(--radius-frame)] border border-line p-5 hover:border-sage"
+            >
               <span className="text-sm text-muted">Önceki bölüm</span>
               <span className="mt-1 block font-semibold group-hover:text-petrol">{prev.title}</span>
             </Link>

@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import type { Point } from "@/content/solutions";
 import { cn } from "@/lib/cn";
 
+import { Accent } from "./Accent";
 import { Points } from "./Points";
 
 /**
@@ -43,7 +44,7 @@ export function FeatureRow({
       <div className={cn(reverse && "lg:order-2")}>
         <p className="eyebrow text-brand">{eyebrow}</p>
         <h2 id={id} className="title mt-3">
-          {title}
+          <Accent>{title}</Accent>
         </h2>
         <p className="lead mt-4 text-muted">{lead}</p>
         {points && <Points items={points} className="mt-6" />}
@@ -53,9 +54,13 @@ export function FeatureRow({
         <div className={cn(secondary && (phone ? "lg:w-[66%]" : "lg:w-[86%]"))}>{primary}</div>
         {secondary &&
           (phone ? (
-            <div className="mt-6 flex justify-center lg:absolute lg:right-0 lg:top-1/2 lg:mt-0 lg:-translate-y-1/2">{secondary}</div>
+            <div className="mt-6 flex justify-center lg:absolute lg:right-0 lg:top-1/2 lg:mt-0 lg:-translate-y-1/2">
+              {secondary}
+            </div>
           ) : (
-            <div className="relative -mt-6 ml-auto w-[92%] lg:absolute lg:bottom-0 lg:right-0 lg:mt-0 lg:w-[64%]">{secondary}</div>
+            <div className="relative -mt-6 ml-auto w-[92%] lg:absolute lg:bottom-0 lg:right-0 lg:mt-0 lg:w-[64%]">
+              {secondary}
+            </div>
           ))}
       </div>
     </div>

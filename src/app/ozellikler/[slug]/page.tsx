@@ -27,7 +27,12 @@ export async function generateMetadata({ params }: PageProps<"/ozellikler/[slug]
     path: `/ozellikler/${f.slug}`,
     title: f.metaTitle,
     description: f.metaDescription,
-    image: { url: `/ozellikler/${f.slug}/opengraph-image`, width: 1200, height: 630, alt: f.title },
+    image: {
+      url: `/ozellikler/${f.slug}/opengraph-image`,
+      width: 1200,
+      height: 630,
+      alt: f.title,
+    },
   });
 }
 
@@ -66,7 +71,13 @@ export default async function FeaturePage({ params }: PageProps<"/ozellikler/[sl
 
       <section className="bg-paper pb-16 pt-10 md:pb-24">
         <div className="wrap">
-          <Frame src={f.screen.src} alt={f.screen.alt} phone={f.screen.phone} priority sizes="(min-width: 1216px) 1152px, 100vw" />
+          <Frame
+            src={f.screen.src}
+            alt={f.screen.alt}
+            phone={f.screen.phone}
+            priority
+            sizes="(min-width: 1216px) 1152px, 100vw"
+          />
         </div>
       </section>
 
@@ -79,7 +90,7 @@ export default async function FeaturePage({ params }: PageProps<"/ozellikler/[sl
           </div>
           <dl className="grid gap-x-10 gap-y-9 sm:grid-cols-2">
             {f.points.map((p) => (
-              <div key={p.title} className="border-t border-line pt-5">
+              <div key={p.title} className="pt-5">
                 <dt className="flex items-start gap-2.5 font-semibold">
                   <Check size={19} className="mt-0.5 shrink-0 text-petrol" aria-hidden />
                   {p.title}
@@ -121,7 +132,7 @@ export default async function FeaturePage({ params }: PageProps<"/ozellikler/[sl
                   <ol className="mt-4 space-y-2.5">
                     {lesson.steps.map((step, i) => (
                       <li key={step} className="flex gap-3 text-[0.96rem] leading-snug">
-                        <span className="grid size-6 shrink-0 place-items-center rounded-md bg-surface text-xs font-bold text-petrol tabular-nums ring-1 ring-line">
+                        <span className="grid size-7 shrink-0 place-items-center rounded-md bg-surface text-sm font-bold text-brand tabular-nums ring-1 ring-line">
                           {i + 1}
                         </span>
                         <span className="pt-0.5 text-ink/85">{step}</span>

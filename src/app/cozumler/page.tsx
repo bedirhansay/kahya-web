@@ -9,7 +9,6 @@ import { PageHero } from "@/components/PageHero";
 import { pricingFaq } from "@/content/faq";
 import { extras, services, solutions } from "@/content/solutions";
 import { faqLd, pageMetadata, softwareLd } from "@/lib/seo";
-import { site } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   path: "/cozumler",
@@ -18,7 +17,7 @@ export const metadata: Metadata = pageMetadata({
     "Kahya üç çözümden oluşur: Ofis Yönetimi, CRM (Müşteri İlişkileri) ve Finans & Cari. E-posta ve Kahya AI ek hizmettir; Stok Ekip, Teklif Büyüyen ve üstü paketlerde dahil. Fiyat kullanıcı sayısına (paket) ve ek hizmetlere göre verilir.",
 });
 
-const quote = (what: string) => `mailto:${site.email}?subject=${encodeURIComponent(`Kahya fiyat talebi: ${what}`)}`;
+const quote = (what: string) => `/iletisim?konu=fiyat&cozum=${encodeURIComponent(what)}`;
 
 export default function SolutionsPage() {
   return (
@@ -35,9 +34,7 @@ export default function SolutionsPage() {
           <ol className="grid gap-px overflow-hidden rounded-[var(--radius-frame)] border border-line bg-line lg:grid-cols-3">
             {solutions.map((s) => (
               <li key={s.slug} id={s.slug} className="flex scroll-mt-24 flex-col bg-surface p-6 md:p-8">
-                <p className="eyebrow text-brand">
-                  {s.kicker}
-                </p>
+                <p className="eyebrow text-brand">{s.kicker}</p>
                 <h2 className="mt-3 text-2xl font-bold tracking-[-0.02em]">
                   <Link href={`/cozumler/${s.slug}`} className="hover:text-petrol">
                     {s.name}
@@ -50,7 +47,8 @@ export default function SolutionsPage() {
                     <li key={p.term} className="flex gap-3 text-[0.97rem]">
                       <Check size={18} className="mt-0.5 shrink-0 text-petrol" aria-hidden />
                       <span>
-                        <strong className="font-semibold">{p.term}:</strong> <span className="text-muted">{p.text}</span>
+                        <strong className="font-semibold">{p.term}:</strong>{" "}
+                        <span className="text-muted">{p.text}</span>
                       </span>
                     </li>
                   ))}
@@ -80,7 +78,7 @@ export default function SolutionsPage() {
             </h2>
             <p className="lead mt-4 text-muted">Hangi çözümü kullanırsanız kullanın, bunları da açtırabilirsiniz.</p>
           </div>
-          <ul className="divide-y divide-line border-y border-line">
+          <ul data-points className="grid">
             {extras.map((e) => (
               <li key={e.name} className="grid gap-2 py-5 sm:grid-cols-[8rem_1fr] sm:gap-6">
                 <h3 className="font-semibold">
@@ -108,7 +106,7 @@ export default function SolutionsPage() {
             <p className="lead mt-4 text-muted">İsterseniz bu işleri de biz yaparız. Fiyatı işe göre veririz.</p>
           </div>
           <div>
-            <ul className="divide-y divide-line border-y border-line">
+            <ul data-points className="grid">
               {services.map((e) => (
                 <li key={e.name} className="grid gap-2 py-5 sm:grid-cols-[12rem_1fr] sm:gap-6">
                   <h3 className="font-semibold">{e.name}</h3>

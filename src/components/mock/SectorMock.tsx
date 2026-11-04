@@ -1,6 +1,14 @@
 import type { Sector } from "@/content/sectors";
 
-import { ApprovalsMock, CariMock, FleetMock, MeetingsMock, PaymentPlanMock, StockMock, TaskSummaryMock } from "./screens";
+import {
+  ApprovalsMock,
+  CariMock,
+  FleetMock,
+  MeetingsMock,
+  PaymentPlanMock,
+  StockMock,
+  TaskSummaryMock,
+} from "./screens";
 
 export function SectorMock({ kind, className }: { kind: Sector["mock"]; className?: string }) {
   if (kind === "meetings") return <MeetingsMock className={className} />;

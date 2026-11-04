@@ -21,7 +21,10 @@ const tools = [
   ["Ana Sayfa’yı düzenleyin", "Bölümleri gizleyin, sürükleyip sıralayın, yan panele taşıyın."],
   ["Otomasyonlar", "Vade, görev ve sözleşme hatırlatmaları, haftalık özet, temas kopan müşteri, tekrarlayan görevler."],
   ["Etiketler ve özel alanlar", "Kayıtları renkle gruplayın, kartlara kendi alanınızı ekleyin."],
-  ["Excel’den içe aktarma", "Müşteri, tedarikçi, personel ve bakiyeleri şablonla alın. Yüklemeden önce önizleme ve hata kontrolü yapılır."],
+  [
+    "Excel’den içe aktarma",
+    "Müşteri, tedarikçi, personel ve bakiyeleri şablonla alın. Yüklemeden önce önizleme ve hata kontrolü yapılır.",
+  ],
   ["Roller ve yetkiler", "Her modülde görüntüle, oluştur, güncelle, sil, onayla ayrı ayrı."],
   ["Şubeler", "Birden fazla ofisiniz varsa her şubenin kayıtları ayrı tutulur."],
   ["Silinenler", "Silinen kayıt bir süre bekler, Geri yükle ile döner."],
@@ -55,9 +58,7 @@ export default function FeaturesPage() {
                       }
                     />
                   </div>
-                  <h2 className="mt-5 text-xl font-semibold group-hover:text-petrol">
-                    {f.name}
-                  </h2>
+                  <h2 className="mt-5 text-xl font-semibold group-hover:text-petrol">{f.name}</h2>
                   <p className="mt-2 max-w-lg leading-relaxed text-muted">{f.lead}</p>
                 </Link>
               </li>
@@ -72,7 +73,7 @@ export default function FeaturesPage() {
           </h2>
           <dl className="mt-12 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
             {tools.map(([t, d]) => (
-              <div key={t} className="border-t border-line pt-5">
+              <div key={t} className="pt-5">
                 <dt className="font-semibold">{t}</dt>
                 <dd className="mt-2 text-[0.96rem] leading-relaxed text-muted">{d}</dd>
               </div>

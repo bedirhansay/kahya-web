@@ -29,18 +29,26 @@ export function TaskSummaryMock({ className }: { className?: string }) {
           <span className="text-right">Açık</span>
         </div>
         {taskRows.map(([name, done, late, open]) => (
-          <div key={name} className="grid grid-cols-[1fr_3rem_3.5rem_3rem] items-center gap-2 border-b border-line px-3 py-2 last:border-0">
+          <div
+            key={name}
+            className="grid grid-cols-[1fr_3rem_3.5rem_3rem] items-center gap-2 border-b border-line px-3 py-2 last:border-0"
+          >
             <span className="flex min-w-0 items-center gap-2">
               <Avatar name={name} />
               <span className="min-w-0">
                 <span className="block truncate font-medium">{name}</span>
                 <span className="mt-1 block h-1 overflow-hidden rounded-full bg-mist">
-                  <span className="block h-full rounded-full bg-brand" style={{ width: `${(done / (done + open + late)) * 100}%` }} />
+                  <span
+                    className="block h-full rounded-full bg-brand"
+                    style={{ width: `${(done / (done + open + late)) * 100}%` }}
+                  />
                 </span>
               </span>
             </span>
             <span className="text-right font-semibold tabular-nums">{done}</span>
-            <span className={cn("text-right tabular-nums", late ? "font-semibold text-[#b42318]" : "text-muted")}>{late}</span>
+            <span className={cn("text-right tabular-nums", late ? "font-semibold text-[#ff8f73]" : "text-muted")}>
+              {late}
+            </span>
             <span className="text-right tabular-nums text-muted">{open}</span>
           </div>
         ))}
@@ -122,7 +130,7 @@ export function LeavePhoneMock({ className }: { className?: string }) {
     <MockPhone label="Telefonda izin talebi: çalışan izin ister, yönetici tek dokunuşla onaylar" className={className}>
       <p className="font-bold">İzinlerim</p>
       <p className="mt-1 text-[11px] text-muted">Hak 14 · Kullanılan 3 · Kalan 11</p>
-      <div className="mt-3 rounded-[10px] border border-line bg-white p-3">
+      <div className="mt-3 rounded-[10px] border border-line bg-surface p-3">
         <div className="flex items-center justify-between">
           <span className="font-semibold">Yıllık izin</span>
           <Badge tone="warn">Bekliyor</Badge>
@@ -130,7 +138,7 @@ export function LeavePhoneMock({ className }: { className?: string }) {
         <p className="mt-1.5 text-muted">12.11.2026 – 14.11.2026</p>
         <p className="mt-2 font-bold">3 gün</p>
       </div>
-      <div className="mt-2.5 rounded-[10px] border border-line bg-white p-3">
+      <div className="mt-2.5 rounded-[10px] border border-line bg-surface p-3">
         <div className="flex items-center justify-between">
           <span className="font-semibold">Ücretli izin</span>
           <Badge tone="brand">Onaylandı</Badge>
@@ -156,7 +164,9 @@ export function MailToTaskMock({ className }: { className?: string }) {
       <Panel className="p-3">
         <p className="text-[11px] text-muted">Karadeniz Gıda · info@karadenizgida.example</p>
         <p className="mt-1 font-semibold">Ekim raporu ve ERP geçişi hakkında</p>
-        <p className="mt-1.5 line-clamp-2 text-muted">Merhaba, ekim ayı raporunu ve stok aktarım planını cuma gününe kadar paylaşabilir misiniz?</p>
+        <p className="mt-1.5 line-clamp-2 text-muted">
+          Merhaba, ekim ayı raporunu ve stok aktarım planını cuma gününe kadar paylaşabilir misiniz?
+        </p>
         <p className="mt-2 inline-flex items-center gap-1 text-[11px] text-muted">
           <Paperclip size={12} /> stok-listesi.xlsx
         </p>
@@ -199,7 +209,13 @@ export function MeetingsMock({ className }: { className?: string }) {
     >
       <Panel title="Kuzey Mobilya Dekorasyon" action="+ Görüşme ekle">
         {[
-          ["03.11.2026", "Murat Kaya", "Telefon", "Yeni ofis için teklif istedi. Ölçüler bu hafta gelecek.", "14 Kasım"],
+          [
+            "03.11.2026",
+            "Murat Kaya",
+            "Telefon",
+            "Yeni ofis için teklif istedi. Ölçüler bu hafta gelecek.",
+            "14 Kasım",
+          ],
           ["21.10.2026", "Murat Kaya", "Toplantı", "Showroom ziyareti. Ödeme planı konuşuldu.", null],
         ].map(([date, who, how, note, follow]) => (
           <div key={date} className="border-b border-line px-3 py-2.5 last:border-0">
@@ -236,7 +252,9 @@ export function RecentMeetingsMock({ className }: { className?: string }) {
             <div className="min-w-0 flex-1">
               <div className="flex items-center justify-between gap-2">
                 <span className="truncate font-semibold">{firm}</span>
-                <Badge tone={follow === "Bugün" ? "danger" : "warn"}>{follow === "Bugün" ? "Takip bugün" : follow}</Badge>
+                <Badge tone={follow === "Bugün" ? "danger" : "warn"}>
+                  {follow === "Bugün" ? "Takip bugün" : follow}
+                </Badge>
               </div>
               <p className="truncate text-[11.5px] text-muted">
                 {who} · {how} · {note}
@@ -262,7 +280,7 @@ export function MoneyHomeMock({ className }: { className?: string }) {
       <div className="grid grid-cols-3 gap-2">
         {[
           ["Bu ay gelir", "₺569.350", "text-brand"],
-          ["Bu ay gider", "₺361.260", "text-[#b42318]"],
+          ["Bu ay gider", "₺361.260", "text-[#ff8f73]"],
           ["Net", "₺208.090", "text-ink"],
         ].map(([k, v, c]) => (
           <Panel key={k} className="p-2.5">
@@ -316,11 +334,21 @@ export function CariMock({ className }: { className?: string }) {
             ["28.10", "Satış · Ofis mobilyası", "+₺62.000", "₺107.200"],
             ["15.10", "Taksit 2/6", "−₺15.000", "₺45.200"],
           ].map(([d, t, a, b]) => (
-            <div key={d} className="grid grid-cols-[2.6rem_1fr_auto] items-center gap-2 border-b border-line px-3 py-2 last:border-0">
+            <div
+              key={d}
+              className="grid grid-cols-[2.6rem_1fr_auto] items-center gap-2 border-b border-line px-3 py-2 last:border-0"
+            >
               <span className="text-[11px] text-muted">{d}</span>
               <span className="truncate">{t}</span>
               <span className="text-right">
-                <span className={cn("block font-semibold tabular-nums", a.startsWith("−") ? "text-[#b42318]" : "text-brand")}>{a}</span>
+                <span
+                  className={cn(
+                    "block font-semibold tabular-nums",
+                    a.startsWith("−") ? "text-[#ff8f73]" : "text-brand",
+                  )}
+                >
+                  {a}
+                </span>
                 <span className="block text-[10.5px] text-muted tabular-nums">{b}</span>
               </span>
             </div>
@@ -378,7 +406,10 @@ export function MailMock({ className }: { className?: string }) {
           ["Marmara Hukuk Bürosu", "Sözleşme taslağı ektedir", "Tedarikçi", true],
           ["info@yenifirma.example", "Fiyat teklifi rica ediyoruz", null, false],
         ].map(([from, subj, kind, matched]) => (
-          <div key={from as string} className="flex items-center gap-2.5 border-b border-line px-3 py-2.5 last:border-0">
+          <div
+            key={from as string}
+            className="flex items-center gap-2.5 border-b border-line px-3 py-2.5 last:border-0"
+          >
             <Avatar name={from as string} />
             <div className="min-w-0 flex-1">
               <div className="flex items-center gap-2">
@@ -409,7 +440,10 @@ export function StockMock({ className }: { className?: string }) {
           ["Toner TN-2420", "Merkez depo", "3 adet", "Kritik"],
           ["Ofis sandalyesi", "Şube depo", "18 adet", null],
         ].map(([n, w, q, c]) => (
-          <div key={n as string} className="flex items-center justify-between gap-2 border-b border-line px-3 py-2.5 last:border-0">
+          <div
+            key={n as string}
+            className="flex items-center justify-between gap-2 border-b border-line px-3 py-2.5 last:border-0"
+          >
             <span className="min-w-0">
               <span className="block truncate font-medium">{n}</span>
               <span className="block text-[11px] text-muted">{w}</span>
@@ -440,13 +474,18 @@ export function AiMock({ className, dark }: { className?: string; dark?: boolean
         <p className="flex items-center gap-2 font-semibold">
           <Sparkles size={15} className="text-brass" /> Kahya AI
         </p>
-        <p className={cn("ml-auto mt-3 w-fit max-w-[80%] rounded-xl rounded-br-sm px-3 py-2", dark ? "bg-white/10" : "bg-mist")}>
+        <p
+          className={cn(
+            "ml-auto mt-3 w-fit max-w-[80%] rounded-xl rounded-br-sm px-3 py-2",
+            dark ? "bg-white/10" : "bg-mist",
+          )}
+        >
           Bugün ne var?
         </p>
         <p className={cn("mt-3 leading-relaxed", dark ? "text-white/80" : "text-muted")}>
           Bugün 4 görev, 2 onay bekleyen talep ve vadesi gelen 3 tahsilat var. Ege Yazılım ile 20 gündür görüşülmedi.
         </p>
-        <div className="mt-3 rounded-[10px] bg-white p-3 text-ink">
+        <div className="mt-3 rounded-[10px] bg-surface p-3 text-ink">
           <p className="text-[11px] font-semibold text-muted">Öneri · Görev</p>
           <p className="mt-1 font-semibold">Ege Yazılım’ı ara: bakım sözleşmesi yenilemesi</p>
           <p className="mt-0.5 text-[11.5px] text-muted">Sorumlu: Selin Aydın · Yarın</p>
@@ -455,7 +494,9 @@ export function AiMock({ className, dark }: { className?: string; dark?: boolean
             <Btn>Vazgeç</Btn>
           </div>
         </div>
-        <p className={cn("mt-2.5 text-[11px]", dark ? "text-white/50" : "text-muted")}>Siz onaylamadan hiçbir şey kaydedilmez.</p>
+        <p className={cn("mt-2.5 text-[11px]", dark ? "text-white/50" : "text-muted")}>
+          Siz onaylamadan hiçbir şey kaydedilmez.
+        </p>
       </div>
     </div>
   );
@@ -481,14 +522,17 @@ export function FleetMock({ className }: { className?: string }) {
           ["34 KHY 205", "Kamyonet", 18, "₺96.500", "₺31.800"],
           ["06 KHY 330", "Tır", 7, "₺214.000", "₺121.600"],
         ].map(([plate, kind, trips, inc, exp]) => (
-          <div key={plate as string} className="grid grid-cols-[1fr_3rem_4.5rem_4.5rem] items-center gap-2 border-b border-line px-3 py-2 last:border-0">
+          <div
+            key={plate as string}
+            className="grid grid-cols-[1fr_3rem_4.5rem_4.5rem] items-center gap-2 border-b border-line px-3 py-2 last:border-0"
+          >
             <span className="min-w-0">
               <span className="block truncate font-semibold tabular-nums">{plate}</span>
               <span className="block text-[11px] text-muted">{kind}</span>
             </span>
             <span className="text-right tabular-nums">{trips}</span>
             <span className="text-right font-semibold tabular-nums text-brand">{inc}</span>
-            <span className="text-right tabular-nums text-[#b42318]">{exp}</span>
+            <span className="text-right tabular-nums text-[#ff8f73]">{exp}</span>
           </div>
         ))}
       </Panel>
@@ -510,7 +554,10 @@ export function BranchesMock({ className }: { className?: string }) {
           ["Ankara", false],
           ["İzmir", false],
         ].map(([n, main]) => (
-          <div key={n as string} className="flex items-center justify-between gap-2 border-b border-line px-3 py-2.5 last:border-0">
+          <div
+            key={n as string}
+            className="flex items-center justify-between gap-2 border-b border-line px-3 py-2.5 last:border-0"
+          >
             <span className="font-medium">{n}</span>
             <span className="flex items-center gap-2">
               {main ? <Badge tone="brand">Merkez</Badge> : <Badge>Şube</Badge>}

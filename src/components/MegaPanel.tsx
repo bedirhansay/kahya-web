@@ -11,11 +11,11 @@ export function MegaPanel({ menu }: { menu: MegaMenu }) {
   return (
     <div
       className={cn(
-        "invisible absolute inset-x-0 top-full -translate-y-1 border-t border-line bg-surface text-ink opacity-0 shadow-[0_24px_48px_-16px_rgb(6_27_25/0.35)]",
+        "invisible absolute inset-x-0 top-full mt-2 -translate-y-1 overflow-hidden rounded-[18px] border border-white/10 bg-surface/95 text-ink opacity-0 shadow-[0_30px_60px_-20px_rgb(0_0_0/0.8)] backdrop-blur-xl",
         "transition duration-200 ease-out-quint group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100",
       )}
     >
-      <div className="wrap grid grid-cols-[1fr_17rem] gap-8 py-7">
+      <div className="grid grid-cols-[1fr_17rem] gap-8 p-6">
         <div className={cn("grid gap-6", cards ? "grid-cols-1" : "grid-cols-3")}>
           {menu.columns.map((col) => (
             <div key={col.title}>
@@ -45,7 +45,11 @@ export function MegaPanel({ menu }: { menu: MegaMenu }) {
                     )}
                   >
                     {l.label}
-                    <ArrowRight size={14} aria-hidden className="opacity-50 transition group-hover/a:translate-x-0.5 group-hover/a:opacity-100" />
+                    <ArrowRight
+                      size={14}
+                      aria-hidden
+                      className="opacity-50 transition group-hover/a:translate-x-0.5 group-hover/a:opacity-100"
+                    />
                   </Link>
                 </li>
               );
@@ -87,7 +91,7 @@ function Card({ item }: { item: NavLink }) {
             <Icon size={19} aria-hidden />
           </span>
         )}
-              </span>
+      </span>
       <span className="mt-4 block font-bold leading-tight">{item.label}</span>
       {item.hint && <span className="mt-1.5 block text-[0.83rem] leading-snug text-muted">{item.hint}</span>}
       {item.bullets && (

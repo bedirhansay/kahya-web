@@ -17,7 +17,11 @@ export function SectorTabs({ sectors, mocks }: { sectors: Sector[]; mocks: Recor
 
   return (
     <div>
-      <div role="tablist" aria-label="Sektörler" className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:px-0">
+      <div
+        role="tablist"
+        aria-label="Sektörler"
+        className="-mx-4 flex gap-1 overflow-x-auto border-b border-line px-4 sm:mx-0 sm:px-0"
+      >
         {sectors.map((x) => (
           <button
             key={x.slug}
@@ -28,8 +32,10 @@ export function SectorTabs({ sectors, mocks }: { sectors: Sector[]; mocks: Recor
             aria-controls={`panel-${x.slug}`}
             onClick={() => setActive(x.slug)}
             className={cn(
-              "shrink-0 rounded-lg border px-4 py-2 text-[0.95rem] font-semibold transition-colors",
-              x.slug === active ? "border-brass bg-brass text-pine-950" : "border-line bg-surface text-ink hover:border-mint/50",
+              // Underlined tabs: the picked sector is lit, a brass bar under it.
+              "relative shrink-0 px-4 pb-3.5 pt-2 text-[1rem] font-semibold transition-colors duration-300",
+              "after:absolute after:inset-x-3 after:-bottom-px after:h-0.5 after:origin-center after:rounded-full after:bg-brass after:transition-transform after:duration-500 after:ease-out-quint",
+              x.slug === active ? "text-ink after:scale-x-100" : "text-ink/50 after:scale-x-0 hover:text-ink/85",
             )}
           >
             {x.tab}
@@ -40,10 +46,10 @@ export function SectorTabs({ sectors, mocks }: { sectors: Sector[]; mocks: Recor
         role="tabpanel"
         id={`panel-${s.slug}`}
         aria-labelledby={`tab-${s.slug}`}
-        className="mt-6 grid gap-8 rounded-[16px] border border-line bg-surface p-5 md:p-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-center"
+        className="mt-12 grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center lg:gap-16"
       >
-        <div>
-          <h3 className="text-2xl font-bold tracking-[-0.02em]">{s.name}</h3>
+        <div key={s.slug} className="stage-in">
+          <h3 className="text-[1.9rem] font-bold tracking-[-0.02em]">{s.name}</h3>
           <p className="mt-3 leading-relaxed text-muted">{s.lead}</p>
           <Points className="mt-5" items={s.uses.flatMap((u) => u.points)} />
           <p className="mt-4 text-sm text-muted">
@@ -62,7 +68,9 @@ export function SectorTabs({ sectors, mocks }: { sectors: Sector[]; mocks: Recor
             <ArrowRight size={16} aria-hidden />
           </Link>
         </div>
-        <div className="min-w-0">{mocks[s.slug]}</div>
+        <div key={`m-${s.slug}`} className="stage stage-in min-w-0 p-2 sm:p-6">
+          {mocks[s.slug]}
+        </div>
       </div>
     </div>
   );

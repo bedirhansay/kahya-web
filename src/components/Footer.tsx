@@ -1,3 +1,4 @@
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 import { features } from "@/content/features";
@@ -18,7 +19,10 @@ const columns = [
   {
     title: "Sektörler",
     links: [
-      ...featuredSectors.map((slug) => ({ href: `/sektorler/${slug}`, label: sectors.find((s) => s.slug === slug)!.name })),
+      ...featuredSectors.map((slug) => ({
+        href: `/sektorler/${slug}`,
+        label: sectors.find((s) => s.slug === slug)!.name,
+      })),
       { href: "/sektorler", label: "Tüm sektörler" },
     ],
   },
@@ -56,11 +60,14 @@ export function Footer() {
           <p className="mt-5 text-[0.95rem] leading-relaxed">
             İşletmenizin yönetim merkezi. Ekip, müşteri ve cari tek uygulamada.
           </p>
-          <p className="mt-5 text-sm">
-            <a href={`mailto:${site.email}`} className="font-semibold text-white hover:text-brass">
-              {site.email}
-            </a>
-          </p>
+          <Link
+            href="/iletisim"
+            className="mt-6 inline-flex items-center gap-2 rounded-xl border border-white/12 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:border-brass/50"
+          >
+            İletişim, bize yazın
+            <ArrowRight size={15} aria-hidden />
+          </Link>
+          <p className="mt-3 text-sm">{site.email}</p>
         </div>
         {columns.map((col) => (
           <div key={col.title}>

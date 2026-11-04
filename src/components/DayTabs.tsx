@@ -1,5 +1,6 @@
 "use client";
 
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useState, type ReactNode } from "react";
 
@@ -37,11 +38,16 @@ export function DayTabs({ moments }: { moments: DayMoment[] }) {
               aria-controls="gun-panel"
               onClick={() => setActive(x.key)}
               className={cn(
-                "relative flex w-full items-start gap-4 rounded-xl px-3 py-3.5 text-left transition-colors",
-                on ? "bg-mist" : "hover:bg-mist/60",
+                "relative flex w-full items-start gap-4 rounded-xl px-3 py-3.5 text-left transition-colors duration-300",
+                on ? "text-ink" : "text-ink/55 hover:text-ink/85",
               )}
             >
-              <span className={cn("w-12 shrink-0 pt-0.5 text-right text-[0.9rem] font-semibold tabular-nums", on ? "text-brass" : "text-muted")}>
+              <span
+                className={cn(
+                  "w-12 shrink-0 pt-0.5 text-right text-[0.9rem] font-semibold tabular-nums",
+                  on ? "text-brass" : "text-muted",
+                )}
+              >
                 {x.time}
               </span>
               {/* the day's line: from this dot to the next one, brass for the hours already passed */}
@@ -54,26 +60,57 @@ export function DayTabs({ moments }: { moments: DayMoment[] }) {
                   )}
                 />
               )}
-              <span aria-hidden className={cn("relative z-10 mt-[0.45rem] size-2.5 shrink-0 rounded-full ring-4 ring-paper max-lg:hidden", on ? "bg-brass" : past ? "bg-brass/60" : "bg-line")} />
+              <span
+                aria-hidden
+                className={cn(
+                  "relative z-10 mt-[0.45rem] size-2.5 shrink-0 rounded-full ring-4 ring-paper max-lg:hidden",
+                  on ? "bg-brass" : past ? "bg-brass/60" : "bg-line",
+                )}
+              />
               <span className="min-w-0">
-                <span className="block font-semibold leading-snug">{x.title}</span>
-                {on && <span className="mt-1 block leading-relaxed text-muted">{x.text}</span>}
+                <span className={cn("block font-semibold leading-snug", on && "text-[1.08rem]")}>{x.title}</span>
+                {/* the lit hour's story eases open under it */}
+                <span
+                  className={cn(
+                    "grid transition-[grid-template-rows,opacity] duration-500 ease-out-quint",
+                    on ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
+                  )}
+                >
+                  <span className="overflow-hidden">
+                    <span className="block pt-1 leading-relaxed text-muted">{x.text}</span>
+                  </span>
+                </span>
               </span>
             </button>
           );
         })}
       </div>
 
-      <div id="gun-panel" role="tabpanel" aria-labelledby={`gun-${m.key}`} className="stage flex min-h-[26rem] min-w-0 flex-col p-4 sm:p-8 lg:min-h-[30rem]">
+      <div
+        id="gun-panel"
+        role="tabpanel"
+        aria-labelledby={`gun-${m.key}`}
+        className="stage flex min-h-[26rem] min-w-0 flex-col p-4 sm:p-8 lg:min-h-[32rem]"
+      >
         <div key={m.key} className="stage-in flex flex-1 items-center justify-center lg:[zoom:1.12]">
           {m.visual}
         </div>
-        <p className="mt-5 text-[0.9rem] text-muted">
-          <Link href={m.solution.href} className="link">
+        {/* Where this hour lives in Kahya: a small way in, right under the screen. */}
+        <Link
+          key={`l-${m.key}`}
+          href={m.solution.href}
+          className="stage-in group/sl mx-auto mt-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] py-1.5 pl-1.5 pr-4 text-[0.92rem] text-ink/80 transition-colors hover:border-brass/40 hover:text-ink"
+        >
+          <span className="rounded-full bg-brass/15 px-2.5 py-1 text-[0.875rem] font-semibold text-brass">
             {m.solution.name}
-          </Link>{" "}
-          çözümünde.
-        </p>
+          </span>
+          çözümünde gör
+          <ArrowRight
+            size={15}
+            aria-hidden
+            className="transition-transform duration-300 group-hover/sl:translate-x-0.5"
+          />
+        </Link>
       </div>
     </div>
   );

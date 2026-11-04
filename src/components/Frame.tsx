@@ -22,7 +22,9 @@ export function Frame({
 }) {
   if (phone) {
     return (
-      <div className={cn("ui mx-auto w-full max-w-[19rem] rounded-[2rem] border border-line bg-white p-2", className)}>
+      <div
+        className={cn("ui mx-auto w-full max-w-[19rem] rounded-[1.75rem] border border-line bg-paper p-2", className)}
+      >
         <Img
           src={src}
           alt={alt}

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 
+import { Accent } from "@/components/Accent";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CtaBand } from "@/components/CtaBand";
 import { Faq } from "@/components/Faq";
@@ -28,7 +29,14 @@ import { solutionBySlug, solutions, type Solution } from "@/content/solutions";
 import { faqLd, pageMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 
-const visuals: Record<Solution["slug"], { hero: ReactNode; first: [ReactNode, ReactNode]; more: [ReactNode, ReactNode, boolean] }> = {
+const visuals: Record<
+  Solution["slug"],
+  {
+    hero: ReactNode;
+    first: [ReactNode, ReactNode];
+    more: [ReactNode, ReactNode, boolean];
+  }
+> = {
   "ofis-yonetimi": {
     hero: <TaskSummaryMock />,
     first: [<TaskSummaryMock key="a" />, <ApprovalTimesMock key="b" />],
@@ -54,7 +62,11 @@ export async function generateMetadata({ params }: PageProps<"/cozumler/[slug]">
   const { slug } = await params;
   const s = solutionBySlug(slug);
   if (!s) return {};
-  return pageMetadata({ path: `/cozumler/${s.slug}`, title: s.seo.title, description: s.seo.description });
+  return pageMetadata({
+    path: `/cozumler/${s.slug}`,
+    title: s.seo.title,
+    description: s.seo.description,
+  });
 }
 
 export default async function SolutionPage({ params }: PageProps<"/cozumler/[slug]">) {
@@ -78,20 +90,17 @@ export default async function SolutionPage({ params }: PageProps<"/cozumler/[slu
                 { name: s.name, path: `/cozumler/${s.slug}` },
               ]}
             />
-            <p className="eyebrow mt-10 text-brand">
-              {s.subtitle ? `${s.name}, ${s.subtitle}` : s.name}
-            </p>
-            <h1 className="title mt-4 max-w-2xl">{s.seo.h1}</h1>
+            <p className="chip mt-4">{s.subtitle ? `${s.name}, ${s.subtitle}` : s.name}</p>
+            <h1 className="title mt-4 max-w-2xl">
+              <Accent>{s.seo.h1}</Accent>
+            </h1>
             <p className="lead mt-5 max-w-xl text-muted">{s.lead}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a href={site.app.register} className="btn btn-brass">
                 Hemen başla
                 <ArrowRight size={17} aria-hidden />
               </a>
-              <a
-                href={`mailto:${site.email}?subject=${encodeURIComponent(`Kahya fiyat talebi: ${s.name}`)}`}
-                className="btn btn-line"
-              >
+              <a href={`/iletisim?konu=fiyat&cozum=${encodeURIComponent(s.name)}`} className="btn btn-line">
                 Fiyat talep et
               </a>
             </div>
@@ -132,7 +141,10 @@ export default async function SolutionPage({ params }: PageProps<"/cozumler/[slu
             <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {related.map((f) => (
                 <li key={f.slug}>
-                  <Link href={`/ozellikler/${f.slug}`} className="group flex h-full flex-col rounded-[14px] border border-line p-5 hover:border-petrol">
+                  <Link
+                    href={`/ozellikler/${f.slug}`}
+                    className="group flex h-full flex-col rounded-[14px] border border-line p-5 hover:border-petrol"
+                  >
                     <span className="grid size-9 place-items-center rounded-lg bg-brand-50 text-brand">
                       <FeatureIcon slug={f.slug} size={18} />
                     </span>
@@ -175,10 +187,11 @@ export default async function SolutionPage({ params }: PageProps<"/cozumler/[slu
           <ul className="mt-8 grid gap-4 md:grid-cols-2">
             {others.map((o) => (
               <li key={o.slug}>
-                <Link href={`/cozumler/${o.slug}`} className="group block rounded-[14px] border border-line p-6 hover:border-petrol">
-                  <span className="eyebrow text-brand">
-                    {o.kicker}
-                  </span>
+                <Link
+                  href={`/cozumler/${o.slug}`}
+                  className="group block rounded-[14px] border border-line p-6 hover:border-petrol"
+                >
+                  <span className="eyebrow text-brand">{o.kicker}</span>
                   <span className="mt-2 block text-xl font-bold group-hover:text-petrol">
                     {o.name}
                     {o.subtitle && <span className="ml-2 text-sm font-medium text-muted">{o.subtitle}</span>}

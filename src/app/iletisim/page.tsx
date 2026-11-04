@@ -1,29 +1,26 @@
-import { Mail, MonitorSmartphone, PlayCircle } from "lucide-react";
+import { Clock, Mail, MonitorSmartphone, PlayCircle, ShieldCheck } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Suspense } from "react";
 
-import { PageHero } from "@/components/PageHero";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { ContactForm, ContactFormFromQuery } from "@/components/ContactForm";
 import { pageMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   path: "/iletisim",
   title: "İletişim",
-  description: "Kahya ekibine yazın: kurumsal plan teklifi, Kahya AI ek hizmeti, kurulum ve veri aktarımı soruları için.",
+  description:
+    "Kahya ekibine yazın: kurumsal plan teklifi, Kahya AI ek hizmeti, kurulum ve veri aktarımı soruları için.",
 });
 
-const items = [
-  {
-    Icon: Mail,
-    title: "E-posta",
-    body: "Kurumsal plan teklifi, Kahya AI ek hizmeti, veri aktarımı ya da herhangi bir soru için.",
-    href: `mailto:${site.email}?subject=Kahya`,
-    cta: site.email,
-  },
+const ways = [
+  { Icon: Mail, title: "E-posta", body: site.email },
   {
     Icon: MonitorSmartphone,
-    title: "Uygulama içinden destek",
-    body: "Hesabınız varsa uygulamadaki Destek bölümünden talep açın.",
+    title: "Hesabınız varsa",
+    body: "Uygulamadaki Destek bölümünden talep açın, kayıtlarınızla birlikte görelim.",
     href: site.app.login,
     cta: "Giriş yap",
   },
@@ -36,37 +33,69 @@ const items = [
   },
 ];
 
+/** The contact page: one opening, the words on the left, the form as a lit window on the right. */
 export default function ContactPage() {
   return (
-    <>
-      <PageHero
-        crumbs={[{ name: "İletişim", path: "/iletisim" }]}
-        title="Bize yazın"
-        lead="Kahya, biHesap’ın ürünüdür. Sorunuzu e-postayla gönderin, ekibimiz dönüş yapsın."
-      />
-      <section className="bg-paper">
-        <div className="wrap grid gap-6 py-16 md:grid-cols-3 md:py-24">
-          {items.map(({ Icon, title, body, href, cta }) => (
-            <div
-              key={title}
-              className="flex flex-col rounded-[var(--radius-frame)] border border-line bg-surface p-7"
-            >
-              <Icon size={24} className="text-petrol" aria-hidden />
-              <h2 className="mt-5 text-xl font-semibold">{title}</h2>
-              <p className="mt-2 flex-1 leading-relaxed text-muted">{body}</p>
-              {href.startsWith("/") ? (
-                <Link href={href} className="link mt-6">
-                  {cta}
-                </Link>
-              ) : (
-                <a href={href} className="link mt-6 break-all">
-                  {cta}
-                </a>
-              )}
-            </div>
-          ))}
+    <section className="hero-tint relative overflow-hidden">
+      <div className="wrap grid gap-14 pb-24 pt-10 md:pt-14 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-20">
+        <div className="min-w-0">
+          <Breadcrumbs items={[{ name: "İletişim", path: "/iletisim" }]} />
+          <p className="chip mt-4">İletişim</p>
+          <h1 className="display mt-5">
+            Bize yazın, <span className="grad grad-b">hemen dönelim</span>
+          </h1>
+          <p className="lead mt-6 max-w-lg text-muted">
+            Fiyat teklifi, tanıtım ya da verilerinizi taşımak: formu doldurun, ekibimiz bir iş günü içinde e-postayla
+            dönüş yapsın.
+          </p>
+          <ul className="mt-12 grid gap-3">
+            {ways.map(({ Icon, title, body, href, cta }) => (
+              <li key={title} className="flex gap-4 rounded-2xl p-3 transition-colors hover:bg-white/[0.03]">
+                <span className="grid size-11 shrink-0 place-items-center rounded-xl border border-brass/25 bg-brass/[0.07] text-brass shadow-[0_0_24px_-6px_rgb(134_212_187/0.5)]">
+                  <Icon size={19} aria-hidden />
+                </span>
+                <div className="min-w-0">
+                  <h2 className="font-semibold">{title}</h2>
+                  <p className="mt-0.5 break-words leading-relaxed text-muted">{body}</p>
+                  {href &&
+                    (href.startsWith("/") ? (
+                      <Link href={href} className="link mt-1.5 inline-block">
+                        {cta}
+                      </Link>
+                    ) : (
+                      <a href={href} className="link mt-1.5 inline-block">
+                        {cta}
+                      </a>
+                    ))}
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
-      </section>
-    </>
+
+        <div className="contact-stage relative min-w-0 lg:pt-16">
+          {/* Two small records floating at the window's corners, as on the home. */}
+          <div aria-hidden className="contact-sat contact-sat-1">
+            <Clock size={16} />
+            <span>
+              <b>Bir iş günü</b>
+              <small>içinde yanıt</small>
+            </span>
+          </div>
+          <div aria-hidden className="contact-sat contact-sat-2">
+            <ShieldCheck size={16} />
+            <span>
+              <b>KVKK</b>
+              <small>yalnızca dönüş için</small>
+            </span>
+          </div>
+          <div className="window p-6 sm:p-9">
+            <Suspense fallback={<ContactForm />}>
+              <ContactFormFromQuery />
+            </Suspense>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }

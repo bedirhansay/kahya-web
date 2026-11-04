@@ -1,4 +1,4 @@
-import { ChevronDown } from "lucide-react";
+import { ArrowRight, ArrowUpRight, ChevronDown } from "lucide-react";
 import Link from "next/link";
 
 import { cn } from "@/lib/cn";
@@ -19,35 +19,54 @@ export function Header() {
       >
         İçeriğe geç
       </a>
-      <div className="wrap flex h-16 items-center gap-8">
-        <Logo />
-        <nav aria-label="Ana menü" className="hidden lg:block">
-          <ul className="flex items-center gap-1 text-[0.94rem] font-medium text-ink/75">
-            {mainNav.map((item) => (
-              <li key={item.href} className={cn("flex h-16 items-center", item.mega && "group")}>
-                <Link
-                  href={item.href}
-                  className="inline-flex items-center gap-1 rounded-md px-3 py-2 hover:text-ink group-hover:text-ink"
-                >
-                  {item.label}
-                  {item.mega && (
-                    <ChevronDown size={14} aria-hidden className="opacity-60 transition group-hover:rotate-180" />
-                  )}
-                </Link>
-                {item.mega && <MegaPanel menu={item.mega} />}
-              </li>
-            ))}
-          </ul>
-        </nav>
-        <div className="ml-auto hidden items-center gap-2 sm:flex">
-          <a href={site.app.login} className="btn px-3 text-ink/80 hover:text-ink">
-            Giriş yap
-          </a>
-          <a href={site.app.register} className="btn btn-brass">
-            Hemen başla
-          </a>
+      {/* Logo | menu in the true centre | sign-in and start, like a product's own bar. */}
+      <div className="wrap pt-2.5">
+        <div className="hdr-pill relative grid h-[56px] grid-cols-[1fr_auto] items-center gap-6 rounded-[18px] pl-4 pr-1.5 xl:grid-cols-[1fr_auto_1fr] lg:pl-5">
+          <Logo />
+          <nav aria-label="Ana menü" className="hidden xl:block">
+            <ul className="flex items-center gap-1 text-[0.95rem] font-medium text-ink/70">
+              {mainNav.map((item) => (
+                <li key={item.href} className={cn("flex h-[56px] items-center", item.mega && "group")}>
+                  <Link
+                    href={item.href}
+                    className="relative inline-flex items-center gap-1 rounded-lg px-3.5 py-2 transition-colors hover:bg-white/[0.04] hover:text-ink group-hover:text-ink"
+                  >
+                    {item.label}
+                    {item.mega && (
+                      <ChevronDown
+                        size={14}
+                        aria-hidden
+                        className="opacity-60 transition duration-300 group-hover:rotate-180"
+                      />
+                    )}
+                  </Link>
+                  {item.mega && <MegaPanel menu={item.mega} />}
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <div className="flex items-center justify-end gap-2.5">
+            <a
+              href={site.app.login}
+              className="hidden h-10 items-center gap-1.5 whitespace-nowrap rounded-[10px] border border-white/12 px-3.5 text-[0.93rem] font-medium text-ink/85 transition-colors hover:border-white/25 hover:text-ink sm:inline-flex"
+            >
+              Giriş yap
+              <ArrowUpRight size={15} aria-hidden className="opacity-60" />
+            </a>
+            <a
+              href={site.app.register}
+              className="btn btn-brass group/cta hidden h-10 min-h-10 gap-1.5 whitespace-nowrap sm:inline-flex"
+            >
+              Hemen başla
+              <ArrowRight
+                size={16}
+                aria-hidden
+                className="transition-transform duration-300 group-hover/cta:translate-x-0.5"
+              />
+            </a>
+            <MobileMenu />
+          </div>
         </div>
-        <MobileMenu />
       </div>
     </HeaderShell>
   );

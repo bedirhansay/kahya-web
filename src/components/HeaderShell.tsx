@@ -29,7 +29,7 @@ export function HeaderShell({ children }: { children: ReactNode }) {
       data-scrolled={scrolled || undefined}
       data-away={away || undefined}
       onFocusCapture={() => setAway(false)}
-      className="sticky top-0 z-50 border-b border-transparent bg-paper/80 text-ink backdrop-blur-xl transition-[border-color,box-shadow,transform,background-color] duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] data-[away]:-translate-y-full data-[scrolled]:border-line data-[scrolled]:bg-paper/70 data-[scrolled]:shadow-[0_8px_24px_-18px_rgb(0_0_0/0.5)] motion-reduce:transition-none"
+      className="group/hdr sticky top-0 z-50 -mb-[72px] h-[72px] text-ink transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] data-[away]:-translate-y-[120%] motion-reduce:transition-none"
     >
       {children}
     </header>
