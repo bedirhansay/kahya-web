@@ -1,11 +1,11 @@
-import { ArrowRight, Check, DatabaseBackup, KeyRound, MapPin, Play, ShieldCheck, Undo2, X } from "lucide-react";
+import { ArrowRight, Check, DatabaseBackup, KeyRound, MapPin, ShieldCheck, Undo2, X } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { AppStage } from "@/components/AppStage";
 import { CtaBand } from "@/components/CtaBand";
 import { DayTabs, type DayMoment } from "@/components/DayTabs";
 import { Faq } from "@/components/Faq";
+import { OfficeDay } from "@/components/home/OfficeDay";
 import { JsonLd } from "@/components/JsonLd";
 import { AiMock, CariMock, LeavePhoneMock, MailMock, MailToTaskMock, MeetingsMock, StockMock, TaskSummaryMock } from "@/components/mock/screens";
 import { SectorMock } from "@/components/mock/SectorMock";
@@ -105,37 +105,8 @@ export default function HomePage() {
         ]}
       />
 
-      {/* Hero: the product itself, lit from behind, narrowed by the visitor's choice */}
-      <section className="hero-tint overflow-hidden">
-        <div className="wrap pb-16 pt-14 md:pb-24 md:pt-24">
-          <h1 className="display max-w-5xl">Ekibiniz, müşterileriniz ve carileriniz tek uygulamada</h1>
-          <div className="mt-8 flex flex-col gap-7 md:flex-row md:items-end md:justify-between">
-            <p className="lead max-w-xl text-muted">
-              Kahya ofisler için yönetim programı. İhtiyacınız olan çözümleri seçin, ekibiniz yalnızca işine yarayanı görsün.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <a href={site.app.register} className="btn btn-brass">
-                Hemen başla
-              </a>
-              <Link href="/tanitim-filmi" className="btn btn-line">
-                <Play size={15} aria-hidden className="fill-current text-brass" />
-                Tanıtım filmi, 2 dk
-              </Link>
-            </div>
-          </div>
-          <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[0.92rem] text-muted">
-            {["Kurulum yok, tarayıcıda açılır", "Telefonda da aynı Kahya", "Verileriniz Türkiye’de"].map((t) => (
-              <li key={t} className="flex items-center gap-2">
-                <Check size={16} className="shrink-0 text-brass" aria-hidden />
-                {t}
-              </li>
-            ))}
-          </ul>
-          <div className="hero-lamp mt-14 md:mt-20">
-            <AppStage />
-          </div>
-        </div>
-      </section>
+      {/* The office's day: one live window, one job through the office, Kahya AI and the team's week */}
+      <OfficeDay />
 
       {/* One office day */}
       <section aria-labelledby="bir-gun">
