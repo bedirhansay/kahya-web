@@ -68,7 +68,7 @@ export function MobileMenu() {
         createPortal(
           <div
             id="mobil-menu"
-            className="mm fixed inset-0 z-40 flex flex-col overflow-y-auto overscroll-contain px-5 pb-6 pt-[88px]"
+            className="mm fixed inset-0 z-40 flex flex-col overflow-y-auto overscroll-contain px-5 pt-[88px]"
           >
             <nav aria-label="Mobil menü" className="flex-1">
               <ul>
@@ -156,7 +156,7 @@ export function MobileMenu() {
               </ul>
             </nav>
             <div
-              className="mm-in sticky bottom-0 -mx-5 mt-8 grid gap-3 bg-gradient-to-t from-paper via-paper/95 to-transparent px-5 pb-1 pt-6"
+              className="mm-in sticky bottom-0 -mx-5 mt-8 grid gap-3 bg-paper px-5 pb-6 pt-3 before:pointer-events-none before:absolute before:inset-x-0 before:-top-10 before:h-10 before:bg-gradient-to-t before:from-paper before:to-transparent"
               style={{ "--i": mainNav.length + extra.length } as CSSProperties}
             >
               <a href={site.app.register} className="btn btn-brass w-full">
