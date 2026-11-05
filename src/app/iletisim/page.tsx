@@ -59,11 +59,11 @@ export default function ContactPage() {
                   <p className="mt-0.5 break-words leading-relaxed text-muted">{body}</p>
                   {href &&
                     (href.startsWith("/") ? (
-                      <Link href={href} className="link mt-1.5 inline-block">
+                      <Link href={href} className="link inline-flex min-h-11 items-center">
                         {cta}
                       </Link>
                     ) : (
-                      <a href={href} className="link mt-1.5 inline-block">
+                      <a href={href} className="link inline-flex min-h-11 items-center">
                         {cta}
                       </a>
                     ))}

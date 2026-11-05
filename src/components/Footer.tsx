@@ -62,7 +62,7 @@ export function Footer() {
           </p>
           <Link
             href="/iletisim"
-            className="mt-6 inline-flex items-center gap-2 rounded-xl border border-white/12 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:border-brass/50"
+            className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-xl border border-white/12 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:border-brass/50"
           >
             İletişim, bize yazın
             <ArrowRight size={15} aria-hidden />

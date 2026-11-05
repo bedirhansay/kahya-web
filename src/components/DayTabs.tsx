@@ -99,7 +99,7 @@ export function DayTabs({ moments }: { moments: DayMoment[] }) {
         <Link
           key={`l-${m.key}`}
           href={m.solution.href}
-          className="stage-in group/sl mx-auto mt-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] py-1.5 pl-1.5 pr-4 text-[0.92rem] text-ink/80 transition-colors hover:border-brass/40 hover:text-ink"
+          className="stage-in group/sl mx-auto mt-6 inline-flex min-h-11 items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] py-1.5 pl-1.5 pr-4 text-[0.92rem] text-ink/80 transition-colors hover:border-brass/40 hover:text-ink"
         >
           <span className="rounded-full bg-brass/15 px-2.5 py-1 text-[0.875rem] font-semibold text-brass">
             {m.solution.name}

@@ -40,7 +40,7 @@ const fieldCls = (bad?: string) =>
   );
 
 function Num({ n }: { n: string }) {
-  return <span className="mr-2 text-[0.78rem] font-semibold tracking-wider text-brass tabular-nums">{n}</span>;
+  return <span className="mr-2 text-[0.875rem] font-semibold tracking-wider text-brass tabular-nums">{n}</span>;
 }
 
 function Hint({ id, children }: { id: string; children?: ReactNode }) {

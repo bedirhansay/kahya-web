@@ -119,7 +119,7 @@ export default async function SectorPage({ params }: PageProps<"/sektorler/[slug
                     </span>
                   ))}
                 </p>
-                <Link href="/cozumler#ek-hizmetler" className="link mt-4 inline-block text-[0.95rem]">
+                <Link href="/cozumler#ek-hizmetler" className="link mt-2 inline-flex min-h-11 items-center text-[0.95rem]">
                   Ek hizmetler ne yapar
                 </Link>
               </div>
