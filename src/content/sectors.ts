@@ -559,7 +559,7 @@ export const sectors: Sector[] = [
       },
       {
         q: "Kabul edilen teklif satışa dönüşür mü?",
-        a: "Evet. Teklif Büyüyen ve üstü paketlerde dahil, altında ek hizmet. Müşteri teklifi linkten açıp kabul eder, kabul edilen teklif tek tıkla satışa döner.",
+        a: "Evet. Teklif Kurumsal pakette dahil, diğer paketlerde ek hizmet. Müşteri teklifi linkten açıp kabul eder, kabul edilen teklif tek tıkla satışa döner.",
       },
     ],
   },

@@ -89,7 +89,7 @@ const flow = [
     Icon: FileCheck2,
     h: "Teklif",
     d: "Kendi antetinizle gönderin; müşteri linkten açıp onaylasın.",
-    plan: "Büyüyen paketten itibaren",
+    plan: "Kurumsal pakette dahil",
     ref: "TKL-0112",
   },
   {
