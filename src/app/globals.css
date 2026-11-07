@@ -3,7 +3,8 @@
 /*
  * Kahya palette, as in the logo, the app and the campaign deck:
  * pine/petrol = dark bands and the app's brand green, brass = the logo's raised arm,
- * sage/mint = the logo's leg, paper = the deck's warm cream.
+ * sage/mint = the logo's leg. The page is light (a cool off-white, as the app); green is its second tone: the
+ * accents, the app windows and a few dark bands (.on-dark / .band-dark bring the night pine values back).
  */
 @theme {
   --color-pine-950: #031110;
@@ -13,23 +14,25 @@
   --color-petrol-600: #14625b;
   --color-sage: #6fa58d;
   --color-mint: #bfdac8;
-  /* "brass" is the site's accent: Kahya green light. The logo's gold stays only on the main call to action. */
-  --color-brass: #86d4bb;
-  --color-brass-300: #bfe8da;
+  /* "brass" is the site's accent: Kahya green. The logo's gold stays only on the main call to action. */
+  --color-brass: #127a65;
+  --color-brass-300: #0e6b58;
   --color-gold: #e3b261;
   --color-gold-300: #f0cf94;
   --color-brass-700: #8a6420;
 
-  /* Site surfaces: the night pine of the logo. Light values return inside .ui (app pictures). */
-  --color-paper: #040f0e;
-  --color-surface: #081d1b;
-  --color-mist: #0c2724;
-  --color-ink: #eef4f1;
-  --color-muted: #9db4ac;
-  --color-line: rgb(191 218 200 / 0.13);
-  --color-brand: #8fcfbd;
-  --color-brand-50: rgb(143 207 189 / 0.09);
-  --color-brand-100: rgb(143 207 189 / 0.16);
+  /* Site surfaces: light, as the app. The night pine values return inside .on-dark / .band-dark and .ui. */
+  --color-paper: #f5f7f6;
+  --color-surface: #ffffff;
+  --color-mist: #e9efec;
+  --color-ink: #0c1f1c;
+  --color-muted: #52645e;
+  --color-line: rgb(12 31 28 / 0.1);
+  --color-brand: #14625b;
+  --color-brand-50: rgb(20 98 91 / 0.06);
+  --color-brand-100: rgb(20 98 91 / 0.12);
+  /* Form errors and warnings. */
+  --color-danger: #b42318;
 
   --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-bricolage), var(--font-body), sans-serif;
@@ -47,7 +50,26 @@
 }
 
 :root {
+  color-scheme: light;
+}
+
+/* The night pine, where the page turns dark: the closing band, the footer, the phone menu, a mega panel. */
+.on-dark,
+.band-dark {
   color-scheme: dark;
+  --color-paper: #040f0e;
+  --color-surface: #081d1b;
+  --color-mist: #0c2724;
+  --color-ink: #eef4f1;
+  --color-muted: #9db4ac;
+  --color-line: rgb(191 218 200 / 0.13);
+  --color-brand: #8fcfbd;
+  --color-brand-50: rgb(143 207 189 / 0.09);
+  --color-brand-100: rgb(143 207 189 / 0.16);
+  --color-brass: #86d4bb;
+  --color-brass-300: #bfe8da;
+  --color-danger: #ff8f73;
+  color: var(--color-ink);
 }
 
 /* Kahya's own screens as the app shows them in its dark mode (Kahya green): deep petrol surfaces, green accents. */
@@ -63,6 +85,8 @@
   --color-brand: #4fd6aa;
   --color-brand-50: rgb(79 214 170 / 0.1);
   --color-brand-100: rgb(79 214 170 / 0.18);
+  --color-brass: #86d4bb;
+  --color-brass-300: #bfe8da;
   color: var(--color-ink);
 }
 /* Real screenshots are light: their frame keeps a light rim. */
@@ -86,7 +110,7 @@ body {
 
 ::selection {
   background: var(--color-brass);
-  color: var(--color-pine-950);
+  color: #fff;
 }
 
 :focus-visible {
@@ -154,11 +178,11 @@ body {
     background: var(--color-gold-300);
   }
   .btn-petrol {
-    background: var(--color-mint);
-    color: var(--color-pine-950);
+    background: var(--color-petrol);
+    color: #fff;
   }
   .btn-petrol:hover {
-    background: #d5e8db;
+    background: var(--color-petrol-600);
   }
   .btn-line-dark {
     border: 1px solid rgb(255 255 255 / 0.3);
@@ -168,12 +192,12 @@ body {
     border-color: rgb(255 255 255 / 0.6);
   }
   .btn-line {
-    border: 1px solid rgb(191 218 200 / 0.28);
+    border: 1px solid color-mix(in oklab, var(--color-ink) 22%, transparent);
     color: var(--color-ink);
   }
   .btn-line:hover {
-    border-color: var(--color-mint);
-    background: rgb(191 218 200 / 0.06);
+    border-color: var(--color-ink);
+    background: color-mix(in oklab, var(--color-ink) 4%, transparent);
   }
 
   /* Small label above a heading, in the running type (no tracked capitals) */
@@ -191,7 +215,7 @@ body {
     font-size: 0.72rem;
     font-weight: 600;
     color: var(--color-brass-300);
-    background: rgb(134 212 187 / 0.12);
+    background: color-mix(in oklab, var(--color-brass) 12%, transparent);
     vertical-align: middle;
   }
   .tag-dark {
@@ -213,8 +237,8 @@ body {
   /* Opening of inner pages: the night page lit from the top corners */
   .hero-tint {
     background:
-      radial-gradient(900px 600px at 12% -8%, rgb(16 150 120 / 0.38), transparent 70%),
-      radial-gradient(700px 520px at 92% 18%, rgb(134 212 187 / 0.13), transparent 70%),
+      radial-gradient(900px 600px at 12% -8%, rgb(18 122 101 / 0.12), transparent 70%),
+      radial-gradient(700px 520px at 92% 18%, rgb(227 178 97 / 0.1), transparent 70%),
       var(--color-paper);
     background-repeat: no-repeat;
   }
@@ -227,41 +251,41 @@ body {
   }
   /* The header: a floating capsule, glass with a hairline; a little firmer once the page scrolls. */
   .hdr-pill {
-    border: 1px solid rgb(191 218 200 / 0.12);
-    background: rgb(4 15 14 / 0.45);
+    border: 1px solid rgb(12 31 28 / 0.08);
+    background: rgb(255 255 255 / 0.62);
     backdrop-filter: blur(18px) saturate(1.3);
     -webkit-backdrop-filter: blur(18px) saturate(1.3);
-    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.05);
+    box-shadow: 0 1px 2px rgb(12 31 28 / 0.04);
     transition:
       background-color 0.4s,
       border-color 0.4s,
       box-shadow 0.4s;
   }
   [data-scrolled] .hdr-pill {
-    background: rgb(4 15 14 / 0.9);
-    border-color: rgb(191 218 200 / 0.16);
-    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.05), 0 18px 40px -20px rgb(0 0 0 / 0.8);
+    background: rgb(255 255 255 / 0.9);
+    border-color: rgb(12 31 28 / 0.1);
+    box-shadow: 0 18px 40px -24px rgb(12 31 28 / 0.35);
   }
   /* Section labels: a small capsule with a lit dot, above the heading. */
   .chip {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    border: 1px solid rgb(134 212 187 / 0.25);
-    background: rgb(134 212 187 / 0.06);
+    border: 1px solid color-mix(in oklab, var(--color-brass) 28%, transparent);
+    background: color-mix(in oklab, var(--color-brass) 6%, transparent);
     border-radius: 999px;
     padding: 0.3rem 0.85rem 0.3rem 0.7rem;
     font-size: 0.875rem;
     font-weight: 500;
-    color: #9fe3cb;
+    color: var(--color-brass-300);
   }
   .chip::before {
     content: "";
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: #4fd6aa;
-    box-shadow: 0 0 10px #4fd6aa;
+    background: var(--color-brass);
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-brass) 18%, transparent);
   }
   /* The contact page: rings and a grid behind the form, two records floating at its corners. */
   .contact-stage::before {
@@ -271,10 +295,10 @@ body {
     z-index: -1;
     pointer-events: none;
     background:
-      radial-gradient(closest-side, rgb(16 160 125 / 0.28), transparent 70%),
-      repeating-radial-gradient(circle at 50% 45%, transparent 0 69px, rgb(134 212 187 / 0.07) 70px 71px),
-      linear-gradient(rgb(191 218 200 / 0.05) 1px, transparent 1px) 0 0 / 44px 44px,
-      linear-gradient(90deg, rgb(191 218 200 / 0.05) 1px, transparent 1px) 0 0 / 44px 44px;
+      radial-gradient(closest-side, rgb(18 122 101 / 0.12), transparent 70%),
+      repeating-radial-gradient(circle at 50% 45%, transparent 0 69px, rgb(12 31 28 / 0.06) 70px 71px),
+      linear-gradient(rgb(12 31 28 / 0.05) 1px, transparent 1px) 0 0 / 44px 44px,
+      linear-gradient(90deg, rgb(12 31 28 / 0.05) 1px, transparent 1px) 0 0 / 44px 44px;
     mask-image: radial-gradient(closest-side, #000 40%, transparent);
   }
   .contact-sat {
@@ -284,11 +308,11 @@ body {
     align-items: center;
     gap: 10px;
     padding: 10px 14px 10px 12px;
-    border: 1px solid rgb(255 255 255 / 0.12);
+    border: 1px solid var(--color-line);
     border-radius: 14px;
-    background: #102926;
-    box-shadow: 0 24px 60px -18px rgb(0 0 0 / 0.85);
-    color: #4fd6aa;
+    background: var(--color-surface);
+    box-shadow: 0 24px 50px -24px rgb(12 31 28 / 0.35);
+    color: var(--color-brass);
     font-size: 13px;
     white-space: nowrap;
   }
@@ -330,23 +354,33 @@ body {
   }
   /* Kahya's light in type: green into the logo's gold (the hero's last words, the plain facts). */
   .grad {
-    background: linear-gradient(100deg, #b8f5df, #43d3a8 45%, #e3b261 100%);
+    background: linear-gradient(100deg, #0f4c47, #127a65 45%, #b8862f 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
   /* Across two words: the first carries the green, the second runs on into the gold. */
   .grad-a {
-    background-image: linear-gradient(100deg, #b8f5df, #5fdcb5);
+    background-image: linear-gradient(100deg, #0f4c47, #127a65);
   }
   .grad-b {
+    background-image: linear-gradient(100deg, #127a65, #15876f 35%, #b8862f);
+  }
+  /* On the night pine the words light up again. */
+  :is(.on-dark, .band-dark) .grad {
+    background-image: linear-gradient(100deg, #b8f5df, #43d3a8 45%, #e3b261 100%);
+  }
+  :is(.on-dark, .band-dark) .grad-a {
+    background-image: linear-gradient(100deg, #b8f5df, #5fdcb5);
+  }
+  :is(.on-dark, .band-dark) .grad-b {
     background-image: linear-gradient(100deg, #5fdcb5, #43d3a8 35%, #e3b261);
   }
   /* The phone menu: the hero's ground, opening from the top right; its rows step in. */
   .mm {
     background:
-      radial-gradient(520px 420px at 100% 0%, rgb(20 98 91 / 0.6), transparent 70%),
-      radial-gradient(420px 380px at 0% 100%, rgb(134 212 187 / 0.1), transparent 70%),
+      radial-gradient(520px 420px at 100% 0%, rgb(18 122 101 / 0.14), transparent 70%),
+      radial-gradient(420px 380px at 0% 100%, rgb(227 178 97 / 0.12), transparent 70%),
       var(--color-paper);
     animation: mm-open 0.55s var(--ease-out-quint) both;
   }
@@ -372,10 +406,10 @@ body {
   /* One framed window on the dark ground (a form, a record): the only box a section needs. */
   .window {
     position: relative;
-    border: 1px solid rgb(191 218 200 / 0.16);
+    border: 1px solid var(--color-line);
     border-radius: 20px;
-    background: linear-gradient(180deg, rgb(191 218 200 / 0.06), rgb(191 218 200 / 0.015)), var(--color-pine-950);
-    box-shadow: 0 40px 100px -50px rgb(0 0 0 / 0.8), inset 0 1px 0 rgb(255 255 255 / 0.04);
+    background: var(--color-surface);
+    box-shadow: 0 40px 90px -50px rgb(12 31 28 / 0.35);
   }
   /* Where product pictures sit: no box, a lit floor. A faint grid fades out from the middle under a brass light. */
   .stage {
@@ -389,10 +423,10 @@ body {
     z-index: -1;
     pointer-events: none;
     background:
-      radial-gradient(45% 50% at 50% 45%, rgb(134 212 187 / 0.13), transparent 70%),
-      radial-gradient(60% 60% at 50% 60%, rgb(29 111 102 / 0.35), transparent 75%),
-      linear-gradient(rgb(191 218 200 / 0.07) 1px, transparent 1px) 0 0 / 40px 40px,
-      linear-gradient(90deg, rgb(191 218 200 / 0.07) 1px, transparent 1px) 0 0 / 40px 40px;
+      radial-gradient(45% 50% at 50% 45%, rgb(18 122 101 / 0.1), transparent 70%),
+      radial-gradient(60% 60% at 50% 60%, rgb(227 178 97 / 0.08), transparent 75%),
+      linear-gradient(rgb(12 31 28 / 0.06) 1px, transparent 1px) 0 0 / 40px 40px,
+      linear-gradient(90deg, rgb(12 31 28 / 0.06) 1px, transparent 1px) 0 0 / 40px 40px;
     mask-image: radial-gradient(closest-side, #000 35%, transparent);
   }
   .stage-in {
@@ -408,7 +442,7 @@ body {
 
   /*
    * Chapters, not slices: sections that belong together share one continuous ground. Only where a new chapter
-   * starts (.chapter) a cone of soft green light falls from the top and a corner lights up (.chapter-r: the right one).
+   * starts (.chapter) a cone of soft green light falls from the top and faint rings spread.
    */
   main > section:not(.hero-tint, .band-dark) {
     position: relative;
@@ -416,18 +450,10 @@ body {
     /* the chapter's rings and light are wider than a phone */
     overflow-x: clip;
   }
+  /* On the light page a corner glow would start on a hard line at the section's top: the falling light alone marks
+     the chapter. */
   main > section.chapter {
-    background:
-      radial-gradient(900px 560px at 10% -6%, rgb(16 140 112 / 0.3), transparent 70%),
-      radial-gradient(640px 460px at 94% 22%, rgb(134 212 187 / 0.07), transparent 70%);
-    background-repeat: no-repeat;
     margin-top: clamp(24px, 4vw, 64px);
-  }
-  main > section.chapter-r {
-    background:
-      radial-gradient(900px 560px at 90% -6%, rgb(16 140 112 / 0.3), transparent 70%),
-      radial-gradient(640px 460px at 6% 22%, rgb(134 212 187 / 0.07), transparent 70%);
-    background-repeat: no-repeat;
   }
   main > section.chapter::before {
     content: "";
@@ -439,7 +465,7 @@ body {
     translate: -50% 0;
     z-index: -1;
     pointer-events: none;
-    background: repeating-radial-gradient(circle at 50% 40%, transparent 0 79px, rgb(134 212 187 / 0.06) 80px 81px);
+    background: repeating-radial-gradient(circle at 50% 40%, transparent 0 79px, rgb(12 31 28 / 0.05) 80px 81px);
     mask-image: radial-gradient(closest-side at 50% 40%, #000 30%, transparent);
   }
   main > section.chapter::after {
@@ -453,8 +479,8 @@ body {
     z-index: -1;
     pointer-events: none;
     background:
-      conic-gradient(from 180deg at 50% 0%, transparent 152deg, rgb(134 212 187 / 0.075) 172deg, rgb(191 232 218 / 0.11) 180deg, rgb(134 212 187 / 0.075) 188deg, transparent 208deg),
-      radial-gradient(40% 60% at 50% 0%, rgb(29 111 102 / 0.28), transparent 70%);
+      conic-gradient(from 180deg at 50% 0%, transparent 152deg, rgb(18 122 101 / 0.05) 172deg, rgb(18 122 101 / 0.08) 180deg, rgb(18 122 101 / 0.05) 188deg, transparent 208deg),
+      radial-gradient(40% 60% at 50% 0%, rgb(18 122 101 / 0.07), transparent 70%);
     mask-image: linear-gradient(#000 10%, transparent);
   }
 
@@ -488,9 +514,7 @@ body {
     border-radius: var(--radius-frame);
     background: var(--color-paper);
     border: 1px solid var(--color-line);
-    box-shadow:
-      0 0 0 1px rgb(255 255 255 / 0.04),
-      0 40px 80px -30px rgb(0 0 0 / 0.7);
+    box-shadow: 0 40px 80px -40px rgb(12 31 28 / 0.35);
     overflow: hidden;
   }
   .frame-dark {
@@ -557,7 +581,7 @@ body {
   /* Section headings fill with light as they are read: dim ink to full, left to right, driven by the scroll. */
   html.sm [data-fill] {
     color: transparent;
-    background: linear-gradient(90deg, var(--color-ink) calc(var(--fp, 0) * 100% - 12%), rgb(238 244 241 / 0.28) calc(var(--fp, 0) * 100% + 12%));
+    background: linear-gradient(90deg, var(--color-ink) calc(var(--fp, 0) * 100% - 12%), color-mix(in oklab, var(--color-ink) 28%, transparent) calc(var(--fp, 0) * 100% + 12%));
     -webkit-background-clip: text;
     background-clip: text;
   }
@@ -574,7 +598,7 @@ body {
     border-radius: inherit;
     padding: 1px;
     pointer-events: none;
-    background: conic-gradient(from var(--edge), transparent 0deg, transparent 290deg, rgb(134 212 187 / 0.75) 330deg, transparent 360deg);
+    background: conic-gradient(from var(--edge), transparent 0deg, transparent 290deg, color-mix(in oklab, var(--color-brass) 75%, transparent) 330deg, transparent 360deg);
     -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
@@ -617,7 +641,7 @@ body {
   }
   [data-turns] > li[data-lit] > [data-dot] {
     background: var(--color-brass);
-    box-shadow: 0 0 0 4px rgb(134 212 187 / 0.14), 0 0 12px rgb(134 212 187 / 0.5);
+    box-shadow: 0 0 0 4px color-mix(in oklab, var(--color-brass) 16%, transparent);
   }
   [data-turns] > li[data-lit]::after {
     content: "";
@@ -626,7 +650,7 @@ body {
     right: 0;
     bottom: -1px;
     height: 1px;
-    background: linear-gradient(90deg, rgb(134 212 187 / 0.2), var(--color-brass));
+    background: linear-gradient(90deg, color-mix(in oklab, var(--color-brass) 20%, transparent), var(--color-brass));
     transform-origin: left;
     animation: sm-bar 2.6s linear both;
   }
@@ -659,7 +683,7 @@ body {
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.3s;
-  background: radial-gradient(240px circle at var(--mx, 50%) var(--my, 50%), rgb(134 212 187 / 0.09), transparent 70%);
+  background: radial-gradient(240px circle at var(--mx, 50%) var(--my, 50%), color-mix(in oklab, var(--color-brass) 9%, transparent), transparent 70%);
 }
 [data-card]:hover::after {
   opacity: 1;

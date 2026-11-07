@@ -50,8 +50,8 @@ export default function ContactPage() {
           </p>
           <ul className="mt-12 grid gap-3">
             {ways.map(({ Icon, title, body, href, cta }) => (
-              <li key={title} className="flex gap-4 rounded-2xl p-3 transition-colors hover:bg-white/[0.03]">
-                <span className="grid size-11 shrink-0 place-items-center rounded-xl border border-brass/25 bg-brass/[0.07] text-brass shadow-[0_0_24px_-6px_rgb(134_212_187/0.5)]">
+              <li key={title} className="flex gap-4 rounded-2xl p-3 transition-colors hover:bg-ink/[0.03]">
+                <span className="grid size-11 shrink-0 place-items-center rounded-xl border border-brass/25 bg-brass/[0.07] text-brass">
                   <Icon size={19} aria-hidden />
                 </span>
                 <div className="min-w-0">

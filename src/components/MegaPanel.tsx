@@ -11,7 +11,7 @@ export function MegaPanel({ menu }: { menu: MegaMenu }) {
   return (
     <div
       className={cn(
-        "invisible absolute inset-x-0 top-full mt-2 -translate-y-1 overflow-hidden rounded-[18px] border border-white/10 bg-surface/95 text-ink opacity-0 shadow-[0_30px_60px_-20px_rgb(0_0_0/0.8)] backdrop-blur-xl",
+        "invisible absolute inset-x-0 top-full mt-2 -translate-y-1 overflow-hidden rounded-[18px] border border-line bg-surface/95 text-ink opacity-0 shadow-[0_30px_60px_-24px_rgb(12_31_28/0.3)] backdrop-blur-xl",
         "transition duration-200 ease-out-quint group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100",
       )}
     >
@@ -28,20 +28,20 @@ export function MegaPanel({ menu }: { menu: MegaMenu }) {
             </div>
           ))}
         </div>
-        <div className="band-dark flex flex-col rounded-xl p-5 text-white">
+        <div className="band-dark flex flex-col rounded-xl p-5">
           <p className="eyebrow text-brass-300">{menu.aside.eyebrow}</p>
           <p className="mt-2 text-[1.05rem] font-bold leading-snug">{menu.aside.title}</p>
-          <p className="mt-2 text-[0.85rem] leading-relaxed text-white/65">{menu.aside.text}</p>
+          <p className="mt-2 text-[0.85rem] leading-relaxed text-muted">{menu.aside.text}</p>
           <ul className="mt-auto grid gap-0.5 pt-4 text-[0.88rem]">
             {menu.aside.links.map((l, i) => {
               const last = i === menu.aside.links.length - 1 && menu.aside.links.length > 2;
               return (
-                <li key={l.href + l.label} className={cn(last && "mt-2 border-t border-white/10 pt-2")}>
+                <li key={l.href + l.label} className={cn(last && "mt-2 border-t border-line pt-2")}>
                   <Link
                     href={l.href}
                     className={cn(
                       "group/a flex items-center justify-between rounded-md py-1.5 hover:text-brass",
-                      last || menu.aside.links.length <= 2 ? "font-semibold text-white" : "text-white/80",
+                      last || menu.aside.links.length <= 2 ? "font-semibold text-ink" : "text-ink/80",
                     )}
                   >
                     {l.label}
@@ -66,7 +66,7 @@ function Row({ item }: { item: NavLink }) {
   return (
     <Link href={item.href} className="group/r flex items-start gap-3 rounded-lg p-2 -mx-2 transition hover:bg-mist">
       {Icon && (
-        <span className="grid size-9 shrink-0 place-items-center rounded-lg border border-line bg-surface text-brand transition group-hover/r:border-brand group-hover/r:bg-brand group-hover/r:text-pine-950">
+        <span className="grid size-9 shrink-0 place-items-center rounded-lg border border-line bg-surface text-brand transition group-hover/r:border-brand group-hover/r:bg-brand group-hover/r:text-paper">
           <Icon size={17} aria-hidden />
         </span>
       )}
@@ -87,7 +87,7 @@ function Card({ item }: { item: NavLink }) {
     >
       <span className="flex items-center justify-between">
         {Icon && (
-          <span className="grid size-10 place-items-center rounded-lg bg-brand-50 text-brand transition group-hover/c:bg-brand group-hover/c:text-pine-950">
+          <span className="grid size-10 place-items-center rounded-lg bg-brand-50 text-brand transition group-hover/c:bg-brand group-hover/c:text-paper">
             <Icon size={19} aria-hidden />
           </span>
         )}

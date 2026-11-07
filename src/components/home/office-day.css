@@ -1,25 +1,26 @@
 /*
- * Home: the office's day (direction D). Night pine + brass, the product as a live window.
+ * Home: the office's day (direction D). A light page with Kahya green as its second tone; the product's windows
+ * stay the app's dark mode, dark green cards on the light ground. Page colours come from the site tokens.
  * Motion: one ease-out family, transform/opacity only (blur on a few words). The hero entrance is CSS-only so the
  * h1 paints on the first frame; everything that hides content until scrolled waits for `.od-m` (set by
  * OfficeDayMotion after hydration), so the page is complete without JS. Reduced motion: still.
  */
 .od {
-  --od-ground: #040f0e;
-  --od-coral: #f08a6c;
-  --od-faint: #6c857e;
-  --od-panel: rgb(191 218 200 / 0.045);
-  --od-line: rgb(191 218 200 / 0.12);
-  --od-line-2: rgb(191 218 200 / 0.2);
-  --od-mint: #8fcfbd;
+  --od-ground: var(--color-paper);
+  --od-coral: var(--color-danger);
+  --od-faint: var(--color-muted);
+  --od-panel: color-mix(in oklab, var(--color-ink) 4%, transparent);
+  --od-line: var(--color-line);
+  --od-line-2: color-mix(in oklab, var(--color-ink) 16%, transparent);
+  --od-mint: var(--color-brass);
   --od-out: cubic-bezier(0.22, 1, 0.36, 1);
   --od-std: cubic-bezier(0.4, 0, 0.2, 1);
   --od-spring: linear(0, 0.22 5%, 0.56 11%, 0.86 17%, 1.04 23%, 1.1 28%, 1.09 33%, 1.04 41%, 1 50%, 0.985 60%, 0.995 75%, 1);
   position: relative;
   background:
-    radial-gradient(760px 560px at 22% 8%, rgb(16 160 125 / 0.34), transparent 70%),
-    radial-gradient(820px 600px at 82% 30%, rgb(20 98 91 / 0.42), transparent 70%),
-    radial-gradient(500px 360px at 70% 70%, rgb(227 178 97 / 0.07), transparent 70%),
+    radial-gradient(760px 560px at 22% 8%, color-mix(in oklab, var(--color-brass) 12%, transparent), transparent 70%),
+    radial-gradient(820px 600px at 82% 30%, color-mix(in oklab, var(--color-petrol) 10%, transparent), transparent 70%),
+    radial-gradient(500px 360px at 70% 70%, color-mix(in oklab, var(--color-gold) 12%, transparent), transparent 70%),
     linear-gradient(var(--od-ground) 85%, var(--color-paper));
   background-repeat: no-repeat;
   overflow-x: clip;
@@ -28,22 +29,22 @@
 
 /* Hairlines with a brass glint travelling down them. */
 .od-beams { position: absolute; inset: 0 0 auto; height: 980px; pointer-events: none; overflow: hidden; mask: linear-gradient(#000 40%, transparent); }
-.od-beams i { position: absolute; top: 0; bottom: 0; width: 1px; background: linear-gradient(transparent, rgb(191 218 200 / 0.08) 20%, rgb(191 218 200 / 0.08) 80%, transparent); }
+.od-beams i { position: absolute; top: 0; bottom: 0; width: 1px; background: linear-gradient(transparent, var(--od-line) 20%, var(--od-line) 80%, transparent); }
 .od-beams i::after { content: ""; position: absolute; left: -1px; width: 3px; height: 140px; top: -140px; border-radius: 2px; opacity: 0;
-  background: linear-gradient(transparent, rgb(191 232 218 / 0.9), transparent); filter: drop-shadow(0 0 6px rgb(134 212 187 / 0.8)); }
+  background: linear-gradient(transparent, var(--color-brass), transparent); filter: drop-shadow(0 0 6px color-mix(in oklab, var(--color-brass) 50%, transparent)); }
 .od-beams i:nth-child(1) { left: 3%; } .od-beams i:nth-child(2) { left: 50%; } .od-beams i:nth-child(3) { left: 97%; }
 
 /* Hero */
 .od-hero { position: relative; display: grid; grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr); gap: 56px; align-items: start; padding-top: 72px; padding-bottom: 88px; }
-.od-pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px 6px 8px; border: 1px solid var(--od-line-2); border-radius: 999px; font-size: 13.5px; color: var(--color-muted); background: rgb(4 17 15 / 0.5); }
+.od-pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px 6px 8px; border: 1px solid var(--od-line-2); border-radius: 999px; font-size: 13.5px; color: var(--color-muted); background: color-mix(in oklab, var(--color-surface) 70%, transparent); }
 .od-pill b { color: var(--color-brass); font-weight: 600; }
-.od-pill .dot { width: 18px; height: 18px; border-radius: 50%; background: rgb(134 212 187 / 0.16); display: grid; place-items: center; }
+.od-pill .dot { width: 18px; height: 18px; border-radius: 50%; background: color-mix(in oklab, var(--color-brass) 16%, transparent); display: grid; place-items: center; }
 .od-pill .dot::after { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--color-brass); }
 .od h1 { margin-top: 22px; font-family: var(--font-display); font-weight: 800; font-size: clamp(44px, 4.7vw, 70px); line-height: 1.04; text-wrap: balance; letter-spacing: -0.02em; }
 .od-lead { margin-top: 22px; max-width: 30em; font-size: 18.5px; line-height: 1.6; color: var(--color-muted); }
 .od-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
 .od-cta .arr { transition: transform 0.2s var(--od-out); } .od-cta a:hover .arr { transform: translateX(4px); }
-.od-checks { display: grid; grid-template-columns: repeat(2, max-content); gap: 10px 28px; margin-top: 36px; font-size: 15px; color: #cfe0d9; }
+.od-checks { display: grid; grid-template-columns: repeat(2, max-content); gap: 10px 28px; margin-top: 36px; font-size: 15px; color: color-mix(in oklab, var(--color-ink) 82%, transparent); }
 .od-checks li { display: flex; align-items: center; gap: 9px; }
 .od-checks svg { color: var(--od-mint); flex: none; }
 
@@ -125,10 +126,10 @@
 .od-wsteps { }
 .od-wsteps li { position: relative; }
 /* The bar under the lit step: how far the job is through it. */
-.od-wsteps li::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px; background: linear-gradient(90deg, rgb(134 212 187 / 0.3), var(--color-brass)); transform-origin: left; transform: scaleX(0); }
+.od-wsteps li::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px; background: linear-gradient(90deg, color-mix(in oklab, var(--color-brass) 30%, transparent), var(--color-brass)); transform-origin: left; transform: scaleX(0); }
 .od-wsteps li.on::after { transform: scaleX(var(--p, 1)); }
 .od-wsteps button { display: grid; grid-template-columns: 44px minmax(0, 1fr); width: 100%; padding: 22px 0; text-align: left; cursor: pointer; color: var(--od-faint); transition: color 0.4s; }
-.od-wsteps button:hover { color: #cfe0d9; }
+.od-wsteps button:hover { color: var(--color-ink); }
 .od-wsteps li.on button { color: var(--color-ink); }
 .od-wn { padding-top: 4px; font-size: 13px; letter-spacing: 0.04em; transition: color 0.4s; }
 .od-wsteps li.on .od-wn { color: var(--color-brass); }
@@ -171,8 +172,8 @@
 .od-box h3 { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 650; font-size: 24px; line-height: 1.2; letter-spacing: -0.01em; }
 .od-box > p { margin-top: 8px; color: var(--color-muted); font-size: 15.5px; max-width: 34em; }
 .od-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
-.od-chip { font-size: 13.5px; border: 1px solid var(--od-line-2); border-radius: 999px; padding: 6px 12px; color: #cfe0d9; background: rgb(4 17 15 / 0.4); transition: border-color 0.3s, color 0.3s; cursor: pointer; }
-.od-chip:hover { border-color: rgb(134 212 187 / 0.5); }
+.od-chip { font-size: 13.5px; border: 1px solid var(--od-line-2); border-radius: 999px; padding: 6px 12px; color: var(--color-ink); background: var(--color-surface); transition: border-color 0.3s, color 0.3s; cursor: pointer; }
+.od-chip:hover { border-color: color-mix(in oklab, var(--color-brass) 50%, transparent); }
 .od-chip[aria-pressed="true"] { border-color: var(--color-brass); color: var(--color-brass); }
 .od-answer { position: relative; margin-top: 22px; border: 1px solid var(--od-line-2); border-radius: 18px; background: linear-gradient(180deg, rgb(191 218 200 / 0.06), rgb(191 218 200 / 0.015)), var(--od-ground); box-shadow: 0 40px 100px -50px rgb(0 0 0 / 0.8); padding: 22px; min-height: 352px; }
 .od-who { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--color-muted); } .od-who span { margin-left: auto; color: var(--od-faint); }
@@ -284,10 +285,10 @@
 .od-walk { position: relative; }
 .od-win-wrap { position: relative; }
 .od-walk::before { content: ""; position: absolute; z-index: -1; top: -12%; bottom: -12%; right: -6%; width: 64%; pointer-events: none;
-  background-image: linear-gradient(rgb(191 218 200 / 0.06) 1px, transparent 1px), linear-gradient(90deg, rgb(191 218 200 / 0.06) 1px, transparent 1px);
+  background-image: linear-gradient(var(--od-line) 1px, transparent 1px), linear-gradient(90deg, var(--od-line) 1px, transparent 1px);
   background-size: 44px 44px; mask-image: radial-gradient(closest-side, #000 30%, transparent); }
 .od-walk::after { content: ""; position: absolute; z-index: -1; top: 10%; right: 8%; width: 46%; height: 70%; pointer-events: none; border-radius: 50%;
-  background: radial-gradient(closest-side, rgb(134 212 187 / 0.14), transparent); filter: blur(30px); }
+  background: radial-gradient(closest-side, color-mix(in oklab, var(--color-brass) 14%, transparent), transparent); filter: blur(30px); }
 @media (max-width: 1080px) { .od-walk::before { width: 100%; right: 0; top: 40%; } .od-walk::after { top: 50%; width: 80%; } }
 
 /*
@@ -295,12 +296,12 @@
  * income is the app home's date card, its one gradient (petrol with a faint gold light at a corner).
  */
 .od-desk, .od-ask, .od-sat > div, .od-win, .od-answer, .od-week {
-  --od-line: rgb(255 255 255 / 0.07); --od-line-2: rgb(255 255 255 / 0.11); --od-faint: #7f9792; --color-muted: #a3b8b2; --od-mint: #4fd6aa; --od-coral: #ff8f73; --color-ink: #eaf3f0;
+  --od-line: rgb(255 255 255 / 0.07); --od-line-2: rgb(255 255 255 / 0.11); --od-faint: #7f9792; --color-muted: #a3b8b2; --od-mint: #4fd6aa; --od-coral: #ff8f73; --color-ink: #eaf3f0; --color-brass: #4fd6aa; --color-line: rgb(255 255 255 / 0.07);
   color: #eaf3f0;
 }
 .od-desk, .od-win, .od-answer, .od-week {
   background: linear-gradient(180deg, #0c201e, #081715); border-color: rgb(255 255 255 / 0.09);
-  box-shadow: 0 60px 120px -40px rgb(0 0 0 / 0.9), inset 0 1px 0 rgb(255 255 255 / 0.05);
+  box-shadow: 0 50px 100px -40px rgb(12 31 28 / 0.45), inset 0 1px 0 rgb(255 255 255 / 0.05);
 }
 .od-desk::before { display: none; }
 .od-desk .od-cell, .od-desk .od-log { background: #0f2724; border-color: var(--od-line); }
@@ -317,9 +318,9 @@
 .od-desk .od-grid > .od-cell:first-child .od-bars span.now { background: linear-gradient(180deg, #fff, rgb(255 255 255 / 0.45)); }
 .od-desk .od-grid > .od-cell:first-child .od-days { color: rgb(255 255 255 / 0.55); }
 /* The toasts and the answer card: opaque, so the records under them never show through. */
-.od-ask, .od-sat > div { background: #102926; border-color: rgb(255 255 255 / 0.12); box-shadow: 0 24px 60px -18px rgb(0 0 0 / 0.85); }
-.od-ghost { border-color: rgb(255 255 255 / 0.08); background: linear-gradient(180deg, rgb(255 255 255 / 0.04), rgb(255 255 255 / 0.01)); }
-.od-ghost span { color: rgb(238 244 241 / 0.45); }
+.od-ask, .od-sat > div { background: #102926; border-color: rgb(255 255 255 / 0.12); box-shadow: 0 24px 50px -18px rgb(12 31 28 / 0.45); }
+.od-ghost { border-color: var(--od-line-2); background: linear-gradient(180deg, color-mix(in oklab, var(--color-petrol) 10%, var(--color-surface)), var(--color-surface)); }
+.od-ghost span { color: var(--color-muted); }
 .od-desk .gold { color: #4fd6aa; }
 .od-win .od-wbar { background: rgb(255 255 255 / 0.025); }
 .od-win .od-lines > div { color: #c9d8d4; }

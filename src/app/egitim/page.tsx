@@ -51,12 +51,12 @@ export default function TutorialsPage() {
                       sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
                       className="object-cover transition-transform duration-700 ease-[var(--ease-out-quint)]"
                     />
-                    <span className="absolute bottom-3 right-3 rounded-md bg-pine-950/85 px-2 py-1 text-xs font-bold text-white tabular-nums">
+                    <span className="absolute bottom-3 right-3 rounded-md bg-ink/85 px-2 py-1 text-xs font-bold text-paper tabular-nums">
                       {clock(t.seconds)}
                     </span>
                   </div>
                   <p className="mt-4 text-sm font-bold text-brass-700 tabular-nums">Bölüm {t.no}</p>
-                  <h2 className="mt-1 text-xl font-semibold group-hover:text-petrol">{t.title}</h2>
+                  <h2 className="mt-1 text-xl font-semibold group-hover:text-brand">{t.title}</h2>
                   <p className="mt-2 text-[0.95rem] leading-relaxed text-muted">
                     {t.lessons.map((l) => l.title).join(", ")}
                   </p>

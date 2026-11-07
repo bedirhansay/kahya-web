@@ -36,7 +36,7 @@ export default function SolutionsPage() {
               <li key={s.slug} id={s.slug} className="flex scroll-mt-24 flex-col bg-surface p-6 md:p-8">
                 <p className="eyebrow text-brand">{s.kicker}</p>
                 <h2 className="mt-3 text-2xl font-bold tracking-[-0.02em]">
-                  <Link href={`/cozumler/${s.slug}`} className="hover:text-petrol">
+                  <Link href={`/cozumler/${s.slug}`} className="hover:text-brand">
                     {s.name}
                   </Link>
                 </h2>
@@ -45,7 +45,7 @@ export default function SolutionsPage() {
                 <ul className="mt-6 flex-1 space-y-2.5">
                   {s.points.map((p) => (
                     <li key={p.term} className="flex gap-3 text-[0.97rem]">
-                      <Check size={18} className="mt-0.5 shrink-0 text-petrol" aria-hidden />
+                      <Check size={18} className="mt-0.5 shrink-0 text-brand" aria-hidden />
                       <span>
                         <strong className="font-semibold">{p.term}:</strong>{" "}
                         <span className="text-muted">{p.text}</span>
@@ -83,7 +83,7 @@ export default function SolutionsPage() {
               <li key={e.name} className="grid gap-2 py-5 sm:grid-cols-[8rem_1fr] sm:gap-6">
                 <h3 className="font-semibold">
                   {e.href ? (
-                    <Link href={e.href} className="hover:text-petrol">
+                    <Link href={e.href} className="hover:text-brand">
                       {e.name}
                     </Link>
                   ) : (

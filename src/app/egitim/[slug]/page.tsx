@@ -110,7 +110,7 @@ export default async function TutorialPage({ params }: PageProps<"/egitim/[slug]
                 <ol className="mt-5 space-y-3">
                   {l.steps.map((step, i) => (
                     <li key={step} className="flex gap-3.5 leading-snug">
-                      <span className="grid size-7 shrink-0 place-items-center rounded-md bg-mist text-sm font-bold text-petrol tabular-nums">
+                      <span className="grid size-7 shrink-0 place-items-center rounded-md bg-mist text-sm font-bold text-brand tabular-nums">
                         {i + 1}
                       </span>
                       <span className="pt-1">{step}</span>
@@ -130,7 +130,7 @@ export default async function TutorialPage({ params }: PageProps<"/egitim/[slug]
               className="group rounded-[var(--radius-frame)] border border-line p-5 hover:border-sage"
             >
               <span className="text-sm text-muted">Önceki bölüm</span>
-              <span className="mt-1 block font-semibold group-hover:text-petrol">{prev.title}</span>
+              <span className="mt-1 block font-semibold group-hover:text-brand">{prev.title}</span>
             </Link>
           ) : (
             <span />
@@ -141,7 +141,7 @@ export default async function TutorialPage({ params }: PageProps<"/egitim/[slug]
               className="group rounded-[var(--radius-frame)] border border-line p-5 text-right hover:border-sage"
             >
               <span className="text-sm text-muted">Sonraki bölüm</span>
-              <span className="mt-1 block font-semibold group-hover:text-petrol">{next.title}</span>
+              <span className="mt-1 block font-semibold group-hover:text-brand">{next.title}</span>
             </Link>
           )}
         </div>
