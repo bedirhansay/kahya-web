@@ -33,10 +33,10 @@ function check(f: FormData): Errors {
 
 const fieldCls = (bad?: string) =>
   cn(
-    "mt-2 w-full rounded-[10px] border bg-pine-950/60 px-3.5 py-3 text-[0.98rem] text-ink outline-none transition-[border-color,box-shadow] duration-300 placeholder:text-muted/60",
+    "mt-2 w-full rounded-[10px] border bg-surface px-3.5 py-3 text-[0.98rem] text-ink outline-none transition-[border-color,box-shadow] duration-300 placeholder:text-muted/60",
     bad
-      ? "border-[#ff8f73]/70 shadow-[0_0_0_4px_rgb(255_143_115/0.1)]"
-      : "border-line hover:border-mint/30 focus:border-brass/70 focus:shadow-[0_0_0_4px_rgb(134_212_187/0.12)]",
+      ? "border-danger/70 shadow-[0_0_0_4px_color-mix(in_oklab,var(--color-danger)_10%,transparent)]"
+      : "border-line hover:border-ink/25 focus:border-brass/70 focus:shadow-[0_0_0_4px_color-mix(in_oklab,var(--color-brass)_12%,transparent)]",
   );
 
 function Num({ n }: { n: string }) {
@@ -46,7 +46,7 @@ function Num({ n }: { n: string }) {
 function Hint({ id, children }: { id: string; children?: ReactNode }) {
   if (!children) return null;
   return (
-    <span id={id} className="stage-in mt-2 flex items-center gap-1.5 text-[0.88rem] font-normal text-[#ffb4a2]">
+    <span id={id} className="stage-in mt-2 flex items-center gap-1.5 text-[0.88rem] font-normal text-danger">
       <AlertCircle size={15} aria-hidden className="shrink-0" />
       {children}
     </span>
@@ -118,7 +118,7 @@ export function ContactForm({ konu, cozum }: { konu?: string | null; cozum?: str
   if (state === "sent") {
     return (
       <div className="stage-in flex min-h-[30rem] flex-col items-center justify-center text-center" role="status">
-        <span className="grid size-14 place-items-center rounded-full border border-brass/50 bg-brass/10 text-brass shadow-[0_0_40px_rgb(134_212_187/0.25)]">
+        <span className="grid size-14 place-items-center rounded-full border border-brass/50 bg-brass/10 text-brass">
           <Check size={26} aria-hidden />
         </span>
         <h2 className="mt-6 font-display text-[1.7rem] font-bold">Mesajınız ulaştı</h2>
@@ -134,7 +134,7 @@ export function ContactForm({ konu, cozum }: { konu?: string | null; cozum?: str
           <Num n="01" />
           Konu
         </legend>
-        <div className="mt-2 grid grid-cols-2 gap-1 rounded-[12px] border border-line bg-pine-950/60 p-1 sm:grid-cols-4">
+        <div className="mt-2 grid grid-cols-2 gap-1 rounded-[12px] border border-line bg-mist/60 p-1 sm:grid-cols-4">
           {topics.map((t) => (
             <button
               key={t.key}
@@ -144,7 +144,7 @@ export function ContactForm({ konu, cozum }: { konu?: string | null; cozum?: str
               className={cn(
                 "min-h-11 rounded-[9px] px-3 py-2.5 text-[0.92rem] font-semibold transition-[background-color,color,box-shadow] duration-300",
                 topic === t.key
-                  ? "bg-brass text-pine-950 shadow-[0_6px_20px_-8px_rgb(134_212_187/0.6)]"
+                  ? "bg-brass text-paper shadow-[0_6px_20px_-10px_var(--color-brass)]"
                   : "text-ink/60 hover:text-ink",
               )}
             >
@@ -218,9 +218,9 @@ export function ContactForm({ konu, cozum }: { konu?: string | null; cozum?: str
       {state === "error" && (
         <p
           role="alert"
-          className="stage-in flex items-start gap-3 rounded-[12px] border border-[#ff8f73]/35 bg-[#ff8f73]/[0.07] px-4 py-3.5 text-[0.94rem] text-[#ffc9bb]"
+          className="stage-in flex items-start gap-3 rounded-[12px] border border-danger/35 bg-danger/[0.07] px-4 py-3.5 text-[0.94rem] text-danger"
         >
-          <AlertCircle size={18} aria-hidden className="mt-0.5 shrink-0 text-[#ff8f73]" />
+          <AlertCircle size={18} aria-hidden className="mt-0.5 shrink-0 text-danger" />
           <span>
             {fail || `Mesaj şu an gönderilemedi. Birazdan yeniden deneyin ya da ${site.email} adresine yazın.`}
           </span>
@@ -235,7 +235,7 @@ export function ContactForm({ konu, cozum }: { konu?: string | null; cozum?: str
               aria-invalid={!!errors.kvkk}
               aria-describedby={errors.kvkk ? "e-kvkk" : undefined}
               onChange={() => recheck("kvkk")}
-              className="mt-1 size-4 shrink-0 cursor-pointer accent-[#86d4bb]"
+              className="mt-1 size-4 shrink-0 cursor-pointer accent-brass"
             />
             <span>
               <a href={site.legal.kvkk} target="_blank" rel="noopener" className="link">

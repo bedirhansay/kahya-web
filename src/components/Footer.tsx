@@ -53,7 +53,7 @@ const columns = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-line bg-pine-950 text-white/70">
+    <footer className="on-dark border-t border-line bg-paper text-muted">
       <div className="wrap grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-[1.3fr_repeat(5,1fr)]">
         <div className="max-w-xs">
           <Logo />
@@ -62,7 +62,7 @@ export function Footer() {
           </p>
           <Link
             href="/iletisim"
-            className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-xl border border-white/12 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:border-brass/50"
+            className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-xl border border-line px-4 py-2.5 text-sm font-semibold text-ink transition-colors hover:border-brass/50"
           >
             İletişim, bize yazın
             <ArrowRight size={15} aria-hidden />
@@ -71,16 +71,16 @@ export function Footer() {
         </div>
         {columns.map((col) => (
           <div key={col.title}>
-            <h2 className="text-sm font-bold text-white">{col.title}</h2>
+            <h2 className="text-sm font-bold text-ink">{col.title}</h2>
             <ul className="mt-4 space-y-2.5 text-[0.93rem]">
               {col.links.map((l) => (
                 <li key={l.href}>
                   {l.href.startsWith("http") ? (
-                    <a href={l.href} className="hover:text-white">
+                    <a href={l.href} className="hover:text-ink">
                       {l.label}
                     </a>
                   ) : (
-                    <Link href={l.href} className="hover:text-white">
+                    <Link href={l.href} className="hover:text-ink">
                       {l.label}
                     </Link>
                   )}
@@ -90,11 +90,11 @@ export function Footer() {
           </div>
         ))}
       </div>
-      <div className="border-t border-white/8">
+      <div className="border-t border-line">
         <div className="wrap flex flex-col gap-2 py-6 text-sm sm:flex-row sm:items-center sm:justify-between">
           <p>
             Kahya, bir{" "}
-            <a href={site.companyUrl} className="font-semibold text-white hover:text-brass">
+            <a href={site.companyUrl} className="font-semibold text-ink hover:text-brass">
               biHesap
             </a>{" "}
             ürünüdür.

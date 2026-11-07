@@ -28,7 +28,7 @@ export function VideoPlayer({ src, poster, title, duration, captions, aspect = "
 
   return (
     <div
-      className={cn("frame frame-dark relative bg-pine-950", className)}
+      className={cn("frame frame-dark on-dark relative bg-paper", className)}
       style={{ aspectRatio: aspect.replace("/", " / ") }}
     >
       {playing ? (
@@ -55,14 +55,14 @@ export function VideoPlayer({ src, poster, title, duration, captions, aspect = "
             sizes="(min-width: 1024px) 70vw, 100vw"
             className="object-cover"
           />
-          <span className="absolute inset-0 bg-gradient-to-t from-pine-950/70 via-transparent to-transparent" />
+          <span className="absolute inset-0 bg-gradient-to-t from-paper/70 via-transparent to-transparent" />
           <span className="absolute bottom-4 left-4 flex items-center gap-3 sm:bottom-6 sm:left-6">
-            <span className="grid size-14 place-items-center rounded-full bg-brass text-pine-950 transition-transform duration-200 group-hover:scale-105 sm:size-16">
+            <span className="grid size-14 place-items-center rounded-full bg-brass text-paper transition-transform duration-200 group-hover:scale-105 sm:size-16">
               <Play size={24} fill="currentColor" className="translate-x-0.5" />
             </span>
-            <span className="text-white">
+            <span className="text-ink">
               <span className="block font-bold">{title}</span>
-              {duration && <span className="block text-sm text-white/70">{duration}</span>}
+              {duration && <span className="block text-sm text-muted">{duration}</span>}
               {/* The button is named by what it shows, plus what it does. */}
               <span className="sr-only"> oynat</span>
             </span>

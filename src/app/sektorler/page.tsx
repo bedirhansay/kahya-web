@@ -33,8 +33,8 @@ export default function SectorsPage() {
           <ul className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {ordered.map((s) => (
               <li key={s.slug}>
-                <Link href={`/sektorler/${s.slug}`} className="group flex h-full flex-col rounded-[16px] border border-line bg-surface p-6 hover:border-petrol md:p-8">
-                  <h2 className="text-2xl font-bold tracking-[-0.02em] group-hover:text-petrol">{s.name}</h2>
+                <Link href={`/sektorler/${s.slug}`} className="group flex h-full flex-col rounded-[16px] border border-line bg-surface p-6 hover:border-brand md:p-8">
+                  <h2 className="text-2xl font-bold tracking-[-0.02em] group-hover:text-brand">{s.name}</h2>
                   <p className="mt-3 flex-1 leading-relaxed text-muted">{s.lead}</p>
                   <span className="link mt-6 inline-flex items-center gap-1.5">
                     Nasıl kullanılır <ArrowRight size={15} aria-hidden />

@@ -22,14 +22,14 @@ export function Header() {
       {/* Logo | menu in the true centre | sign-in and start, like a product's own bar. */}
       <div className="wrap pt-2.5">
         <div className="hdr-pill relative grid h-[56px] grid-cols-[1fr_auto] items-center gap-6 rounded-[18px] pl-4 pr-1.5 xl:grid-cols-[1fr_auto_1fr] lg:pl-5">
-          <Logo />
+          <Logo tone="dark" />
           <nav aria-label="Ana menü" className="hidden xl:block">
             <ul className="flex items-center gap-1 text-[0.95rem] font-medium text-ink/70">
               {mainNav.map((item) => (
                 <li key={item.href} className={cn("flex h-[56px] items-center", item.mega && "group")}>
                   <Link
                     href={item.href}
-                    className="relative inline-flex items-center gap-1 rounded-lg px-3.5 py-2 transition-colors hover:bg-white/[0.04] hover:text-ink group-hover:text-ink"
+                    className="relative inline-flex items-center gap-1 rounded-lg px-3.5 py-2 transition-colors hover:bg-ink/[0.04] hover:text-ink group-hover:text-ink"
                   >
                     {item.label}
                     {item.mega && (
@@ -48,7 +48,7 @@ export function Header() {
           <div className="flex items-center justify-end gap-2.5">
             <a
               href={site.app.login}
-              className="hidden h-10 items-center gap-1.5 whitespace-nowrap rounded-[10px] border border-white/12 px-3.5 text-[0.93rem] font-medium text-ink/85 transition-colors hover:border-white/25 hover:text-ink sm:inline-flex"
+              className="hidden h-10 items-center gap-1.5 whitespace-nowrap rounded-[10px] border border-line px-3.5 text-[0.93rem] font-medium text-ink/85 transition-colors hover:border-ink/25 hover:text-ink sm:inline-flex"
             >
               Giriş yap
               <ArrowUpRight size={15} aria-hidden className="opacity-60" />

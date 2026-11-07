@@ -143,12 +143,12 @@ export default async function SolutionPage({ params }: PageProps<"/cozumler/[slu
                 <li key={f.slug}>
                   <Link
                     href={`/ozellikler/${f.slug}`}
-                    className="group flex h-full flex-col rounded-[14px] border border-line p-5 hover:border-petrol"
+                    className="group flex h-full flex-col rounded-[14px] border border-line p-5 hover:border-brand"
                   >
                     <span className="grid size-9 place-items-center rounded-lg bg-brand-50 text-brand">
                       <FeatureIcon slug={f.slug} size={18} />
                     </span>
-                    <span className="mt-4 font-semibold group-hover:text-petrol">{f.name}</span>
+                    <span className="mt-4 font-semibold group-hover:text-brand">{f.name}</span>
                     <span className="mt-1 text-[0.95rem] text-muted">{f.summary}</span>
                   </Link>
                 </li>
@@ -189,10 +189,10 @@ export default async function SolutionPage({ params }: PageProps<"/cozumler/[slu
               <li key={o.slug}>
                 <Link
                   href={`/cozumler/${o.slug}`}
-                  className="group block rounded-[14px] border border-line p-6 hover:border-petrol"
+                  className="group block rounded-[14px] border border-line p-6 hover:border-brand"
                 >
                   <span className="eyebrow text-brand">{o.kicker}</span>
-                  <span className="mt-2 block text-xl font-bold group-hover:text-petrol">
+                  <span className="mt-2 block text-xl font-bold group-hover:text-brand">
                     {o.name}
                     {o.subtitle && <span className="ml-2 text-sm font-medium text-muted">{o.subtitle}</span>}
                   </span>

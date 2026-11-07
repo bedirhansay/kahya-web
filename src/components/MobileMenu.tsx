@@ -45,7 +45,7 @@ export function MobileMenu() {
         aria-expanded={open}
         aria-controls="mobil-menu"
         aria-label={open ? "Menüyü kapat" : "Menüyü aç"}
-        className="relative z-[60] grid size-11 place-items-center rounded-xl border border-white/10 text-ink transition-colors hover:border-white/25"
+        className="relative z-[60] grid size-11 place-items-center rounded-xl border border-line text-ink transition-colors hover:border-ink/25"
       >
         {/* Two bars that turn into a cross. */}
         <span aria-hidden className="relative block h-3 w-5">
@@ -88,7 +88,7 @@ export function MobileMenu() {
                           <span
                             className={cn(
                               "grid size-9 place-items-center rounded-full border transition-[transform,border-color,background-color] duration-500 ease-out-quint",
-                              on ? "rotate-180 border-brass/50 bg-brass/10 text-brass" : "border-white/10 text-ink/70",
+                              on ? "rotate-180 border-brass/50 bg-brass/10 text-brass" : "border-line text-ink/70",
                             )}
                           >
                             <ChevronDown size={18} aria-hidden />
@@ -118,9 +118,9 @@ export function MobileMenu() {
                                   <li key={c.href + c.label}>
                                     <Link
                                       href={c.href}
-                                      className="flex min-h-12 items-center gap-3 rounded-xl px-2 py-2 transition-colors active:bg-white/5"
+                                      className="flex min-h-12 items-center gap-3 rounded-xl px-2 py-2 transition-colors active:bg-ink/5"
                                     >
-                                      <span className="grid size-9 shrink-0 place-items-center rounded-lg border border-white/10 bg-white/[0.03] text-brass">
+                                      <span className="grid size-9 shrink-0 place-items-center rounded-lg border border-line bg-ink/[0.03] text-brass">
                                         {Icon ? <Icon size={17} aria-hidden /> : <ArrowRight size={16} aria-hidden />}
                                       </span>
                                       <span className="min-w-0">
@@ -163,7 +163,7 @@ export function MobileMenu() {
                 Hemen başla
                 <ArrowRight size={17} aria-hidden />
               </a>
-              <a href={site.app.login} className="btn btn-line-dark w-full">
+              <a href={site.app.login} className="btn btn-line w-full">
                 Giriş yap
                 <ArrowUpRight size={16} aria-hidden className="opacity-60" />
               </a>

@@ -158,7 +158,7 @@ export default function HomePage() {
                 <li key={q} className="grid gap-2 px-5 py-4 md:grid-cols-[1fr_1fr_1.2fr] md:gap-0 md:p-0">
                   <span className="font-semibold md:px-5 md:py-4">{q}</span>
                   <span className="flex gap-2 text-muted md:px-5 md:py-4">
-                    <X size={17} className="mt-0.5 shrink-0 text-[#f08a7e]/80" aria-hidden />
+                    <X size={17} className="mt-0.5 shrink-0 text-danger/80" aria-hidden />
                     <span>
                       <span className="sr-only">Excel, WhatsApp ve kâğıtla: </span>
                       {before}
@@ -179,7 +179,7 @@ export default function HomePage() {
       </section>
 
       {/* Sectors */}
-      <section aria-labelledby="sektorler" className="chapter chapter-r">
+      <section aria-labelledby="sektorler" className="chapter">
         <div className="wrap py-16 md:py-20">
           <SectionHead
             id="sektorler"
