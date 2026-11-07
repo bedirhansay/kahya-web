@@ -1,4 +1,4 @@
-import { Clock, Mail, MonitorSmartphone, PlayCircle, ShieldCheck } from "lucide-react";
+import { Clock, Mail, MessageCircle, MonitorSmartphone, PlayCircle, ShieldCheck } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Suspense } from "react";
@@ -17,6 +17,17 @@ export const metadata: Metadata = pageMetadata({
 
 const ways = [
   { Icon: Mail, title: "E-posta", body: site.email },
+  ...(site.whatsapp
+    ? [
+        {
+          Icon: MessageCircle,
+          title: "WhatsApp",
+          body: "Kısa sorularınız için yazın.",
+          href: `https://wa.me/${site.whatsapp}`,
+          cta: "WhatsApp'tan yazın",
+        },
+      ]
+    : []),
   {
     Icon: MonitorSmartphone,
     title: "Hesabınız varsa",

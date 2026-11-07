@@ -5,6 +5,7 @@ import Link from "next/link";
 import { CtaBand } from "@/components/CtaBand";
 import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
+import { PlanTable } from "@/components/PlanTable";
 import { PageHero } from "@/components/PageHero";
 import { pricingFaq } from "@/content/faq";
 import { extras, services, solutions } from "@/content/solutions";
@@ -66,6 +67,27 @@ export default function SolutionsPage() {
           </ol>
           <p className="mt-6 text-sm text-muted">
             Hesabınızı açtıktan sonra uygulamadaki Abonelik sayfasından da talep edebilirsiniz.
+          </p>
+        </div>
+      </section>
+
+      <section aria-labelledby="paketler">
+        <div className="wrap py-16 md:py-24">
+          <h2 id="paketler" className="title max-w-2xl">
+            Paketler
+          </h2>
+          <p className="lead mt-4 max-w-2xl text-muted">
+            Paketler kullanıcı sayısına ve dosya alanına göre ayrılır. Ücretli paketlerin hepsinde üç çözüm de açılır.
+            Kayıt olan her firma 30 gün Kurumsal paketi dener.
+          </p>
+          <div className="mt-10">
+            <PlanTable />
+          </div>
+          <p className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-muted">
+            Fiyatı ekibinize ve ek hizmetlere göre veriyoruz.
+            <a href={quote("Paket")} className="link inline-flex min-h-11 items-center">
+              Fiyat talep et
+            </a>
           </p>
         </div>
       </section>

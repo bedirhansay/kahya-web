@@ -1,13 +1,14 @@
 import type { MetadataRoute } from "next";
 
 import { features } from "@/content/features";
+import { guides } from "@/content/guides";
 import { sectors } from "@/content/sectors";
 import { solutions } from "@/content/solutions";
 import { tutorials } from "@/content/tutorials";
 import { absoluteUrl } from "@/lib/seo";
 
 // Bump when content changes meaningfully; a fixed date keeps the build static.
-const updated = new Date("2026-10-27");
+const updated = new Date("2026-11-07");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const page = (path: string, priority: number, extra: Partial<MetadataRoute.Sitemap[number]> = {}) => ({
@@ -49,6 +50,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
         ],
       }),
     ),
+    page("/rehber", 0.6),
+    ...guides.map((g) => page(`/rehber/${g.slug}`, 0.6, { lastModified: new Date(g.updated) })),
     page("/sss", 0.6),
     page("/iletisim", 0.4),
   ];

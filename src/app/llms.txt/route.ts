@@ -1,4 +1,6 @@
 import { features } from "@/content/features";
+import { guides } from "@/content/guides";
+import { planNames, planRows } from "@/content/plans";
 import { tutorials } from "@/content/tutorials";
 import { absoluteUrl } from "@/lib/seo";
 import { sectors } from "@/content/sectors";
@@ -33,6 +35,12 @@ export function GET() {
     ...notIncluded.map((x) => `- ${x}`),
     "",
     `Rakamlar sitede yayınlanmaz. Fiyat kullanıcı sayısına (paket: Ücretsiz, Başlangıç, Ekip, Büyüyen ve Kurumsal) ve ek hizmetlere göre verilir: ${site.email}. Kayıt olan firma 30 gün Kurumsal paketi dener, sonra Ücretsiz pakete geçer. Ayrıntılar: ${absoluteUrl("/cozumler")}`,
+    "",
+    "## Paketler",
+    `Paketler: ${planNames.join(", ")}. Kullanıcı: ${planRows[0].cells.join(" / ")}. Dosya alanı: ${planRows[1].cells.join(" / ")}. Stok Ekip ve üstünde dahil, Başlangıç'ta ek hizmet. Teklif ve Filo Kurumsal'da dahil, diğer ücretli paketlerde ek hizmet. E-posta her pakette ek hizmettir. Karşılaştırma: ${absoluteUrl("/cozumler#paketler")}`,
+    "",
+    "## Rehberler",
+    ...guides.map((g) => `- [${g.title}](${absoluteUrl(`/rehber/${g.slug}`)}): ${g.answer}`),
     "",
     "## Eğitim",
     ...tutorials.map((t) => `- [${t.title}](${absoluteUrl(`/egitim/${t.slug}`)})`),

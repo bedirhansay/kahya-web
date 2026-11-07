@@ -175,6 +175,16 @@ export default function HomePage() {
               ))}
             </ul>
           </div>
+          {/* Halfway down a long page: the next step, without scrolling to the end. */}
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <a href={site.app.register} className="btn btn-brass">
+              Ücretsiz başlayın
+              <ArrowRight size={17} aria-hidden />
+            </a>
+            <Link href="/cozumler#paketler" className="btn btn-line">
+              Paketleri karşılaştırın
+            </Link>
+          </div>
         </div>
       </section>
 

@@ -3,7 +3,9 @@ import { Bricolage_Grotesque, Instrument_Sans } from "next/font/google";
 
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { Consent } from "@/components/Consent";
 import { SiteMotion } from "@/components/SiteMotion";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { JsonLd } from "@/components/JsonLd";
 import { organizationLd, SITE_URL, websiteLd } from "@/lib/seo";
 import { site } from "@/lib/site";
@@ -74,6 +76,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </main>
         <Footer />
         <SiteMotion />
+        <WhatsAppButton />
+        <Consent />
       </body>
     </html>
   );

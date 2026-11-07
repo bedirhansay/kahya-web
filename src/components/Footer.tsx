@@ -6,6 +6,7 @@ import { featuredSectors, sectors } from "@/content/sectors";
 import { solutions } from "@/content/solutions";
 import { site } from "@/lib/site";
 
+import { ConsentLink } from "./Consent";
 import { Logo } from "./Logo";
 
 const columns = [
@@ -36,6 +37,7 @@ const columns = [
       { href: "/ozellikler/kahya-ai", label: "Kahya AI" },
       { href: "/tanitim-filmi", label: "Tanıtım filmi" },
       { href: "/egitim", label: "Eğitim videoları" },
+      { href: "/rehber", label: "Rehberler" },
       { href: "/sss", label: "Sık sorulanlar" },
       { href: "/iletisim", label: "İletişim" },
     ],
@@ -99,7 +101,10 @@ export function Footer() {
             </a>{" "}
             ürünüdür.
           </p>
-          <p>Görüntülerdeki firma ve kişiler örnek veridir.</p>
+          <p className="flex flex-wrap items-center gap-x-4">
+            Görüntülerdeki firma ve kişiler örnek veridir.
+            <ConsentLink className="min-h-11 underline-offset-4 hover:text-ink hover:underline" />
+          </p>
         </div>
       </div>
     </footer>

@@ -52,6 +52,13 @@ export function organizationLd(): WithContext<Organization> {
     url: site.companyUrl,
     email: site.email,
     logo: absoluteUrl("/icon-512.png"),
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer support",
+      email: site.email,
+      availableLanguage: "tr",
+      areaServed: "TR",
+    },
     address: { "@type": "PostalAddress", addressLocality: site.city, addressCountry: "TR" },
   };
 }
@@ -84,6 +91,8 @@ export function softwareLd(): WithContext<SoftwareApplication> {
     image: absoluteUrl("/og/kahya-og.jpg"),
     screenshot: ["home", "cari", "mail", "project"].map((n) => absoluteUrl(`/screens/${n}.webp`)),
     featureList: features.map((f) => f.name),
+    // The Ücretsiz package is a real offer; paid packages are quoted, so they carry no list price.
+    offers: { "@type": "Offer", name: "Ücretsiz paket", price: "0", priceCurrency: "TRY", url: absoluteUrl("/cozumler#paketler") },
     publisher: { "@id": orgId },
   };
 }

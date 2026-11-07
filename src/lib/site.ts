@@ -14,6 +14,8 @@ export const site = {
   // The marketing site's own address. Set NEXT_PUBLIC_SITE_URL in each environment.
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://kahya.bihesap.co",
   email: "info@bihesap.co",
+  // WhatsApp Business number, digits only with the country code (905xxxxxxxxx); the chat button shows once it is set.
+  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP ?? "",
   // The contact form posts to the site's own endpoint (src/app/api/iletisim), which mails support through Resend.
   contactApi: "/api/iletisim",
   company: "biHesap",
@@ -24,10 +26,11 @@ export const site = {
     register: `${appUrl}/register`,
     login: `${appUrl}/login`,
   },
+  // The legal texts are published from the admin and shown by the app without a login.
   legal: {
-    privacy: "https://bihesap.co/gizlilik",
-    kvkk: "https://bihesap.co/kvkk",
-    terms: "https://bihesap.co/kullanim-kosullari",
-    cookies: "https://bihesap.co/cerez-politikasi",
+    privacy: `${appUrl}/legal/privacy`,
+    kvkk: `${appUrl}/legal/kvkk`,
+    terms: `${appUrl}/legal/terms`,
+    cookies: `${appUrl}/legal/cookies`,
   },
 } as const;
