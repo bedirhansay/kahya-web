@@ -23,7 +23,7 @@ export const guides: Guide[] = [
     title: "Ofis yönetim programı nedir, nasıl seçilir?",
     metaTitle: "Ofis yönetim programı nedir? Seçerken bakılacak 7 şey",
     metaDescription:
-      "Ofis yönetim programı görevleri, müşteri ve tedarikçi carilerini, personel izinlerini ve onayları tek yerde toplar. Seçerken nelere bakılacağını sade bir dille anlattık.",
+      "Ofis yönetim programı görevleri, carileri, personel izinlerini ve onayları tek yerde toplar. Seçerken nelere bakılacağını sade bir dille anlattık.",
     answer:
       "Ofis yönetim programı, bir ofisin günlük işlerini tek uygulamada toplayan yazılımdır: kimin hangi işi yaptığı, müşteri ve tedarikçilerle alacak-borç durumu, personelin izni, onay bekleyen talepler ve belgeler. Amaç, bu bilgilerin Excel dosyalarına, mesaj gruplarına ve kâğıtlara dağılmasını önlemektir.",
     sections: [
@@ -142,7 +142,7 @@ export const guides: Guide[] = [
   {
     slug: "personel-izin-takibi-nasil-yapilir",
     title: "Personel izin takibi nasıl yapılır?",
-    metaTitle: "Personel izin takibi nasıl yapılır? Yıllık izin hakları ve pratik yöntem",
+    metaTitle: "Personel izin takibi nasıl yapılır? Pratik yöntem",
     metaDescription:
       "Personel izin takibinde yıllık izin hakları, izin talebi ve onayı, kalan izin hesabı ve takvim. Küçük bir ofiste izin takibini düzenli tutmanın yolu.",
     answer:

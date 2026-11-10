@@ -11,7 +11,7 @@ export const metadata: Metadata = pageMetadata({
   path: "/ozellikler",
   title: "Özellikler: cari, görev, e-posta, personel, onay",
   description:
-    "Kahya’nın tüm modülleri: cari ve bakiye takibi, ödeme planları, görevler ve takımlar, projeler, e-posta, personel ve izinler, talepler ve onaylar, dokümanlar, raporlar ve Kahya AI.",
+    "Kahya’nın tüm modülleri: cari takibi, ödeme planları, görevler, projeler, e-posta, personel ve izinler, talepler ve onaylar, dokümanlar, raporlar, Kahya AI.",
 });
 
 const tools = [
@@ -41,7 +41,7 @@ export default function FeaturesPage() {
       <section className="bg-paper">
         <div className="wrap py-16 md:py-24">
           <ul className="grid gap-x-10 gap-y-16 md:grid-cols-2">
-            {features.map((f) => (
+            {features.map((f, i) => (
               <li key={f.slug}>
                 <Link href={`/ozellikler/${f.slug}`} className="group block">
                   <div className="frame aspect-[16/10] overflow-hidden">
@@ -51,6 +51,8 @@ export default function FeaturesPage() {
                       width={2000}
                       height={1250}
                       sizes="(min-width: 768px) 45vw, 100vw"
+                      // The first row is on screen when the page opens: fetched at once, not lazily.
+                      priority={i < 2}
                       className={
                         f.screen.phone
                           ? "h-full w-full bg-mist object-contain object-top pt-6"

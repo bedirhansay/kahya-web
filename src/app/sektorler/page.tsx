@@ -9,9 +9,9 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   path: "/sektorler",
-  title: "Sektörler: Toptan Ticaret, İnşaat, Nakliye, Mali Müşavir ve Daha Fazlası için Kahya",
+  title: "Sektörler: Toptan, İnşaat, Nakliye, Mali Müşavir",
   description:
-    "Kahya’nın toptan ticaret, inşaat, lojistik, güvenlik ve temizlik, mali müşavir, eğitim, hukuk, üretim atölyesi, danışmanlık, mimarlık, emlak ve teknik servis firmalarında nasıl kullanıldığını görün.",
+    "Kahya’nın toptan ticaret, inşaat, lojistik, mali müşavir, hukuk, emlak, teknik servis ve diğer sektörlerdeki firmalarda nasıl kullanıldığını görün.",
 });
 
 const rank = (slug: string) => {

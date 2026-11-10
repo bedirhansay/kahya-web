@@ -39,10 +39,10 @@ export const solutions: Solution[] = [
       { term: "Ana Sayfa · Ekip bugün", text: "kim izinde, ne zaman dönüyor." },
     ],
     seo: {
-      title: "Ofis Yönetim Programı: Görev, Personel, İzin ve Onay Takibi",
+      title: "Ofis Yönetim Programı: Görev, Personel, İzin ve Onay",
       h1: "Ofis yönetim programı: görev, izin ve onaylar tek yerde",
       description:
-        "Kahya Ofis Yönetimi ile görevleri kişiye ya da takıma verin, izin ve avans taleplerini telefondan alın, onayları tek listeden verin. Görev Özeti ve onay süreleri raporlarıyla ekibin durumunu görün.",
+        "Kahya Ofis Yönetimi ile görevleri kişiye ya da takıma verin, izin ve avans taleplerini telefondan alın, onayları tek listeden verin.",
     },
     more: {
       title: "Bütün ekip içeride",
@@ -92,7 +92,7 @@ export const solutions: Solution[] = [
       title: "CRM Programı: Müşteri Görüşme ve Takip Programı",
       h1: "CRM programı: her müşteri görüşmesi kayıtta, takip günü unutulmaz",
       description:
-        "Kahya CRM ile müşteri görüşmelerini kişisi ve notuyla kaydedin, takip günü yazın, takibi gelenler listede önünüze çıksın. Teklif ile kendi antetli teklifinizi hazırlayın (Kurumsal pakette dahil, diğer paketlerde ek hizmet).",
+        "Kahya CRM ile müşteri görüşmelerini kişisi ve notuyla kaydedin, takip günü yazın, takibi gelenler listede önünüze çıksın. Teklifinizi de Kahya’da hazırlayın.",
     },
     more: {
       title: "Müşteri bilgisi bir kişinin aklında kalmaz",
@@ -134,10 +134,10 @@ export const solutions: Solution[] = [
       { term: "Ana Sayfa", text: "para kartları ve vadesi geçenler." },
     ],
     seo: {
-      title: "Cari Hesap Takip Programı: Tahsilat, Taksit ve Alacak Takibi",
+      title: "Cari Hesap Takip Programı: Tahsilat, Taksit ve Alacak",
       h1: "Cari hesap takip programı: kim kime borçlu, tek bakışta",
       description:
-        "Kahya Finans & Cari ile müşteri ve tedarikçi carilerini, tahsilat ve ödemeleri, taksitli ödeme planlarını takip edin. Alacak ve borç raporlarını alın, ekstreyi paylaşın, ay sonunda mali müşavirinize tek dosya gönderin.",
+        "Kahya Finans & Cari ile müşteri ve tedarikçi carilerini, tahsilat ve ödemeleri, taksitli ödeme planlarını takip edin; ekstre paylaşın, alacak raporu alın.",
     },
     more: {
       title: "Vade gelmeden önünüzde",

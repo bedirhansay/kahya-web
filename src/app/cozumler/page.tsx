@@ -15,7 +15,7 @@ export const metadata: Metadata = pageMetadata({
   path: "/cozumler",
   title: "Çözümler: Ofis Yönetimi, CRM, Finans & Cari",
   description:
-    "Kahya üç çözümden oluşur: Ofis Yönetimi, CRM (Müşteri İlişkileri) ve Finans & Cari. E-posta ve Kahya AI ek hizmettir; Stok Ekip ve üstünde, Teklif Kurumsal pakette dahil. Fiyat kullanıcı sayısına (paket) ve ek hizmetlere göre verilir.",
+    "Kahya üç çözümden oluşur: Ofis Yönetimi, CRM ve Finans & Cari. E-posta ve Kahya AI ek hizmettir; Stok ve Teklif pakete göre dahildir.",
 });
 
 const quote = (what: string) => `/iletisim?konu=fiyat&cozum=${encodeURIComponent(what)}`;
