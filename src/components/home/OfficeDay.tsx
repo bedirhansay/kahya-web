@@ -15,7 +15,7 @@ import "./office-day.css";
 
 const v = (vars: Record<string, string | number>) => vars as CSSProperties;
 
-const H1 = "Ofisinizin bütün günü tek uygulamada.";
+const H1 = "Muhasebe programınız kalsın. Ofisin geri kalanı Kahya’da.";
 const SAT = "M12 5v14M5 12l7 7 7-7";
 
 /** Short trade names for the strip; each links to its sector page. */
@@ -149,12 +149,12 @@ export function OfficeDay() {
             ))}
           </h1>
           <p className="od-lead" data-in style={v({ "--d": "520ms" })}>
-            Tahsilat, teklif, stok ve ekibin puantajı aynı kayıtta. Kahya bu kayıtlardan cevap verir; telefonda da
-            masada da.
+            Cariniz, ekibinizin işleri ve müşteri takibiniz tek yerde. Fatura ve resmî kayıt muhasebe programınızda,
+            müşavirinizde kalır.
           </p>
           <div className="od-cta" data-in style={v({ "--d": "640ms" })}>
             <a href={site.app.register} className="btn btn-brass">
-              Hemen başla
+              Ücretsiz başlayın
               <svg
                 className="arr"
                 width="16"
@@ -170,11 +170,8 @@ export function OfficeDay() {
                 <path d="M5 12h14M13 6l6 6-6 6" />
               </svg>
             </a>
-            <Link href="/tanitim-filmi" className="btn btn-line">
-              <svg width="15" height="15" viewBox="0 0 24 24" aria-hidden className="text-brass">
-                <path d="M7 4l13 8-13 8z" fill="currentColor" />
-              </svg>
-              Tanıtım filmini izle
+            <Link href="#bir-gun" className="btn btn-line">
+              Nasıl çalışır
             </Link>
           </div>
           <ul className="od-checks" data-in style={v({ "--d": "760ms" })}>

@@ -5,15 +5,15 @@ export const generalFaq = [
   },
   {
     q: "Kahya hangi çözümlerden oluşur?",
-    a: "Üç çözümden: Ofis Yönetimi (ekip, görev, izin ve onaylar), CRM yani Müşteri İlişkileri (görüşmeler ve takip günleri) ve Finans & Cari (cari, tahsilat, taksit, alacak ve borç raporları, ön muhasebe). İhtiyacınız olanı seçersiniz, kullanmadıklarınız menüde görünmez.",
+    a: "Üç çözümden: Ofis Yönetimi (ekip, görev, izin ve onaylar), CRM yani Müşteri İlişkileri (görüşmeler ve takip günleri) ve Finans & Cari (cari, tahsilat, taksit, alacak ve borç raporları). İhtiyacınız olanı seçersiniz, kullanmadıklarınız menüde görünmez.",
   },
   {
     q: "Kurulum gerekir mi?",
     a: "Hayır. Kahya tarayıcıda çalışır. Bilgisayardan, tabletten ve telefondan açılır. Telefonda ana ekrana ekleyip uygulama gibi kullanabilirsiniz.",
   },
   {
-    q: "Kahya fatura keser mi, kasa ve banka tutar mı?",
-    a: "Hayır. Kahya’da finans, cari bakiye takibidir: kimden alacaklı, kime borçlu olduğunuz. Fatura, kasa ve banka hesabı yoktur. Resmî muhasebe için ayın kayıtlarını mali müşavirinize tek dosyada gönderirsiniz.",
+    q: "Muhasebe programımı bırakmam gerekir mi?",
+    a: "Hayır. Kahya fatura kesmez ve resmî kayıt tutmaz. Faturanız ve beyannameniz muhasebe programınızda ya da müşavirinizde kalır. Kahya cari, tahsilat, ekip ve müşteri takibini yönetir. Ay sonunda hareketlerinizi Mali Müşavir Paketi’yle tek dosyada müşavirinize verirsiniz.",
   },
   {
     q: "Kim neyi görebilir?",
@@ -22,6 +22,10 @@ export const generalFaq = [
   {
     q: "Birden fazla şubem var, kullanabilir miyim?",
     a: "Evet. Çoklu şubeyi açtığınızda her ofisin kayıtları ayrı tutulur. Ekibi şubelere Kullanıcılar sayfasından atarsınız.",
+  },
+  {
+    q: "Verilerimi dışarı alabilir miyim?",
+    a: "Evet. Firma ayarlarından verinizin tamamını dışa aktarırsınız. Paketi bıraksanız da verileriniz silinmez.",
   },
   {
     q: "Yanlışlıkla sildiğim kaydı geri alabilir miyim?",
@@ -43,8 +47,8 @@ export const pricingFaq = [
     a: "Uygulamada Abonelik sayfasından talep edersiniz ya da bize e-posta gönderirsiniz. Ödeme bilgilerini size iletiriz. Ödeme gelince çözümünüz açılır ve faturanız kesilir.",
   },
   {
-    q: "Kartla online ödeme yapabilir miyim?",
-    a: "Hayır, sitede ya da uygulamada kartla ödeme yok. Talebinizden sonra ödeme bilgilerini size biz iletiriz.",
+    q: "Kahya kartımdan otomatik ödeme alır mı?",
+    a: "Hayır. Kahya’da otomatik ödeme ve kartla ödeme yoktur. Paket talebiniz uygulama içinden alınır, ödeme bilgilerini size iletiriz, ekibimiz paketinizi açar.",
   },
   {
     q: "Sonradan başka bir çözüm ya da ek hizmet ekleyebilir miyim?",

@@ -122,11 +122,11 @@ export const solutions: Solution[] = [
   {
     slug: "finans-cari",
     no: "03",
-    kicker: "Ön muhasebe",
+    kicker: "Cari ve tahsilat",
     name: "Finans & Cari",
     summary: "Cari hesaplar, tahsilat ve ödemeler, taksit planları, alacak raporları.",
     title: "Kim kime borçlu, tek bakışta",
-    lead: "Ön muhasebe: cari hesaplarınız, tahsilat ve ödemeleriniz, vadeleriniz tek yerde.",
+    lead: "Cari hesaplarınız, tahsilat ve ödemeleriniz, vadeleriniz tek yerde.",
     points: [
       { term: "Cari", text: "bakiye ve hesap ekstresi her müşteri ve tedarikçide." },
       { term: "Tahsilat", text: "anında kayıtta, bakiyeye hemen yansır." },
@@ -155,8 +155,8 @@ export const solutions: Solution[] = [
         a: "Hayır. Kahya’da finans, cari bakiye takibidir: kimden alacaklı, kime borçlu olduğunuz. Fatura, e-Fatura, kasa ve banka hesabı yoktur.",
       },
       {
-        q: "Muhasebe programımın yerine geçer mi?",
-        a: "Hayır. Kahya ön muhasebe tarafını tutar. Resmî kayıtlar için ayın hareketlerini Mali Müşavir Paketi ile tek dosyada mali müşavirinize gönderirsiniz.",
+        q: "Muhasebe programımı bırakmam gerekir mi?",
+        a: "Hayır. Kahya fatura kesmez ve resmî kayıt tutmaz. Faturanız ve beyannameniz muhasebe programınızda ya da müşavirinizde kalır. Kahya cari, tahsilat, ekip ve müşteri takibini yönetir. Ay sonunda hareketlerinizi Mali Müşavir Paketi’yle tek dosyada müşavirinize verirsiniz.",
       },
       {
         q: "Eski carilerimi ve açılış bakiyelerimi aktarabilir miyim?",
@@ -221,11 +221,65 @@ export const notIncluded = [
   "Başka programlarla entegrasyon",
 ];
 
-/** Facts we can stand behind. Nothing here is a certificate or a legal claim. */
+/**
+ * Facts we can stand behind. Nothing here is a certificate or a legal claim. H13: no "servers in Türkiye" line
+ * until the hosting company's details are confirmed.
+ */
 export const trust = [
-  { term: "Verileriniz Türkiye’de", text: "Kayıtlarınız Türkiye’deki sunucularda tutulur." },
   { term: "Rol ve yetki", text: "Kim neyi görür, neyi değiştirir, neyi onaylar, modül modül siz belirlersiniz." },
   { term: "Silinenler", text: "Silinen kayıt 30 gün Silinenler sayfasında bekler, Geri yükle ile döner." },
   { term: "Destek erişimi", text: "Destek ekibi hesabınıza yalnız siz izin verirseniz girer, giriş kayıt altına alınır." },
   { term: "Günlük yedek", text: "Veriler her gün yedeklenir." },
+];
+
+/** H13 §2 — the three things Kahya does, under the home opening; each sentence is a live feature. */
+export const homeMessages: Point[] = [
+  {
+    term: "Kim ne borçlu, her an önünüzde.",
+    text: "Müşteri ve tedarikçi carileri, tahsilat, taksit ve vadeler. Vadesi gelen ana sayfanıza düşer, ekstreyi müşterinizle bir linkle paylaşırsınız. Bir tahsilat girdiğinizde açık taksitler en eskiden başlayarak kendiliğinden kapanır.",
+  },
+  {
+    term: "Ekibin işi kaybolmaz.",
+    text: "Görev, izin ve onaylar tek listede. Kim neyi bekliyor, onay kimde, görünür.",
+  },
+  {
+    term: "Müşteriyi unutmazsınız.",
+    text: "Görüşme notları ve takip günleri. Arayacağınız gün geldiğinde ya da bir müşteriyle temas koptuğunda Kahya sorumlu kişiye haber verir.",
+  },
+];
+
+/** H13 §2 — one sentence under the three messages. */
+export const homeTrustLine =
+  "Her firmanın verisi ayrı tutulur ve bu her sürümde testle denetlenir. Verinizin tamamını istediğiniz an dışarı alırsınız.";
+
+/** H13 §4 — what Kahya does and does not do, beside accounting programs in general (no product named). */
+export const vsAccounting: readonly (readonly [string, string, string])[] = [
+  ["Fatura, e-Fatura, e-Arşiv", "Yok. Faturanız muhasebe programınızda ya da müşavirinizde kalır.", "Var"],
+  ["Banka hesabı bağlantısı", "Yok.", "Var"],
+  ["Resmî muhasebe kaydı", "Yok. Ayın hareketleri müşavirinize tek pakette gider.", "Ürüne göre"],
+  ["Cari, tahsilat, taksit, vade", "Var", "Var"],
+  ["Görev, izin, onay akışı", "Var", "Ürüne göre"],
+  ["Müşteri görüşmesi ve takip günü", "Var", "Ürüne göre"],
+  ["Telefonda uygulama gibi kullanım", "Var (ana ekrana eklenir, bildirim gelir)", "Ürüne göre"],
+  ["Kontör (e-Fatura / SMS kredisi)", "Yok, çünkü Kahya e-Fatura ve SMS satmaz", "Var"],
+];
+
+/** H13 §5 — four promises (maestro 2026-11-10: the unverified "know what you pay" promise is out). */
+export const promises: Point[] = [
+  {
+    term: "Kartınızdan habersiz para çekilmez.",
+    text: "Kahya’da otomatik ödeme yoktur. Paketiniz biterse ücretsiz pakete geçersiniz, verileriniz yerinde kalır.",
+  },
+  {
+    term: "Kontör satmayız.",
+    text: "Kahya AI’ın aylık soru sınırı vardır; sınır dolunca durur, faturanıza bir şey eklenmez.",
+  },
+  {
+    term: "Destek talebiniz kaybolmaz.",
+    text: "Talebinizi uygulamanın içinden açarsınız; numaralıdır ve takip edilir.",
+  },
+  {
+    term: "Verinizin tamamını istediğiniz an dışarı alırsınız.",
+    text: "Paketi bıraksanız da verileriniz silinmez.",
+  },
 ];

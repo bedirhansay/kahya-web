@@ -1,4 +1,19 @@
-import { ArrowRight, Check, DatabaseBackup, KeyRound, MapPin, ShieldCheck, Undo2, X } from "lucide-react";
+import {
+  ArrowRight,
+  BellRing,
+  Check,
+  Coins,
+  CreditCard,
+  DatabaseBackup,
+  Download,
+  KeyRound,
+  LifeBuoy,
+  ShieldCheck,
+  Undo2,
+  Users,
+  Wallet,
+  X,
+} from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -23,7 +38,7 @@ import { SectorTabs } from "@/components/SectorTabs";
 import { VideoPlayer } from "@/components/VideoPlayer";
 import { generalFaq } from "@/content/faq";
 import { featuredSectors, sectorBySlug } from "@/content/sectors";
-import { extras, trust } from "@/content/solutions";
+import { extras, homeMessages, homeTrustLine, promises, trust, vsAccounting } from "@/content/solutions";
 import { faqLd, pageMetadata, softwareLd, videoLd } from "@/lib/seo";
 import { site } from "@/lib/site";
 
@@ -100,7 +115,9 @@ const day: DayMoment[] = [
   },
 ];
 
-const trustIcons = [MapPin, KeyRound, Undo2, ShieldCheck, DatabaseBackup];
+const trustIcons = [KeyRound, Undo2, ShieldCheck, DatabaseBackup];
+const messageIcons = [Wallet, Users, BellRing];
+const promiseIcons = [CreditCard, Coins, LifeBuoy, Download];
 
 export default function HomePage() {
   return (
@@ -122,6 +139,35 @@ export default function HomePage() {
 
       {/* The office's day: one live window, one job through the office, Kahya AI and the team's week */}
       <OfficeDay />
+
+      {/* H13 §2: what Kahya does, in three sentences, and the trust line under them */}
+      <section aria-labelledby="kahya-ne-yapar">
+        <div className="wrap py-16 md:py-20">
+          <h2 id="kahya-ne-yapar" className="sr-only">
+            Kahya ne yapar
+          </h2>
+          <dl className="grid gap-x-10 gap-y-9 lg:grid-cols-3">
+            {homeMessages.map((m, i) => {
+              const Icon = messageIcons[i] ?? Check;
+              return (
+                <div key={m.term} className="relative min-h-10 pl-14">
+                  <dt className="font-semibold">
+                    <span className="absolute left-0 top-0 grid size-10 place-items-center rounded-xl bg-brand-50 text-brand">
+                      <Icon size={19} aria-hidden />
+                    </span>
+                    {m.term}
+                  </dt>
+                  <dd className="mt-1 leading-relaxed text-muted">{m.text}</dd>
+                </div>
+              );
+            })}
+          </dl>
+          <p className="mt-10 flex gap-2 text-muted">
+            <ShieldCheck size={18} className="mt-0.5 shrink-0 text-brand" aria-hidden />
+            {homeTrustLine}
+          </p>
+        </div>
+      </section>
 
       {/* One office day */}
       <section aria-labelledby="bir-gun" className="chapter">
@@ -185,6 +231,43 @@ export default function HomePage() {
               Paketleri karşılaştırın
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* H13 §4: honest comparison with accounting programs (no product named) */}
+      <section aria-labelledby="ne-yapmaz">
+        <div className="wrap py-16 md:py-20">
+          <SectionHead
+            id="ne-yapmaz"
+            eyebrow="Karşılaştırma"
+            title="Kahya ne yapar, ne yapmaz"
+            lead="Kahya fatura kesmez ve bankanıza bağlanmaz. Bunlar için muhasebe programınızı kullanmaya devam edersiniz; Kahya ofisin geri kalanını yönetir."
+          />
+          <div className="mt-12 overflow-hidden rounded-2xl border border-line">
+            <div className="hidden grid-cols-[1fr_1.2fr_1fr] bg-mist text-sm font-semibold md:grid">
+              <span className="px-5 py-3">Konu</span>
+              <span className="px-5 py-3 text-brass">Kahya</span>
+              <span className="px-5 py-3 text-muted">Ön muhasebe programları</span>
+            </div>
+            <ul className="divide-y divide-line">
+              {vsAccounting.map(([topic, kahya, others]) => (
+                <li key={topic} className="grid gap-2 px-5 py-4 md:grid-cols-[1fr_1.2fr_1fr] md:gap-0 md:p-0">
+                  <span className="font-semibold md:px-5 md:py-4">{topic}</span>
+                  <span className="md:bg-brand-50/60 md:px-5 md:py-4">
+                    <span className="font-semibold md:hidden">Kahya: </span>
+                    {kahya}
+                  </span>
+                  <span className="text-muted md:px-5 md:py-4">
+                    <span className="font-semibold md:hidden">Ön muhasebe programları: </span>
+                    {others}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <p className="mt-6 text-sm text-muted">
+            &quot;Ürüne göre&quot;: programdan programa değişir. e-Fatura mükellefiyseniz programınız kalır.
+          </p>
         </div>
       </section>
 
@@ -269,6 +352,29 @@ export default function HomePage() {
                     {t.term}
                   </dt>
                   <dd className="mt-1 leading-relaxed text-muted">{t.text}</dd>
+                </div>
+              );
+            })}
+          </dl>
+        </div>
+      </section>
+
+      {/* H13 §5: four promises */}
+      <section aria-labelledby="soz">
+        <div className="wrap py-16 md:py-20">
+          <SectionHead id="soz" eyebrow="Söz" title="Size söz verdiklerimiz" />
+          <dl className="mt-12 grid gap-x-10 gap-y-9 sm:grid-cols-2">
+            {promises.map((p, i) => {
+              const Icon = promiseIcons[i] ?? Check;
+              return (
+                <div key={p.term} className="relative min-h-10 pl-14">
+                  <dt className="font-semibold">
+                    <span className="absolute left-0 top-0 grid size-10 place-items-center rounded-xl bg-brand-50 text-brand">
+                      <Icon size={19} aria-hidden />
+                    </span>
+                    {p.term}
+                  </dt>
+                  <dd className="mt-1 leading-relaxed text-muted">{p.text}</dd>
                 </div>
               );
             })}
