@@ -57,7 +57,7 @@ export function Header() {
               href={site.app.register}
               className="btn btn-brass group/cta hidden h-10 min-h-10 gap-1.5 whitespace-nowrap sm:inline-flex"
             >
-              Hemen başla
+              Ücretsiz başlayın
               <ArrowRight
                 size={16}
                 aria-hidden

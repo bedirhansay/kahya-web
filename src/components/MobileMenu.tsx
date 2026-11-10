@@ -160,7 +160,7 @@ export function MobileMenu() {
               style={{ "--i": mainNav.length + extra.length } as CSSProperties}
             >
               <a href={site.app.register} className="btn btn-brass w-full">
-                Hemen başla
+                Ücretsiz başlayın
                 <ArrowRight size={17} aria-hidden />
               </a>
               <a href={site.app.login} className="btn btn-line w-full">

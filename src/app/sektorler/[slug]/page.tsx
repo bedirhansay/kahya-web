@@ -56,7 +56,7 @@ export default async function SectorPage({ params }: PageProps<"/sektorler/[slug
             <p className="lead mt-5 max-w-xl text-muted">{s.lead}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a href={site.app.register} className="btn btn-brass">
-                Hemen başla
+                Ücretsiz başlayın
                 <ArrowRight size={17} aria-hidden />
               </a>
               <Link href="/cozumler" className="btn btn-line">

@@ -58,7 +58,7 @@ export default async function FeaturePage({ params }: PageProps<"/ozellikler/[sl
       >
         <div className="mt-8 flex flex-wrap gap-3">
           <a href={site.app.register} className="btn btn-petrol">
-            Hemen başla
+            Ücretsiz başlayın
           </a>
           {main && (
             <Link href={`/egitim/${main.slug}`} className="btn btn-line">

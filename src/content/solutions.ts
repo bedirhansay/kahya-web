@@ -215,7 +215,7 @@ export const services: Extra[] = [
 export const notIncluded = [
   "Fatura, e-Fatura ve resmî muhasebe kaydı",
   "Kasa ve banka hesabı",
-  "SMS gönderimi",
+  "Toplu SMS / kampanya gönderimi",
   "Satış hunisi ve fırsat yönetimi",
   "Online ödeme ve kartla satın alma",
   "Başka programlarla entegrasyon",
@@ -244,7 +244,7 @@ export const homeMessages: Point[] = [
   },
   {
     term: "Müşteriyi unutmazsınız.",
-    text: "Görüşme notları ve takip günleri. Arayacağınız gün geldiğinde ya da bir müşteriyle temas koptuğunda Kahya sorumlu kişiye haber verir.",
+    text: "Görüşme notları ve takip günleri. Takip günü gelen görüşme listede önünüze çıkar; bir müşteriyle temas koptuğunda Kahya sorumlu kişiye haber verir.",
   },
 ];
 
@@ -261,6 +261,11 @@ export const vsAccounting: readonly (readonly [string, string, string])[] = [
   ["Görev, izin, onay akışı", "Var", "Ürüne göre"],
   ["Müşteri görüşmesi ve takip günü", "Var", "Ürüne göre"],
   ["Telefonda uygulama gibi kullanım", "Var (ana ekrana eklenir, bildirim gelir)", "Ürüne göre"],
+  [
+    "Müşteriye vade hatırlatması",
+    "Var: e-posta kendiliğinden gider, WhatsApp mesajı gönderilmeye hazır olur, SMS kendi Netgsm hesabınızla",
+    "Ürüne göre",
+  ],
   ["Kontör (e-Fatura / SMS kredisi)", "Yok, çünkü Kahya e-Fatura ve SMS satmaz", "Var"],
 ];
 

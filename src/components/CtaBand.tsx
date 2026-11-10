@@ -16,7 +16,7 @@ export function CtaBand({
         </div>
         <div className="flex flex-wrap gap-3">
           <a href={site.app.register} className="btn btn-brass">
-            Hemen başla
+            Ücretsiz başlayın
           </a>
           <a href="/iletisim" className="btn btn-line-dark">
             Bize yazın
