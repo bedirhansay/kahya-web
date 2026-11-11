@@ -7,7 +7,7 @@ export const planNames = ["Ücretsiz", "Başlangıç", "Ekip", "Büyüyen", "Kur
 /** A cell: true = included, false = not available, "ek" = an add-on, or a short text. */
 export type PlanCell = boolean | "ek" | string;
 
-export const planRows: { label: string; hint?: string; cells: [PlanCell, PlanCell, PlanCell, PlanCell, PlanCell] }[] = [
+export const planRows: { label: string; hint?: string; href?: string; cells: [PlanCell, PlanCell, PlanCell, PlanCell, PlanCell] }[] = [
   { label: "Kullanıcı", cells: ["1", "3", "10", "25", "Sınırsız"] },
   { label: "Dosya alanı", cells: ["200 MB", "3 GB", "5 GB", "20 GB", "100 GB"] },
   {
@@ -28,5 +28,11 @@ export const planRows: { label: string; hint?: string; cells: [PlanCell, PlanCel
   { label: "Teklif", cells: [false, "ek", "ek", "ek", true] },
   { label: "Filo", cells: [false, "ek", "ek", "ek", "ek"] },
   { label: "E-posta", hint: "Kendi e-posta kutunuz", cells: [false, "ek", "ek", "ek", "ek"] },
+  {
+    label: "Kasa ve banka",
+    hint: "Kasa, banka hesabı ve kredi kartı",
+    href: "/rehber/kasa-ve-banka-takibi-nasil-yapilir",
+    cells: ["ek", "ek", "ek", "ek", "ek"],
+  },
   { label: "Öncelikli destek", cells: [false, false, false, false, true] },
 ];

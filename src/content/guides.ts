@@ -198,6 +198,60 @@ export const guides: Guide[] = [
     related: ["personel-ve-izin", "talep-ve-onay", "gorev-takibi"],
     updated: "2026-11-07",
   },
+  {
+    slug: "kasa-ve-banka-takibi-nasil-yapilir",
+    title: "Kasa ve banka takibi nasıl yapılır?",
+    metaTitle: "Kasa ve banka takibi nasıl yapılır? Kasa, banka hesabı ve kredi kartı",
+    metaDescription:
+      "Kasa, banka hesabı ve kredi kartı bakiyelerini düzenli izlemenin yolu. Küçük bir ofiste paranın nerede durduğunu düzenli tutmak için pratik bir sıra.",
+    answer:
+      "Kasa ve banka takibi, paranın hangi kasada ve hangi banka hesabında durduğunu, kredi kartına ne kadar borçlu olduğunuzu her an bilmek demektir. Her hesabı bir kez açılış bakiyesiyle kaydedip para hareket ettikçe aynı hesaba işlerseniz bakiyeler güncel kalır.",
+    sections: [
+      {
+        heading: "Cari takibinden farkı ne?",
+        body: [
+          "Cari takibi kimden alacaklı, kime borçlu olduğunuzu gösterir. Kasa ve banka takibi ise paranın şu an nerede durduğunu: merkez kasada mı, hangi banka hesabında, kredi kartının borcu ne kadar.",
+          "İkisi birbirini tamamlar. Müşteri ödediğinde cari bakiyesi düşer; para da bir kasaya ya da banka hesabına girer.",
+        ],
+      },
+      {
+        heading: "Düzenli bir kasa ve banka takibi nasıl kurulur?",
+        body: ["Şu sırayı izleyin:"],
+        list: [
+          "Her kasayı, banka hesabını ve kredi kartını ayrı bir hesap olarak açın.",
+          "Bir başlangıç günü seçin ve o günkü bakiyeyi açılış olarak yazın. Kredi kartında açılış, o günkü kart borcudur.",
+          "Kartın hesap kesim ve son ödeme gününü not edin; ödeme günü kaçmasın.",
+          "Kasadan bankaya yatırılan para iki hesap arasında aktarımdır, gelir ya da gider değildir.",
+          "Ay sonunda banka ekstresindeki bakiyeyi kendi kaydınızla karşılaştırın.",
+        ],
+      },
+      {
+        heading: "Kahya'da kasa ve banka",
+        body: [
+          "Kahya'da Kasa ve banka ek hizmetiyle kasalarınızı, banka hesaplarınızı ve kredi kartlarınızı bakiyeleriyle tutarsınız. Hesap eklerken ad yeter; banka, şube, IBAN, kartın son 4 hanesi, limiti, hesap kesim ve son ödeme günü isteğe bağlıdır. Hesap TL, dolar ya da euro olarak açılır.",
+          "Hesabı eklerken açılış bakiyesini ve tarihini yazarsınız; kredi kartında açılıştaki kart borcunu. Kasa ve bankada bakiye, kartta kart borcu görünür; kartta kullanılabilir limit ve son ödeme günü de yazar. Kullanmadığınız hesabı pasife alırsınız; kaydı silinmez.",
+        ],
+      },
+      {
+        heading: "Kahya ne yapmaz?",
+        body: [
+          "Kahya bankanıza bağlanmaz, hesap hareketlerini kendiliğinden çekmez ve fatura kesmez. Banka ekstresini dosyadan yükleyip satırları cariye işlemek ile çek ve senet takibi sonraki sürümlerde gelecek.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Kasa ve banka her pakette var mı?",
+        a: "Hayır. Kasa ve banka ek hizmettir, hiçbir paketin içinde değildir ve deneme süresinde kapalıdır. Uygulamada Abonelik sayfasından talep edersiniz ya da bize yazarsınız.",
+      },
+      {
+        q: "Kasa ve banka kayıtları resmî kaydın yerine geçer mi?",
+        a: "Hayır. Kahya resmî kayıt tutmaz; kasa ve banka kayıtları ofisin günlük takibi içindir. Resmî defterleriniz muhasebe programınızda ya da müşavirinizde kalır.",
+      },
+    ],
+    related: ["cari-takibi", "odeme-planlari", "raporlar"],
+    updated: "2026-11-11",
+  },
 ];
 
 export const guideBySlug = (slug: string) => guides.find((g) => g.slug === slug);
