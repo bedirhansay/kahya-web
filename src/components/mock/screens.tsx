@@ -16,9 +16,9 @@ const taskRows = [
 export function TaskSummaryMock({ className }: { className?: string }) {
   return (
     <MockWindow
-      title="Raporlar · Görev Özeti"
+      title="Raporlar · Görev özeti"
       caption="Kişi bazında biten, geciken ve açık işler"
-      label="Görev Özeti raporu: her çalışanın bu ay bitirdiği, geciken ve açık görev sayısı"
+      label="Görev özeti raporu: her çalışanın bu ay bitirdiği, geciken ve açık görev sayısı"
       className={className}
     >
       <Panel>

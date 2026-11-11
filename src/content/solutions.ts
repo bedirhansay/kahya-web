@@ -34,7 +34,7 @@ export const solutions: Solution[] = [
     title: "Ekibiniz bugün ne yaptı?",
     lead: "Kimseyi aramadan görün: kim kaç iş bitirdi, nerede gecikme var, hangi onay kimde bekliyor.",
     points: [
-      { term: "Görev Özeti", text: "kişi bazında biten, geciken ve açık işler tek raporda." },
+      { term: "Görev özeti", text: "kişi bazında biten, geciken ve açık işler tek raporda." },
       { term: "Onay süreleri", text: "hangi onay ne kadar sürdü, kimde takıldı." },
       { term: "Ana Sayfa · Ekip bugün", text: "kim izinde, ne zaman dönüyor." },
     ],
@@ -42,7 +42,7 @@ export const solutions: Solution[] = [
       title: "Ofis yönetim programı: görev, personel, izin ve onay takibi",
       h1: "Ofis yönetim programı: görev, izin ve onaylar tek yerde",
       description:
-        "Kahya Ofis yönetimi ile görevleri kişiye ya da takıma verin, izin ve avans taleplerini telefondan alın, onayları tek listeden verin. Görev Özeti ve onay süreleri raporlarıyla ekibin durumunu görün.",
+        "Kahya Ofis yönetimi ile görevleri kişiye ya da takıma verin, izin ve avans taleplerini telefondan alın, onayları tek listeden verin. Görev özeti ve onay süreleri raporlarıyla ekibin durumunu görün.",
     },
     more: {
       title: "Bütün ekip içeride",
@@ -79,7 +79,7 @@ export const solutions: Solution[] = [
     no: "02",
     kicker: "Müşteri ve görüşme",
     name: "CRM",
-    subtitle: "Müşteri İlişkileri",
+    subtitle: "Müşteri ilişkileri",
     summary: "Müşteri görüşmeleri ve takip günleri. Teklif Kurumsal pakette dahil.",
     title: "Her görüşme kayıtta",
     lead: "Müşteriyle ne konuşuldu, sırada ne var? Ekipten kim bakarsa baksın aynı bilgiyi görür.",

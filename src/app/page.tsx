@@ -109,7 +109,7 @@ const day: DayMoment[] = [
     key: "ozet",
     time: "18.30",
     title: "Gün kimseyi aramadan kapandı",
-    text: "Görev Özeti kimin kaç iş bitirdiğini, nerede gecikme olduğunu gösteriyor.",
+    text: "Görev özeti kimin kaç iş bitirdiğini, nerede gecikme olduğunu gösteriyor.",
     solution: OFIS,
     visual: <TaskSummaryMock className="w-full max-w-xl" />,
   },
