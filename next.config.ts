@@ -11,6 +11,12 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
+  experimental: {
+    // Next 16 keeps a Turbopack build cache in .next/cache; Coolify's railpack keeps that folder between deploys.
+    // On 2026-11-11 a deploy reused a stale stylesheet from it (new markup, old CSS), so production builds compile
+    // from scratch. A full build takes a few seconds; the cache bought nothing.
+    turbopackFileSystemCacheForBuild: false,
+  },
   poweredByHeader: false,
   images: {
     // WebP only: AVIF encoding took seconds per image on first request, and
