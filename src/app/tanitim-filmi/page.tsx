@@ -50,8 +50,8 @@ export default function FilmPage() {
         title="Kahya, iki dakikada"
         lead="Bir ofisin günü, baştan sona. Görüntüler uygulamanın kendisi, firma ve kişiler örnek veridir."
       />
-      <section className="bg-paper pb-16 pt-10 md:pb-24">
-        <div className="wrap">
+      <section aria-label="Tanıtım filmi" className="bg-surface">
+        <div className="wrap py-10 md:py-14">
           <VideoPlayer
             src="/media/film/kahya-tanitim.mp4"
             poster="/media/film/kahya-tanitim.webp"
@@ -62,58 +62,60 @@ export default function FilmPage() {
           />
         </div>
       </section>
-      <section aria-labelledby="metin" className="bg-paper">
-        <div className="wrap grid gap-10 py-16 md:py-24 lg:grid-cols-[minmax(0,0.6fr)_minmax(0,1.4fr)]">
+      <section aria-labelledby="kisa" className="bg-mist">
+        <div className="wrap grid gap-12 py-14 md:py-20 lg:grid-cols-2 lg:gap-16">
+          <div>
+            <h2 id="kisa" className="title">
+              Yarım dakikalık sürüm
+            </h2>
+            <p className="mt-3 text-muted">Acelesi olanlar için. Dikey sürümü telefonda daha rahat izlenir.</p>
+            <div className="mt-6 grid grid-cols-[1fr_auto] items-end gap-4">
+              <VideoPlayer
+                src="/media/film/kahya-reklam.mp4"
+                poster="/media/film/kahya-reklam.webp"
+                captions="/media/film/kahya-reklam.vtt"
+                title="Reklam filmi"
+                duration="0:36"
+              />
+              <VideoPlayer
+                src="/media/film/kahya-reklam-dikey.mp4"
+                poster="/media/film/kahya-reklam-dikey.webp"
+                captions="/media/film/kahya-reklam-dikey.vtt"
+                title="Dikey"
+                aspect="9/16"
+                className="w-24 sm:w-32"
+              />
+            </div>
+          </div>
           <div>
             <h2 id="metin" className="title">
               Film metni
             </h2>
-            <p className="mt-4 max-w-xs text-[0.95rem] text-muted">
+            <p className="mt-3 text-muted">
               Seslendirme yapay zekâ ile üretilmiştir. Filmdeki her ekranın nasıl kullanıldığını{" "}
               <Link href="/egitim" className="link">
                 eğitim videolarında
               </Link>{" "}
               bulabilirsiniz.
             </p>
-          </div>
-          <ol className="max-w-2xl space-y-4">
-            {cues.map((c) => (
-              <li key={c.t + c.text} className="grid grid-cols-[3.5rem_1fr] gap-4 leading-relaxed">
-                <time className="pt-0.5 text-sm font-bold text-muted tabular-nums">{clock(c.t)}</time>
-                <p className="text-lg">{c.text}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-      <section aria-labelledby="kisa">
-        <div className="wrap grid gap-10 py-16 md:py-24 md:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] md:items-center">
-          <div>
-            <h2 id="kisa" className="title">
-              Yarım dakikalık sürüm
-            </h2>
-            <p className="lead mt-4 text-muted">Acelesi olanlar için. Dikey sürümü telefonda daha rahat izlenir.</p>
-          </div>
-          <div className="grid grid-cols-[1fr_auto] items-end gap-4 md:gap-6">
-            <VideoPlayer
-              src="/media/film/kahya-reklam.mp4"
-              poster="/media/film/kahya-reklam.webp"
-              captions="/media/film/kahya-reklam.vtt"
-              title="Reklam filmi"
-              duration="0:36"
-            />
-            <VideoPlayer
-              src="/media/film/kahya-reklam-dikey.mp4"
-              poster="/media/film/kahya-reklam-dikey.webp"
-              captions="/media/film/kahya-reklam-dikey.vtt"
-              title="Dikey"
-              aspect="9/16"
-              className="w-28 sm:w-40"
-            />
+            <details className="group mt-6 border-t border-line">
+              <summary className="flex min-h-11 cursor-pointer items-center py-3 font-semibold">
+                Metnin tamamını okuyun
+              </summary>
+              <ol className="space-y-3 pb-2">
+                {cues.map((c) => (
+                  <li key={c.t + c.text} className="grid grid-cols-[3.5rem_1fr] gap-4 leading-relaxed">
+                    <time className="pt-0.5 text-sm font-bold text-muted tabular-nums">{clock(c.t)}</time>
+                    <p>{c.text}</p>
+                  </li>
+                ))}
+              </ol>
+            </details>
           </div>
         </div>
       </section>
       <CtaBand
+        tex
         title="Filmde gördüğünüzü kendi ofisinizde açın"
         body="Hesabınızı birkaç dakikada açarsınız. Verilerinizi taşımak isterseniz bize yazın."
       />
