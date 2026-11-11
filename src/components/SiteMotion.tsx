@@ -3,7 +3,10 @@
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
-/** Cards: a soft light follows the cursor inside. */
+/**
+ * Cards: a soft light follows the cursor inside. The same selector lives in globals.css (".card-light"); the DOM
+ * is never marked from here, because an attribute written during streaming hydration is reported as a mismatch.
+ */
 const CARDS = "main :is(a.group, li > a[class*='rounded'], article[class*='rounded'])";
 
 /**
@@ -18,9 +21,8 @@ export function SiteMotion() {
     if (!matchMedia("(hover: hover) and (pointer: fine)").matches) return;
     const main = document.querySelector("main");
     if (!main) return;
-    main.querySelectorAll<HTMLElement>(CARDS).forEach((c) => c.setAttribute("data-card", ""));
     const light = (e: PointerEvent) => {
-      const c = (e.target as HTMLElement).closest<HTMLElement>("[data-card]");
+      const c = (e.target as HTMLElement).closest<HTMLElement>(CARDS);
       if (!c) return;
       const r = c.getBoundingClientRect();
       c.style.setProperty("--mx", `${e.clientX - r.left}px`);

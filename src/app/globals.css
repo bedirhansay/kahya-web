@@ -653,11 +653,11 @@ body {
     animation: home-in 0.2s ease-out both;
   }
 }
-[data-card] {
+main :is(a.group, li > a[class*='rounded'], article[class*='rounded']) {
   position: relative;
   isolation: isolate;
 }
-[data-card]::after {
+main :is(a.group, li > a[class*='rounded'], article[class*='rounded'])::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -667,7 +667,7 @@ body {
   transition: opacity 0.3s;
   background: radial-gradient(240px circle at var(--mx, 50%) var(--my, 50%), color-mix(in oklab, var(--color-brass) 9%, transparent), transparent 70%);
 }
-[data-card]:hover::after {
+main :is(a.group, li > a[class*='rounded'], article[class*='rounded']):hover::after {
   opacity: 1;
 }
 
