@@ -24,7 +24,7 @@ export function CtaBand({
           <a href={site.app.register} className="btn btn-brass">
             Ücretsiz başlayın
           </a>
-          <a href="/iletisim" className="btn btn-line-dark">
+          <a href="/contact" className="btn btn-line-dark">
             Bize yazın
           </a>
         </div>

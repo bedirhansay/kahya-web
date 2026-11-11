@@ -19,7 +19,7 @@ export type Guide = {
 
 export const guides: Guide[] = [
   {
-    slug: "ofis-yonetim-programi-nedir",
+    slug: "what-is-office-management-software",
     title: "Ofis yönetim programı nedir, nasıl seçilir?",
     metaTitle: "Ofis yönetim programı nedir? Seçerken bakılacak 7 şey",
     metaDescription:
@@ -72,11 +72,11 @@ export const guides: Guide[] = [
         a: "Excel tek kişinin hesabı için iyidir. Birden fazla kişi aynı dosyaya yazdığında hangi sürümün doğru olduğu, kimin neyi değiştirdiği ve hatırlatmalar kaybolur. Program bunları kendisi tutar.",
       },
     ],
-    related: ["gorev-takibi", "cari-takibi", "personel-ve-izin"],
+    related: ["tasks", "accounts", "staff-and-leave"],
     updated: "2026-11-07",
   },
   {
-    slug: "cari-takibi-excel-mi-program-mi",
+    slug: "accounts-excel-or-software",
     title: "Cari hesap takibi: Excel mi, program mı?",
     metaTitle: "Cari hesap takibi Excel'de mi programda mı yapılmalı?",
     metaDescription:
@@ -136,11 +136,11 @@ export const guides: Guide[] = [
         a: "Evet. Kahya'da müşteri, tedarikçi ve açılış bakiyeleri hazır şablonla Excel'den aktarılır; aktarmadan önce önizleme görürsünüz.",
       },
     ],
-    related: ["cari-takibi", "odeme-planlari", "raporlar"],
+    related: ["accounts", "payment-plans", "reports"],
     updated: "2026-11-07",
   },
   {
-    slug: "personel-izin-takibi-nasil-yapilir",
+    slug: "how-to-track-staff-leave",
     title: "Personel izin takibi nasıl yapılır?",
     metaTitle: "Personel izin takibi nasıl yapılır? Yıllık izin hakları ve pratik yöntem",
     metaDescription:
@@ -195,11 +195,11 @@ export const guides: Guide[] = [
         a: "Hayır. Buradaki bilgiler genel bilgilendirme içindir; kendi durumunuz için mali müşavirinize ya da bir iş hukukçusuna danışın.",
       },
     ],
-    related: ["personel-ve-izin", "talep-ve-onay", "gorev-takibi"],
+    related: ["staff-and-leave", "requests-and-approvals", "tasks"],
     updated: "2026-11-07",
   },
   {
-    slug: "kasa-ve-banka-takibi-nasil-yapilir",
+    slug: "how-to-track-cash-and-bank",
     title: "Kasa ve banka takibi nasıl yapılır?",
     metaTitle: "Kasa ve banka takibi nasıl yapılır? Kasa, banka hesabı ve kredi kartı",
     metaDescription:
@@ -249,7 +249,7 @@ export const guides: Guide[] = [
         a: "Hayır. Kahya resmî kayıt tutmaz; kasa ve banka kayıtları ofisin günlük takibi içindir. Resmî defterleriniz muhasebe programınızda ya da müşavirinizde kalır.",
       },
     ],
-    related: ["cari-takibi", "odeme-planlari", "raporlar"],
+    related: ["accounts", "payment-plans", "reports"],
     updated: "2026-11-11",
   },
 ];

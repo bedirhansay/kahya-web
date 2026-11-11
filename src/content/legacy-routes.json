@@ -1,0 +1,75 @@
+{
+  "$comment": "The Turkish addresses the site used until 2026-11-12, mapped to the English ones. next.config.ts builds the 301s from this file and scripts/build-content.mjs the tutorial slugs; scripts/check-routes.mjs keeps it in step with the content.",
+  "sections": {
+    "cozumler": "solutions",
+    "ozellikler": "features",
+    "sektorler": "sectors",
+    "fiyatlar": "pricing",
+    "sss": "faq",
+    "rehber": "guides",
+    "egitim": "training",
+    "iletisim": "contact",
+    "tanitim-filmi": "film"
+  },
+  "slugs": {
+    "solutions": {
+      "ofis-yonetimi": "office-management",
+      "crm": "crm",
+      "finans-cari": "finance",
+      "e-posta": "email",
+      "stok": "inventory",
+      "teklif": "quotes",
+      "kahya-ai": "kahya-ai",
+      "filo": "fleet",
+      "ticari-paket": "business-pack"
+    },
+    "features": {
+      "cari-takibi": "accounts",
+      "odeme-planlari": "payment-plans",
+      "gorev-takibi": "tasks",
+      "proje-yonetimi": "projects",
+      "e-posta": "email",
+      "personel-ve-izin": "staff-and-leave",
+      "talep-ve-onay": "requests-and-approvals",
+      "dokuman-ve-sozlesme": "documents-and-contracts",
+      "raporlar": "reports",
+      "kahya-ai": "kahya-ai"
+    },
+    "sectors": {
+      "danismanlik-ve-ajans": "consulting-and-agencies",
+      "mimarlik-ve-muhendislik": "architecture-and-engineering",
+      "emlak-ofisi": "real-estate",
+      "teknik-servis": "technical-service",
+      "toptan-ticaret-ve-dagitim": "wholesale-and-distribution",
+      "insaat-ve-taseron": "construction-and-subcontracting",
+      "lojistik-ve-nakliye": "logistics-and-transport",
+      "guvenlik-ve-temizlik": "security-and-cleaning",
+      "mali-musavir-burosu": "accounting-firms",
+      "egitim-ve-kurs": "education-and-courses",
+      "hukuk-burosu": "law-firms",
+      "uretim-atolyesi": "manufacturing-workshops"
+    },
+    "guides": {
+      "ofis-yonetim-programi-nedir": "what-is-office-management-software",
+      "cari-takibi-excel-mi-program-mi": "accounts-excel-or-software",
+      "personel-izin-takibi-nasil-yapilir": "how-to-track-staff-leave",
+      "kasa-ve-banka-takibi-nasil-yapilir": "how-to-track-cash-and-bank"
+    },
+    "training": {
+      "baslarken": "getting-started",
+      "ana-sayfa-ve-kisayollar": "home-and-shortcuts",
+      "e-posta": "email",
+      "gorevler-takimlar-ve-takvim": "tasks-teams-and-calendar",
+      "projeler": "projects",
+      "cari": "accounts",
+      "odeme-planlari-ve-vadeler": "payment-plans-and-due-dates",
+      "masraflar-ve-kategoriler": "expenses-and-categories",
+      "dokumanlar-sozlesmeler-ve-demirbas": "documents-contracts-and-assets",
+      "personel-ve-izinler": "staff-and-leave",
+      "talepler-ve-onaylar": "requests-and-approvals",
+      "raporlar": "reports",
+      "ayarlar-ve-araclar": "settings-and-tools",
+      "kahya-ai": "kahya-ai"
+    }
+  }
+}

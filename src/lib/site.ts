@@ -16,8 +16,8 @@ export const site = {
   email: "info@bihesap.co",
   // WhatsApp Business number, digits only with the country code (905xxxxxxxxx); the chat button shows once it is set.
   whatsapp: process.env.NEXT_PUBLIC_WHATSAPP ?? "",
-  // The contact form posts to the site's own endpoint (src/app/api/iletisim), which mails support through Resend.
-  contactApi: "/api/iletisim",
+  // The contact form posts to the site's own endpoint (src/app/api/contact), which mails support through Resend.
+  contactApi: "/api/contact",
   company: "biHesap",
   companyUrl: "https://bihesap.co",
   city: "Bolu",

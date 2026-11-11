@@ -12,7 +12,7 @@ const description =
   "Kahya’nın tanıtım filmi: bir ofisin günü Ana Sayfa’dan e-postaya, görevlerden cari bakiyelere, izinlerden Kahya AI’a kadar iki dakikada.";
 
 export const metadata: Metadata = pageMetadata({
-  path: "/tanitim-filmi",
+  path: "/film",
   title: "Tanıtım filmi",
   description,
   type: "video.other",
@@ -31,7 +31,7 @@ export default function FilmPage() {
             seconds: 131,
             contentUrl: "/media/film/kahya-tanitim.mp4",
             thumbnailUrl: "/media/film/kahya-tanitim.webp",
-            pagePath: "/tanitim-filmi",
+            pagePath: "/film",
             transcript: cues.map((c) => c.text).join(" "),
           }),
           videoLd({
@@ -40,13 +40,13 @@ export default function FilmPage() {
             seconds: 36,
             contentUrl: "/media/film/kahya-reklam.mp4",
             thumbnailUrl: "/media/film/kahya-reklam.webp",
-            pagePath: "/tanitim-filmi",
+            pagePath: "/film",
             transcript: filmTranscripts.reklam.map((c) => c.text).join(" "),
           }),
         ]}
       />
       <PageHero
-        crumbs={[{ name: "Tanıtım filmi", path: "/tanitim-filmi" }]}
+        crumbs={[{ name: "Tanıtım filmi", path: "/film" }]}
         title="Kahya, iki dakikada"
         lead="Bir ofisin günü, baştan sona. Görüntüler uygulamanın kendisi, firma ve kişiler örnek veridir."
       />
@@ -93,7 +93,7 @@ export default function FilmPage() {
             </h2>
             <p className="mt-3 text-muted">
               Seslendirme yapay zekâ ile üretilmiştir. Filmdeki her ekranın nasıl kullanıldığını{" "}
-              <Link href="/egitim" className="link">
+              <Link href="/training" className="link">
                 eğitim videolarında
               </Link>{" "}
               bulabilirsiniz.

@@ -7,7 +7,7 @@ import { guides } from "@/content/guides";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  path: "/rehber",
+  path: "/guides",
   title: "Rehberler: ofis yönetimi, cari takibi, izin takibi",
   description:
     "Ofis yönetim programı seçmek, cari hesabı takip etmek ve personel iznini düzenli tutmak üzerine sade, kısa rehberler.",
@@ -17,7 +17,7 @@ export default function GuidesPage() {
   return (
     <>
       <PageHero
-        crumbs={[{ name: "Rehberler", path: "/rehber" }]}
+        crumbs={[{ name: "Rehberler", path: "/guides" }]}
         title="Ofisinizi düzenlemek için kısa rehberler"
         lead="Program seçmeden önce sorulan sorular, sade cevaplarıyla."
       />
@@ -26,7 +26,7 @@ export default function GuidesPage() {
           {guides.map((g) => (
             <li key={g.slug} className="border-t border-line last:border-b">
               <Link
-                href={`/rehber/${g.slug}`}
+                href={`/guides/${g.slug}`}
                 className="group grid gap-4 py-8 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:gap-14 md:py-10"
               >
                 <h2 className="title text-[clamp(1.5rem,2.4vw,2rem)] group-hover:text-brand">{g.title}</h2>

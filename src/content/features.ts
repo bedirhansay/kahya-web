@@ -27,7 +27,7 @@ export type Feature = {
 
 export const features: Feature[] = [
   {
-    slug: "cari-takibi",
+    slug: "accounts",
     name: "Cari ve bakiye takibi",
     summary: "Kim kime ne kadar borçlu, tek bakışta.",
     metaTitle: "Cari hesap takip programı",
@@ -37,7 +37,7 @@ export const features: Feature[] = [
     lead:
       "Müşteri ve tedarikçi kartlarında bakiye ve tüm hareketler bir arada durur. Satışı, tahsilatı, alışı ve ödemeyi kaydedin. Bakiye anında güncellenir, ekstreyi paylaşın.",
     screen: { src: "/screens/cari.webp", alt: "Kahya’da bir müşterinin cari kartı: bakiye, hareketler ve yürüyen bakiye" },
-    tutorials: ["cari", "odeme-planlari-ve-vadeler"],
+    tutorials: ["accounts", "payment-plans-and-due-dates"],
     parts: [
       {
         key: "liste",
@@ -114,7 +114,7 @@ export const features: Feature[] = [
     ],
   },
   {
-    slug: "odeme-planlari",
+    slug: "payment-plans",
     name: "Ödeme planları ve vadeler",
     summary: "Taksit, kira ve aidat vadesinde hatırlatılır.",
     metaTitle: "Vade ve taksit takibi, ödeme planı",
@@ -124,7 +124,7 @@ export const features: Feature[] = [
     lead:
       "Taksitli anlaşmaları tek seferde kurun, kira ve abonelik gibi düzenli ödemeleri tanımlayın. Vadeler takvime ve Ana Sayfa’ya düşer. Zamanı gelince hatırlatılırsınız.",
     screen: { src: "/screens/home.webp", alt: "Kahya tahsilat planı: üç taksit, tahsil edilen ve kalan tutar" },
-    tutorials: ["odeme-planlari-ve-vadeler", "masraflar-ve-kategoriler"],
+    tutorials: ["payment-plans-and-due-dates", "expenses-and-categories"],
     points: [
       {
         title: "Taksitli tahsilat planı",
@@ -155,7 +155,7 @@ export const features: Feature[] = [
     ],
   },
   {
-    slug: "gorev-takibi",
+    slug: "tasks",
     name: "Görevler, takımlar ve takvim",
     summary: "İş kimde, ne durumda. Ekip aynı panoda.",
     metaTitle: "Görev ve ekip takip programı",
@@ -165,7 +165,7 @@ export const features: Feature[] = [
     lead:
       "Görevleri kişiye ya da takıma verin, panoda Yapılacak’tan Tamamlandı’ya ilerletin. Toplantılar, vadeler, izinler ve teslimler aynı takvimde buluşur.",
     screen: { src: "/screens/claim.webp", alt: "Kahya’da görev detayı: durum, sorumlu, takım ve proje" },
-    tutorials: ["gorevler-takimlar-ve-takvim", "projeler"],
+    tutorials: ["tasks-teams-and-calendar", "projects"],
     points: [
       {
         title: "Görev panosu",
@@ -196,7 +196,7 @@ export const features: Feature[] = [
     ],
   },
   {
-    slug: "proje-yonetimi",
+    slug: "projects",
     name: "Projeler",
     summary: "Her işin ilerlemesi, bütçesi ve geçmişi.",
     metaTitle: "Proje takip programı",
@@ -206,7 +206,7 @@ export const features: Feature[] = [
     lead:
       "Projeyi müşteriye, sorumluya ve ekibe bağlayın. Teslim tarihi ve bütçesini girin. Proje sayfasında ilerleme, görevler, toplantılar, dosyalar ve geçmiş ayrı sekmelerde durur.",
     screen: { src: "/screens/project.webp", alt: "Kahya proje detayı: ilerleme, bütçe, ekip ve görevler" },
-    tutorials: ["projeler", "gorevler-takimlar-ve-takvim"],
+    tutorials: ["projects", "tasks-teams-and-calendar"],
     points: [
       {
         title: "Proje sağlığı",
@@ -229,7 +229,7 @@ export const features: Feature[] = [
     ],
   },
   {
-    slug: "e-posta",
+    slug: "email",
     name: "E-posta",
     summary: "Firmanın gelen kutusu, carisiyle birlikte.",
     metaTitle: "Ofis için ortak e-posta kutusu",
@@ -239,7 +239,7 @@ export const features: Feature[] = [
     lead:
       "Firmanızın e-postası Kahya’nın içinde. Kişiler, faturalar ve bültenler otomatik ayrılır. Gönderenin cari kaydı ve ekler yanında görünür. İş isteyen e-postayı göreve çevirin.",
     screen: { src: "/screens/mail.webp", alt: "Kahya e-posta: kendi e-posta kutunuzu bağlama ekranı" },
-    tutorials: ["e-posta"],
+    tutorials: ["email"],
     points: [
       {
         title: "Otomatik sekmeler",
@@ -266,7 +266,7 @@ export const features: Feature[] = [
     ],
   },
   {
-    slug: "personel-ve-izin",
+    slug: "staff-and-leave",
     name: "Personel, izin ve puantaj",
     summary: "İzin talebi telefondan, günlük puantaj ve yevmiye tek kartta.",
     metaTitle: "Personel, izin ve puantaj takip programı",
@@ -276,7 +276,7 @@ export const features: Feature[] = [
     lead:
       "Personeli işe giriş tarihi, departmanı ve görevine göre tutun. Çalışan izin talebini telefondan gönderir, yöneticisi onaylar. Çalışana bildirim gider, izin takvime işlenir.",
     screen: { src: "/screens/izinler.webp", alt: "Kahya’da izin talepleri: personel, tarih, gün sayısı, durum ve onaylayan" },
-    tutorials: ["personel-ve-izinler", "talepler-ve-onaylar"],
+    tutorials: ["staff-and-leave", "requests-and-approvals"],
     points: [
       {
         title: "Personel kartı",
@@ -307,7 +307,7 @@ export const features: Feature[] = [
     ],
   },
   {
-    slug: "talep-ve-onay",
+    slug: "requests-and-approvals",
     name: "Talepler ve onaylar",
     summary: "Avans, masraf ve satın alma talepleri için onay sırası.",
     metaTitle: "Talep ve onay akışı yazılımı",
@@ -317,7 +317,7 @@ export const features: Feature[] = [
     lead:
       "Avans, masraf, satın alma, belge… Talebi açan kişi, talebin kime gideceğini önceden görür. Onaylayan kişi kimin onayladığını ve sırada kimin olduğunu izler.",
     screen: { src: "/screens/talepler.webp", alt: "Kahya Talepler: onayımı bekleyen izin ve avans talepleri" },
-    tutorials: ["talepler-ve-onaylar"],
+    tutorials: ["requests-and-approvals"],
     points: [
       {
         title: "Onay zinciri otomatik başlar",
@@ -344,7 +344,7 @@ export const features: Feature[] = [
     ],
   },
   {
-    slug: "dokuman-ve-sozlesme",
+    slug: "documents-and-contracts",
     name: "Dokümanlar, sözleşmeler, demirbaş",
     summary: "Belge kimde, sözleşme ne zaman bitiyor.",
     metaTitle: "Doküman, sözleşme ve demirbaş takibi",
@@ -354,7 +354,7 @@ export const features: Feature[] = [
     lead:
       "Dokümanları kimin göreceğini seçerek yükleyin. Sözleşmeleri bitiş tarihiyle girin. Bitmeden kaç gün önce hatırlatılacağını siz belirleyin. Hangi cihazın kimde olduğu zimmet kaydında.",
     screen: { src: "/screens/contracts.webp", alt: "Kahya sözleşmeler listesi ve bitiş tarihleri" },
-    tutorials: ["dokumanlar-sozlesmeler-ve-demirbas"],
+    tutorials: ["documents-contracts-and-assets"],
     points: [
       {
         title: "Görünürlük sizde",
@@ -385,7 +385,7 @@ export const features: Feature[] = [
     ],
   },
   {
-    slug: "raporlar",
+    slug: "reports",
     name: "Raporlar",
     summary: "Alacak yaşlandırma, nakit, mali müşavir paketi.",
     metaTitle: "Alacak, borç ve nakit raporları",
@@ -395,7 +395,7 @@ export const features: Feature[] = [
     lead:
       "Kimden ne alacaklı, kime ne borçlu olduğunuzu, ay ay gelir ve giderinizi ve nakdin gerçekte ne zaman girip çıktığını görün. Ayın kayıtlarını mali müşavirinize tek dosyada gönderin.",
     screen: { src: "/screens/package.webp", alt: "Kahya Mali müşavir paketi ekranı" },
-    tutorials: ["raporlar", "ana-sayfa-ve-kisayollar"],
+    tutorials: ["reports", "home-and-shortcuts"],
     points: [
       {
         title: "Alacaklar ve borçlar",

@@ -23,12 +23,12 @@ export type HeroSlide = {
 };
 
 const sectorsShort: [string, string][] = [
-  ["toptan-ticaret-ve-dagitim", "Toptan ticaret"],
-  ["insaat-ve-taseron", "İnşaat ve taşeron"],
-  ["lojistik-ve-nakliye", "Lojistik ve nakliye"],
-  ["danismanlik-ve-ajans", "Danışmanlık ve ajans"],
-  ["mali-musavir-burosu", "Mali müşavir"],
-  ["emlak-ofisi", "Emlak ofisi"],
+  ["wholesale-and-distribution", "Toptan ticaret"],
+  ["construction-and-subcontracting", "İnşaat ve taşeron"],
+  ["logistics-and-transport", "Lojistik ve nakliye"],
+  ["consulting-and-agencies", "Danışmanlık ve ajans"],
+  ["accounting-firms", "Mali müşavir"],
+  ["real-estate", "Emlak ofisi"],
 ];
 
 const pad = (n: number) => String(n + 1).padStart(2, "0");
@@ -220,11 +220,11 @@ export function HomeHero({ slides }: { slides: HeroSlide[] }) {
         <div className="wrap flex flex-wrap items-center gap-x-6 gap-y-1 py-4 text-[0.92rem]">
           <span className="text-muted">Hazır gelir:</span>
           {sectorsShort.map(([slug, name]) => (
-            <Link key={slug} href={`/sektorler/${slug}`} className="min-h-11 content-center text-ink/80 hover:text-ink">
+            <Link key={slug} href={`/sectors/${slug}`} className="min-h-11 content-center text-ink/80 hover:text-ink">
               {name}
             </Link>
           ))}
-          <Link href="/sektorler" className="link min-h-11 content-center">
+          <Link href="/sectors" className="link min-h-11 content-center">
             Tüm sektörler
           </Link>
         </div>

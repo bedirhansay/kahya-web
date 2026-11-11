@@ -1,7 +1,7 @@
 [
   {
     "no": "01",
-    "slug": "baslarken",
+    "slug": "getting-started",
     "title": "Başlarken",
     "file": "01-baslarken",
     "seconds": 153,
@@ -61,7 +61,7 @@
   },
   {
     "no": "02",
-    "slug": "ana-sayfa-ve-kisayollar",
+    "slug": "home-and-shortcuts",
     "title": "Ana Sayfa ve kısayollar",
     "file": "02-ana-sayfa",
     "seconds": 121,
@@ -115,7 +115,7 @@
   },
   {
     "no": "03",
-    "slug": "e-posta",
+    "slug": "email",
     "title": "E-posta",
     "file": "03-e-posta",
     "seconds": 110,
@@ -157,7 +157,7 @@
   },
   {
     "no": "04",
-    "slug": "gorevler-takimlar-ve-takvim",
+    "slug": "tasks-teams-and-calendar",
     "title": "Görevler, takımlar ve takvim",
     "file": "04-gorevler-takimlar",
     "seconds": 225,
@@ -230,7 +230,7 @@
   },
   {
     "no": "05",
-    "slug": "projeler",
+    "slug": "projects",
     "title": "Projeler",
     "file": "05-projeler",
     "seconds": 88,
@@ -261,7 +261,7 @@
   },
   {
     "no": "06",
-    "slug": "cari",
+    "slug": "accounts",
     "title": "Cari: müşteri ve tedarikçi",
     "file": "06-cari",
     "seconds": 209,
@@ -332,7 +332,7 @@
   },
   {
     "no": "07",
-    "slug": "odeme-planlari-ve-vadeler",
+    "slug": "payment-plans-and-due-dates",
     "title": "Ödeme planları ve vadeler",
     "file": "07-odeme-planlari",
     "seconds": 114,
@@ -374,7 +374,7 @@
   },
   {
     "no": "08",
-    "slug": "masraflar-ve-kategoriler",
+    "slug": "expenses-and-categories",
     "title": "Masraflar ve kategoriler",
     "file": "08-masraflar",
     "seconds": 84,
@@ -411,7 +411,7 @@
   },
   {
     "no": "09",
-    "slug": "dokumanlar-sozlesmeler-ve-demirbas",
+    "slug": "documents-contracts-and-assets",
     "title": "Dokümanlar, sözleşmeler ve demirbaş",
     "file": "09-dokumanlar",
     "seconds": 147,
@@ -461,7 +461,7 @@
   },
   {
     "no": "10",
-    "slug": "personel-ve-izinler",
+    "slug": "staff-and-leave",
     "title": "Personel ve izinler",
     "file": "10-personel",
     "seconds": 110,
@@ -508,7 +508,7 @@
   },
   {
     "no": "11",
-    "slug": "talepler-ve-onaylar",
+    "slug": "requests-and-approvals",
     "title": "Talepler ve onaylar",
     "file": "11-talepler",
     "seconds": 118,
@@ -555,7 +555,7 @@
   },
   {
     "no": "12",
-    "slug": "raporlar",
+    "slug": "reports",
     "title": "Raporlar",
     "file": "12-raporlar",
     "seconds": 108,
@@ -603,7 +603,7 @@
   },
   {
     "no": "13",
-    "slug": "ayarlar-ve-araclar",
+    "slug": "settings-and-tools",
     "title": "Ayarlar ve araçlar",
     "file": "13-ayarlar",
     "seconds": 125,

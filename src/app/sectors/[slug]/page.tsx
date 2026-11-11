@@ -33,18 +33,18 @@ export function generateStaticParams() {
   return sectors.map((s) => ({ slug: s.slug }));
 }
 
-export async function generateMetadata({ params }: PageProps<"/sektorler/[slug]">): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps<"/sectors/[slug]">): Promise<Metadata> {
   const { slug } = await params;
   const s = sectorBySlug(slug);
   if (!s) return {};
   return pageMetadata({
-    path: `/sektorler/${s.slug}`,
+    path: `/sectors/${s.slug}`,
     title: s.seo.title,
     description: s.seo.description,
   });
 }
 
-export default async function SectorPage({ params }: PageProps<"/sektorler/[slug]">) {
+export default async function SectorPage({ params }: PageProps<"/sectors/[slug]">) {
   const { slug } = await params;
   const s = sectorBySlug(slug);
   if (!s) notFound();
@@ -68,8 +68,8 @@ export default async function SectorPage({ params }: PageProps<"/sektorler/[slug
           <div>
             <Breadcrumbs
               items={[
-                { name: "Sektörler", path: "/sektorler" },
-                { name: s.name, path: `/sektorler/${s.slug}` },
+                { name: "Sektörler", path: "/sectors" },
+                { name: s.name, path: `/sectors/${s.slug}` },
               ]}
             />
             <h1 className="display mt-4 max-w-3xl">{s.seo.h1}</h1>
@@ -78,7 +78,7 @@ export default async function SectorPage({ params }: PageProps<"/sektorler/[slug
               <a href={site.app.register} className="btn btn-brass">
                 Ücretsiz başlayın
               </a>
-              <Link href="/cozumler" className="btn btn-line">
+              <Link href="/solutions" className="btn btn-line">
                 Çözümleri inceleyin
               </Link>
             </div>
@@ -133,7 +133,7 @@ export default async function SectorPage({ params }: PageProps<"/sektorler/[slug
                     <span key={name}>
                       {i > 0 && ", "}
                       {a ? (
-                        <Link href={`/cozumler/${a.slug}`} className="link">
+                        <Link href={`/solutions/${a.slug}`} className="link">
                           {name}
                         </Link>
                       ) : (
@@ -168,7 +168,7 @@ export default async function SectorPage({ params }: PageProps<"/sektorler/[slug
             <ul className="mt-8 grid border-t border-line sm:grid-cols-2 lg:grid-cols-3">
               {others.map((o) => (
                 <li key={o.slug} className="border-b border-line">
-                  <Link href={`/sektorler/${o.slug}`} className="group block h-full py-5 pr-6">
+                  <Link href={`/sectors/${o.slug}`} className="group block h-full py-5 pr-6">
                     <span className="block font-semibold group-hover:text-brand">{o.name}</span>
                     <span className="mt-0.5 block text-[0.95rem] leading-relaxed text-muted">{o.lead}</span>
                   </Link>

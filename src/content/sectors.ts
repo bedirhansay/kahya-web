@@ -24,7 +24,7 @@ export type Sector = {
 
 export const sectors: Sector[] = [
   {
-    slug: "danismanlik-ve-ajans",
+    slug: "consulting-and-agencies",
     name: "Danışmanlık firmaları ve ajanslar",
     tab: "Danışmanlık ve ajans",
     seo: {
@@ -35,14 +35,14 @@ export const sectors: Sector[] = [
     },
     lead: "Birden çok müşteriye aynı anda iş yapan ekipler için. Hangi iş kimde, hangi müşteriyle ne konuşuldu, hangi ödeme tahsil edilmedi?",
     rows: [
-      { pain: "Müşteri işi e-postada geliyor, kimin üstlendiği belli değil.", term: "E-posta → görev", text: "müşterinin isteği tek tıkla göreve dönüşür.", href: "/cozumler/ofis-yonetimi" },
-      { pain: "Bir müşterinin işleri, dosyaları ve yazışmaları ayrı yerlerde.", term: "Projeler", text: "her müşteri işi bir proje. Görevler, dosyalar ve geçmiş içinde.", href: "/cozumler/ofis-yonetimi" },
-      { pain: "Son görüşmede ne konuşulduğunu yalnız görüşen kişi biliyor.", term: "Görüşmeler", text: "her görüşme müşteri kartında, takip günüyle.", href: "/cozumler/crm" },
-      { pain: "Hangi ödeme tahsil edildi, hangisi bekliyor, tabloya bakmadan bilinmiyor.", term: "Taksit ve tahsilat", text: "ödeme planıyla vadeler takipte, tahsilat bakiyeye hemen yansır.", href: "/cozumler/finans-cari" },
+      { pain: "Müşteri işi e-postada geliyor, kimin üstlendiği belli değil.", term: "E-posta → görev", text: "müşterinin isteği tek tıkla göreve dönüşür.", href: "/solutions/office-management" },
+      { pain: "Bir müşterinin işleri, dosyaları ve yazışmaları ayrı yerlerde.", term: "Projeler", text: "her müşteri işi bir proje. Görevler, dosyalar ve geçmiş içinde.", href: "/solutions/office-management" },
+      { pain: "Son görüşmede ne konuşulduğunu yalnız görüşen kişi biliyor.", term: "Görüşmeler", text: "her görüşme müşteri kartında, takip günüyle.", href: "/solutions/crm" },
+      { pain: "Hangi ödeme tahsil edildi, hangisi bekliyor, tabloya bakmadan bilinmiyor.", term: "Taksit ve tahsilat", text: "ödeme planıyla vadeler takipte, tahsilat bakiyeye hemen yansır.", href: "/solutions/finance" },
     ],
     uses: [
       {
-        solution: "ofis-yonetimi",
+        solution: "office-management",
         points: [
           { term: "Projeler", text: "her müşteri işi bir proje. Görevler, dosyalar ve geçmiş içinde." },
           { term: "E-posta → görev", text: "müşterinin isteği tek tıkla göreve dönüşür." },
@@ -53,7 +53,7 @@ export const sectors: Sector[] = [
         points: [{ term: "Görüşmeler", text: "her görüşme müşteri kartında, takip günüyle." }],
       },
       {
-        solution: "finans-cari",
+        solution: "finance",
         points: [{ term: "Taksit ve tahsilat", text: "ödeme planıyla vadeler takipte, tahsilat bakiyeye hemen yansır." }],
       },
     ],
@@ -72,7 +72,7 @@ export const sectors: Sector[] = [
     ],
   },
   {
-    slug: "mimarlik-ve-muhendislik",
+    slug: "architecture-and-engineering",
     name: "Mimarlık ve mühendislik ofisleri",
     tab: "Mimarlık ve mühendislik",
     seo: {
@@ -83,14 +83,14 @@ export const sectors: Sector[] = [
     },
     lead: "Uzun soluklu projeler, taksitli ödemeler ve sahada çalışan bir ekip. Hepsi aynı yerde takip edilir.",
     rows: [
-      { pain: "Proje ilerlemesi ve teslim tarihi herkesin aklında farklı.", term: "Projeler", text: "teslim tarihi, bütçe, görevler ve toplantılar proje sayfasında.", href: "/cozumler/ofis-yonetimi" },
-      { pain: "Sözleşmenin bitiş tarihi geldiğinde fark ediliyor.", term: "Sözleşmeler", text: "bitiş tarihiyle girilir, bitmeden hatırlatılırsınız.", href: "/cozumler/ofis-yonetimi" },
-      { pain: "Müşterinin taksitleri ayrı bir tabloda, vadesi geçen gözden kaçıyor.", term: "Ödeme planı", text: "taksitler tek seferde oluşur, vadesi gelen Ana Sayfa’ya düşer.", href: "/cozumler/finans-cari" },
-      { pain: "Sahadaki ekip izni mesajla istiyor, kaydı kalmıyor.", term: "İzin", text: "saha ekibi izni telefondan ister, onaylanan izin takvime işlenir.", href: "/cozumler/ofis-yonetimi" },
+      { pain: "Proje ilerlemesi ve teslim tarihi herkesin aklında farklı.", term: "Projeler", text: "teslim tarihi, bütçe, görevler ve toplantılar proje sayfasında.", href: "/solutions/office-management" },
+      { pain: "Sözleşmenin bitiş tarihi geldiğinde fark ediliyor.", term: "Sözleşmeler", text: "bitiş tarihiyle girilir, bitmeden hatırlatılırsınız.", href: "/solutions/office-management" },
+      { pain: "Müşterinin taksitleri ayrı bir tabloda, vadesi geçen gözden kaçıyor.", term: "Ödeme planı", text: "taksitler tek seferde oluşur, vadesi gelen Ana Sayfa’ya düşer.", href: "/solutions/finance" },
+      { pain: "Sahadaki ekip izni mesajla istiyor, kaydı kalmıyor.", term: "İzin", text: "saha ekibi izni telefondan ister, onaylanan izin takvime işlenir.", href: "/solutions/office-management" },
     ],
     uses: [
       {
-        solution: "ofis-yonetimi",
+        solution: "office-management",
         points: [
           { term: "Projeler", text: "teslim tarihi, bütçe, görevler ve toplantılar proje sayfasında." },
           { term: "Sözleşmeler", text: "bitiş tarihiyle girilir, bitmeden hatırlatılırsınız." },
@@ -98,7 +98,7 @@ export const sectors: Sector[] = [
         ],
       },
       {
-        solution: "finans-cari",
+        solution: "finance",
         points: [{ term: "Ödeme planı", text: "taksitler tek seferde oluşur, vadesi gelen Ana Sayfa’ya düşer." }],
       },
     ],
@@ -116,7 +116,7 @@ export const sectors: Sector[] = [
     ],
   },
   {
-    slug: "emlak-ofisi",
+    slug: "real-estate",
     name: "Emlak ofisleri",
     tab: "Emlak ofisi",
     seo: {
@@ -127,10 +127,10 @@ export const sectors: Sector[] = [
     },
     lead: "Çok sayıda müşteri görüşmesi, düzenli kira ve aidat ödemeleri, süresi dolan sözleşmeler.",
     rows: [
-      { pain: "Hangi müşteriyi ne zaman arayacağınız not defterinde kalıyor.", term: "Takip günü", text: "takip günü gelen müşteri listede önünüze çıkar.", href: "/cozumler/crm" },
-      { pain: "Müşteriyle ne konuşulduğu görüşmeyi yapan danışmanda kalıyor.", term: "Görüşmeler", text: "her görüşme müşteri kartında, kişisi ve notuyla.", href: "/cozumler/crm" },
-      { pain: "Kira ve aidat ödemesinin gelip gelmediği ay sonunda fark ediliyor.", term: "Düzenli ödemeler", text: "kira ve aidat vadesinde hatırlatılır.", href: "/cozumler/finans-cari" },
-      { pain: "Kira sözleşmesinin bitişi son haftada hatırlanıyor.", term: "Sözleşmeler", text: "bitiş tarihiyle girilir, bitmeden hatırlatılırsınız.", href: "/cozumler/ofis-yonetimi" },
+      { pain: "Hangi müşteriyi ne zaman arayacağınız not defterinde kalıyor.", term: "Takip günü", text: "takip günü gelen müşteri listede önünüze çıkar.", href: "/solutions/crm" },
+      { pain: "Müşteriyle ne konuşulduğu görüşmeyi yapan danışmanda kalıyor.", term: "Görüşmeler", text: "her görüşme müşteri kartında, kişisi ve notuyla.", href: "/solutions/crm" },
+      { pain: "Kira ve aidat ödemesinin gelip gelmediği ay sonunda fark ediliyor.", term: "Düzenli ödemeler", text: "kira ve aidat vadesinde hatırlatılır.", href: "/solutions/finance" },
+      { pain: "Kira sözleşmesinin bitişi son haftada hatırlanıyor.", term: "Sözleşmeler", text: "bitiş tarihiyle girilir, bitmeden hatırlatılırsınız.", href: "/solutions/office-management" },
     ],
     uses: [
       {
@@ -141,11 +141,11 @@ export const sectors: Sector[] = [
         ],
       },
       {
-        solution: "finans-cari",
+        solution: "finance",
         points: [{ term: "Düzenli ödemeler", text: "kira ve aidat vadesinde hatırlatılır." }],
       },
       {
-        solution: "ofis-yonetimi",
+        solution: "office-management",
         points: [{ term: "Sözleşmeler", text: "bitiş tarihiyle girilir, bitmeden hatırlatılırsınız." }],
       },
     ],
@@ -163,7 +163,7 @@ export const sectors: Sector[] = [
     ],
   },
   {
-    slug: "teknik-servis",
+    slug: "technical-service",
     name: "Teknik servis ve bakım firmaları",
     tab: "Teknik servis",
     seo: {
@@ -174,18 +174,18 @@ export const sectors: Sector[] = [
     },
     lead: "Gelen iş ekibe dağıtılır, parça depodan çıkar, ödeme müşterinin carisine işlenir.",
     rows: [
-      { pain: "Gelen servis işi telefonda kalıyor, kimin gideceği belli değil.", term: "Görevler ve takımlar", text: "iş takıma verilir, uygun olan Üstlen ile alır, ekip görür.", href: "/cozumler/ofis-yonetimi" },
-      { pain: "Depoda hangi parçanın bittiği iş başında anlaşılıyor.", term: "Stok", text: "satışta seçilen ürün stoktan düşer, kritik seviyeye inen ürün işaretlenir.", href: "/cozumler/stok" },
-      { pain: "Müşterinin borcu ayrı bir defterde tutuluyor.", term: "Cari ve tahsilat", text: "servis bedeli müşterinin carisine işlenir, tahsilat bakiyeyi düşürür.", href: "/cozumler/finans-cari" },
-      { pain: "Servis aracının gideri ayrı bir yerde tutuluyor.", term: "Filo", text: "araçlar, seferler ve araç bazında gelir gider kayıtta.", href: "/cozumler/filo" },
+      { pain: "Gelen servis işi telefonda kalıyor, kimin gideceği belli değil.", term: "Görevler ve takımlar", text: "iş takıma verilir, uygun olan Üstlen ile alır, ekip görür.", href: "/solutions/office-management" },
+      { pain: "Depoda hangi parçanın bittiği iş başında anlaşılıyor.", term: "Stok", text: "satışta seçilen ürün stoktan düşer, kritik seviyeye inen ürün işaretlenir.", href: "/solutions/inventory" },
+      { pain: "Müşterinin borcu ayrı bir defterde tutuluyor.", term: "Cari ve tahsilat", text: "servis bedeli müşterinin carisine işlenir, tahsilat bakiyeyi düşürür.", href: "/solutions/finance" },
+      { pain: "Servis aracının gideri ayrı bir yerde tutuluyor.", term: "Filo", text: "araçlar, seferler ve araç bazında gelir gider kayıtta.", href: "/solutions/fleet" },
     ],
     uses: [
       {
-        solution: "ofis-yonetimi",
+        solution: "office-management",
         points: [{ term: "Görevler ve takımlar", text: "iş takıma verilir, uygun olan Üstlen ile alır, ekip görür." }],
       },
       {
-        solution: "finans-cari",
+        solution: "finance",
         points: [{ term: "Cari ve tahsilat", text: "servis bedeli müşterinin carisine işlenir, tahsilat bakiyeyi düşürür." }],
       },
     ],
@@ -204,7 +204,7 @@ export const sectors: Sector[] = [
     ],
   },
   {
-    slug: "toptan-ticaret-ve-dagitim",
+    slug: "wholesale-and-distribution",
     name: "Toptan ticaret ve dağıtım firmaları",
     tab: "Toptan ticaret",
     seo: {
@@ -215,15 +215,15 @@ export const sectors: Sector[] = [
     },
     lead: "Yüzlerce müşteri ve tedarikçi, vadeli satış, depodan çıkan mal ve yolda araçlar. Kimin ne borcu olduğu her an önünüzde.",
     rows: [
-      { pain: "Hangi müşterinin vadesi geçti, ay sonunda tek tek bakılıyor.", term: "Vade ve taksit", text: "vadesi geçenler Ana Sayfa’da, taksitler ödeme planıyla takipte.", href: "/cozumler/finans-cari" },
-      { pain: "Alacağın kaç gündür beklediği hesaplanmıyor.", term: "Alacak raporları", text: "alacakların kaç gündür beklediği yaşlandırma raporunda.", href: "/cozumler/finans-cari" },
-      { pain: "Tedarikçiye ne kadar borç olduğu ayrı bir defterde.", term: "Cari", text: "her müşteri ve tedarikçinin bakiyesi ve hesap ekstresi.", href: "/cozumler/finans-cari" },
-      { pain: "Depoda hangi ürünün azaldığı sipariş gelince anlaşılıyor.", term: "Stok", text: "satışta seçilen ürün stoktan düşer, kritik seviyeye inen ürün işaretlenir.", href: "/cozumler/stok" },
-      { pain: "Müşteriyle ne konuşulduğu satışı yapan kişide kalıyor.", term: "Görüşmeler", text: "müşteriyle yapılan her görüşme kartında, takip günüyle.", href: "/cozumler/crm" },
+      { pain: "Hangi müşterinin vadesi geçti, ay sonunda tek tek bakılıyor.", term: "Vade ve taksit", text: "vadesi geçenler Ana Sayfa’da, taksitler ödeme planıyla takipte.", href: "/solutions/finance" },
+      { pain: "Alacağın kaç gündür beklediği hesaplanmıyor.", term: "Alacak raporları", text: "alacakların kaç gündür beklediği yaşlandırma raporunda.", href: "/solutions/finance" },
+      { pain: "Tedarikçiye ne kadar borç olduğu ayrı bir defterde.", term: "Cari", text: "her müşteri ve tedarikçinin bakiyesi ve hesap ekstresi.", href: "/solutions/finance" },
+      { pain: "Depoda hangi ürünün azaldığı sipariş gelince anlaşılıyor.", term: "Stok", text: "satışta seçilen ürün stoktan düşer, kritik seviyeye inen ürün işaretlenir.", href: "/solutions/inventory" },
+      { pain: "Müşteriyle ne konuşulduğu satışı yapan kişide kalıyor.", term: "Görüşmeler", text: "müşteriyle yapılan her görüşme kartında, takip günüyle.", href: "/solutions/crm" },
     ],
     uses: [
       {
-        solution: "finans-cari",
+        solution: "finance",
         points: [
           { term: "Cari", text: "her müşteri ve tedarikçinin bakiyesi ve hesap ekstresi." },
           { term: "Vade ve taksit", text: "vadesi geçenler Ana Sayfa’da, taksitler ödeme planıyla takipte." },
@@ -250,7 +250,7 @@ export const sectors: Sector[] = [
     ],
   },
   {
-    slug: "insaat-ve-taseron",
+    slug: "construction-and-subcontracting",
     name: "İnşaat ve taşeron firmaları",
     tab: "İnşaat ve taşeron",
     seo: {
@@ -261,15 +261,15 @@ export const sectors: Sector[] = [
     },
     lead: "Birden çok şantiye, taşeronlar, tedarikçiler ve sahada çalışan ekip. İş ve ödeme aynı yerde takip edilir.",
     rows: [
-      { pain: "Her şantiyenin işleri ve dosyaları ayrı yerlerde.", term: "Projeler", text: "her şantiye bir proje. Görevler, dosyalar ve geçmiş içinde.", href: "/cozumler/ofis-yonetimi" },
-      { pain: "Hangi taşerona ne zaman ne ödeneceği ayrı tablolarda.", term: "Taşeron ödemeleri", text: "ödeme planıyla takipte, vadesi gelen Ana Sayfa’da.", href: "/cozumler/finans-cari" },
-      { pain: "Malzeme alınan tedarikçiye ne borç olduğu belli değil.", term: "Tedarikçi carisi", text: "malzeme alımları ve ödemeler bakiyede.", href: "/cozumler/finans-cari" },
-      { pain: "Sahadaki ekibin izinleri mesajla isteniyor, kayıt yok.", term: "İzin", text: "saha ekibi izni telefondan ister.", href: "/cozumler/ofis-yonetimi" },
-      { pain: "Hangi aletin hangi ustada olduğu bilinmiyor.", term: "Demirbaş ve zimmet", text: "alet ve ekipman kimde, ne zamandan beri, kayıtta.", href: "/cozumler/ofis-yonetimi" },
+      { pain: "Her şantiyenin işleri ve dosyaları ayrı yerlerde.", term: "Projeler", text: "her şantiye bir proje. Görevler, dosyalar ve geçmiş içinde.", href: "/solutions/office-management" },
+      { pain: "Hangi taşerona ne zaman ne ödeneceği ayrı tablolarda.", term: "Taşeron ödemeleri", text: "ödeme planıyla takipte, vadesi gelen Ana Sayfa’da.", href: "/solutions/finance" },
+      { pain: "Malzeme alınan tedarikçiye ne borç olduğu belli değil.", term: "Tedarikçi carisi", text: "malzeme alımları ve ödemeler bakiyede.", href: "/solutions/finance" },
+      { pain: "Sahadaki ekibin izinleri mesajla isteniyor, kayıt yok.", term: "İzin", text: "saha ekibi izni telefondan ister.", href: "/solutions/office-management" },
+      { pain: "Hangi aletin hangi ustada olduğu bilinmiyor.", term: "Demirbaş ve zimmet", text: "alet ve ekipman kimde, ne zamandan beri, kayıtta.", href: "/solutions/office-management" },
     ],
     uses: [
       {
-        solution: "ofis-yonetimi",
+        solution: "office-management",
         points: [
           { term: "Projeler", text: "her şantiye bir proje. Görevler, dosyalar ve geçmiş içinde." },
           { term: "Demirbaş ve zimmet", text: "alet ve ekipman kimde, ne zamandan beri, kayıtta." },
@@ -277,7 +277,7 @@ export const sectors: Sector[] = [
         ],
       },
       {
-        solution: "finans-cari",
+        solution: "finance",
         points: [
           { term: "Taşeron ödemeleri", text: "ödeme planıyla takipte, vadesi gelen Ana Sayfa’da." },
           { term: "Tedarikçi carisi", text: "malzeme alımları ve ödemeler bakiyede." },
@@ -299,7 +299,7 @@ export const sectors: Sector[] = [
     ],
   },
   {
-    slug: "lojistik-ve-nakliye",
+    slug: "logistics-and-transport",
     name: "Lojistik ve nakliye firmaları",
     tab: "Lojistik ve nakliye",
     seo: {
@@ -310,21 +310,21 @@ export const sectors: Sector[] = [
     },
     lead: "Araçlar yolda, şoförler sahada, müşteriler vadeli. Sefer, masraf ve tahsilat aynı yerde.",
     rows: [
-      { pain: "Hangi aracın ne kazandırdığı ay sonunda hesaplanıyor.", term: "Filo", text: "araç ve sefer bazında gelir ve gider kayıtta.", href: "/cozumler/filo" },
-      { pain: "Şoförün yol masrafı ve avansı kâğıtla geliyor.", term: "Talepler", text: "şoför masraf ve avans talebini telefondan gönderir, siz onaylarsınız.", href: "/cozumler/ofis-yonetimi" },
-      { pain: "Müşterinin ödemediği sefer bedeli gözden kaçıyor.", term: "Müşteri carisi", text: "sefer bedeli müşterinin carisine işlenir, tahsilat bakiyeyi düşürür.", href: "/cozumler/finans-cari" },
-      { pain: "Vadesi geçen müşteri ay sonunda fark ediliyor.", term: "Vadesi geçenler", text: "Ana Sayfa’da, gün sayısıyla.", href: "/cozumler/finans-cari" },
+      { pain: "Hangi aracın ne kazandırdığı ay sonunda hesaplanıyor.", term: "Filo", text: "araç ve sefer bazında gelir ve gider kayıtta.", href: "/solutions/fleet" },
+      { pain: "Şoförün yol masrafı ve avansı kâğıtla geliyor.", term: "Talepler", text: "şoför masraf ve avans talebini telefondan gönderir, siz onaylarsınız.", href: "/solutions/office-management" },
+      { pain: "Müşterinin ödemediği sefer bedeli gözden kaçıyor.", term: "Müşteri carisi", text: "sefer bedeli müşterinin carisine işlenir, tahsilat bakiyeyi düşürür.", href: "/solutions/finance" },
+      { pain: "Vadesi geçen müşteri ay sonunda fark ediliyor.", term: "Vadesi geçenler", text: "Ana Sayfa’da, gün sayısıyla.", href: "/solutions/finance" },
     ],
     uses: [
       {
-        solution: "finans-cari",
+        solution: "finance",
         points: [
           { term: "Müşteri carisi", text: "sefer bedeli müşterinin carisine işlenir, tahsilat bakiyeyi düşürür." },
           { term: "Vadesi geçenler", text: "Ana Sayfa’da, gün sayısıyla." },
         ],
       },
       {
-        solution: "ofis-yonetimi",
+        solution: "office-management",
         points: [
           { term: "Talepler", text: "şoför masraf ve avans talebini telefondan gönderir, siz onaylarsınız." },
           { term: "İzin", text: "şoför izinleri takvimde." },
@@ -346,7 +346,7 @@ export const sectors: Sector[] = [
     ],
   },
   {
-    slug: "guvenlik-ve-temizlik",
+    slug: "security-and-cleaning",
     name: "Güvenlik ve temizlik hizmet firmaları",
     tab: "Güvenlik ve temizlik",
     seo: {
@@ -357,14 +357,14 @@ export const sectors: Sector[] = [
     },
     lead: "Çok sayıda saha personeli, birçok müşteri sözleşmesi ve her ay kesilen hizmet bedeli.",
     rows: [
-      { pain: "Kimin izinde olduğu ve kaç gün izni kaldığı tabloda tutuluyor.", term: "İzin ve puantaj", text: "çalışılan, gelinmeyen ve izinli günler, giriş-çıkış saati ve yevmiyesiyle.", href: "/cozumler/ofis-yonetimi" },
-      { pain: "Personelin avans talebi telefonda kalıyor.", term: "Avans talepleri", text: "personel telefondan ister, onay tek listede.", href: "/cozumler/ofis-yonetimi" },
-      { pain: "Müşteri sözleşmesinin bitişi son anda fark ediliyor.", term: "Sözleşmeler", text: "müşteri sözleşmesi bitiş tarihiyle, bitmeden hatırlatılır.", href: "/cozumler/ofis-yonetimi" },
-      { pain: "Her ay kesilen hizmet bedelinin gelip gelmediği tek tek kontrol ediliyor.", term: "Aylık hizmet bedeli", text: "düzenli ödeme olarak tanımlanır, her ay vadesinde hatırlatılır.", href: "/cozumler/finans-cari" },
+      { pain: "Kimin izinde olduğu ve kaç gün izni kaldığı tabloda tutuluyor.", term: "İzin ve puantaj", text: "çalışılan, gelinmeyen ve izinli günler, giriş-çıkış saati ve yevmiyesiyle.", href: "/solutions/office-management" },
+      { pain: "Personelin avans talebi telefonda kalıyor.", term: "Avans talepleri", text: "personel telefondan ister, onay tek listede.", href: "/solutions/office-management" },
+      { pain: "Müşteri sözleşmesinin bitişi son anda fark ediliyor.", term: "Sözleşmeler", text: "müşteri sözleşmesi bitiş tarihiyle, bitmeden hatırlatılır.", href: "/solutions/office-management" },
+      { pain: "Her ay kesilen hizmet bedelinin gelip gelmediği tek tek kontrol ediliyor.", term: "Aylık hizmet bedeli", text: "düzenli ödeme olarak tanımlanır, her ay vadesinde hatırlatılır.", href: "/solutions/finance" },
     ],
     uses: [
       {
-        solution: "ofis-yonetimi",
+        solution: "office-management",
         points: [
           { term: "İzin ve puantaj", text: "çalışılan, gelinmeyen ve izinli günler, giriş-çıkış saati ve yevmiyesiyle." },
           { term: "Avans talepleri", text: "personel telefondan ister, onay tek listede." },
@@ -372,7 +372,7 @@ export const sectors: Sector[] = [
         ],
       },
       {
-        solution: "finans-cari",
+        solution: "finance",
         points: [{ term: "Aylık hizmet bedeli", text: "düzenli ödeme olarak tanımlanır, her ay vadesinde hatırlatılır." }],
       },
     ],
@@ -391,7 +391,7 @@ export const sectors: Sector[] = [
     ],
   },
   {
-    slug: "mali-musavir-burosu",
+    slug: "accounting-firms",
     name: "Mali müşavir büroları",
     tab: "Mali müşavir",
     seo: {
@@ -402,14 +402,14 @@ export const sectors: Sector[] = [
     },
     lead: "Her ay tekrar eden işler, çok sayıda mükellef ve aylık ücretler. Büronun kendi işi de düzenli olsun.",
     rows: [
-      { pain: "Ay sonu işleri kime verildi, hangisi bitti, sorarak öğreniliyor.", term: "Görevler ve takımlar", text: "dönem işleri kişiye ya da takıma verilir, durumu herkes görür.", href: "/cozumler/ofis-yonetimi" },
-      { pain: "Mükellefle ne konuşulduğu görüşen kişinin aklında.", term: "Görüşmeler", text: "mükellefle yapılan her görüşme kartında, takip günüyle.", href: "/cozumler/crm" },
-      { pain: "Aylık ücreti geciken mükellef gözden kaçıyor.", term: "Aylık ücret", text: "düzenli ödeme olarak tanımlanır, geciken Ana Sayfa’da görünür.", href: "/cozumler/finans-cari" },
-      { pain: "Büro belgeleri ortak klasörde, kimin gördüğü belli değil.", term: "Dokümanlar", text: "kimin göreceğini seçerek yüklenir.", href: "/cozumler/ofis-yonetimi" },
+      { pain: "Ay sonu işleri kime verildi, hangisi bitti, sorarak öğreniliyor.", term: "Görevler ve takımlar", text: "dönem işleri kişiye ya da takıma verilir, durumu herkes görür.", href: "/solutions/office-management" },
+      { pain: "Mükellefle ne konuşulduğu görüşen kişinin aklında.", term: "Görüşmeler", text: "mükellefle yapılan her görüşme kartında, takip günüyle.", href: "/solutions/crm" },
+      { pain: "Aylık ücreti geciken mükellef gözden kaçıyor.", term: "Aylık ücret", text: "düzenli ödeme olarak tanımlanır, geciken Ana Sayfa’da görünür.", href: "/solutions/finance" },
+      { pain: "Büro belgeleri ortak klasörde, kimin gördüğü belli değil.", term: "Dokümanlar", text: "kimin göreceğini seçerek yüklenir.", href: "/solutions/office-management" },
     ],
     uses: [
       {
-        solution: "ofis-yonetimi",
+        solution: "office-management",
         points: [
           { term: "Görevler ve takımlar", text: "dönem işleri kişiye ya da takıma verilir, durumu herkes görür." },
           { term: "Dokümanlar", text: "kimin göreceğini seçerek yüklenir." },
@@ -420,7 +420,7 @@ export const sectors: Sector[] = [
         points: [{ term: "Görüşmeler", text: "mükellefle yapılan her görüşme kartında, takip günüyle." }],
       },
       {
-        solution: "finans-cari",
+        solution: "finance",
         points: [{ term: "Aylık ücret", text: "düzenli ödeme olarak tanımlanır, geciken Ana Sayfa’da görünür." }],
       },
     ],
@@ -439,7 +439,7 @@ export const sectors: Sector[] = [
     ],
   },
   {
-    slug: "egitim-ve-kurs",
+    slug: "education-and-courses",
     name: "Eğitim kurumları ve kurslar",
     tab: "Eğitim ve kurs",
     seo: {
@@ -450,14 +450,14 @@ export const sectors: Sector[] = [
     },
     lead: "Taksitle ödenen kayıtlar, kayıt dönemindeki aday görüşmeleri ve eğitmen kadrosu.",
     rows: [
-      { pain: "Kayıt ücretinin taksitleri elle hesaplanıp tabloya yazılıyor.", term: "Taksit planı", text: "kayıt ücreti taksitlere bölünür, taksitler tek seferde oluşur.", href: "/cozumler/finans-cari" },
-      { pain: "Hangi velinin taksidi gecikti, tek tek bakılıyor.", term: "Vadesi geçenler", text: "geciken taksit Ana Sayfa’da, gün sayısıyla.", href: "/cozumler/finans-cari" },
-      { pain: "Kayıt için arayan adayın ne zaman tekrar aranacağı unutuluyor.", term: "Aday görüşmeleri", text: "her görüşme kayıtta, takip günü gelen aday önünüze çıkar.", href: "/cozumler/crm" },
-      { pain: "Eğitmen izinleri ve duyurular mesaj gruplarında kayboluyor.", term: "İzin ve duyurular", text: "eğitmen izni telefondan, duyuru tüm ekibe tek yerden.", href: "/cozumler/ofis-yonetimi" },
+      { pain: "Kayıt ücretinin taksitleri elle hesaplanıp tabloya yazılıyor.", term: "Taksit planı", text: "kayıt ücreti taksitlere bölünür, taksitler tek seferde oluşur.", href: "/solutions/finance" },
+      { pain: "Hangi velinin taksidi gecikti, tek tek bakılıyor.", term: "Vadesi geçenler", text: "geciken taksit Ana Sayfa’da, gün sayısıyla.", href: "/solutions/finance" },
+      { pain: "Kayıt için arayan adayın ne zaman tekrar aranacağı unutuluyor.", term: "Aday görüşmeleri", text: "her görüşme kayıtta, takip günü gelen aday önünüze çıkar.", href: "/solutions/crm" },
+      { pain: "Eğitmen izinleri ve duyurular mesaj gruplarında kayboluyor.", term: "İzin ve duyurular", text: "eğitmen izni telefondan, duyuru tüm ekibe tek yerden.", href: "/solutions/office-management" },
     ],
     uses: [
       {
-        solution: "finans-cari",
+        solution: "finance",
         points: [
           { term: "Taksit planı", text: "kayıt ücreti taksitlere bölünür, taksitler tek seferde oluşur." },
           { term: "Vadesi geçenler", text: "geciken taksit Ana Sayfa’da, gün sayısıyla." },
@@ -468,7 +468,7 @@ export const sectors: Sector[] = [
         points: [{ term: "Aday görüşmeleri", text: "her görüşme kayıtta, takip günü gelen aday önünüze çıkar." }],
       },
       {
-        solution: "ofis-yonetimi",
+        solution: "office-management",
         points: [{ term: "İzin ve duyurular", text: "eğitmen izni telefondan, duyuru tüm ekibe tek yerden." }],
       },
     ],
@@ -487,7 +487,7 @@ export const sectors: Sector[] = [
     ],
   },
   {
-    slug: "hukuk-burosu",
+    slug: "law-firms",
     name: "Hukuk büroları",
     tab: "Hukuk bürosu",
     seo: {
@@ -498,10 +498,10 @@ export const sectors: Sector[] = [
     },
     lead: "Müvekkil görüşmeleri, büro içinde dağıtılan işler, gizli tutulması gereken belgeler ve taksitli ücretler.",
     rows: [
-      { pain: "Müvekkille en son ne konuşulduğu dosyayı tutan avukatın aklında.", term: "Müvekkil görüşmeleri", text: "her görüşme kartında, kişisi, notu ve takip günüyle.", href: "/cozumler/crm" },
-      { pain: "Büro içi işler kime verildi, takibi zor.", term: "Görevler", text: "büro içi işler kişiye ya da takıma verilir.", href: "/cozumler/ofis-yonetimi" },
-      { pain: "Belgeler ortak klasörde, kimin gördüğü belli değil.", term: "Dokümanlar", text: "kimin göreceğini seçerek yüklenir.", href: "/cozumler/ofis-yonetimi" },
-      { pain: "Vekâlet ücreti taksitlerinden hangisinin geciktiği belli değil.", term: "Ücret taksitleri", text: "ödeme planıyla takipte, geciken Ana Sayfa’da.", href: "/cozumler/finans-cari" },
+      { pain: "Müvekkille en son ne konuşulduğu dosyayı tutan avukatın aklında.", term: "Müvekkil görüşmeleri", text: "her görüşme kartında, kişisi, notu ve takip günüyle.", href: "/solutions/crm" },
+      { pain: "Büro içi işler kime verildi, takibi zor.", term: "Görevler", text: "büro içi işler kişiye ya da takıma verilir.", href: "/solutions/office-management" },
+      { pain: "Belgeler ortak klasörde, kimin gördüğü belli değil.", term: "Dokümanlar", text: "kimin göreceğini seçerek yüklenir.", href: "/solutions/office-management" },
+      { pain: "Vekâlet ücreti taksitlerinden hangisinin geciktiği belli değil.", term: "Ücret taksitleri", text: "ödeme planıyla takipte, geciken Ana Sayfa’da.", href: "/solutions/finance" },
     ],
     uses: [
       {
@@ -509,14 +509,14 @@ export const sectors: Sector[] = [
         points: [{ term: "Müvekkil görüşmeleri", text: "her görüşme kartında, kişisi, notu ve takip günüyle." }],
       },
       {
-        solution: "ofis-yonetimi",
+        solution: "office-management",
         points: [
           { term: "Görevler", text: "büro içi işler kişiye ya da takıma verilir." },
           { term: "Dokümanlar", text: "kimin göreceğini seçerek yüklenir." },
         ],
       },
       {
-        solution: "finans-cari",
+        solution: "finance",
         points: [{ term: "Ücret taksitleri", text: "ödeme planıyla takipte, geciken Ana Sayfa’da." }],
       },
     ],
@@ -535,7 +535,7 @@ export const sectors: Sector[] = [
     ],
   },
   {
-    slug: "uretim-atolyesi",
+    slug: "manufacturing-workshops",
     name: "Üretim atölyeleri ve imalathaneler",
     tab: "Üretim atölyesi",
     seo: {
@@ -546,14 +546,14 @@ export const sectors: Sector[] = [
     },
     lead: "Teklif verilir, kabul edilen iş satışa döner, malzeme depodan düşer, tahsilat cariye işlenir.",
     rows: [
-      { pain: "Verilen teklifin kabul edilip edilmediği telefonda soruluyor.", term: "Teklif", text: "müşteri teklifi linkten açıp kabul eder, kabul edilen teklif tek tıkla satışa döner.", href: "/cozumler/teklif" },
-      { pain: "Malzemenin bittiği iş başlayınca anlaşılıyor.", term: "Stok", text: "satışta seçilen ürün stoktan düşer, kritik seviyeye inen ürün işaretlenir.", href: "/cozumler/stok" },
-      { pain: "Müşterinin borcu ayrı bir defterde.", term: "Cari ve tahsilat", text: "satış müşterinin carisine işlenir, tahsilat bakiyeyi düşürür.", href: "/cozumler/finans-cari" },
-      { pain: "Taksitli satışın hangi taksidi geldi, defterden bakılıyor.", term: "Taksit", text: "taksitli satışlar ödeme planıyla takipte.", href: "/cozumler/finans-cari" },
+      { pain: "Verilen teklifin kabul edilip edilmediği telefonda soruluyor.", term: "Teklif", text: "müşteri teklifi linkten açıp kabul eder, kabul edilen teklif tek tıkla satışa döner.", href: "/solutions/quotes" },
+      { pain: "Malzemenin bittiği iş başlayınca anlaşılıyor.", term: "Stok", text: "satışta seçilen ürün stoktan düşer, kritik seviyeye inen ürün işaretlenir.", href: "/solutions/inventory" },
+      { pain: "Müşterinin borcu ayrı bir defterde.", term: "Cari ve tahsilat", text: "satış müşterinin carisine işlenir, tahsilat bakiyeyi düşürür.", href: "/solutions/finance" },
+      { pain: "Taksitli satışın hangi taksidi geldi, defterden bakılıyor.", term: "Taksit", text: "taksitli satışlar ödeme planıyla takipte.", href: "/solutions/finance" },
     ],
     uses: [
       {
-        solution: "finans-cari",
+        solution: "finance",
         points: [
           { term: "Cari ve tahsilat", text: "satış müşterinin carisine işlenir, tahsilat bakiyeyi düşürür." },
           { term: "Taksit", text: "taksitli satışlar ödeme planıyla takipte." },
@@ -582,12 +582,12 @@ export const sectors: Sector[] = [
 
 /** Shown as tabs on the home page, in this order. */
 export const featuredSectors = [
-  "toptan-ticaret-ve-dagitim",
-  "insaat-ve-taseron",
-  "lojistik-ve-nakliye",
-  "danismanlik-ve-ajans",
-  "mali-musavir-burosu",
-  "emlak-ofisi",
+  "wholesale-and-distribution",
+  "construction-and-subcontracting",
+  "logistics-and-transport",
+  "consulting-and-agencies",
+  "accounting-firms",
+  "real-estate",
 ];
 
 export const sectorBySlug = (slug: string) => sectors.find((s) => s.slug === slug);

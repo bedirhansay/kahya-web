@@ -52,60 +52,60 @@ export type NavGroup = {
 };
 
 const solutionIcons: Record<string, LucideIcon> = {
-  "ofis-yonetimi": LayoutGrid,
+  "office-management": LayoutGrid,
   crm: Handshake,
-  "finans-cari": Wallet,
+  "finance": Wallet,
 };
 
 const solutionBullets: Record<string, string[]> = {
-  "ofis-yonetimi": ["Görevler ve takvim", "İzin ve onaylar", "E-posta → görev", "Talepler ve duyurular"],
+  "office-management": ["Görevler ve takvim", "İzin ve onaylar", "E-posta → görev", "Talepler ve duyurular"],
   crm: ["Müşteri kartı", "Görüşme kaydı", "Takip günü", "Son görüşmeler"],
-  "finans-cari": ["Cari ve ekstre", "Tahsilat", "Ödeme planları", "Mali müşavir paketi"],
+  "finance": ["Cari ve ekstre", "Tahsilat", "Ödeme planları", "Mali müşavir paketi"],
 };
 
 const sectorMeta: Record<string, { icon: LucideIcon; hint: string }> = {
-  "danismanlik-ve-ajans": {
+  "consulting-and-agencies": {
     icon: Briefcase,
     hint: "Müşteri işleri, görüşmeler, tahsilat",
   },
-  "mimarlik-ve-muhendislik": {
+  "architecture-and-engineering": {
     icon: DraftingCompass,
     hint: "Uzun projeler, taksitli ödemeler",
   },
-  "emlak-ofisi": { icon: Building2, hint: "Kira, aidat ve sözleşme vadeleri" },
-  "mali-musavir-burosu": {
+  "real-estate": { icon: Building2, hint: "Kira, aidat ve sözleşme vadeleri" },
+  "accounting-firms": {
     icon: Calculator,
     hint: "Aylık tekrar eden mükellef işleri",
   },
-  "hukuk-burosu": {
+  "law-firms": {
     icon: Scale,
     hint: "Müvekkil, gizli belge, taksitli ücret",
   },
-  "egitim-ve-kurs": {
+  "education-and-courses": {
     icon: GraduationCap,
     hint: "Taksitli kayıtlar, eğitmen kadrosu",
   },
-  "teknik-servis": {
+  "technical-service": {
     icon: Wrench,
     hint: "İş dağıtımı, parça, servis tahsilatı",
   },
-  "insaat-ve-taseron": {
+  "construction-and-subcontracting": {
     icon: HardHat,
     hint: "Şantiyeler, taşeron ve tedarikçiler",
   },
-  "lojistik-ve-nakliye": {
+  "logistics-and-transport": {
     icon: Truck,
     hint: "Araç, sefer, masraf ve tahsilat",
   },
-  "guvenlik-ve-temizlik": {
+  "security-and-cleaning": {
     icon: ShieldCheck,
     hint: "Saha personeli, müşteri sözleşmeleri",
   },
-  "toptan-ticaret-ve-dagitim": {
+  "wholesale-and-distribution": {
     icon: Boxes,
     hint: "Vadeli satış, bayi carisi, depo",
   },
-  "uretim-atolyesi": {
+  "manufacturing-workshops": {
     icon: Factory,
     hint: "Teklif, malzeme, sipariş tahsilatı",
   },
@@ -114,50 +114,50 @@ const sectorMeta: Record<string, { icon: LucideIcon; hint: string }> = {
 const sectorGroups: { title: string; slugs: string[] }[] = [
   {
     title: "Büro ve danışmanlık",
-    slugs: ["danismanlik-ve-ajans", "mimarlik-ve-muhendislik", "mali-musavir-burosu", "hukuk-burosu"],
+    slugs: ["consulting-and-agencies", "architecture-and-engineering", "accounting-firms", "law-firms"],
   },
   {
     title: "Hizmet ve saha",
-    slugs: ["teknik-servis", "guvenlik-ve-temizlik", "emlak-ofisi", "egitim-ve-kurs"],
+    slugs: ["technical-service", "security-and-cleaning", "real-estate", "education-and-courses"],
   },
   {
     title: "Ticaret, üretim, şantiye",
-    slugs: ["toptan-ticaret-ve-dagitim", "uretim-atolyesi", "insaat-ve-taseron", "lojistik-ve-nakliye"],
+    slugs: ["wholesale-and-distribution", "manufacturing-workshops", "construction-and-subcontracting", "logistics-and-transport"],
   },
 ];
 
 const featureIcons: Record<string, LucideIcon> = {
-  "cari-takibi": Wallet,
-  "odeme-planlari": CalendarClock,
-  "gorev-takibi": ListChecks,
-  "proje-yonetimi": FolderKanban,
-  "e-posta": Mail,
-  "personel-ve-izin": UsersRound,
-  "talep-ve-onay": CheckCheck,
-  "dokuman-ve-sozlesme": FileText,
-  raporlar: ChartColumn,
+  "accounts": Wallet,
+  "payment-plans": CalendarClock,
+  "tasks": ListChecks,
+  "projects": FolderKanban,
+  "email": Mail,
+  "staff-and-leave": UsersRound,
+  "requests-and-approvals": CheckCheck,
+  "documents-and-contracts": FileText,
+  reports: ChartColumn,
   "kahya-ai": Bot,
 };
 
 const featureGroups: { title: string; slugs: string[] }[] = [
   {
     title: "Para ve cari",
-    slugs: ["cari-takibi", "odeme-planlari", "raporlar"],
+    slugs: ["accounts", "payment-plans", "reports"],
   },
   {
     title: "Ekip ve iş",
-    slugs: ["gorev-takibi", "proje-yonetimi", "personel-ve-izin", "talep-ve-onay"],
+    slugs: ["tasks", "projects", "staff-and-leave", "requests-and-approvals"],
   },
   {
     title: "Belge ve iletişim",
-    slugs: ["dokuman-ve-sozlesme", "e-posta", "kahya-ai"],
+    slugs: ["documents-and-contracts", "email", "kahya-ai"],
   },
 ];
 
 const sectorLink = (slug: string): NavLink => {
   const s = sectors.find((x) => x.slug === slug)!;
   return {
-    href: `/sektorler/${s.slug}`,
+    href: `/sectors/${s.slug}`,
     label: s.tab,
     hint: sectorMeta[s.slug]?.hint,
     icon: sectorMeta[s.slug]?.icon,
@@ -167,7 +167,7 @@ const sectorLink = (slug: string): NavLink => {
 const featureLink = (slug: string): NavLink => {
   const f = features.find((x) => x.slug === slug)!;
   return {
-    href: `/ozellikler/${f.slug}`,
+    href: `/features/${f.slug}`,
     label: f.name,
     hint: f.summary,
     icon: featureIcons[f.slug],
@@ -176,22 +176,22 @@ const featureLink = (slug: string): NavLink => {
 
 export const mainNav: NavGroup[] = [
   {
-    href: "/cozumler",
+    href: "/solutions",
     label: "Çözümler",
     children: [
       ...solutions.map((s) => ({
-        href: `/cozumler/${s.slug}`,
+        href: `/solutions/${s.slug}`,
         label: s.name,
         hint: s.summary,
       })),
-      { href: "/cozumler", label: "Çözümler, ek hizmetler ve hizmetler" },
+      { href: "/solutions", label: "Çözümler, ek hizmetler ve hizmetler" },
     ],
     mega: {
       columns: [
         {
           title: "Üç çözüm, tek uygulama",
           items: solutions.map((s) => ({
-            href: `/cozumler/${s.slug}`,
+            href: `/solutions/${s.slug}`,
             label: s.subtitle ? `${s.name} · ${s.subtitle}` : s.name,
             hint: s.summary,
             icon: solutionIcons[s.slug],
@@ -206,19 +206,19 @@ export const mainNav: NavGroup[] = [
         text: "Çözümlerin üzerine, ihtiyaç olduğunda eklenir.",
         links: [
           ...extras.map((e) => ({
-            href: e.href ?? "/cozumler#ek-hizmetler",
+            href: e.href ?? "/solutions#ek-hizmetler",
             label: e.name,
           })),
-          { href: "/cozumler", label: "Tüm çözümler ve hizmetler" },
+          { href: "/solutions", label: "Tüm çözümler ve hizmetler" },
         ],
       },
     },
   },
   {
-    href: "/sektorler",
+    href: "/sectors",
     label: "Sektörler",
     children: sectors.map((s) => ({
-      href: `/sektorler/${s.slug}`,
+      href: `/sectors/${s.slug}`,
       label: s.name,
     })),
     mega: {
@@ -230,15 +230,15 @@ export const mainNav: NavGroup[] = [
         eyebrow: "12 sektör",
         title: "Aynı uygulama, size göre açılır",
         text: "Her sektör sayfasında Kahya'nın orada ne yaptığı ve ne yapmadığı açıkça yazar.",
-        links: [{ href: "/sektorler", label: "Tüm sektörler" }],
+        links: [{ href: "/sectors", label: "Tüm sektörler" }],
       },
     },
   },
   {
-    href: "/ozellikler",
+    href: "/features",
     label: "Özellikler",
     children: features.map((f) => ({
-      href: `/ozellikler/${f.slug}`,
+      href: `/features/${f.slug}`,
       label: f.name,
       hint: f.summary,
     })),
@@ -252,14 +252,14 @@ export const mainNav: NavGroup[] = [
         title: "Kısa videolarla öğrenin",
         text: "Her özelliğin nasıl kullanıldığını birkaç dakikalık videolarda gösteriyoruz.",
         links: [
-          { href: "/egitim", label: "Eğitim videoları" },
-          { href: "/tanitim-filmi", label: "Tanıtım filmi" },
+          { href: "/training", label: "Eğitim videoları" },
+          { href: "/film", label: "Tanıtım filmi" },
         ],
       },
     },
   },
-  { href: "/fiyatlar", label: "Fiyatlar" },
-  { href: "/egitim", label: "Eğitim" },
-  { href: "/sss", label: "Sık sorulanlar" },
-  { href: "/iletisim", label: "İletişim" },
+  { href: "/pricing", label: "Fiyatlar" },
+  { href: "/training", label: "Eğitim" },
+  { href: "/faq", label: "Sık sorulanlar" },
+  { href: "/contact", label: "İletişim" },
 ];

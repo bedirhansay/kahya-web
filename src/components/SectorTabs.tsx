@@ -56,13 +56,13 @@ export function SectorTabs({ sectors, mocks }: { sectors: Sector[]; mocks: Recor
             {s.uses.map((u, i) => (
               <span key={u.solution}>
                 {i > 0 && ", "}
-                <Link href={`/cozumler/${u.solution}`} className="link">
+                <Link href={`/solutions/${u.solution}`} className="link">
                   {solutions.find((x) => x.slug === u.solution)?.name}
                 </Link>
               </span>
             ))}
           </p>
-          <Link href={`/sektorler/${s.slug}`} className="btn btn-line mt-6">
+          <Link href={`/sectors/${s.slug}`} className="btn btn-line mt-6">
             {s.tab} için Kahya
           </Link>
         </div>

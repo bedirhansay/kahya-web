@@ -11,7 +11,7 @@ export default function NotFound() {
           <Link href="/" className="btn btn-petrol">
             Ana sayfaya dön
           </Link>
-          <Link href="/ozellikler" className="btn btn-line">
+          <Link href="/features" className="btn btn-line">
             Özellikler
           </Link>
         </div>

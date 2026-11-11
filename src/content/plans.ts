@@ -31,7 +31,7 @@ export const planRows: { label: string; hint?: string; href?: string; cells: [Pl
   {
     label: "Kasa ve banka",
     hint: "Kasa, banka hesabı ve kredi kartı",
-    href: "/rehber/kasa-ve-banka-takibi-nasil-yapilir",
+    href: "/guides/how-to-track-cash-and-bank",
     cells: ["ek", "ek", "ek", "ek", "ek"],
   },
   { label: "Öncelikli destek", cells: [false, false, false, false, true] },

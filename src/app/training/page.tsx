@@ -9,7 +9,7 @@ import { clock, tutorials } from "@/content/tutorials";
 import { absoluteUrl, pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  path: "/egitim",
+  path: "/training",
   title: "Eğitim videoları: Kahya nasıl kullanılır?",
   description:
     "Kahya’yı modül modül anlatan 14 eğitim videosu: başlarken, cari, ödeme planları, görevler, e-posta, personel ve izinler, talepler, raporlar, ayarlar ve Kahya AI.",
@@ -27,13 +27,13 @@ export default function TutorialsPage() {
           itemListElement: tutorials.map((t, i) => ({
             "@type": "ListItem",
             position: i + 1,
-            url: absoluteUrl(`/egitim/${t.slug}`),
+            url: absoluteUrl(`/training/${t.slug}`),
             name: t.title,
           })),
         }}
       />
       <PageHero
-        crumbs={[{ name: "Eğitim", path: "/egitim" }]}
+        crumbs={[{ name: "Eğitim", path: "/training" }]}
         title="Kahya’yı adım adım öğrenin"
         lead={`${tutorials.length} bölüm, toplam ${Math.round(total / 60)} dakika. Her bölüm uygulamanın gerçek kaydı. İşlemin adımları ekranın solunda numaralı olarak akar.`}
       />
@@ -42,7 +42,7 @@ export default function TutorialsPage() {
           <ol className="grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
             {tutorials.map((t) => (
               <li key={t.slug}>
-                <Link href={`/egitim/${t.slug}`} className="group block">
+                <Link href={`/training/${t.slug}`} className="group block">
                   <div className="frame relative aspect-video overflow-hidden">
                     <Img
                       src={`/media/egitim/${t.file}.webp`}

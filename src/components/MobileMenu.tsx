@@ -11,7 +11,7 @@ import { site } from "@/lib/site";
 
 import { mainNav, type NavLink } from "./nav";
 
-const extra = [{ href: "/tanitim-filmi", label: "Tanıtım filmi" }];
+const extra = [{ href: "/film", label: "Tanıtım filmi" }];
 
 /**
  * The phone menu: a full screen on the hero's ground. Big links step in one after another, groups with sub-pages

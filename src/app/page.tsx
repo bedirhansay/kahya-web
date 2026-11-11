@@ -22,9 +22,9 @@ export const metadata: Metadata = {
   },
 };
 
-const OFIS = { name: "Ofis yönetimi", href: "/cozumler/ofis-yonetimi" };
-const CRM = { name: "CRM", href: "/cozumler/crm" };
-const FINANS = { name: "Finans ve cari", href: "/cozumler/finans-cari" };
+const OFIS = { name: "Ofis yönetimi", href: "/solutions/office-management" };
+const CRM = { name: "CRM", href: "/solutions/crm" };
+const FINANS = { name: "Finans ve cari", href: "/solutions/finance" };
 
 /** The day's three phones: real 390 screens from the demo office. */
 const dayPhones: DayPhone[] = [
@@ -94,7 +94,7 @@ const slides: HeroSlide[] = [
     tag: "Cari ve tahsilat",
     lines: ["Kim ne borçlu,", "kimden ne zaman tahsilat var:", "tek ekranda."],
     points: ["Vadesi geçen ana sayfanıza düşer.", "Ekstreyi müşterinize linkle gönderirsiniz.", "Tahsilat açık taksitleri en eskiden kapatır."],
-    href: "/cozumler/finans-cari",
+    href: "/solutions/finance",
     shot: shot("s1-cari", "Kahya’da bir müşterinin cari kartı: bakiye, gecikmiş ödeme, sonraki vade ve hesap ekstresi."),
     phone: phone("s1-cari", "cari kart."),
     event: { title: "Tahsilat cariye işlendi", value: "+₺2.500,00" },
@@ -103,7 +103,7 @@ const slides: HeroSlide[] = [
     tag: "Ekip ve görevler",
     lines: ["Bugün kim ne yapıyor,", "hangi iş", "nerede kaldı."],
     points: ["Görevi kişiye ya da takıma verirsiniz.", "İzin telefondan istenir, tek dokunuşla onaylanır.", "Onayınızı bekleyenler tek listede."],
-    href: "/cozumler/ofis-yonetimi",
+    href: "/solutions/office-management",
     shot: shot("s2-gorev", "Kahya’da görevler listesi: sorumlu, durum ve bitiş tarihi."),
     phone: phone("s2-gorev", "görevler."),
     event: { title: "Görev tamamlandı", value: "Depo sayımı" },
@@ -112,7 +112,7 @@ const slides: HeroSlide[] = [
     tag: "Müşteri takibi",
     lines: ["Her görüşme kayıtta,", "takip günü", "ana sayfada."],
     points: ["Görüşme notu müşterinin kartında durur.", "Takip günü gelen görüşme ana sayfada önünüze çıkar.", "Temas koptuğunda sorumlu kişiye haber gider."],
-    href: "/cozumler/crm",
+    href: "/solutions/crm",
     shot: shot("s3-gorusme", "Kahya’da bir müşterinin görüşmeleri: ziyaret, telefon ve e-posta kayıtları."),
     phone: phone("s3-gorusme", "görüşmeler."),
     event: { title: "Takip günü", value: "13 Kasım" },
@@ -121,7 +121,7 @@ const slides: HeroSlide[] = [
     tag: "Teklif ve stok",
     lines: ["Teklif linkle gider,", "müşteri linkten kabul eder,", "tek tıkla satışa döner."],
     points: ["Teklifi kendi antetinizle hazırlarsınız.", "Müşterinin teklifi açtığını görürsünüz.", "Kritik seviyeye inen ürünü Kahya işaretler."],
-    href: "/cozumler/teklif",
+    href: "/solutions/quotes",
     shot: shot("s4-teklif", "Kahya’da kabul edilmiş bir teklif: kalemler, indirim, KDV ve genel toplam, yanında Satışa dönüştür düğmesi."),
     phone: phone("s4-teklif", "kabul edilmiş bir teklif."),
     event: { title: "Teklif kabul edildi", value: "₺10.260,00" },
@@ -130,7 +130,7 @@ const slides: HeroSlide[] = [
     tag: "Personel ve puantaj",
     lines: ["Kim işte, kim gelmedi,", "kim kaç saat çalıştı:", "devam takibinde."],
     points: ["Giriş ve çıkış saatleri günlük puantaja yazılır.", "İzin telefondan istenir, onaylanınca işlenir.", "Yevmiye ve aylık hakediş personelin kartında."],
-    href: "/ozellikler/personel-ve-izin",
+    href: "/features/staff-and-leave",
     shot: shot("s5-puantaj", "Kahya’da devam takibi: şu an işte olanlar, çalışılan ve gelinmeyen günler, toplam süre."),
     phone: phone("s5-puantaj", "devam takibi."),
     event: { title: "Şu an işte", value: "2 kişi" },
@@ -138,7 +138,7 @@ const slides: HeroSlide[] = [
 ];
 
 /** The three solutions, in the order an office meets them: money first. */
-const modules = (["finans-cari", "ofis-yonetimi", "crm"] as const).map((slug) => solutionBySlug(slug)!);
+const modules = (["finance", "office-management", "crm"] as const).map((slug) => solutionBySlug(slug)!);
 
 /** How an office starts: each sentence is the app's own (SSS, Veri aktarımı, roles). */
 const steps = [
@@ -187,7 +187,7 @@ export default function HomePage() {
             {modules.map((m) => (
               <li key={m.slug}>
                 <Link
-                  href={`/cozumler/${m.slug}`}
+                  href={`/solutions/${m.slug}`}
                   className="group flex h-full flex-col rounded-2xl border border-line bg-surface p-7 transition-colors hover:border-brand/50"
                 >
                   <h3 className="text-xl font-semibold">{m.name}</h3>
@@ -200,7 +200,7 @@ export default function HomePage() {
             ))}
           </ul>
           <p className="mt-8 text-ink/75">
-            <Link href="/cozumler#ek-hizmetler" className="link">
+            <Link href="/solutions#ek-hizmetler" className="link">
               Ek hizmetler
             </Link>
             : {extras.map((x) => x.name).join(", ").replace(/, ([^,]*)$/, " ve $1")}. İhtiyacınız olduğunda eklenir.
@@ -254,7 +254,7 @@ export default function HomePage() {
               <h2 id="sss" className="title">
                 Aklınızdaki sorular
               </h2>
-              <Link href="/sss" className="link mt-4 inline-flex min-h-11 items-center">
+              <Link href="/faq" className="link mt-4 inline-flex min-h-11 items-center">
                 Tüm sorular
               </Link>
             </div>
@@ -269,7 +269,7 @@ export default function HomePage() {
               <a href={site.app.register} className="btn btn-brass">
                 Ücretsiz başlayın
               </a>
-              <Link href="/iletisim" className="btn btn-line">
+              <Link href="/contact" className="btn btn-line">
                 Bize yazın
               </Link>
             </div>

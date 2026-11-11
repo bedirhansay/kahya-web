@@ -38,7 +38,7 @@ const visuals: Record<
     more: [ReactNode, ReactNode, boolean];
   }
 > = {
-  "ofis-yonetimi": {
+  "office-management": {
     hero: <TaskSummaryMock />,
     first: [<TaskSummaryMock key="a" />, <ApprovalTimesMock key="b" />],
     more: [<MailToTaskMock key="c" />, <LeavePhoneMock key="d" />, true],
@@ -48,7 +48,7 @@ const visuals: Record<
     first: [<MeetingsMock key="a" />, <RecentMeetingsMock key="b" />],
     more: [<RecentMeetingsMock key="c" />, null, false],
   },
-  "finans-cari": {
+  "finance": {
     hero: <CariMock />,
     first: [<MoneyHomeMock key="a" />, <CariMock key="b" />],
     more: [<PaymentPlanMock key="c" />, null, false],
@@ -60,20 +60,20 @@ export function generateStaticParams() {
   return [...solutions, ...addons].map((s) => ({ slug: s.slug }));
 }
 
-export async function generateMetadata({ params }: PageProps<"/cozumler/[slug]">): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps<"/solutions/[slug]">): Promise<Metadata> {
   const { slug } = await params;
   const a = addonBySlug(slug);
-  if (a) return pageMetadata({ path: `/cozumler/${a.slug}`, title: a.seo.title, description: a.seo.description });
+  if (a) return pageMetadata({ path: `/solutions/${a.slug}`, title: a.seo.title, description: a.seo.description });
   const s = solutionBySlug(slug);
   if (!s) return {};
   return pageMetadata({
-    path: `/cozumler/${s.slug}`,
+    path: `/solutions/${s.slug}`,
     title: s.seo.title,
     description: s.seo.description,
   });
 }
 
-export default async function SolutionPage({ params }: PageProps<"/cozumler/[slug]">) {
+export default async function SolutionPage({ params }: PageProps<"/solutions/[slug]">) {
   const { slug } = await params;
   const a = addonBySlug(slug);
   if (a) return <AddonPage a={a} />;
@@ -92,8 +92,8 @@ export default async function SolutionPage({ params }: PageProps<"/cozumler/[slu
           <div>
             <Breadcrumbs
               items={[
-                { name: "Çözümler", path: "/cozumler" },
-                { name: s.name, path: `/cozumler/${s.slug}` },
+                { name: "Çözümler", path: "/solutions" },
+                { name: s.name, path: `/solutions/${s.slug}` },
               ]}
             />
             <h1 className="display mt-4 max-w-3xl">
@@ -104,7 +104,7 @@ export default async function SolutionPage({ params }: PageProps<"/cozumler/[slu
               <a href={site.app.register} className="btn btn-brass">
                 Ücretsiz başlayın
               </a>
-              <a href={`/iletisim?konu=fiyat&cozum=${encodeURIComponent(s.name)}`} className="btn btn-line">
+              <a href={`/contact?konu=fiyat&cozum=${encodeURIComponent(s.name)}`} className="btn btn-line">
                 Fiyat talep et
               </a>
             </div>
@@ -155,7 +155,7 @@ export default async function SolutionPage({ params }: PageProps<"/cozumler/[slu
                   <ul className="mt-3 border-t border-line">
                     {related.map((f) => (
                       <li key={f.slug} className="border-b border-line">
-                        <Link href={`/ozellikler/${f.slug}`} className="group flex gap-4 py-4">
+                        <Link href={`/features/${f.slug}`} className="group flex gap-4 py-4">
                           <span className="grid size-11 shrink-0 place-items-center rounded-[10px] bg-brand-50 text-brand">
                             <FeatureIcon slug={f.slug} size={20} />
                           </span>
@@ -173,7 +173,7 @@ export default async function SolutionPage({ params }: PageProps<"/cozumler/[slu
               <ul className="mt-3 border-t border-line">
                 {others.map((o) => (
                   <li key={o.slug} className="border-b border-line">
-                    <Link href={`/cozumler/${o.slug}`} className="group block py-4">
+                    <Link href={`/solutions/${o.slug}`} className="group block py-4">
                       <span className="block font-semibold group-hover:text-brand">{o.name}</span>
                       <span className="mt-0.5 block text-[0.95rem] leading-relaxed text-muted">{o.summary}</span>
                     </Link>
@@ -198,7 +198,7 @@ export default async function SolutionPage({ params }: PageProps<"/cozumler/[slu
               <ul className="mt-8 grid border-t border-line sm:grid-cols-2 lg:grid-cols-3">
                 {usedBy.map((x) => (
                   <li key={x.slug} className="border-b border-line">
-                    <Link href={`/sektorler/${x.slug}`} className="group block min-h-full py-5 pr-6">
+                    <Link href={`/sectors/${x.slug}`} className="group block min-h-full py-5 pr-6">
                       <span className="block font-semibold group-hover:text-brand">{x.name}</span>
                       <span className="mt-1 block text-[0.95rem] leading-relaxed text-muted">{x.lead}</span>
                     </Link>

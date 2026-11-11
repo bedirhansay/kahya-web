@@ -14,17 +14,17 @@ export function generateStaticParams() {
   return tutorials.map((t) => ({ slug: t.slug }));
 }
 
-export async function generateMetadata({ params }: PageProps<"/egitim/[slug]">): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps<"/training/[slug]">): Promise<Metadata> {
   const { slug } = await params;
   const t = tutorialBySlug(slug);
   if (!t) return {};
   return pageMetadata({
-    path: `/egitim/${t.slug}`,
+    path: `/training/${t.slug}`,
     title: `${t.title}, eğitim videosu`,
     description: tutorialDescription(t),
     type: "video.other",
     image: {
-      url: `/egitim/${t.slug}/opengraph-image`,
+      url: `/training/${t.slug}/opengraph-image`,
       width: 1200,
       height: 630,
       alt: t.title,
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: PageProps<"/egitim/[slug]">):
   });
 }
 
-export default async function TutorialPage({ params }: PageProps<"/egitim/[slug]">) {
+export default async function TutorialPage({ params }: PageProps<"/training/[slug]">) {
   const { slug } = await params;
   const t = tutorialBySlug(slug);
   if (!t) notFound();
@@ -50,14 +50,14 @@ export default async function TutorialPage({ params }: PageProps<"/egitim/[slug]
           seconds: t.seconds,
           contentUrl: `/media/egitim/${t.file}.mp4`,
           thumbnailUrl: `/media/egitim/${t.file}.webp`,
-          pagePath: `/egitim/${t.slug}`,
+          pagePath: `/training/${t.slug}`,
           transcript: t.lessons.map((l) => `${l.title}: ${l.steps.join(". ")}.`).join("\n"),
         })}
       />
       <PageHero
         crumbs={[
-          { name: "Eğitim", path: "/egitim" },
-          { name: t.title, path: `/egitim/${t.slug}` },
+          { name: "Eğitim", path: "/training" },
+          { name: t.title, path: `/training/${t.slug}` },
         ]}
         title={t.title}
         lead={`Bölüm ${t.no} · ${clock(t.seconds)} · ${t.lessons.length} işlem`}
@@ -94,7 +94,7 @@ export default async function TutorialPage({ params }: PageProps<"/egitim/[slug]
                 <ul className="mt-3 space-y-2">
                   {related.map((f) => (
                     <li key={f.slug}>
-                      <Link href={`/ozellikler/${f.slug}`} className="link">
+                      <Link href={`/features/${f.slug}`} className="link">
                         {f.name}
                       </Link>
                     </li>
@@ -126,7 +126,7 @@ export default async function TutorialPage({ params }: PageProps<"/egitim/[slug]
         <div className="wrap grid gap-4 py-10 sm:grid-cols-2">
           {prev ? (
             <Link
-              href={`/egitim/${prev.slug}`}
+              href={`/training/${prev.slug}`}
               className="group rounded-[var(--radius-frame)] border border-line p-5 hover:border-sage"
             >
               <span className="text-sm text-muted">Önceki bölüm</span>
@@ -137,7 +137,7 @@ export default async function TutorialPage({ params }: PageProps<"/egitim/[slug]
           )}
           {next && (
             <Link
-              href={`/egitim/${next.slug}`}
+              href={`/training/${next.slug}`}
               className="group rounded-[var(--radius-frame)] border border-line p-5 text-right hover:border-sage"
             >
               <span className="text-sm text-muted">Sonraki bölüm</span>

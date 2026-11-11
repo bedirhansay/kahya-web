@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint && node tools/avoid-ai-design/detect.mjs src --min=P1",
+    "lint": "eslint && node tools/avoid-ai-design/detect.mjs src --min=P1 && node scripts/check-routes.mjs",
     "lint:design": "node tools/avoid-ai-design/detect.mjs src",
     "media": "node scripts/build-media.mjs",
     "typecheck": "tsc --noEmit",

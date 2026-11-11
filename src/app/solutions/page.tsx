@@ -13,14 +13,14 @@ import { services, solutions } from "@/content/solutions";
 import { pageMetadata, softwareLd } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  path: "/cozumler",
+  path: "/solutions",
   title: "Çözümler: ofis yönetimi, CRM, finans ve cari",
   description:
     "Kahya üç çözümden oluşur: Ofis yönetimi, CRM (müşteri ilişkileri) ile Finans ve cari. E-posta, Stok, Teklif, Kahya AI ve Filo ihtiyacınız olduğunda eklenir. Kahya’nın ne yaptığı ve ne yapmadığı.",
 });
 
 const quote = (what: string) =>
-  `/iletisim?konu=fiyat&cozum=${encodeURIComponent(what)}`;
+  `/contact?konu=fiyat&cozum=${encodeURIComponent(what)}`;
 
 /** The three services in src/content/solutions.ts, in order: setup and import, company e-mail, web site. */
 const serviceIcons = [Import, AtSign, Globe];
@@ -31,7 +31,7 @@ const media: Record<
   string,
   { tone: CaseTone; shot: string; phone: string; alt: string; time: string }
 > = {
-  "ofis-yonetimi": {
+  "office-management": {
     tone: "pine",
     shot: "s2-gorev",
     phone: "s2-gorev",
@@ -45,7 +45,7 @@ const media: Record<
     alt: "müşteri görüşmeleri",
     time: "14:00",
   },
-  "finans-cari": {
+  "finance": {
     tone: "cream",
     shot: "s1-cari",
     phone: "s1-cari",
@@ -59,7 +59,7 @@ export default function SolutionsPage() {
     <>
       <JsonLd data={softwareLd()} />
       <PageHero
-        crumbs={[{ name: "Çözümler", path: "/cozumler" }]}
+        crumbs={[{ name: "Çözümler", path: "/solutions" }]}
         title="İhtiyacınız olanı seçin, gerisi gizli kalsın"
         lead="Kahya üç çözümden oluşur. Birini, ikisini ya da üçünü birden kullanabilirsiniz; kullanmadığınız menüden kalkar."
       >
@@ -104,7 +104,7 @@ export default function SolutionsPage() {
               >
                 <h2 className="title">
                   <Link
-                    href={`/cozumler/${s.slug}`}
+                    href={`/solutions/${s.slug}`}
                     className="hover:text-brand"
                   >
                     {s.name}
@@ -123,7 +123,7 @@ export default function SolutionsPage() {
                   ))}
                 </ul>
                 <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3">
-                  <Link href={`/cozumler/${s.slug}`} className="btn btn-petrol">
+                  <Link href={`/solutions/${s.slug}`} className="btn btn-petrol">
                     {s.name} çözümünü inceleyin
                   </Link>
                   <a
@@ -148,7 +148,7 @@ export default function SolutionsPage() {
             <p className="lead text-muted">
               Hangi çözümü kullanırsanız kullanın, bunları da açtırabilirsiniz.
               Fiyatı{" "}
-              <Link href="/fiyatlar#ek-hizmetler" className="link">
+              <Link href="/pricing#ek-hizmetler" className="link">
                 Paketler ve fiyatlar
               </Link>{" "}
               sayfasında.
@@ -199,7 +199,7 @@ export default function SolutionsPage() {
               Önce ne gerektiğini konuşalım; fiyatı işe göre söyleriz.
             </p>
             <Link
-              href="/rehber/cari-takibi-excel-mi-program-mi"
+              href="/guides/accounts-excel-or-software"
               className="link inline-flex min-h-11 items-center"
             >
               Excel mi, program mı? Karşılaştırmayı okuyun

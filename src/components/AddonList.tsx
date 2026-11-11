@@ -5,7 +5,7 @@ import { addons } from "@/content/addons";
 import { extras } from "@/content/solutions";
 
 const quote = (what: string) =>
-  `/iletisim?konu=fiyat&cozum=${encodeURIComponent(what)}`;
+  `/contact?konu=fiyat&cozum=${encodeURIComponent(what)}`;
 
 /** Every add-on the app sells, in one ruled list: the screen where there is one, what it holds, which package, how to ask. */
 export function AddonList({ className }: { className?: string }) {
@@ -26,7 +26,7 @@ export function AddonList({ className }: { className?: string }) {
           >
             {a?.screen && (
               <Link
-                href={`/cozumler/${a.slug}`}
+                href={`/solutions/${a.slug}`}
                 className="block self-start overflow-hidden rounded-[10px] border border-line bg-surface"
                 tabIndex={-1}
                 aria-hidden
@@ -45,7 +45,7 @@ export function AddonList({ className }: { className?: string }) {
               <h3 className="text-lg font-bold">
                 {a ? (
                   <Link
-                    href={`/cozumler/${a.slug}`}
+                    href={`/solutions/${a.slug}`}
                     className="hover:text-brand"
                   >
                     {e.name}

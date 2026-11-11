@@ -6,7 +6,7 @@
 export type Point = { term: string; text: string };
 
 export type Solution = {
-  slug: "ofis-yonetimi" | "crm" | "finans-cari";
+  slug: "office-management" | "crm" | "finance";
   no: string;
   kicker: string;
   name: string;
@@ -17,7 +17,7 @@ export type Solution = {
   title: string;
   lead: string;
   points: Point[];
-  /** Search-facing page title and h1 for /cozumler/[slug]. */
+  /** Search-facing page title and h1 for /solutions/[slug]. */
   seo: { title: string; h1: string; description: string };
   more: { title: string; lead: string; points: Point[] };
   features: string[];
@@ -26,7 +26,7 @@ export type Solution = {
 
 export const solutions: Solution[] = [
   {
-    slug: "ofis-yonetimi",
+    slug: "office-management",
     no: "01",
     kicker: "Ekip ve işleyiş",
     name: "Ofis yönetimi",
@@ -54,7 +54,7 @@ export const solutions: Solution[] = [
         { term: "Talepler ve duyurular", text: "masraf talebi, onay akışı ve ekip duyurusu tek yerde." },
       ],
     },
-    features: ["gorev-takibi", "personel-ve-izin", "talep-ve-onay", "proje-yonetimi", "dokuman-ve-sozlesme"],
+    features: ["tasks", "staff-and-leave", "requests-and-approvals", "projects", "documents-and-contracts"],
     faq: [
       {
         q: "Çalışanlarım Kahya’yı kullanmak için ayrı bir uygulama indirmeli mi?",
@@ -103,7 +103,7 @@ export const solutions: Solution[] = [
         { term: "E-posta", text: "müşterinin e-postaları kartında görünür. Ek hizmet." },
       ],
     },
-    features: ["cari-takibi", "e-posta"],
+    features: ["accounts", "email"],
     faq: [
       {
         q: "Kahya’nın CRM’i satış hunisi (pipeline) içeriyor mu?",
@@ -120,7 +120,7 @@ export const solutions: Solution[] = [
     ],
   },
   {
-    slug: "finans-cari",
+    slug: "finance",
     no: "03",
     kicker: "Cari ve tahsilat",
     name: "Finans ve cari",
@@ -148,7 +148,7 @@ export const solutions: Solution[] = [
         { term: "Mali müşavir paketi", text: "ayın hareketleri ve ekstreler tek dosyada." },
       ],
     },
-    features: ["cari-takibi", "odeme-planlari", "raporlar"],
+    features: ["accounts", "payment-plans", "reports"],
     faq: [
       {
         q: "Kahya fatura keser mi, bankama bağlanır mı?",
@@ -168,7 +168,7 @@ export const solutions: Solution[] = [
 
 export const solutionBySlug = (slug: string) => solutions.find((s) => s.slug === slug);
 
-/** `plan` says which packages carry it, in one line, with no price (prices live only on /fiyatlar). */
+/** `plan` says which packages carry it, in one line, with no price (prices live only on /pricing). */
 export type Extra = { name: string; body: string; plan: string; href?: string };
 
 export const extras: Extra[] = [
@@ -176,43 +176,43 @@ export const extras: Extra[] = [
     name: "E-posta",
     body: "Kurumsal e-posta adresinizi bağlayın. Her e-posta kendi carisiyle eşleşir, yeni firma tek tıkla cari olur.",
     plan: "Ücretli her pakete ek hizmet olarak eklenir.",
-    href: "/cozumler/e-posta",
+    href: "/solutions/email",
   },
   {
     name: "Stok",
     body: "Ürünler ve depolar tek listede. Kritik seviyeye ineni Kahya işaretler, satışta seçilen ürün stoktan düşer.",
     plan: "Ekip, Büyüyen ve Kurumsal’da dahil; Başlangıç’ta ek hizmet.",
-    href: "/cozumler/stok",
+    href: "/solutions/inventory",
   },
   {
     name: "Teklif",
     body: "Kendi antetinizle teklif hazırlarsınız. Müşteri linkten açıp kabul eder, kabul edilen teklif satışa döner.",
     plan: "Kurumsal’da dahil; diğer ücretli paketlerde ek hizmet.",
-    href: "/cozumler/teklif",
+    href: "/solutions/quotes",
   },
   {
     name: "Ticari paket",
     body: "Stok ve Teklif birlikte, tek ek hizmetle.",
     plan: "Stok paketinize dahil değilse ikisini birlikte açmanın yolu.",
-    href: "/cozumler/ticari-paket",
+    href: "/solutions/business-pack",
   },
   {
     name: "Kahya AI",
     body: "Sorun, Kahya kendi verinizden yanıtlasın. Görev ve kayıt taslağı hazırlar, siz onaylamadan hiçbir şey kaydedilmez.",
     plan: "Her firmada ayda 100 soru ücretsiz; daha fazlası ek hizmetle.",
-    href: "/cozumler/kahya-ai",
+    href: "/solutions/kahya-ai",
   },
   {
     name: "Kasa ve banka",
     body: "Kasa, banka hesabı ve kredi kartı bakiyeleri; banka ekstresini yükleyip satırları cariye, masrafa ya da virmana işleme; hesaplar arası aktarım.",
     plan: "Hiçbir pakete dahil değil; talep üzerine her pakete eklenir.",
-    href: "/rehber/kasa-ve-banka-takibi-nasil-yapilir",
+    href: "/guides/how-to-track-cash-and-bank",
   },
   {
     name: "Filo",
     body: "Araçlar, seferler ve araç bazında gelir gider takibi.",
     plan: "Ücretli her pakete ek hizmet olarak eklenir.",
-    href: "/cozumler/filo",
+    href: "/solutions/fleet",
   },
 ];
 
@@ -257,7 +257,7 @@ export const trust = [
 export const homeTrustLine =
   "Her firmanın verisi ayrı tutulur ve bu her sürümde testle denetlenir. Verinizin tamamını istediğiniz an dışarı alırsınız.";
 
-/** Questions an office asks every day: scattered tools against Kahya (moved from the home to /ozellikler). */
+/** Questions an office asks every day: scattered tools against Kahya (moved from the home to /features). */
 export const vsScattered: readonly (readonly [string, string, string])[] = [
   ["İş kimde, ne durumda?", "Mesaj grubunda soruluyor.", "Görev sorumlusu ve durumuyla herkesin önünde."],
   ["Bu hafta kim izinli?", "İzin kâğıdı ya da mesaj.", "İzin telefondan istenir, onaylanınca takvime işlenir."],

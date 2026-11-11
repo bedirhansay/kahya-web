@@ -9,7 +9,7 @@ import { pageMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
-  path: "/iletisim",
+  path: "/contact",
   title: "İletişim",
   description:
     "Kahya ekibine yazın: kurumsal plan teklifi, Kahya AI ek hizmeti, kurulum ve veri aktarımı soruları için.",
@@ -42,7 +42,7 @@ const ways: Way[] = [
     Icon: PlayCircle,
     title: "Kendiniz öğrenin",
     body: "Her modül için adım adım eğitim videoları.",
-    href: "/egitim",
+    href: "/training",
     cta: "Eğitim videoları",
   },
 ];
@@ -68,7 +68,7 @@ export default function ContactPage() {
   return (
     <>
       <PageHero
-        crumbs={[{ name: "İletişim", path: "/iletisim" }]}
+        crumbs={[{ name: "İletişim", path: "/contact" }]}
         title="Bize yazın, hemen dönelim"
         lead="Fiyat teklifi, tanıtım ya da verilerinizi taşımak: formu doldurun, ekibimiz bir iş günü içinde e-postayla dönüş yapsın."
       />

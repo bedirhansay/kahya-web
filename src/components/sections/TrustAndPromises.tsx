@@ -10,7 +10,7 @@ const icons: Record<string, LucideIcon> = {
   "Günlük yedek": DatabaseBackup,
 };
 
-/** "Verileriniz sizin, kontrol sizde": the trust facts (on /cozumler), each with its sign in a brand tile. */
+/** "Verileriniz sizin, kontrol sizde": the trust facts (on /solutions), each with its sign in a brand tile. */
 export function Trust() {
   return (
     <section aria-labelledby="guven">

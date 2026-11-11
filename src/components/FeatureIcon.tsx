@@ -14,15 +14,15 @@ import {
 import { KahyaGlyph } from "@/components/KahyaGlyph";
 
 const icons: Record<string, LucideIcon> = {
-  "cari-takibi": Wallet,
-  "odeme-planlari": CalendarClock,
-  "gorev-takibi": ListChecks,
-  "proje-yonetimi": FolderKanban,
-  "e-posta": Mail,
-  "personel-ve-izin": UsersRound,
-  "talep-ve-onay": ClipboardCheck,
-  "dokuman-ve-sozlesme": FileText,
-  raporlar: ChartColumn,
+  "accounts": Wallet,
+  "payment-plans": CalendarClock,
+  "tasks": ListChecks,
+  "projects": FolderKanban,
+  "email": Mail,
+  "staff-and-leave": UsersRound,
+  "requests-and-approvals": ClipboardCheck,
+  "documents-and-contracts": FileText,
+  reports: ChartColumn,
 };
 
 export function FeatureIcon({ slug, size = 20, className }: { slug: string; size?: number; className?: string }) {

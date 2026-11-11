@@ -24,14 +24,14 @@ export function generateStaticParams() {
   return guides.map((g) => ({ slug: g.slug }));
 }
 
-export async function generateMetadata({ params }: PageProps<"/rehber/[slug]">): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps<"/guides/[slug]">): Promise<Metadata> {
   const { slug } = await params;
   const g = guideBySlug(slug);
   if (!g) return {};
-  return pageMetadata({ path: `/rehber/${g.slug}`, title: g.metaTitle, description: g.metaDescription, type: "article" });
+  return pageMetadata({ path: `/guides/${g.slug}`, title: g.metaTitle, description: g.metaDescription, type: "article" });
 }
 
-export default async function GuidePage({ params }: PageProps<"/rehber/[slug]">) {
+export default async function GuidePage({ params }: PageProps<"/guides/[slug]">) {
   const { slug } = await params;
   const g = guideBySlug(slug);
   if (!g) notFound();
@@ -42,7 +42,7 @@ export default async function GuidePage({ params }: PageProps<"/rehber/[slug]">)
     description: g.metaDescription,
     inLanguage: "tr-TR",
     dateModified: g.updated,
-    mainEntityOfPage: absoluteUrl(`/rehber/${g.slug}`),
+    mainEntityOfPage: absoluteUrl(`/guides/${g.slug}`),
     author: { "@id": `${SITE_URL}/#organization` },
     publisher: { "@id": `${SITE_URL}/#organization` },
   };
@@ -53,8 +53,8 @@ export default async function GuidePage({ params }: PageProps<"/rehber/[slug]">)
       <JsonLd data={[article, faqLd(g.faq)]} />
       <PageHero
         crumbs={[
-          { name: "Rehberler", path: "/rehber" },
-          { name: g.title, path: `/rehber/${g.slug}` },
+          { name: "Rehberler", path: "/guides" },
+          { name: g.title, path: `/guides/${g.slug}` },
         ]}
         title={g.title}
         lead={g.answer}
@@ -102,7 +102,7 @@ export default async function GuidePage({ params }: PageProps<"/rehber/[slug]">)
                 {related.map((f) => (
                   <li key={f.slug}>
                     <Link
-                      href={`/ozellikler/${f.slug}`}
+                      href={`/features/${f.slug}`}
                       className="block rounded-xl border border-line bg-surface px-4 py-3 hover:border-brand"
                     >
                       <span className="font-semibold">{f.name}</span>

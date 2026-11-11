@@ -92,7 +92,7 @@ export function softwareLd(): WithContext<SoftwareApplication> {
     screenshot: ["home", "cari", "mail", "project"].map((n) => absoluteUrl(`/screens/${n}.webp`)),
     featureList: features.map((f) => f.name),
     // The Ücretsiz package is a real offer; paid packages are quoted, so they carry no list price.
-    offers: { "@type": "Offer", name: "Ücretsiz paket", price: "0", priceCurrency: "TRY", url: absoluteUrl("/fiyatlar") },
+    offers: { "@type": "Offer", name: "Ücretsiz paket", price: "0", priceCurrency: "TRY", url: absoluteUrl("/pricing") },
     publisher: { "@id": orgId },
   };
 }

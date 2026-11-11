@@ -12,13 +12,13 @@ import { promises, vsAccounting } from "@/content/solutions";
 import { faqLd, pageMetadata, softwareLd } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  path: "/fiyatlar",
+  path: "/pricing",
   title: "Paketler ve fiyatlar",
   description:
     "Kahya paketleri yan yana: Ücretsiz, Başlangıç, Ekip, Büyüyen ve Kurumsal. Kullanıcı sayısı, dosya alanı, modüller ve ek hizmetler. Fiyatı ekibinize ve ek hizmetlere göre veririz.",
 });
 
-const quote = (what: string) => `/iletisim?konu=fiyat&cozum=${encodeURIComponent(what)}`;
+const quote = (what: string) => `/contact?konu=fiyat&cozum=${encodeURIComponent(what)}`;
 
 /** The one place for package facts: the table (add-ons per package in it), the promises with what Kahya does not do, and the buying questions. */
 export default function PricingPage() {
@@ -26,7 +26,7 @@ export default function PricingPage() {
     <>
       <JsonLd data={[softwareLd(), faqLd(pricingFaq)]} />
       <PageHero
-        crumbs={[{ name: "Fiyatlar", path: "/fiyatlar" }]}
+        crumbs={[{ name: "Fiyatlar", path: "/pricing" }]}
         title="Paketler ve fiyatlar"
         lead="Paketler kullanıcı sayısına ve dosya alanına göre ayrılır; fiyatı ekibinize ve ek hizmetlere göre veririz. Kayıt olan her firma 30 gün Kurumsal paketi dener."
       >
@@ -63,7 +63,7 @@ export default function PricingPage() {
               Tabloda olmayan iki ek hizmet: <span className="font-semibold text-ink">Kahya AI</span> (her firmada ayda 100
               soru ücretsiz, daha fazlası ek hizmetle) ve <span className="font-semibold text-ink">Ticari paket</span> (Stok
               ve Teklif birlikte). Ek hizmetlerin ne yaptığı{" "}
-              <Link href="/cozumler#ek-hizmetler" className="link">
+              <Link href="/solutions#ek-hizmetler" className="link">
                 Çözümler
               </Link>{" "}
               sayfasında.

@@ -8,7 +8,7 @@ import { PageHero } from "@/components/PageHero";
 import type { Addon } from "@/content/addons";
 import { faqLd } from "@/lib/seo";
 
-const quote = (what: string) => `/iletisim?konu=fiyat&cozum=${encodeURIComponent(what)}`;
+const quote = (what: string) => `/contact?konu=fiyat&cozum=${encodeURIComponent(what)}`;
 
 /**
  * One add-on: the real screen first, then when you need it, what it holds, how it is switched on and three questions
@@ -20,8 +20,8 @@ export function AddonPage({ a }: { a: Addon }) {
       <JsonLd data={faqLd(a.faq)} />
       <PageHero
         crumbs={[
-          { name: "Çözümler", path: "/cozumler" },
-          { name: a.name, path: `/cozumler/${a.slug}` },
+          { name: "Çözümler", path: "/solutions" },
+          { name: a.name, path: `/solutions/${a.slug}` },
         ]}
         title={a.title}
         lead={a.lead}
@@ -30,7 +30,7 @@ export function AddonPage({ a }: { a: Addon }) {
           <a href={quote(a.name)} className="btn btn-petrol">
             {a.name} için talep edin
           </a>
-          <Link href="/fiyatlar#ek-hizmetler" className="link inline-flex min-h-11 items-center">
+          <Link href="/pricing#ek-hizmetler" className="link inline-flex min-h-11 items-center">
             Hangi pakette olduğu
           </Link>
         </div>

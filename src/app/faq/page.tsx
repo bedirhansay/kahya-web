@@ -10,7 +10,7 @@ import { featureBySlug } from "@/content/features";
 import { faqLd, pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  path: "/sss",
+  path: "/faq",
   title: "Sık sorulan sorular",
   description:
     "Kahya hakkında sık sorulanlar: satın alma, cari takibi, ödeme planları, e-posta, personel ve puantaj, dokümanlar ve Kahya AI.",
@@ -22,11 +22,11 @@ const fromFeature = (slug: string) => featureBySlug(slug)?.faq ?? [];
 const topics = [
   { id: "genel", title: "Genel", items: generalFaq },
   { id: "satin-alma", title: "Satın alma", items: pricingFaq },
-  { id: "cari", title: "Cari", items: fromFeature("cari-takibi") },
-  { id: "odeme-planlari", title: "Ödeme planları", items: fromFeature("odeme-planlari") },
-  { id: "e-posta", title: "E-posta", items: fromFeature("e-posta") },
-  { id: "personel", title: "Personel", items: fromFeature("personel-ve-izin") },
-  { id: "dokumanlar", title: "Dokümanlar", items: fromFeature("dokuman-ve-sozlesme") },
+  { id: "cari", title: "Cari", items: fromFeature("accounts") },
+  { id: "odeme-planlari", title: "Ödeme planları", items: fromFeature("payment-plans") },
+  { id: "e-posta", title: "E-posta", items: fromFeature("email") },
+  { id: "personel", title: "Personel", items: fromFeature("staff-and-leave") },
+  { id: "dokumanlar", title: "Dokümanlar", items: fromFeature("documents-and-contracts") },
   { id: "kahya-ai", title: "Kahya AI", items: fromFeature("kahya-ai") },
 ].filter((t) => t.items.length > 0);
 
@@ -35,7 +35,7 @@ export default function FaqPage() {
     <>
       <JsonLd data={faqLd(topics.flatMap((t) => t.items))} />
       <PageHero
-        crumbs={[{ name: "Sık sorulanlar", path: "/sss" }]}
+        crumbs={[{ name: "Sık sorulanlar", path: "/faq" }]}
         title="Sık sorulan sorular"
         lead="Konuya göre ayrıldı. Bir soruya dokunun, cevabı altında açılır."
       >

@@ -1,12 +1,55 @@
 import type { NextConfig } from "next";
 
+import legacyRoutes from "./src/content/legacy-routes.json";
+
 const securityHeaders = [
   { key: "X-Content-Type-Options", value: "nosniff" },
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
   { key: "X-Frame-Options", value: "SAMEORIGIN" },
-  { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
-  { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
+  {
+    key: "Permissions-Policy",
+    value: "camera=(), microphone=(), geolocation=()",
+  },
+  {
+    key: "Strict-Transport-Security",
+    value: "max-age=63072000; includeSubDomains; preload",
+  },
 ];
+
+type Redirect = { source: string; destination: string; statusCode: 301 };
+const moved = (source: string, destination: string): Redirect => ({
+  source,
+  destination,
+  statusCode: 301,
+});
+
+/**
+ * The Turkish addresses (until 2026-11-12) answer 301 to the English ones in one step, from
+ * src/content/legacy-routes.json: every known page by its slug first (with anything under it, like the
+ * opengraph image), then each section as a whole, so an address the map does not know still lands in the
+ * right section.
+ */
+function legacyRedirects(): Redirect[] {
+  const { sections, slugs } = legacyRoutes;
+  const section = (en: string) =>
+    Object.keys(sections).find(
+      (tr) => sections[tr as keyof typeof sections] === en,
+    )!;
+  const pages = Object.entries(slugs).flatMap(([en, map]) =>
+    Object.entries(map as Record<string, string>).map(([tr, slug]) =>
+      moved(`/${section(en)}/${tr}/:rest*`, `/${en}/${slug}/:rest*`),
+    ),
+  );
+  return [
+    // CRM is a solution, not a feature page; both feature addresses land on the solution.
+    moved("/ozellikler/crm", "/solutions/crm"),
+    moved("/features/crm", "/solutions/crm"),
+    ...pages,
+    ...Object.entries(sections).map(([tr, en]) =>
+      moved(`/${tr}/:path*`, `/${en}/:path*`),
+    ),
+  ];
+}
 
 const nextConfig: NextConfig = {
   cacheComponents: true,
@@ -25,19 +68,31 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 60 * 60 * 24 * 30,
   },
   async redirects() {
-    // CRM is a solution, not a feature page; its old feature address lands on the solution.
-    return [{ source: "/ozellikler/crm", destination: "/cozumler/crm", permanent: true }];
+    return legacyRedirects();
   },
   async headers() {
     return [
       { source: "/:path*", headers: securityHeaders },
       // Always re-fetched, so the old app's worker is replaced on the next visit.
-      { source: "/sw.js", headers: [{ key: "Cache-Control", value: "no-cache, no-store, must-revalidate" }] },
+      {
+        source: "/sw.js",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "no-cache, no-store, must-revalidate",
+          },
+        ],
+      },
       {
         // Media is rebuilt by `pnpm media` with the same names; a week keeps
         // re-renders reachable without a cache-busting step.
         source: "/(media|screens|brand)/:path*",
-        headers: [{ key: "Cache-Control", value: "public, max-age=604800, stale-while-revalidate=86400" }],
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=604800, stale-while-revalidate=86400",
+          },
+        ],
       },
     ];
   },

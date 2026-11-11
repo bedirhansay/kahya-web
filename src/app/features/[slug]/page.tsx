@@ -20,16 +20,16 @@ export function generateStaticParams() {
   return features.map((f) => ({ slug: f.slug }));
 }
 
-export async function generateMetadata({ params }: PageProps<"/ozellikler/[slug]">): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps<"/features/[slug]">): Promise<Metadata> {
   const { slug } = await params;
   const f = featureBySlug(slug);
   if (!f) return {};
   return pageMetadata({
-    path: `/ozellikler/${f.slug}`,
+    path: `/features/${f.slug}`,
     title: f.metaTitle,
     description: f.metaDescription,
     image: {
-      url: `/ozellikler/${f.slug}/opengraph-image`,
+      url: `/features/${f.slug}/opengraph-image`,
       width: 1200,
       height: 630,
       alt: f.title,
@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: PageProps<"/ozellikler/[slug]
   });
 }
 
-export default async function FeaturePage({ params }: PageProps<"/ozellikler/[slug]">) {
+export default async function FeaturePage({ params }: PageProps<"/features/[slug]">) {
   const { slug } = await params;
   const f = featureBySlug(slug);
   if (!f) notFound();
@@ -53,8 +53,8 @@ export default async function FeaturePage({ params }: PageProps<"/ozellikler/[sl
         <div className="wrap">
           <Breadcrumbs
             items={[
-              { name: "Özellikler", path: "/ozellikler" },
-              { name: f.name, path: `/ozellikler/${f.slug}` },
+              { name: "Özellikler", path: "/features" },
+              { name: f.name, path: `/features/${f.slug}` },
             ]}
           />
           <h1 className="display mt-4 max-w-4xl">{f.title}</h1>
@@ -66,7 +66,7 @@ export default async function FeaturePage({ params }: PageProps<"/ozellikler/[sl
                   Ücretsiz başlayın
                 </a>
                 {main && (
-                  <Link href={`/egitim/${main.slug}`} className="btn btn-line">
+                  <Link href={`/training/${main.slug}`} className="btn btn-line">
                     <PlayCircle size={18} aria-hidden />
                     Nasıl kullanılır, {clock(main.seconds)}
                   </Link>
@@ -123,7 +123,7 @@ export default async function FeaturePage({ params }: PageProps<"/ozellikler/[sl
             </h2>
             <p className="lead mt-4 max-w-2xl text-muted">
               Uygulamadaki gerçek adımlar. Tamamını{" "}
-              <Link href={`/egitim/${main.slug}`} className="link">
+              <Link href={`/training/${main.slug}`} className="link">
                 {main.title}
               </Link>{" "}
               eğitim videosunda izleyin.
@@ -165,7 +165,7 @@ export default async function FeaturePage({ params }: PageProps<"/ozellikler/[sl
             <ul className="mt-8 grid border-t border-line sm:grid-cols-2 lg:grid-cols-3">
               {others.map((o) => (
                 <li key={o.slug} className="border-b border-line">
-                  <Link href={`/ozellikler/${o.slug}`} className="group flex h-full gap-4 py-5 pr-6">
+                  <Link href={`/features/${o.slug}`} className="group flex h-full gap-4 py-5 pr-6">
                     <span className="grid size-11 shrink-0 place-items-center rounded-[10px] bg-brand-50 text-brand">
                       <FeatureIcon slug={o.slug} size={20} />
                     </span>

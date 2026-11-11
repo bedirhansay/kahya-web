@@ -1,10 +1,10 @@
 /**
- * The add-on pages (/cozumler/<slug>). Every sentence is taken from the app's own help texts
+ * The add-on pages (/solutions/<slug>). Every sentence is taken from the app's own help texts
  * (web src/components/help/help-topics.ts) or from the feature pages; nothing here is promised ahead.
- * Package facts (which plan carries what) live only on /fiyatlar, so each page links there.
+ * Package facts (which plan carries what) live only on /pricing, so each page links there.
  */
 export type Addon = {
-  slug: "e-posta" | "stok" | "teklif" | "kahya-ai" | "filo" | "ticari-paket";
+  slug: "email" | "inventory" | "quotes" | "kahya-ai" | "fleet" | "business-pack";
   name: string;
   seo: { title: string; description: string };
   title: string;
@@ -28,7 +28,7 @@ const request =
 
 export const addons: Addon[] = [
   {
-    slug: "e-posta",
+    slug: "email",
     name: "E-posta",
     seo: {
       title: "E-posta ek hizmeti: firma e-postası carisiyle birlikte",
@@ -65,11 +65,11 @@ export const addons: Addon[] = [
         a: "Hayır. E-postayı siz yazar ve gönderirsiniz. Kahya AI yalnız taslak hazırlar.",
       },
     ],
-    more: { href: "/ozellikler/e-posta", label: "E-posta özelliğinin ayrıntısı" },
+    more: { href: "/features/email", label: "E-posta özelliğinin ayrıntısı" },
     cta: { title: "E-postanızı Kahya’ya bağlayalım", body: "Hangi sağlayıcıyı kullandığınızı yazın, bağlantıyı birlikte kuralım." },
   },
   {
-    slug: "stok",
+    slug: "inventory",
     name: "Stok",
     seo: {
       title: "Stok ek hizmeti: ürün, depo ve stok hareketleri",
@@ -110,7 +110,7 @@ export const addons: Addon[] = [
     cta: { title: "Ürün listenizle başlayalım", body: "Excel’deki ürün listenizi gönderin, içe aktarmayı birlikte yapalım." },
   },
   {
-    slug: "teklif",
+    slug: "quotes",
     name: "Teklif",
     seo: {
       title: "Teklif ek hizmeti: linkle teklif, tek adımda satış",
@@ -192,11 +192,11 @@ export const addons: Addon[] = [
         a: "30 günlük denemede Kahya AI ek hizmeti kapalıdır; ayda 100 ücretsiz soru her firmada açıktır.",
       },
     ],
-    more: { href: "/ozellikler/kahya-ai", label: "Kahya AI’ın ayrıntısı" },
+    more: { href: "/features/kahya-ai", label: "Kahya AI’ın ayrıntısı" },
     cta: { title: "Kahya AI’ı kendi verinizle görün", body: "Hesabınızı açın, ayda 100 soru ücretsiz. Sorunuz varsa yazın." },
   },
   {
-    slug: "filo",
+    slug: "fleet",
     name: "Filo",
     seo: {
       title: "Filo ek hizmeti: araçlar, seferler, araç bazında kâr",
@@ -236,7 +236,7 @@ export const addons: Addon[] = [
     cta: { title: "Filonuzu Kahya’ya taşıyalım", body: "Kaç aracınız olduğunu yazın, nasıl başlayacağınızı birlikte planlayalım." },
   },
   {
-    slug: "ticari-paket",
+    slug: "business-pack",
     name: "Ticari paket",
     seo: {
       title: "Ticari paket: Stok ve Teklif birlikte",

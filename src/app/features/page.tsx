@@ -23,7 +23,7 @@ import { features } from "@/content/features";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  path: "/ozellikler",
+  path: "/features",
   title: "Özellikler: cari, görev, e-posta, personel, onay",
   description:
     "Kahya’nın tüm modülleri: cari ve bakiye takibi, ödeme planları, görevler ve takımlar, projeler, e-posta, personel ve izinler, talepler ve onaylar, dokümanlar, raporlar ve Kahya AI.",
@@ -93,7 +93,7 @@ export default function FeaturesPage() {
   return (
     <>
       <PageHero
-        crumbs={[{ name: "Özellikler", path: "/ozellikler" }]}
+        crumbs={[{ name: "Özellikler", path: "/features" }]}
         title="Bir ofisin ihtiyaç duyduğu her şey, aynı yerde"
         lead="Her modül diğerlerine bağlı: e-posta göreve, görev projeye, proje müşterinin cari kartına. Kullanmadığınızı kapatın, menüden kalksın."
       >
@@ -111,7 +111,7 @@ export default function FeaturesPage() {
             const [width, height] = size(f.screen.src);
             return (
               <li key={f.slug} id={f.slug} className="scroll-mt-28">
-                <Link href={`/ozellikler/${f.slug}`} className="group block">
+                <Link href={`/features/${f.slug}`} className="group block">
                   <CasePanel
                     className="aspect-[2/1]"
                     tone={tones[i % tones.length]}

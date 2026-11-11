@@ -20,15 +20,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
   });
   return [
     page("/", 1),
-    page("/ozellikler", 0.9),
-    ...features.map((f) => page(`/ozellikler/${f.slug}`, 0.8, { images: [absoluteUrl(f.screen.src)] })),
-    page("/cozumler", 0.9),
-    page("/fiyatlar", 0.8),
-    ...solutions.map((s) => page(`/cozumler/${s.slug}`, 0.9)),
-    ...addons.map((a) => page(`/cozumler/${a.slug}`, 0.7)),
-    page("/sektorler", 0.7),
-    ...sectors.map((s) => page(`/sektorler/${s.slug}`, 0.7)),
-    page("/tanitim-filmi", 0.6, {
+    page("/features", 0.9),
+    ...features.map((f) => page(`/features/${f.slug}`, 0.8, { images: [absoluteUrl(f.screen.src)] })),
+    page("/solutions", 0.9),
+    page("/pricing", 0.8),
+    ...solutions.map((s) => page(`/solutions/${s.slug}`, 0.9)),
+    ...addons.map((a) => page(`/solutions/${a.slug}`, 0.7)),
+    page("/sectors", 0.7),
+    ...sectors.map((s) => page(`/sectors/${s.slug}`, 0.7)),
+    page("/film", 0.6, {
       videos: [
         {
           title: "Kahya tanıtım filmi",
@@ -39,9 +39,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
         },
       ],
     }),
-    page("/egitim", 0.7),
+    page("/training", 0.7),
     ...tutorials.map((t) =>
-      page(`/egitim/${t.slug}`, 0.6, {
+      page(`/training/${t.slug}`, 0.6, {
         videos: [
           {
             title: `Kahya eğitimi: ${t.title}`,
@@ -53,9 +53,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
         ],
       }),
     ),
-    page("/rehber", 0.6),
-    ...guides.map((g) => page(`/rehber/${g.slug}`, 0.6, { lastModified: new Date(g.updated) })),
-    page("/sss", 0.6),
-    page("/iletisim", 0.4),
+    page("/guides", 0.6),
+    ...guides.map((g) => page(`/guides/${g.slug}`, 0.6, { lastModified: new Date(g.updated) })),
+    page("/faq", 0.6),
+    page("/contact", 0.4),
   ];
 }

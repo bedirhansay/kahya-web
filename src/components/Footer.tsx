@@ -12,34 +12,34 @@ const columns = [
   {
     title: "Çözümler",
     links: [
-      ...solutions.map((s) => ({ href: `/cozumler/${s.slug}`, label: s.name })),
-      { href: "/cozumler", label: "Ek hizmetler ve hizmetler" },
-      { href: "/fiyatlar", label: "Paketler ve fiyatlar" },
+      ...solutions.map((s) => ({ href: `/solutions/${s.slug}`, label: s.name })),
+      { href: "/solutions", label: "Ek hizmetler ve hizmetler" },
+      { href: "/pricing", label: "Paketler ve fiyatlar" },
     ],
   },
   {
     title: "Sektörler",
     links: [
       ...featuredSectors.map((slug) => ({
-        href: `/sektorler/${slug}`,
+        href: `/sectors/${slug}`,
         label: sectors.find((s) => s.slug === slug)!.name,
       })),
-      { href: "/sektorler", label: "Tüm sektörler" },
+      { href: "/sectors", label: "Tüm sektörler" },
     ],
   },
   {
     title: "Özellikler",
-    links: features.slice(0, 6).map((f) => ({ href: `/ozellikler/${f.slug}`, label: f.name })),
+    links: features.slice(0, 6).map((f) => ({ href: `/features/${f.slug}`, label: f.name })),
   },
   {
     title: "Kahya",
     links: [
-      { href: "/ozellikler/kahya-ai", label: "Kahya AI" },
-      { href: "/tanitim-filmi", label: "Tanıtım filmi" },
-      { href: "/egitim", label: "Eğitim videoları" },
-      { href: "/rehber", label: "Rehberler" },
-      { href: "/sss", label: "Sık sorulanlar" },
-      { href: "/iletisim", label: "İletişim" },
+      { href: "/features/kahya-ai", label: "Kahya AI" },
+      { href: "/film", label: "Tanıtım filmi" },
+      { href: "/training", label: "Eğitim videoları" },
+      { href: "/guides", label: "Rehberler" },
+      { href: "/faq", label: "Sık sorulanlar" },
+      { href: "/contact", label: "İletişim" },
     ],
   },
   {
@@ -63,7 +63,7 @@ export function Footer() {
             İşletmenizin yönetim merkezi. Ekip, müşteri ve cari tek uygulamada.
           </p>
           <Link
-            href="/iletisim"
+            href="/contact"
             className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-xl border border-line px-4 py-2.5 text-sm font-semibold text-ink transition-colors hover:border-brass/50"
           >
             İletişim, bize yazın

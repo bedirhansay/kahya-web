@@ -9,7 +9,7 @@ import { sectorBySlug } from "@/content/sectors";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  path: "/sektorler",
+  path: "/sectors",
   title: "Sektörler: toptan ticaret, inşaat, nakliye, mali müşavir ve daha fazlası için Kahya",
   description:
     "Kahya’nın toptan ticaret, inşaat, lojistik, güvenlik ve temizlik, mali müşavir, eğitim, hukuk, üretim atölyesi, danışmanlık, mimarlık, emlak ve teknik servis firmalarında nasıl kullanıldığını görün.",
@@ -32,7 +32,7 @@ const groups: {
     tone: "cream",
     screen: { src: "/media/home/s1-cari.webp", alt: "Kahya’da cari kart: bakiye, vade ve taksitler. Örnek veri." },
     phone: "/media/home/s1-cari-tel.webp",
-    slugs: ["toptan-ticaret-ve-dagitim", "uretim-atolyesi", "teknik-servis", "egitim-ve-kurs"],
+    slugs: ["wholesale-and-distribution", "manufacturing-workshops", "technical-service", "education-and-courses"],
   },
   {
     id: "saha",
@@ -41,7 +41,7 @@ const groups: {
     tone: "sage",
     screen: { src: "/media/home/s2-gorev.webp", alt: "Kahya’da görev listesi. Örnek veri." },
     phone: "/media/home/s2-gorev-tel.webp",
-    slugs: ["insaat-ve-taseron", "mimarlik-ve-muhendislik", "lojistik-ve-nakliye", "guvenlik-ve-temizlik"],
+    slugs: ["construction-and-subcontracting", "architecture-and-engineering", "logistics-and-transport", "security-and-cleaning"],
   },
   {
     id: "musteri",
@@ -50,7 +50,7 @@ const groups: {
     tone: "mist",
     screen: { src: "/media/home/s3-gorusme.webp", alt: "Kahya’da müşteri görüşmeleri. Örnek veri." },
     phone: "/media/home/s3-gorusme-tel.webp",
-    slugs: ["danismanlik-ve-ajans", "hukuk-burosu", "mali-musavir-burosu", "emlak-ofisi"],
+    slugs: ["consulting-and-agencies", "law-firms", "accounting-firms", "real-estate"],
   },
 ];
 
@@ -58,7 +58,7 @@ export default function SectorsPage() {
   return (
     <>
       <PageHero
-        crumbs={[{ name: "Sektörler", path: "/sektorler" }]}
+        crumbs={[{ name: "Sektörler", path: "/sectors" }]}
         title="Sizin gibi bir ofiste Kahya"
         lead="Aynı uygulama, farklı işler. Sektörünüzü seçin; bugün nerede takıldığınızı ve Kahya’da nasıl çözüldüğünü görün."
       >
@@ -89,7 +89,7 @@ export default function SectorsPage() {
                   const s = sectorBySlug(slug)!;
                   return (
                     <li key={slug} className="border-b border-line">
-                      <Link href={`/sektorler/${slug}`} className="group grid gap-1 py-4 sm:grid-cols-[minmax(0,0.42fr)_minmax(0,0.58fr)] sm:gap-6">
+                      <Link href={`/sectors/${slug}`} className="group grid gap-1 py-4 sm:grid-cols-[minmax(0,0.42fr)_minmax(0,0.58fr)] sm:gap-6">
                         <span className="font-semibold group-hover:text-brand">{s.name}</span>
                         <span className="text-[0.95rem] leading-relaxed text-muted">
                           “{s.rows[0].pain}” <span className="link whitespace-nowrap">Nasıl çözülür</span>
