@@ -99,8 +99,8 @@ export default async function GuidePage({ params }: PageProps<"/rehber/[slug]">)
           )}
         </div>
       </article>
-      <section aria-labelledby="sorular" className="bg-paper">
-        <div className="wrap max-w-4xl pb-24">
+      <section aria-labelledby="sorular" className="bg-mist">
+        <div className="wrap max-w-4xl py-14 md:py-20">
           <h2 id="sorular" className="title">
             Sorular
           </h2>
@@ -110,6 +110,7 @@ export default async function GuidePage({ params }: PageProps<"/rehber/[slug]">)
         </div>
       </section>
       <CtaBand
+        tex
         title="Bu adımları kendi verinizle deneyin"
         body="Ücretsiz hesap açın ve rehberdeki adımları kendi ofisinizde izleyin. Takıldığınız yeri bize yazın."
       />

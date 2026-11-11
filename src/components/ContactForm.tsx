@@ -39,10 +39,6 @@ const fieldCls = (bad?: string) =>
       : "border-line hover:border-ink/25 focus:border-brass/70 focus:shadow-[0_0_0_4px_color-mix(in_oklab,var(--color-brass)_12%,transparent)]",
   );
 
-function Num({ n }: { n: string }) {
-  return <span className="mr-2 text-[0.875rem] font-semibold tracking-wider text-brass tabular-nums">{n}</span>;
-}
-
 function Hint({ id, children }: { id: string; children?: ReactNode }) {
   if (!children) return null;
   return (
@@ -128,7 +124,6 @@ export function ContactForm({ konu, cozum }: { konu?: string | null; cozum?: str
     <form ref={form} onSubmit={submit} className="grid gap-5" noValidate>
       <fieldset>
         <legend className="text-[0.92rem] font-medium text-ink/85">
-          <Num n="01" />
           Konu
         </legend>
         <div className="mt-2 grid grid-cols-2 gap-1 rounded-[12px] border border-line bg-mist/60 p-1 sm:grid-cols-4">
@@ -152,7 +147,6 @@ export function ContactForm({ konu, cozum }: { konu?: string | null; cozum?: str
       </fieldset>
       <div className="grid gap-5 sm:grid-cols-2">
         <label className="block text-[0.92rem] font-medium text-ink/85">
-          <Num n="02" />
           Ad soyad
           <input
             name="name"
@@ -166,13 +160,11 @@ export function ContactForm({ konu, cozum }: { konu?: string | null; cozum?: str
           <Hint id="e-name">{errors.name}</Hint>
         </label>
         <label className="block text-[0.92rem] font-medium text-ink/85">
-          <Num n="03" />
           Firma
           <input name="company" maxLength={160} autoComplete="organization" className={fieldCls()} />
         </label>
       </div>
       <label className="block text-[0.92rem] font-medium text-ink/85">
-        <Num n="04" />
         E-posta
         <input
           name="email"
@@ -188,12 +180,10 @@ export function ContactForm({ konu, cozum }: { konu?: string | null; cozum?: str
         <Hint id="e-email">{errors.email}</Hint>
       </label>
       <label className="block text-[0.92rem] font-medium text-ink/85">
-        <Num n="05" />
         Telefon <span className="font-normal text-muted">(isteğe bağlı)</span>
         <input name="phone" type="tel" maxLength={40} autoComplete="tel" className={fieldCls()} />
       </label>
       <label className="block text-[0.92rem] font-medium text-ink/85">
-        <Num n="06" />
         Mesajınız
         <textarea
           name="message"

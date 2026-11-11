@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { CtaBand } from "@/components/CtaBand";
 import { PageHero } from "@/components/PageHero";
 import { guides } from "@/content/guides";
 import { pageMetadata } from "@/lib/seo";
@@ -21,23 +22,28 @@ export default function GuidesPage() {
         lead="Program seçmeden önce sorulan sorular, sade cevaplarıyla."
       />
       <section aria-label="Rehberler" className="bg-paper">
-        <ul className="wrap grid gap-5 pb-24 md:grid-cols-3">
+        <ul className="wrap py-10 md:py-14">
           {guides.map((g) => (
-            <li key={g.slug}>
+            <li key={g.slug} className="border-t border-line last:border-b">
               <Link
                 href={`/rehber/${g.slug}`}
-                className="group flex h-full flex-col rounded-[16px] border border-line bg-surface p-6 hover:border-brand md:p-8"
+                className="group grid gap-4 py-8 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:gap-14 md:py-10"
               >
-                <h2 className="text-xl font-bold tracking-[-0.01em] group-hover:text-brand">{g.title}</h2>
-                <p className="mt-3 line-clamp-4 flex-1 leading-relaxed text-muted">{g.answer}</p>
-                <span className="mt-6 inline-flex items-center gap-1.5 font-semibold text-brand">
-                  Rehberi okuyun
-                </span>
+                <h2 className="title text-[clamp(1.5rem,2.4vw,2rem)] group-hover:text-brand">{g.title}</h2>
+                <div>
+                  <p className="leading-relaxed text-muted">{g.answer}</p>
+                  <span className="link mt-4 inline-block font-semibold">Rehberi okuyun</span>
+                </div>
               </Link>
             </li>
           ))}
         </ul>
       </section>
+      <CtaBand
+        tex
+        title="Sorunuz rehberde yok mu?"
+        body="Ofisinizde neyi düzenlemek istediğinizi yazın, Kahya’da nasıl kurulacağını birlikte konuşalım."
+      />
     </>
   );
 }

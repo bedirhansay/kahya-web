@@ -1,4 +1,4 @@
-import { Clock, Mail, MessageCircle, MonitorSmartphone, PlayCircle, ShieldCheck } from "lucide-react";
+import { Mail, MessageCircle, MonitorSmartphone, PlayCircle } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Suspense } from "react";
@@ -84,21 +84,6 @@ export default function ContactPage() {
         </div>
 
         <div className="contact-stage relative min-w-0 lg:pt-16">
-          {/* Two small records floating at the window's corners, as on the home. */}
-          <div aria-hidden className="contact-sat contact-sat-1">
-            <Clock size={16} />
-            <span>
-              <b>Bir iş günü</b>
-              <small>içinde yanıt</small>
-            </span>
-          </div>
-          <div aria-hidden className="contact-sat contact-sat-2">
-            <ShieldCheck size={16} />
-            <span>
-              <b>KVKK</b>
-              <small>yalnızca dönüş için</small>
-            </span>
-          </div>
           <div className="window p-6 sm:p-9">
             <Suspense fallback={<ContactForm />}>
               <ContactFormFromQuery />

@@ -276,7 +276,7 @@ export const vsAccounting: readonly (readonly [string, string, string])[] = [
   ["Telefonda uygulama gibi kullanım", "Var (ana ekrana eklenir, bildirim gelir)", "Ürüne göre"],
   [
     "Müşteriye vade hatırlatması",
-    "Var: e-posta kendiliğinden gider, WhatsApp mesajı gönderilmeye hazır olur, SMS kendi Netgsm hesabınızla",
+    "Var: e-posta kendiliğinden gider, WhatsApp mesajı gönderilmeye hazır olur",
     "Ürüne göre",
   ],
   ["Kontör (e-Fatura / SMS kredisi)", "Yok, çünkü Kahya e-Fatura ve SMS satmaz", "Var"],
