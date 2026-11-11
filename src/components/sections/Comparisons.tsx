@@ -1,5 +1,5 @@
 import { SectionHead } from "@/components/SectionHead";
-import { vsAccounting, vsScattered } from "@/content/solutions";
+import { vsScattered } from "@/content/solutions";
 
 /** Excel, WhatsApp and paper against Kahya, one everyday question per row. */
 export function VsScattered() {
@@ -37,46 +37,6 @@ export function VsScattered() {
             ))}
           </ul>
         </div>
-      </div>
-    </section>
-  );
-}
-
-/** H13 §4: an honest comparison with accounting programs in general (no product named). */
-export function VsAccounting() {
-  return (
-    <section aria-labelledby="ne-yapmaz">
-      <div className="wrap py-16 md:py-24">
-        <SectionHead
-          id="ne-yapmaz"
-          title="Kahya ne yapar, ne yapmaz"
-          lead="Kahya fatura kesmez ve bankanıza bağlanmaz. Bunlar için muhasebe programınızı kullanmaya devam edersiniz; Kahya ofisin geri kalanını yönetir."
-        />
-        <div className="mt-12 overflow-hidden rounded-2xl border border-line">
-          <div className="hidden grid-cols-[1fr_1.2fr_1fr] bg-mist text-sm font-semibold md:grid">
-            <span className="px-5 py-3">Konu</span>
-            <span className="px-5 py-3 text-brass">Kahya</span>
-            <span className="px-5 py-3 text-muted">Ön muhasebe programları</span>
-          </div>
-          <ul className="divide-y divide-line">
-            {vsAccounting.map(([topic, kahya, others]) => (
-              <li key={topic} className="grid gap-2 px-5 py-4 md:grid-cols-[1fr_1.2fr_1fr] md:gap-0 md:p-0">
-                <span className="font-semibold md:px-5 md:py-4">{topic}</span>
-                <span className="md:bg-brand-50/60 md:px-5 md:py-4">
-                  <span className="font-semibold md:hidden">Kahya: </span>
-                  {kahya}
-                </span>
-                <span className="text-muted md:px-5 md:py-4">
-                  <span className="font-semibold md:hidden">Ön muhasebe programları: </span>
-                  {others}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <p className="mt-6 text-sm text-muted">
-          &quot;Ürüne göre&quot;: programdan programa değişir. e-Fatura mükellefiyseniz programınız kalır.
-        </p>
       </div>
     </section>
   );

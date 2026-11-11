@@ -30,12 +30,12 @@ export function PlanTable() {
         <tbody>
           {planRows.map((r) => (
             <tr key={r.label} className="border-b border-line last:border-0">
-              <th scope="row" className="sticky left-0 bg-surface px-4 py-3.5 text-left font-medium">
+              <th scope="row" className="sticky left-0 bg-surface px-4 py-2 text-left font-medium">
                 {r.label}
                 {r.hint && <span className="block text-sm font-normal text-muted">{r.hint}</span>}
               </th>
               {r.cells.map((c, i) => (
-                <td key={planNames[i]} className="px-3 py-3.5 text-center">
+                <td key={planNames[i]} className="px-3 py-2 text-center">
                   <Cell v={c} />
                 </td>
               ))}

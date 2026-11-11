@@ -6,10 +6,8 @@ import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { PlanTable } from "@/components/PlanTable";
-import { VsAccounting } from "@/components/sections/Comparisons";
-import { Promises } from "@/components/sections/TrustAndPromises";
 import { pricingFaq } from "@/content/faq";
-import { extras } from "@/content/solutions";
+import { promises, vsAccounting } from "@/content/solutions";
 import { faqLd, pageMetadata, softwareLd } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -21,7 +19,7 @@ export const metadata: Metadata = pageMetadata({
 
 const quote = (what: string) => `/iletisim?konu=fiyat&cozum=${encodeURIComponent(what)}`;
 
-/** The one place for package facts: the table, which add-on goes with which package, the promises and the buying questions. */
+/** The one place for package facts: the table (add-ons per package in it), the promises with what Kahya does not do, and the buying questions. */
 export default function PricingPage() {
   return (
     <>
@@ -29,7 +27,7 @@ export default function PricingPage() {
       <PageHero
         crumbs={[{ name: "Fiyatlar", path: "/fiyatlar" }]}
         title="Paketler ve fiyatlar"
-        lead="Paketler kullanıcı sayısına ve dosya alanına göre ayrılır. Fiyatı ekibinize ve seçtiğiniz ek hizmetlere göre veririz. Kayıt olan her firma 30 gün Kurumsal paketi dener."
+        lead="Paketler kullanıcı sayısına ve dosya alanına göre ayrılır; fiyatı ekibinize ve ek hizmetlere göre veririz. Kayıt olan her firma 30 gün Kurumsal paketi dener."
       >
         <div className="mt-8 flex flex-wrap gap-3">
           <a href={quote("Paket")} className="btn btn-petrol">
@@ -42,70 +40,83 @@ export default function PricingPage() {
       </PageHero>
 
       <section aria-labelledby="paketler" className="bg-paper">
-        <div className="wrap py-12 md:py-16">
+        <div className="wrap py-10 md:py-12">
           <h2 id="paketler" className="sr-only">
             Paketler
           </h2>
           <PlanTable />
-          <p className="mt-4 text-sm text-muted">
-            Ücretli paketlerin hepsinde üç çözüm de açılır. Hesabınızı açtıktan sonra uygulamadaki Abonelik sayfasından
-            da talep edebilirsiniz.
-          </p>
-        </div>
-      </section>
-
-      <section aria-labelledby="ek-hizmetler">
-        <div className="wrap py-14 md:py-20">
-          <h2 id="ek-hizmetler" className="title max-w-2xl">
-            Ek hizmetler hangi pakette
-          </h2>
-          <div className="mt-8 overflow-hidden rounded-[var(--radius-frame)] border border-line">
-            <table className="w-full border-collapse text-left text-[0.97rem]">
-              <caption className="sr-only">Ek hizmetler ve paketler</caption>
-              <thead className="bg-paper max-md:sr-only">
-                <tr className="border-b border-line">
-                  <th scope="col" className="px-5 py-3 font-semibold">
-                    Ek hizmet
-                  </th>
-                  <th scope="col" className="px-5 py-3 font-semibold">
-                    Ne yapar
-                  </th>
-                  <th scope="col" className="px-5 py-3 font-semibold">
-                    Paketlerde
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {extras.map((e) => (
-                  <tr key={e.name} className="border-b border-line last:border-0 max-md:grid max-md:gap-1 max-md:py-4">
-                    <th scope="row" className="px-5 align-top font-semibold md:py-4">
-                      {e.href ? (
-                        <Link href={e.href} className="hover:text-brand">
-                          {e.name}
-                        </Link>
-                      ) : (
-                        e.name
-                      )}
-                    </th>
-                    <td className="px-5 align-top leading-relaxed text-muted md:py-4">{e.body}</td>
-                    <td className="px-5 align-top font-medium md:w-[30%] md:py-4">{e.plan}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div className="mt-5 grid gap-2 text-sm leading-relaxed text-muted md:grid-cols-2 md:gap-10">
+            <p>
+              Ücretli paketlerin hepsinde üç çözüm de açılır. Hesabınızı açtıktan sonra uygulamadaki Abonelik sayfasından
+              da talep edebilirsiniz.
+            </p>
+            <p>
+              Tabloda olmayan iki ek hizmet: <span className="font-semibold text-ink">Kahya AI</span> (her firmada ayda 100
+              soru ücretsiz, daha fazlası ek hizmetle) ve <span className="font-semibold text-ink">Ticari paket</span> (Stok
+              ve Teklif birlikte). Ek hizmetlerin ne yaptığı{" "}
+              <Link href="/cozumler#ek-hizmetler" className="link">
+                Çözümler
+              </Link>{" "}
+              sayfasında.
+            </p>
           </div>
         </div>
       </section>
 
-      <div className="bg-paper">
-        <Promises />
-      </div>
-      <div className="bg-surface">
-        <VsAccounting />
-      </div>
+      <section aria-labelledby="soz" className="bg-surface">
+        <div className="wrap grid gap-12 py-14 md:py-16 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)] lg:gap-14">
+          <div>
+            <h2 id="soz" className="title">
+              Size söz verdiklerimiz
+            </h2>
+            <dl className="mt-6">
+              {promises.map((t) => (
+                <div key={t.term} className="border-t border-line py-4">
+                  <dt className="font-semibold">{t.term}</dt>
+                  <dd className="mt-1 leading-relaxed text-muted">{t.text}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+          <div>
+            <h2 id="ne-yapmaz" className="title">
+              Kahya ne yapar, ne yapmaz
+            </h2>
+            <p className="mt-4 max-w-2xl leading-relaxed text-muted">
+              Kahya fatura kesmez ve bankanıza bağlanmaz. Bunlar için muhasebe programınızı kullanmaya devam edersiniz;
+              Kahya ofisin geri kalanını yönetir.
+            </p>
+            <div className="mt-6 overflow-hidden rounded-[14px] border border-line">
+              <div className="hidden grid-cols-[1fr_1.4fr_0.75fr] bg-mist text-sm font-semibold md:grid">
+                <span className="px-4 py-2.5">Konu</span>
+                <span className="px-4 py-2.5 text-brass">Kahya</span>
+                <span className="px-4 py-2.5 text-muted">Ön muhasebe programları</span>
+              </div>
+              <ul className="divide-y divide-line text-[0.95rem]">
+                {vsAccounting.map(([topic, kahya, others]) => (
+                  <li key={topic} className="grid gap-1 px-4 py-3 md:grid-cols-[1fr_1.4fr_0.75fr] md:gap-0 md:p-0">
+                    <span className="font-semibold md:px-4 md:py-2.5">{topic}</span>
+                    <span className="md:bg-brand-50/60 md:px-4 md:py-2.5">
+                      <span className="font-semibold md:hidden">Kahya: </span>
+                      {kahya}
+                    </span>
+                    <span className="text-muted md:px-4 md:py-2.5">
+                      <span className="font-semibold md:hidden">Ön muhasebe programları: </span>
+                      {others}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <p className="mt-4 text-sm text-muted">
+              &quot;Ürüne göre&quot;: programdan programa değişir. e-Fatura mükellefiyseniz programınız kalır.
+            </p>
+          </div>
+        </div>
+      </section>
 
-      <section aria-labelledby="sorular">
-        <div className="wrap grid gap-8 py-14 md:py-20 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-14">
+      <section aria-labelledby="sorular" className="bg-mist">
+        <div className="wrap grid gap-8 py-14 md:py-16 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-14">
           <h2 id="sorular" className="title">
             Satın alma soruları
           </h2>
@@ -114,6 +125,7 @@ export default function PricingPage() {
       </section>
 
       <CtaBand
+        tex
         title="Ekibinize göre fiyat alın"
         body="Kaç kişi kullanacağınızı ve hangi ek hizmetleri istediğinizi yazın, biz dönelim. Beklemeden denemek için ücretsiz başlayın."
       />

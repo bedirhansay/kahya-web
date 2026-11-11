@@ -1,5 +1,5 @@
 import { SectionHead } from "@/components/SectionHead";
-import { homeTrustLine, promises, trust } from "@/content/solutions";
+import { homeTrustLine, trust } from "@/content/solutions";
 
 /** Ruled term/text rows: the facts read like a list of rules, not a row of icon tiles. */
 function Points({ items, cols }: { items: { term: string; text: string }[]; cols: string }) {
@@ -27,18 +27,6 @@ export function Trust() {
         />
         <Points items={trust} cols="sm:grid-cols-2 lg:grid-cols-4" />
         <p className="mt-6 text-muted">{homeTrustLine}</p>
-      </div>
-    </section>
-  );
-}
-
-/** "Size söz verdiklerimiz": the four promises (on /fiyatlar, beside the packages they are about). */
-export function Promises() {
-  return (
-    <section aria-labelledby="soz">
-      <div className="wrap py-16 md:py-24">
-        <SectionHead id="soz" title="Size söz verdiklerimiz" />
-        <Points items={promises} cols="sm:grid-cols-2" />
       </div>
     </section>
   );
