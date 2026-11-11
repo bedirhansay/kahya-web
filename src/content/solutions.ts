@@ -151,8 +151,8 @@ export const solutions: Solution[] = [
     features: ["cari-takibi", "odeme-planlari", "raporlar"],
     faq: [
       {
-        q: "Kahya fatura keser mi, kasa ve banka tutar mı?",
-        a: "Hayır. Kahya’da finans, cari bakiye takibidir: kimden alacaklı, kime borçlu olduğunuz. Fatura, e-Fatura, kasa ve banka hesabı yoktur.",
+        q: "Kahya fatura keser mi, bankama bağlanır mı?",
+        a: "Hayır. Kahya’da finans, cari bakiye takibidir: kimden alacaklı, kime borçlu olduğunuz. Fatura ve e-Fatura kesmez, bankanıza bağlanıp ekstre çekmez.",
       },
       {
         q: "Muhasebe programımı bırakmam gerekir mi?",
@@ -214,7 +214,7 @@ export const services: Extra[] = [
 /** What Kahya does not do. Shown as is, so nobody buys it for the wrong job. */
 export const notIncluded = [
   "Fatura, e-Fatura ve resmî muhasebe kaydı",
-  "Kasa ve banka hesabı",
+  "Banka bağlantısı (otomatik ekstre çekme)",
   "Toplu SMS / kampanya gönderimi",
   "Satış hunisi ve fırsat yönetimi",
   "Online ödeme ve kartla satın alma",

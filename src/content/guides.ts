@@ -38,7 +38,7 @@ export const guides: Guide[] = [
         heading: "Muhasebe programından farkı ne?",
         body: [
           "Muhasebe programı resmî kayıt içindir: fatura, yevmiye, beyanname. Ofis yönetim programı ise ofisin günlük işini izler: görevler, müşteri görüşmeleri, cari bakiye, izinler, onaylar.",
-          "İkisi birbirinin yerine geçmez. Kahya da bir muhasebe programı değildir; fatura kesmez, kasa ve banka hesabı tutmaz. Ay sonunda kayıtları mali müşavirinize tek dosyada gönderirsiniz.",
+          "İkisi birbirinin yerine geçmez. Kahya da bir muhasebe programı değildir; fatura kesmez ve bankanıza bağlanmaz. Ay sonunda kayıtları mali müşavirinize tek dosyada gönderirsiniz.",
         ],
       },
       {
@@ -122,7 +122,7 @@ export const guides: Guide[] = [
         heading: "Excel'den geçiş zor mu?",
         body: [
           "Değil. Kahya'da müşteri, tedarikçi ve açılış bakiyelerini hazır bir şablonla Excel'den içeri alırsınız; içeri almadan önce bir önizleme görürsünüz. İsterseniz bu aktarımı bizim ekibimiz yapar.",
-          "Kahya bir muhasebe programı değildir: fatura kesmez, kasa ve banka hesabı tutmaz. Cari bakiyenizi takip eder; resmî kayıt için ayın hareketlerini mali müşavirinize tek dosyada gönderirsiniz.",
+          "Kahya bir muhasebe programı değildir: fatura kesmez ve bankanıza bağlanmaz. Cari bakiyenizi takip eder; resmî kayıt için ayın hareketlerini mali müşavirinize tek dosyada gönderirsiniz.",
         ],
       },
     ],

@@ -62,7 +62,7 @@ export const features: Feature[] = [
     faq: [
       {
         q: "Kahya bir muhasebe programı mı?",
-        a: "Hayır. Kahya alacak ve borçlarınızı cari bakiye olarak takip eder. Kasa, banka hesabı ve fatura kesme yoktur. Resmî muhasebe için mali müşavirinize ayın kayıtlarını tek dosyada hazırlayan Mali müşavir paketi’ni kullanabilirsiniz.",
+        a: "Hayır. Kahya alacak ve borçlarınızı cari bakiye olarak takip eder. Fatura kesmez ve bankanıza bağlanmaz. Resmî muhasebe için mali müşavirinize ayın kayıtlarını tek dosyada hazırlayan Mali müşavir paketi’ni kullanabilirsiniz.",
       },
       {
         q: "Müşterim ekstresini nasıl görür?",

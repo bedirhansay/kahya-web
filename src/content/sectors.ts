@@ -230,7 +230,7 @@ export const sectors: Sector[] = [
     ],
     addons: ["Stok", "Teklif", "Filo", "E-posta"],
     mock: "cari",
-    notDone: ["Fatura ve e-Fatura", "Bayi sipariş portalı (B2B)", "Plasiyer ve araç içi satış", "Kasa ve banka hesabı"],
+    notDone: ["Fatura ve e-Fatura", "Bayi sipariş portalı (B2B)", "Plasiyer ve araç içi satış", "Banka bağlantısı (otomatik ekstre çekme)"],
     faq: [
       {
         q: "Kahya fatura keser mi?",
