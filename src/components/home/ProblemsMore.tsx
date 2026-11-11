@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useRef, useState, type ReactNode } from "react";
+import { useId, useRef, useState, useSyncExternalStore, type ReactNode } from "react";
 
 import { cn } from "@/lib/cn";
 
@@ -9,13 +9,15 @@ import { cn } from "@/lib/cn";
  * is live, phones (<640px) fold them behind one "Tümünü gör" button. A tap opens them with a 200ms fade and moves
  * focus to the first revealed link, because the button itself goes away.
  */
+const noSubscribe = () => () => {};
+
 export function ProblemsMore({ children }: { children: ReactNode }) {
-  const [folded, setFolded] = useState(false);
+  // true only once the page runs in the browser: the server render (and a visit without JavaScript) keeps every row
+  const live = useSyncExternalStore(noSubscribe, () => true, () => false);
   const [opened, setOpened] = useState(false);
+  const folded = live && !opened;
   const list = useRef<HTMLUListElement>(null);
   const id = useId();
-
-  useEffect(() => setFolded(true), []);
 
   return (
     <>
@@ -32,7 +34,6 @@ export function ProblemsMore({ children }: { children: ReactNode }) {
           aria-expanded="false"
           aria-controls={id}
           onClick={() => {
-            setFolded(false);
             setOpened(true);
             requestAnimationFrame(() => list.current?.querySelector<HTMLElement>("[data-first-more]")?.focus());
           }}
