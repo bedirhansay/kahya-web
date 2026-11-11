@@ -37,7 +37,7 @@ export const addons: Addon[] = [
     },
     title: "Firma e-postası, gönderenin carisiyle yan yana",
     lead: "Mevcut e-posta hesabınızı bağlarsınız. Kişiler, faturalar ve bültenler ayrı sekmelere düşer; e-postayı açınca gönderenin cari kaydı ve ekleri yanında görünür.",
-    screen: { src: "/screens/mail.webp", alt: "Kahya e-posta: gelen kutusu ve açık bir e-posta. Örnek veri.", width: 2000, height: 1250 },
+    screen: { src: "/screens/mail.webp", alt: "Kahya e-posta: kendi e-posta kutunuzu bağlama ekranı.", width: 2000, height: 1250 },
     when: [
       "Müşteri e-postaları ekipte birinin kişisel kutusunda kalıyor.",
       "Fatura ve bülten kalabalığında iş isteyen e-posta gözden kaçıyor.",
@@ -160,7 +160,7 @@ export const addons: Addon[] = [
     },
     title: "Sorun, Kahya hazırlasın, siz onaylayın",
     lead: "Kahya AI ofisinizin kayıtlarına bakarak yanıt verir ve iş hazırlar: görev, not, tahsilat, toplantı, e-posta taslağı. Her öneri bir kart olarak gelir; siz Onayla demeden hiçbir şey kaydedilmez.",
-    screen: { src: "/screens/receipt.webp", alt: "Kahya AI sohbeti: fişten hazırlanan alış kaydı önerisi. Örnek veri.", width: 2000, height: 1250 },
+    screen: { src: "/screens/receipt.webp", alt: "Kahya AI: hazır sorular, mesaj alanı ve kalan kredi.", width: 2000, height: 1250 },
     when: [
       "Gün başında neyin geciktiğini birkaç ekrandan topluyorsunuz.",
       "Fişleri akşam tek tek elle giriyorsunuz.",

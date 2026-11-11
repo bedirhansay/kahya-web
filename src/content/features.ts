@@ -123,7 +123,7 @@ export const features: Feature[] = [
     title: "Vadeler kâğıtta değil, önünüzde",
     lead:
       "Taksitli anlaşmaları tek seferde kurun, kira ve abonelik gibi düzenli ödemeleri tanımlayın. Vadeler takvime ve Ana Sayfa’ya düşer. Zamanı gelince hatırlatılırsınız.",
-    screen: { src: "/screens/home.webp", alt: "Kahya Ana Sayfa: bu hafta vadesi gelen tahsilat ve ödemeler" },
+    screen: { src: "/screens/home.webp", alt: "Kahya tahsilat planı: üç taksit, tahsil edilen ve kalan tutar" },
     tutorials: ["odeme-planlari-ve-vadeler", "masraflar-ve-kategoriler"],
     points: [
       {
@@ -238,7 +238,7 @@ export const features: Feature[] = [
     title: "Gelen kutunuz da burada",
     lead:
       "Firmanızın e-postası Kahya’nın içinde. Kişiler, faturalar ve bültenler otomatik ayrılır. Gönderenin cari kaydı ve ekler yanında görünür. İş isteyen e-postayı göreve çevirin.",
-    screen: { src: "/screens/mail.webp", alt: "Kahya e-posta: gelen kutusu ve açık bir e-posta" },
+    screen: { src: "/screens/mail.webp", alt: "Kahya e-posta: kendi e-posta kutunuzu bağlama ekranı" },
     tutorials: ["e-posta"],
     points: [
       {
@@ -431,7 +431,7 @@ export const features: Feature[] = [
     title: "Söyleyin, Kahya hazırlasın, siz onaylayın",
     lead:
       "Kahya AI ofisinizin kayıtlarına bakarak yanıt verir ve iş hazırlar: görev, not, tahsilat, toplantı, e-posta taslağı. Her öneri bir kart olarak gelir. Siz Onayla demeden hiçbir şey kaydedilmez.",
-    screen: { src: "/screens/receipt.webp", alt: "Kahya AI sohbeti: fişten hazırlanan alış kaydı önerisi" },
+    screen: { src: "/screens/receipt.webp", alt: "Kahya AI: hazır sorular, mesaj alanı ve kalan kredi" },
     tutorials: ["kahya-ai"],
     points: [
       {
