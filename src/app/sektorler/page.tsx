@@ -3,7 +3,8 @@ import Link from "next/link";
 
 import { CtaBand } from "@/components/CtaBand";
 import { PageHero } from "@/components/PageHero";
-import { featuredSectors, sectors } from "@/content/sectors";
+import { sectorBySlug } from "@/content/sectors";
+import { cn } from "@/lib/cn";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -13,11 +14,27 @@ export const metadata: Metadata = pageMetadata({
     "Kahya’nın toptan ticaret, inşaat, lojistik, güvenlik ve temizlik, mali müşavir, eğitim, hukuk, üretim atölyesi, danışmanlık, mimarlık, emlak ve teknik servis firmalarında nasıl kullanıldığını görün.",
 });
 
-const rank = (slug: string) => {
-  const i = featuredSectors.indexOf(slug);
-  return i === -1 ? featuredSectors.length : i;
-};
-const ordered = [...sectors].sort((a, b) => rank(a.slug) - rank(b.slug));
+/** The twelve sectors, grouped by the work that fills their day; each group has its own panel colour. */
+const groups = [
+  {
+    id: "alacak",
+    title: "Alacak, vade ve stok",
+    tone: "case-panel-cream",
+    slugs: ["toptan-ticaret-ve-dagitim", "uretim-atolyesi", "teknik-servis", "egitim-ve-kurs"],
+  },
+  {
+    id: "saha",
+    title: "Proje, saha ve personel",
+    tone: "case-panel-sage",
+    slugs: ["insaat-ve-taseron", "mimarlik-ve-muhendislik", "lojistik-ve-nakliye", "guvenlik-ve-temizlik"],
+  },
+  {
+    id: "musteri",
+    title: "Müşteri, görüşme ve belge",
+    tone: "case-panel-mist",
+    slugs: ["danismanlik-ve-ajans", "hukuk-burosu", "mali-musavir-burosu", "emlak-ofisi"],
+  },
+];
 
 export default function SectorsPage() {
   return (
@@ -25,25 +42,44 @@ export default function SectorsPage() {
       <PageHero
         crumbs={[{ name: "Sektörler", path: "/sektorler" }]}
         title="Sizin gibi bir ofiste Kahya"
-        lead="Aynı uygulama, farklı işler. Sektörünüzü seçin, Kahya’nın sizde nasıl çalışacağını görün."
-      />
+        lead="Aynı uygulama, farklı işler. Sektörünüzü seçin; bugün nerede takıldığınızı ve Kahya’da nasıl çözüldüğünü görün."
+      >
+        <nav aria-label="Sektör grupları" className="mt-8 flex flex-wrap gap-2">
+          {groups.map((g) => (
+            <a key={g.id} href={`#${g.id}`} className="jump">
+              {g.title}
+            </a>
+          ))}
+        </nav>
+      </PageHero>
       <section className="bg-paper">
-        <div className="wrap py-12 md:py-20">
-          <ul className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {ordered.map((s) => (
-              <li key={s.slug}>
-                <Link href={`/sektorler/${s.slug}`} className="group flex h-full flex-col rounded-[16px] border border-line bg-surface p-6 hover:border-brand md:p-8">
-                  <h2 className="text-2xl font-bold tracking-[-0.02em] group-hover:text-brand">{s.name}</h2>
-                  <p className="mt-3 flex-1 leading-relaxed text-muted">{s.lead}</p>
-                  <span className="link mt-6 inline-flex items-center gap-1.5">
-                    Nasıl kullanılır                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
+        <div className="wrap grid gap-12 py-12 md:gap-16 md:py-20">
+          {groups.map((g) => (
+            <div key={g.id} id={g.id} className="scroll-mt-24">
+              <h2 className="title">{g.title}</h2>
+              <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                {g.slugs.map((slug) => {
+                  const s = sectorBySlug(slug)!;
+                  return (
+                    <li key={slug}>
+                      <Link
+                        href={`/sektorler/${slug}`}
+                        className={cn("group flex h-full flex-col rounded-[14px] p-6", g.tone)}
+                      >
+                        <h3 className="text-xl font-bold tracking-[-0.02em] group-hover:text-brand">{s.name}</h3>
+                        <p className="mt-3 flex-1 leading-relaxed text-muted">“{s.rows[0].pain}”</p>
+                        <span className="link mt-5 text-sm">Kahya’da nasıl çözülür</span>
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          ))}
         </div>
       </section>
       <CtaBand
+        tex
         title="Sektörünüz listede yok mu?"
         body="İşinizi birkaç cümleyle anlatın, Kahya’yı nasıl kuracağınızı birlikte konuşalım."
       />
