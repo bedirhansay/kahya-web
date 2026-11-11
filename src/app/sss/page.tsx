@@ -43,23 +43,22 @@ export default function FaqPage() {
       </PageHero>
 
       <section aria-label="Sorular" className="bg-paper">
-        <div className="wrap max-w-4xl py-10 md:py-12">
-
-          <div className="grid gap-10">
-            {topics.map((t) => (
-              <section key={t.id} aria-labelledby={t.id} className="scroll-mt-24">
-                <div className="flex items-baseline justify-between gap-4 border-b border-line pb-3">
-                  <h2 id={t.id} className="scroll-mt-24 font-display text-[1.4rem] font-bold tracking-[-0.01em]">
-                    {t.title}
-                  </h2>
-                  <span className="text-sm tabular-nums text-muted">{t.items.length} soru</span>
-                </div>
-                <div className="[&>div]:border-t-0">
-                  <Faq items={t.items} />
-                </div>
-              </section>
-            ))}
-          </div>
+        <div className="wrap py-6 md:py-10">
+          {topics.map((t) => (
+            <section
+              key={t.id}
+              aria-labelledby={t.id}
+              className="grid gap-4 border-t border-line py-10 first:border-t-0 md:py-12 lg:grid-cols-[minmax(0,0.34fr)_minmax(0,0.66fr)] lg:gap-16"
+            >
+              <div className="lg:sticky lg:top-28 lg:self-start">
+                <h2 id={t.id} className="font-display text-[1.6rem] font-bold leading-tight tracking-[-0.01em]">
+                  {t.title}
+                </h2>
+                <p className="mt-1 text-sm tabular-nums text-muted">{t.items.length} soru</p>
+              </div>
+              <Faq items={t.items} />
+            </section>
+          ))}
         </div>
       </section>
       <CtaBand
