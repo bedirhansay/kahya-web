@@ -185,6 +185,10 @@ export const extras: Extra[] = [
     body: "Kurumsal pakette dahil, diğer paketlerde ek hizmet. Kendi antetinizle teklif hazırlarsınız. Müşteri linkten açıp kabul eder, kabul edilen teklif satışa döner.",
   },
   {
+    name: "Ticari paket",
+    body: "Stok ve Teklif birlikte. Stok paketinize dahil değilse ikisini tek ek hizmetle açarsınız.",
+  },
+  {
     name: "Kahya AI",
     body: "Sorun, Kahya kendi verinizden yanıtlasın. Görev ve kayıt taslağı hazırlar, siz onaylamadan hiçbir şey kaydedilmez. Her firmada ayda 100 soru ücretsiz, daha fazlası Kahya AI ek hizmetiyle.",
     href: "/ozellikler/kahya-ai",
@@ -285,6 +289,6 @@ export const promises: Point[] = [
   },
   {
     term: "Verinizin tamamını istediğiniz an dışarı alırsınız.",
-    text: "Paketi bıraksanız da verileriniz silinmez.",
+    text: "Ücretsiz pakete geçseniz de verileriniz durur. Hesabınızı kapatırsanız ya da 6 ay hiç kullanmazsanız, önceden haber vererek sileriz.",
   },
 ];

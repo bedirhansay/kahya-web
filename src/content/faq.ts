@@ -1,3 +1,7 @@
+/** H14 §1 (owner decision 2026-11-11): support hours and response times; also in llms.txt. */
+export const supportAnswer =
+  "Sorununuzu uygulamada Destek › Yeni talep ile yazarsınız; her talebin bir numarası olur ve yanıtımız aynı yerde görünür. Hafta içi 09.00–18.00 (İstanbul) arasında çalışırız, resmî tatillerde çalışmayız. İlk yanıtı en geç 1 iş günü içinde veririz, sorunu 3 iş günü içinde çözmeyi hedefleriz; daha uzun sürecekse talebe yazarız. Giriş yapamıyorsanız ya da verileriniz kaybolduysa info@bihesap.co adresine firma adınızla yazın: acil durumlara 1 iş saati içinde döner, 1 iş günü içinde çözmeyi hedefleriz. Yeni özellik önerilerine 3 iş günü içinde yanıt veririz. Destek her pakette aynıdır.";
+
 export const generalFaq = [
   {
     q: "Kahya nedir?",
@@ -25,11 +29,15 @@ export const generalFaq = [
   },
   {
     q: "Verilerimi dışarı alabilir miyim?",
-    a: "Evet. Firma ayarlarından verinizin tamamını dışa aktarırsınız. Paketi bıraksanız da verileriniz silinmez.",
+    a: "Evet. Firma ayarlarından verinizin tamamını dışa aktarırsınız. Ücretsiz pakete geçseniz de verileriniz durur. Hesabınızı kapatırsanız ya da 6 ay hiç kullanmazsanız, önceden haber vererek sileriz.",
   },
   {
     q: "Yanlışlıkla sildiğim kaydı geri alabilir miyim?",
     a: "Evet. Silinen kayıtlar bir süre Silinenler sayfasında bekler. Geri yükle ile eski yerine döner.",
+  },
+  {
+    q: "Destek nasıl çalışır, ne kadar sürede dönersiniz?",
+    a: supportAnswer,
   },
 ];
 
@@ -53,5 +61,9 @@ export const pricingFaq = [
   {
     q: "Sonradan başka bir çözüm ya da ek hizmet ekleyebilir miyim?",
     a: "Evet. Abonelik sayfasından talep edersiniz, onaylanınca hesabınızda açılır. Kullanmadığınız bölümler menüde görünmez.",
+  },
+  {
+    q: "Paketimden fazla kullanıcı gerekirse?",
+    a: "Ek kullanıcı alırsınız; üst pakete geçmeniz gerekmez.",
   },
 ];

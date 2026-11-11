@@ -1,3 +1,4 @@
+import { supportAnswer } from "@/content/faq";
 import { features } from "@/content/features";
 import { guides } from "@/content/guides";
 import { planNames, planRows } from "@/content/plans";
@@ -24,6 +25,9 @@ export function GET() {
     "",
     "## Ek hizmetler",
     ...extras.map((x) => `- ${x.name}: ${x.body}`),
+    "",
+    "## Destek",
+    supportAnswer,
     "",
     "## Sektörler",
     ...sectors.map((x) => `- [${x.name}](${absoluteUrl(`/sektorler/${x.slug}`)})`),
