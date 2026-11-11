@@ -7,9 +7,18 @@ import { CtaBand } from "@/components/CtaBand";
 import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
+import { SectionJumps } from "@/components/SectionJumps";
 import { featureBySlug } from "@/content/features";
 import { guideBySlug, guides } from "@/content/guides";
 import { absoluteUrl, faqLd, pageMetadata, SITE_URL } from "@/lib/seo";
+
+/** A heading as an anchor id: "Seçerken bakılacak 7 şey" → "secerken-bakilacak-7-sey", the same every build. */
+const anchor = (heading: string) =>
+  heading
+    .toLocaleLowerCase("tr-TR")
+    .replace(/[çğıöşü]/g, (c) => ({ ç: "c", ğ: "g", ı: "i", ö: "o", ş: "s", ü: "u" })[c] ?? c)
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
 
 export function generateStaticParams() {
   return guides.map((g) => ({ slug: g.slug }));
@@ -49,12 +58,19 @@ export default async function GuidePage({ params }: PageProps<"/rehber/[slug]">)
         ]}
         title={g.title}
         lead={g.answer}
-      />
+      >
+        <SectionJumps
+          items={[
+            ...g.sections.map((s) => ({ href: `#${anchor(s.heading)}`, label: s.heading })),
+            { href: "#sorular", label: "Sorular" },
+          ]}
+        />
+      </PageHero>
       <article className="bg-paper">
         <div className="wrap grid gap-12 pb-20 lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-20">
           <div className="max-w-[44rem]">
             {g.sections.map((s) => (
-              <section key={s.heading} className="mt-12 first:mt-0">
+              <section key={s.heading} id={anchor(s.heading)} className="mt-12 scroll-mt-28 first:mt-0">
                 <h2 className="text-[1.6rem] font-bold leading-tight tracking-[-0.02em]">{s.heading}</h2>
                 {s.body.map((p) => (
                   <p key={p} className="mt-4 text-[1.06rem] leading-[1.75] text-ink/85">
@@ -101,7 +117,7 @@ export default async function GuidePage({ params }: PageProps<"/rehber/[slug]">)
       </article>
       <section aria-labelledby="sorular" className="bg-mist">
         <div className="wrap max-w-4xl py-14 md:py-20">
-          <h2 id="sorular" className="title">
+          <h2 id="sorular" className="title scroll-mt-28">
             Sorular
           </h2>
           <div className="mt-8">
