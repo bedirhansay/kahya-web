@@ -737,7 +737,8 @@ body {
   background: color-mix(in oklab, var(--color-sage) 34%, var(--color-surface));
 }
 .case-panel-cream {
-  background: color-mix(in oklab, var(--color-gold-300) 42%, var(--color-surface));
+  /* The third panel tone: pale petrol, no yellow (owner 2026-11-12). The class name stays for the content files. */
+  background: color-mix(in oklab, var(--color-petrol) 15%, var(--color-surface));
 }
 .case-panel-mist {
   background: var(--color-mist);
