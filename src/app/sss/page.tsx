@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { CtaBand } from "@/components/CtaBand";
 import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
@@ -38,52 +39,46 @@ export default function FaqPage() {
         lead="Konuya göre ayrıldı. Bir soruya dokunun, cevabı altında açılır."
       />
 
-      <div className="wrap grid gap-8 pb-16 pt-2 md:pb-20 lg:grid-cols-[13rem_minmax(0,1fr)] lg:gap-16">
-        <nav aria-label="Konular" className="lg:sticky lg:top-24 lg:self-start">
-          <ul className="-mx-4 flex gap-x-5 overflow-x-auto border-b border-line px-4 lg:mx-0 lg:block lg:border-0 lg:px-0">
+      <section aria-label="Sorular" className="bg-paper">
+        <div className="wrap grid gap-8 py-10 md:py-12 lg:grid-cols-[13rem_minmax(0,1fr)] lg:gap-16">
+          <nav aria-label="Konular" className="lg:sticky lg:top-24 lg:self-start">
+            <ul className="-mx-4 flex gap-x-5 overflow-x-auto border-b border-line px-4 lg:mx-0 lg:block lg:border-0 lg:px-0">
+              {topics.map((t) => (
+                <li key={t.id} className="shrink-0">
+                  <a
+                    href={`#${t.id}`}
+                    className="flex min-h-11 items-center justify-between gap-3 whitespace-nowrap text-[0.97rem] font-medium text-muted hover:text-ink lg:border-b lg:border-line"
+                  >
+                    {t.title}
+                    <span className="tabular-nums text-sm max-lg:hidden">{t.items.length}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div className="grid gap-10">
             {topics.map((t) => (
-              <li key={t.id} className="shrink-0">
-                <a
-                  href={`#${t.id}`}
-                  className="flex min-h-11 items-center justify-between gap-3 whitespace-nowrap text-[0.97rem] font-medium text-muted hover:text-ink lg:border-b lg:border-line"
-                >
-                  {t.title}
-                  <span className="tabular-nums text-sm max-lg:hidden">{t.items.length}</span>
-                </a>
-              </li>
+              <section key={t.id} aria-labelledby={t.id} className="scroll-mt-24">
+                <div className="flex items-baseline justify-between gap-4 border-b border-line pb-3">
+                  <h2 id={t.id} className="scroll-mt-24 font-display text-[1.4rem] font-bold tracking-[-0.01em]">
+                    {t.title}
+                  </h2>
+                  <span className="text-sm tabular-nums text-muted">{t.items.length} soru</span>
+                </div>
+                <div className="[&>div]:border-t-0">
+                  <Faq items={t.items} />
+                </div>
+              </section>
             ))}
-          </ul>
-        </nav>
-
-        <div className="grid gap-14">
-          {topics.map((t) => (
-            <section key={t.id} aria-labelledby={t.id} className="scroll-mt-24">
-              <div className="flex items-baseline justify-between gap-4 border-b border-line pb-3">
-                <h2 id={t.id} className="scroll-mt-24 font-display text-[1.4rem] font-bold tracking-[-0.01em]">
-                  {t.title}
-                </h2>
-                <span className="text-sm tabular-nums text-muted">{t.items.length} soru</span>
-              </div>
-              <div className="[&>div]:border-t-0">
-                <Faq items={t.items} />
-              </div>
-            </section>
-          ))}
-
-          <section aria-labelledby="bulamadiniz" className="border-t border-line pt-8">
-            <h2 id="bulamadiniz" className="font-display text-xl font-bold tracking-[-0.01em]">
-              Bulamadınız mı? Yazın
-            </h2>
-            <p className="mt-2 max-w-2xl leading-relaxed text-muted">
-              Sorunuzu iletişim formundan gönderin, cevabı e-postanıza yazalım. Hesabınız varsa uygulamada Destek ›
-              Yeni talep ile de sorabilirsiniz.
-            </p>
-            <a href="/iletisim?konu=diger" className="btn btn-petrol mt-5">
-              Sorunuzu yazın
-            </a>
-          </section>
+          </div>
         </div>
-      </div>
+      </section>
+      <CtaBand
+        tex
+        title="Bulamadınız mı? Yazın"
+        body="Sorunuzu iletişim formundan gönderin, cevabı e-postanıza yazalım. Hesabınız varsa uygulamada Destek › Yeni talep ile de sorabilirsiniz."
+      />
     </>
   );
 }
