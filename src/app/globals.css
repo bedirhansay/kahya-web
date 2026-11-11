@@ -648,6 +648,10 @@ body {
   .home-hero figure.home-in {
     animation-delay: 0.08s;
   }
+  /* a tap on "Tümünü gör" answers with the folded rows rising in */
+  .reveal-in {
+    animation: home-in 0.2s ease-out both;
+  }
 }
 [data-card] {
   position: relative;
