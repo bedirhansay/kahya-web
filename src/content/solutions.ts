@@ -191,7 +191,7 @@ export const extras: Extra[] = [
   },
   {
     name: "Filo",
-    body: "Kurumsal pakette dahil, diğer paketlerde ek hizmet. Araçlar, seferler ve araç bazında gelir gider takibi.",
+    body: "Ücretli her pakete ek hizmet olarak eklenir. Araçlar, seferler ve araç bazında gelir gider takibi.",
   },
 ];
 
