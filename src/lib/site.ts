@@ -25,6 +25,8 @@ export const site = {
     url: appUrl,
     register: `${appUrl}/register`,
     login: `${appUrl}/login`,
+    // H7: the public read-only sample office; visitors enter without signing up.
+    demo: `${appUrl}/demo`,
   },
   // The legal texts are published from the admin and shown by the app without a login.
   legal: {

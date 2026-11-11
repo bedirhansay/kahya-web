@@ -16,6 +16,10 @@ export const generalFaq = [
     a: "Hayır. Kahya tarayıcıda çalışır. Bilgisayardan, tabletten ve telefondan açılır. Telefonda ana ekrana ekleyip uygulama gibi kullanabilirsiniz.",
   },
   {
+    q: "Kayıt olmadan deneyebilir miyim?",
+    a: "Evet. Örnek ofiste her ekranı örnek veriyle gezersiniz. Değişiklikler kaydedilmez, veriler her gece yenilenir. Kendi verinizle denemek için ücretsiz başlarsınız.",
+  },
+  {
     q: "Muhasebe programımı bırakmam gerekir mi?",
     a: "Hayır. Kahya fatura kesmez ve resmî kayıt tutmaz. Faturanız ve beyannameniz muhasebe programınızda ya da müşavirinizde kalır. Kahya cari, tahsilat, ekip ve müşteri takibini yönetir. Ay sonunda hareketlerinizi Mali müşavir paketi’yle tek dosyada müşavirinize verirsiniz.",
   },

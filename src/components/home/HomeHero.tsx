@@ -222,9 +222,9 @@ function Buttons() {
         Ücretsiz başlayın
         <ArrowRight size={17} aria-hidden />
       </a>
-      <Link href="#bir-gun" className="btn btn-line-dark">
-        Nasıl çalışır
-      </Link>
+      <a href={site.app.demo} className="btn btn-line-dark">
+        Örnek ofisi gezin
+      </a>
     </>
   );
 }
@@ -232,6 +232,7 @@ function Buttons() {
 function Trust({ className }: { className?: string }) {
   return (
     <ul className={cn("grid gap-1.5 text-[0.92rem] text-muted", className)}>
+      <li>Örnek ofis kayıt olmadan, örnek veriyle açılır; değişiklikler kaydedilmez.</li>
       <li>Kurulum yok: tarayıcıdan ve telefondan açılır.</li>
       <li>Verinizin tamamını istediğiniz an dışarı alırsınız.</li>
     </ul>

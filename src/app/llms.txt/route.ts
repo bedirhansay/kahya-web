@@ -52,6 +52,7 @@ export function GET() {
     "## Bağlantılar",
     `- Uygulama: ${site.app.url}`,
     `- Kayıt: ${site.app.register}`,
+    `- Örnek ofis (kayıt olmadan, örnek veriyle; değişiklikler kaydedilmez): ${site.app.demo}`,
     `- Sık sorulanlar: ${absoluteUrl("/sss")}`,
     `- İletişim: ${site.email}`,
     "",
