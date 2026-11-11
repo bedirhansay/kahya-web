@@ -1,7 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
-import { useState, type ReactNode } from "react";
+import { useState } from "react";
 
 import { cn } from "@/lib/cn";
 
@@ -11,16 +12,22 @@ export type DayMoment = {
   title: string;
   text: string;
   solution: { name: string; href: string };
-  /** Drawn on the server and passed in. */
-  visual: ReactNode;
+  /** Index into `phones`: the screen this hour happens on, brought to the front when the hour is picked. */
+  phone?: number;
 };
 
-/** One office day as a timeline: pick a moment, its screen opens on the stage. */
-export function DayTabs({ moments }: { moments: DayMoment[] }) {
+export type DayPhone = { src: string; alt: string; time: string };
+
+/**
+ * One office day as a timeline beside three phones with the app's real 390 screens. Picking an hour that has a screen
+ * brings that phone to the middle; nothing moves on its own. On a phone only the middle one shows.
+ */
+export function DayTabs({ moments, phones }: { moments: DayMoment[]; phones: DayPhone[] }) {
   const [active, setActive] = useState(moments[0].key);
-  // The stage fades only when the reader picks another hour; nothing moves on load.
-  const [picked, setPicked] = useState(false);
+  const [front, setFront] = useState(moments.find((x) => x.phone !== undefined)?.phone ?? 0);
   const m = moments.find((x) => x.key === active)!;
+  const others = phones.map((_, i) => i).filter((i) => i !== front);
+  const order = [others[0], front, others[1]];
 
   return (
     <div className="grid gap-6 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-10">
@@ -37,7 +44,7 @@ export function DayTabs({ moments }: { moments: DayMoment[] }) {
               id={`gun-${x.key}`}
               aria-selected={on}
               aria-controls="gun-panel"
-              onClick={() => (setActive(x.key), setPicked(true))}
+              onClick={() => (setActive(x.key), x.phone !== undefined && setFront(x.phone))}
               className={cn(
                 "relative flex w-full items-start gap-4 rounded-xl px-3 py-3.5 text-left transition-colors duration-300",
                 on ? "text-ink" : "text-ink/55 hover:text-ink/85",
@@ -87,26 +94,33 @@ export function DayTabs({ moments }: { moments: DayMoment[] }) {
         })}
       </div>
 
-      <div
-        id="gun-panel"
-        role="tabpanel"
-        aria-labelledby={`gun-${m.key}`}
-        className="stage flex min-h-[26rem] min-w-0 flex-col p-4 sm:p-8 lg:min-h-[32rem]"
-      >
-        <div key={m.key} className={cn("flex flex-1 items-center justify-center lg:[zoom:1.12]", picked && "stage-in")}>
-          {m.visual}
+      <div id="gun-panel" role="tabpanel" aria-labelledby={`gun-${m.key}`} className="min-w-0">
+        <div className="day-phones">
+          {order.map((idx, pos) =>
+            idx === undefined ? null : (
+              <figure key={phones[idx].src} className={cn("day-phone", pos === 1 ? "day-phone-mid" : "day-phone-side")}>
+                <div className="home-phone">
+                  <div className="home-phone-screen">
+                    <Image
+                      src={phones[idx].src}
+                      alt={phones[idx].alt}
+                      width={1170}
+                      height={2532}
+                      sizes="(min-width: 1024px) 240px, 70vw"
+                      className="h-auto w-full"
+                    />
+                  </div>
+                </div>
+                <figcaption className="mt-3 text-center text-sm font-semibold tabular-nums text-muted">{phones[idx].time}</figcaption>
+              </figure>
+            ),
+          )}
         </div>
-        {/* Where this hour lives in Kahya: a small way in, right under the screen. */}
-        <Link
-          key={`l-${m.key}`}
-          href={m.solution.href}
-          className="group/sl mx-auto mt-6 inline-flex min-h-11 items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] py-1.5 pl-1.5 pr-4 text-[0.92rem] text-ink/80 transition-colors hover:border-brass/40 hover:text-ink"
-        >
-          <span className="rounded-full bg-brass/15 px-2.5 py-1 text-[0.875rem] font-semibold text-brass">
-            {m.solution.name}
-          </span>
-          çözümünde gör
-        </Link>
+        <p className="mt-6 text-center">
+          <Link href={m.solution.href} className="link inline-flex min-h-11 items-center">
+            {m.solution.name} çözümünde gör
+          </Link>
+        </p>
       </div>
     </div>
   );

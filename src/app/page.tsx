@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { DayTabs, type DayMoment } from "@/components/DayTabs";
+import { DayTabs, type DayMoment, type DayPhone } from "@/components/DayTabs";
 import { Faq } from "@/components/Faq";
 import { HomeHero, type HeroSlide } from "@/components/home/HomeHero";
 import { Problems } from "@/components/home/Problems";
 import { JsonLd } from "@/components/JsonLd";
-import { CariMock, LeavePhoneMock, MailToTaskMock, MeetingsMock, TaskSummaryMock } from "@/components/mock/screens";
 import { generalFaq } from "@/content/faq";
 import { extras, solutionBySlug } from "@/content/solutions";
 import { faqLd, pageMetadata, softwareLd } from "@/lib/seo";
@@ -27,14 +26,21 @@ const OFIS = { name: "Ofis yönetimi", href: "/cozumler/ofis-yonetimi" };
 const CRM = { name: "CRM", href: "/cozumler/crm" };
 const FINANS = { name: "Finans ve cari", href: "/cozumler/finans-cari" };
 
+/** The day's three phones: real 390 screens from the demo office. */
+const dayPhones: DayPhone[] = [
+  { src: "/media/home/gun-izin-tel.webp", alt: "Kahya telefonda: izinler listesi. Örnek veri.", time: "09.10" },
+  { src: "/media/home/s3-gorusme-tel.webp", alt: "Kahya telefonda: müşterinin görüşmeler sekmesi. Örnek veri.", time: "14.00" },
+  { src: "/media/home/s1-cari-tel.webp", alt: "Kahya telefonda: cari kartında bakiye ve son tahsilat. Örnek veri.", time: "17.45" },
+];
+
 const day: DayMoment[] = [
   {
     key: "izin",
     time: "09.10",
     title: "Ayşe telefondan izin istedi",
-    text: "Talep yöneticinin Onayınızı bekleyenler listesine düştü. Tek dokunuşla onaylandı, izin takvime işlendi.",
+    text: "16–17 Kasım için taşınma izni. Talep “Bekliyor” olarak İzinler listesine düştü; onaylayınca takvime işlenir.",
     solution: OFIS,
-    visual: <LeavePhoneMock />,
+    phone: 0,
   },
   {
     key: "eposta",
@@ -42,23 +48,22 @@ const day: DayMoment[] = [
     title: "Müşterinin e-postası göreve döndü",
     text: "Karadeniz Gıda ekim raporunu istedi. E-posta sorumlusu, projesi ve bitiş tarihiyle Can’ın görevi oldu.",
     solution: OFIS,
-    visual: <MailToTaskMock className="w-full max-w-xl" />,
   },
   {
     key: "gorusme",
     time: "14.00",
     title: "Görüşme müşteri kartına yazıldı",
-    text: "Kuzey Mobilya yeni ofis için teklif istedi. Not ve takip günü kartta, o gün geldiğinde listede önünüze çıkar.",
+    text: "Örnek Mobilya Atölyesi’ne kitaplık için renk örnekleri gönderildi. Görüşme kartın Görüşmeler sekmesinde; takip günü geldiğinde listede önünüze çıkar.",
     solution: CRM,
-    visual: <MeetingsMock className="w-full max-w-xl" />,
+    phone: 1,
   },
   {
     key: "tahsilat",
     time: "17.45",
     title: "Tahsilat bakiyeye işlendi",
-    text: "Kuzey Mobilya ₺20.000 ödedi. Kayıt girildiği anda cari bakiye ve hesap ekstresi güncellendi.",
+    text: "Örnek Mobilya ₺1.500 ödedi. Kayıt girildiği anda cari bakiye, son tahsilat ve sonraki vade güncellendi.",
     solution: FINANS,
-    visual: <CariMock className="w-full max-w-xl" />,
+    phone: 2,
   },
   {
     key: "ozet",
@@ -66,7 +71,6 @@ const day: DayMoment[] = [
     title: "Gün kimseyi aramadan kapandı",
     text: "Görev özeti kimin kaç iş bitirdiğini, nerede gecikme olduğunu gösteriyor.",
     solution: OFIS,
-    visual: <TaskSummaryMock className="w-full max-w-xl" />,
   },
 ];
 
@@ -216,7 +220,7 @@ export default function HomePage() {
             </p>
           </div>
           <div className="mt-12">
-            <DayTabs moments={day} />
+            <DayTabs moments={day} phones={dayPhones} />
           </div>
         </div>
       </section>
@@ -232,7 +236,7 @@ export default function HomePage() {
           </div>
           <ol className="mt-12 grid gap-10 md:grid-cols-3 md:gap-12">
             {steps.map((s, i) => (
-              <li key={s.h} className="border-t border-ink/15 pt-6">
+              <li key={s.h} className="border-t border-line pt-6">
                 <span className="font-display text-[1.05rem] font-bold text-brand tabular-nums">{i + 1}</span>
                 <h3 className="mt-2 text-xl font-semibold">{s.h}</h3>
                 <p className="mt-3 leading-relaxed text-muted">{s.d}</p>

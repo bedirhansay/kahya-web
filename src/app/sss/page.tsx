@@ -55,11 +55,11 @@ export default function FaqPage() {
           </ul>
         </nav>
 
-        <div className="grid gap-12">
+        <div className="grid gap-14">
           {topics.map((t) => (
             <section key={t.id} aria-labelledby={t.id} className="scroll-mt-24">
-              <div className="flex items-baseline justify-between gap-4 border-b-2 border-ink pb-2">
-                <h2 id={t.id} className="scroll-mt-24 font-display text-xl font-bold tracking-[-0.01em]">
+              <div className="flex items-baseline justify-between gap-4 border-b border-line pb-3">
+                <h2 id={t.id} className="scroll-mt-24 font-display text-[1.4rem] font-bold tracking-[-0.01em]">
                   {t.title}
                 </h2>
                 <span className="text-sm tabular-nums text-muted">{t.items.length} soru</span>
@@ -70,7 +70,7 @@ export default function FaqPage() {
             </section>
           ))}
 
-          <section aria-labelledby="bulamadiniz" className="border-t-2 border-ink pt-6">
+          <section aria-labelledby="bulamadiniz" className="border-t border-line pt-8">
             <h2 id="bulamadiniz" className="font-display text-xl font-bold tracking-[-0.01em]">
               Bulamadınız mı? Yazın
             </h2>

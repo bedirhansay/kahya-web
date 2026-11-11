@@ -28,7 +28,8 @@
   --color-mist: #e9efec;
   --color-ink: #0c1f1c;
   --color-muted: #52645e;
-  --color-line: rgb(12 31 28 / 0.1);
+  /* Every rule and divider: 1px of pine green at low contrast (owner 2026-11-11: "siyah çizgiler göz yoruyor"). */
+  --color-line: rgb(20 98 91 / 0.16);
   --color-brand: #14625b;
   --color-brand-50: rgb(20 98 91 / 0.06);
   --color-brand-100: rgb(20 98 91 / 0.12);
@@ -38,8 +39,9 @@
   --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-bricolage), var(--font-body), sans-serif;
 
-  --text-display: clamp(2.6rem, 1.5rem + 4.6vw, 5.4rem);
-  --text-display--line-height: 0.98;
+  /* Every inner page h1: one step under the home opening (about 52px at 1440, 32px on a phone). */
+  --text-display: clamp(2rem, 1.25rem + 2.2vw, 3.25rem);
+  --text-display--line-height: 1.06;
   --text-title: clamp(2rem, 1.4rem + 2.2vw, 3.3rem);
   --text-title--line-height: 1.04;
   --text-lead: clamp(1.05rem, 1rem + 0.3vw, 1.22rem);
@@ -138,7 +140,7 @@ body {
     font-size: var(--text-display);
     line-height: var(--text-display--line-height);
     font-weight: 700;
-    letter-spacing: -0.04em;
+    letter-spacing: -0.03em;
     text-wrap: balance;
   }
   .title {
@@ -582,6 +584,42 @@ body {
   border-radius: 999px;
   background: #0a1413;
   transform: translateX(-50%);
+}
+/* "Bir ofis günü": three phones, the picked hour's in front and the other two a little behind and lower. */
+.day-phones {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-top: 1rem;
+}
+.day-phone {
+  transition: translate 0.2s ease-out;
+}
+.day-phone:hover {
+  translate: 0 -4px;
+}
+.day-phone-mid {
+  position: relative;
+  z-index: 2;
+  width: min(68%, 260px);
+}
+.day-phone-side {
+  position: relative;
+  z-index: 1;
+  width: min(30%, 210px);
+  margin-bottom: 2.5rem;
+  opacity: 0.92;
+}
+.day-phone-side:first-child {
+  margin-right: -2.5rem;
+}
+.day-phone-side:last-child {
+  margin-left: -2.5rem;
+}
+@media (max-width: 639px) {
+  .day-phone-side {
+    display: none;
+  }
 }
 /* Beside the laptop on wide screens: the phone stands in front of its right edge. */
 @media (min-width: 1024px) {

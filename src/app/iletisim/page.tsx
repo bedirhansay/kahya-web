@@ -51,7 +51,6 @@ export default function ContactPage() {
       <div className="wrap grid gap-14 pb-24 pt-10 md:pt-14 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-20">
         <div className="min-w-0">
           <Breadcrumbs items={[{ name: "İletişim", path: "/iletisim" }]} />
-          <p className="chip mt-4">İletişim</p>
           <h1 className="display mt-5">
             Bize yazın, hemen dönelim
           </h1>

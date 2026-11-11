@@ -48,8 +48,7 @@ export default async function SectorPage({ params }: PageProps<"/sektorler/[slug
                 { name: s.name, path: `/sektorler/${s.slug}` },
               ]}
             />
-            <p className="chip mt-4">Sektörünüze göre Kahya</p>
-            <h1 className="title mt-4 max-w-2xl">
+            <h1 className="display mt-4 max-w-3xl">
               {s.seo.h1}
             </h1>
             <p className="lead mt-5 max-w-xl text-muted">{s.lead}</p>
