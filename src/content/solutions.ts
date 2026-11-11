@@ -273,18 +273,19 @@ export const vsScattered: readonly (readonly [string, string, string])[] = [
 
 /** H13 §4 — what Kahya does and does not do, beside accounting programs in general (no product named). */
 export const vsAccounting: readonly (readonly [string, string, string])[] = [
-  ["Fatura, e-Fatura, e-Arşiv", "Yok. Faturanız muhasebe programınızda ya da müşavirinizde kalır.", "Var"],
-  ["Banka hesabı bağlantısı", "Yok.", "Var"],
-  ["Resmî muhasebe kaydı", "Yok. Ayın hareketleri müşavirinize tek pakette gider.", "Ürüne göre"],
   ["Cari, tahsilat, taksit, vade", "Var", "Var"],
   ["Görev, izin, onay akışı", "Var", "Ürüne göre"],
   ["Müşteri görüşmesi ve takip günü", "Var", "Ürüne göre"],
-  ["Telefonda uygulama gibi kullanım", "Var (ana ekrana eklenir, bildirim gelir)", "Ürüne göre"],
   [
     "Müşteriye vade hatırlatması",
     "Var: e-posta kendiliğinden gider, WhatsApp mesajı gönderilmeye hazır olur",
     "Ürüne göre",
   ],
+  ["Telefonda uygulama gibi kullanım", "Var (ana ekrana eklenir, bildirim gelir)", "Ürüne göre"],
+  ["Kasa, banka ve kredi kartı bakiyesi", "Ek hizmet: hesaplar elle açılır, banka ekstresi dosya olarak yüklenip işlenir", "Var"],
+  ["Bankaya canlı bağlantı", "Yok", "Ürüne göre"],
+  ["Fatura, e-Fatura, e-Arşiv", "Yok. Faturanız muhasebe programınızda ya da müşavirinizde kalır", "Var"],
+  ["Resmî muhasebe kaydı", "Yok. Ayın hareketleri müşavirinize tek pakette gider", "Ürüne göre"],
   ["Kontör (e-Fatura / SMS kredisi)", "Yok, çünkü Kahya e-Fatura ve SMS satmaz", "Var"],
 ];
 

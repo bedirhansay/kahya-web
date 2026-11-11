@@ -5,7 +5,6 @@ import type { ReactNode } from "react";
 
 import { AddonPage } from "@/components/AddonPage";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import type { CaseTone } from "@/components/CaseRow";
 import { CtaBand } from "@/components/CtaBand";
 import { Faq } from "@/components/Faq";
 import { FeatureIcon } from "@/components/FeatureIcon";
@@ -56,9 +55,6 @@ const visuals: Record<
   },
 };
 
-/** Feature tiles rotate the panel tones; the other two solutions keep their own tones from /cozumler. */
-const featureTones: CaseTone[] = ["sage", "cream", "mist"];
-const otherTones: Record<Solution["slug"], CaseTone> = { "ofis-yonetimi": "sage", crm: "cream", "finans-cari": "mist" };
 
 export function generateStaticParams() {
   return [...solutions, ...addons].map((s) => ({ slug: s.slug }));
@@ -116,8 +112,7 @@ export default async function SolutionPage({ params }: PageProps<"/cozumler/[slu
               items={[
                 { href: "#ne-yapar", label: "Ne yapar" },
                 { href: "#daha-fazla", label: "Daha fazlası" },
-                ...(related.length > 0 ? [{ href: "#ozellikler", label: "Neler var" }] : []),
-                { href: "#sorular", label: "Sorular" },
+                { href: "#sorular", label: `${s.name} hakkında` },
                 ...(usedBy.length > 0 ? [{ href: "#sektorler", label: "Sektörler" }] : []),
               ]}
             />
@@ -149,56 +144,48 @@ export default async function SolutionPage({ params }: PageProps<"/cozumler/[slu
         </div>
       </section>
 
-      {related.length > 0 && (
-        <section aria-labelledby="ozellikler" className="bg-surface">
-          <div className="wrap border-t border-line py-14 md:py-20">
-            <SectionHead id="ozellikler" title={`${s.name} içinde neler var?`} lead="Her biri ayrı bir sayfa; dokunun, ayrıntısını okuyun." />
-            <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {related.map((f, i) => (
-                <li key={f.slug}>
-                  <Link
-                    href={`/ozellikler/${f.slug}`}
-                    className={`case-panel case-panel-${featureTones[i % featureTones.length]} group flex min-h-[14rem] flex-col p-6 transition-[filter] duration-200 hover:brightness-[0.97]`}
-                  >
-                    <span className="grid size-12 place-items-center rounded-[10px] bg-surface/85 text-brand">
-                      <FeatureIcon slug={f.slug} size={22} className="shrink-0" />
-                    </span>
-                    <span className="mt-auto pt-8 text-[1.15rem] font-bold tracking-[-0.01em] group-hover:text-brand">{f.name}</span>
-                    <span className="mt-1 leading-relaxed text-ink/80">{f.summary}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-      )}
-
       <section aria-labelledby="sorular" className="bg-paper">
         <div className="wrap py-14 md:py-20">
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.75fr)] lg:gap-16">
+          <SectionHead id="sorular" title={`${s.name} hakkında`} lead="İçinde ne var, en çok ne soruluyor, yanında ne kullanılır." />
+          <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,0.44fr)_minmax(0,0.56fr)] lg:gap-16">
             <div>
-              <SectionHead id="sorular" title={`${s.name} hakkında`} />
-              <div className="mt-8">
-                <Faq items={s.faq} />
-              </div>
-            </div>
-            <div>
-              <h3 className="text-[1.02rem] font-semibold">Diğer çözümler</h3>
-              <ul className="mt-4 grid gap-4">
+              {related.length > 0 && (
+                <div id="ozellikler">
+                  <h3 className="text-[1.02rem] font-semibold">İçinde neler var</h3>
+                  <ul className="mt-3 border-t border-line">
+                    {related.map((f) => (
+                      <li key={f.slug} className="border-b border-line">
+                        <Link href={`/ozellikler/${f.slug}`} className="group flex gap-4 py-4">
+                          <span className="grid size-11 shrink-0 place-items-center rounded-[10px] bg-brand-50 text-brand">
+                            <FeatureIcon slug={f.slug} size={20} />
+                          </span>
+                          <span className="min-w-0">
+                            <span className="block font-semibold group-hover:text-brand">{f.name}</span>
+                            <span className="mt-0.5 block text-[0.95rem] leading-relaxed text-muted">{f.summary}</span>
+                          </span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              <h3 className="mt-10 text-[1.02rem] font-semibold">Yanında kullanılan çözümler</h3>
+              <ul className="mt-3 border-t border-line">
                 {others.map((o) => (
-                  <li key={o.slug}>
-                    <Link
-                      href={`/cozumler/${o.slug}`}
-                      className={`case-panel case-panel-${otherTones[o.slug]} group block p-6 transition-[filter] duration-200 hover:brightness-[0.97]`}
-                    >
-                      <span className="font-display text-[0.95rem] font-bold text-ink/50">{o.no}</span>
-                      <span className="mt-2 block text-[1.2rem] font-bold tracking-[-0.01em] group-hover:text-brand">{o.name}</span>
-                      <span className="mt-1 block leading-relaxed text-ink/80">{o.summary}</span>
-                      <span className="link mt-3 inline-flex min-h-11 items-center">{o.name} çözümünü inceleyin</span>
+                  <li key={o.slug} className="border-b border-line">
+                    <Link href={`/cozumler/${o.slug}`} className="group block py-4">
+                      <span className="block font-semibold group-hover:text-brand">{o.name}</span>
+                      <span className="mt-0.5 block text-[0.95rem] leading-relaxed text-muted">{o.summary}</span>
                     </Link>
                   </li>
                 ))}
               </ul>
+            </div>
+            <div>
+              <h3 className="text-[1.02rem] font-semibold">Sık sorulanlar</h3>
+              <div className="mt-3">
+                <Faq items={s.faq} />
+              </div>
             </div>
           </div>
 

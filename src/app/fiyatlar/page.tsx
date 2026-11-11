@@ -92,8 +92,8 @@ export default function PricingPage() {
               Kahya ne yapar, ne yapmaz
             </h2>
             <p className="mt-4 max-w-2xl leading-relaxed text-muted">
-              Kahya fatura kesmez ve bankanıza bağlanmaz. Bunlar için muhasebe programınızı kullanmaya devam edersiniz;
-              Kahya ofisin geri kalanını yönetir.
+              Kahya ofisin günlük işini yönetir: cari, tahsilat, görev, izin, müşteri. Fatura ve resmî kayıt muhasebe
+              programınızda kalır; ikisi yan yana çalışır.
             </p>
             <div className="mt-6 overflow-hidden rounded-[14px] border border-line">
               <div className="hidden grid-cols-[1fr_1.4fr_0.75fr] bg-mist text-sm font-semibold md:grid">
