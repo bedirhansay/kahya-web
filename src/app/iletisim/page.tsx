@@ -74,7 +74,7 @@ export default function ContactPage() {
       />
 
       <section aria-label="İletişim" className="bg-surface">
-        <div className="wrap pb-20 pt-2 md:pb-24">
+        <div className="wrap pb-12 md:pb-16">
           <div className="grid overflow-hidden rounded-[20px] border border-line lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)]">
             <div className="pine-tex on-dark relative p-7 sm:p-9 lg:p-11">
               <h2 className="font-display text-[1.7rem] font-bold leading-tight tracking-[-0.02em]">

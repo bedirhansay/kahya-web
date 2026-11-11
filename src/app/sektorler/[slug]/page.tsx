@@ -153,24 +153,29 @@ export default async function SectorPage({ params }: PageProps<"/sektorler/[slug
       </section>
 
       <section aria-labelledby="sorular" className="bg-mist">
-        <div className="wrap grid gap-10 py-14 md:py-20 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16">
-          <div>
+        <div className="wrap py-14 md:py-20">
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,0.34fr)_minmax(0,0.66fr)] lg:gap-16">
             <h2 id="sorular" className="title">
               Sorular
             </h2>
-            <p className="mt-6 text-sm font-semibold">Diğer sektörler</p>
-            <p className="mt-2 text-sm leading-relaxed">
-              {others.map((o, i) => (
-                <span key={o.slug}>
-                  {i > 0 && ", "}
-                  <Link href={`/sektorler/${o.slug}`} className="link">
-                    {o.tab}
-                  </Link>
-                </span>
-              ))}
-            </p>
+            <Faq items={faq} />
           </div>
-          <Faq items={faq} />
+          <div className="mt-14 md:mt-20">
+            <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-end">
+              <h3 className="font-display text-[1.7rem] font-bold leading-tight tracking-[-0.02em]">Diğer sektörler</h3>
+              <p className="lead text-muted">Aynı uygulama, farklı işler; sizinkine en yakın olanı açın.</p>
+            </div>
+            <ul className="mt-8 grid border-t border-line sm:grid-cols-2 lg:grid-cols-3">
+              {others.map((o) => (
+                <li key={o.slug} className="border-b border-line">
+                  <Link href={`/sektorler/${o.slug}`} className="group block h-full py-5 pr-6">
+                    <span className="block font-semibold group-hover:text-brand">{o.name}</span>
+                    <span className="mt-0.5 block text-[0.95rem] leading-relaxed text-muted">{o.lead}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
       <CtaBand

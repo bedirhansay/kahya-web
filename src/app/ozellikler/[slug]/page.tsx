@@ -7,6 +7,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CtaBand } from "@/components/CtaBand";
 import { Faq } from "@/components/Faq";
 import { FeatureParts } from "@/components/FeatureParts";
+import { FeatureIcon } from "@/components/FeatureIcon";
 import { Frame } from "@/components/Frame";
 import { JsonLd } from "@/components/JsonLd";
 import { SectionJumps } from "@/components/SectionJumps";
@@ -149,23 +150,34 @@ export default async function FeaturePage({ params }: PageProps<"/ozellikler/[sl
       )}
 
       <section aria-labelledby="sorular" className="bg-paper">
-        <div className="wrap grid gap-10 py-14 md:py-20 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)]">
-          <div>
+        <div className="wrap py-14 md:py-20">
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,0.34fr)_minmax(0,0.66fr)] lg:gap-16">
             <h2 id="sorular" className="title">
               Sorular
             </h2>
-            <p className="mt-8 text-sm font-semibold">Diğer özellikler</p>
-            <ul className="mt-2 grid gap-1">
+            <Faq items={f.faq} />
+          </div>
+          <div className="mt-14 md:mt-20">
+            <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-end">
+              <h3 className="font-display text-[1.7rem] font-bold leading-tight tracking-[-0.02em]">Diğer özellikler</h3>
+              <p className="lead text-muted">Her biri diğerine bağlı; kullanmadığınızı kapatın, menüden kalksın.</p>
+            </div>
+            <ul className="mt-8 grid border-t border-line sm:grid-cols-2 lg:grid-cols-3">
               {others.map((o) => (
-                <li key={o.slug}>
-                  <Link href={`/ozellikler/${o.slug}`} className="link">
-                    {o.name}
+                <li key={o.slug} className="border-b border-line">
+                  <Link href={`/ozellikler/${o.slug}`} className="group flex h-full gap-4 py-5 pr-6">
+                    <span className="grid size-11 shrink-0 place-items-center rounded-[10px] bg-brand-50 text-brand">
+                      <FeatureIcon slug={o.slug} size={20} />
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block font-semibold group-hover:text-brand">{o.name}</span>
+                      <span className="mt-0.5 block text-[0.95rem] leading-relaxed text-muted">{o.summary}</span>
+                    </span>
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
-          <Faq items={f.faq} />
         </div>
       </section>
       <CtaBand
