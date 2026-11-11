@@ -108,7 +108,7 @@ export const sectors: Sector[] = [
       },
       {
         q: "Müşterinin taksitlerini nasıl takip ederim?",
-        a: "Finans & Cari çözümünde ödeme planı kurarsınız. Taksitler tek seferde oluşur, vadesi gelen ödeme Ana Sayfa’da görünür.",
+        a: "Finans ve Cari çözümünde ödeme planı kurarsınız. Taksitler tek seferde oluşur, vadesi gelen ödeme Ana Sayfa’da görünür.",
       },
     ],
   },
@@ -194,7 +194,7 @@ export const sectors: Sector[] = [
       },
       {
         q: "Servis araçlarını takip edebilir miyim?",
-        a: "Evet. Filo Kurumsal pakette dahil, diğer paketlerde ek hizmet. Araçlar, seferler ve araç bazında gelir gider takip edilir.",
+        a: "Evet. Filo ek hizmettir; ücretli her pakete eklenir. Araçlar, seferler ve araç bazında gelir gider takip edilir.",
       },
     ],
   },
@@ -327,7 +327,7 @@ export const sectors: Sector[] = [
     faq: [
       {
         q: "Araçlarımı Kahya’da takip edebilir miyim?",
-        a: "Evet. Filo Kurumsal pakette dahil, diğer paketlerde ek hizmet. Araçları, seferleri ve araç bazında gelir ve gideri kaydedersiniz.",
+        a: "Evet. Filo ek hizmettir; ücretli her pakete eklenir. Araçları, seferleri ve araç bazında gelir ve gideri kaydedersiniz.",
       },
       {
         q: "Araçların konumunu görebilir miyim?",

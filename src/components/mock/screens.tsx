@@ -267,7 +267,7 @@ export function RecentMeetingsMock({ className }: { className?: string }) {
   );
 }
 
-/* Finans & Cari */
+/* Finans ve Cari */
 
 export function MoneyHomeMock({ className }: { className?: string }) {
   return (

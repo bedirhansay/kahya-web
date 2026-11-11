@@ -70,7 +70,7 @@ const compare = [
 
 const OFIS = { name: "Ofis Yönetimi", href: "/cozumler/ofis-yonetimi" };
 const CRM = { name: "CRM", href: "/cozumler/crm" };
-const FINANS = { name: "Finans & Cari", href: "/cozumler/finans-cari" };
+const FINANS = { name: "Finans ve Cari", href: "/cozumler/finans-cari" };
 
 const day: DayMoment[] = [
   {

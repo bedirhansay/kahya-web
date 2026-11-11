@@ -5,7 +5,7 @@ export const generalFaq = [
   },
   {
     q: "Kahya hangi çözümlerden oluşur?",
-    a: "Üç çözümden: Ofis Yönetimi (ekip, görev, izin ve onaylar), CRM yani Müşteri İlişkileri (görüşmeler ve takip günleri) ve Finans & Cari (cari, tahsilat, taksit, alacak ve borç raporları). İhtiyacınız olanı seçersiniz, kullanmadıklarınız menüde görünmez.",
+    a: "Üç çözümden: Ofis Yönetimi (ekip, görev, izin ve onaylar), CRM yani Müşteri İlişkileri (görüşmeler ve takip günleri) ve Finans ve Cari (cari, tahsilat, taksit, alacak ve borç raporları). İhtiyacınız olanı seçersiniz, kullanmadıklarınız menüde görünmez.",
   },
   {
     q: "Kurulum gerekir mi?",

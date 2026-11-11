@@ -19,7 +19,7 @@ export const planRows: { label: string; hint?: string; cells: [PlanCell, PlanCel
   { label: "Excel ve PDF'e aktarma", cells: [false, true, true, true, true] },
   { label: "Stok", cells: [false, "ek", true, true, true] },
   { label: "Teklif", cells: [false, "ek", "ek", "ek", true] },
-  { label: "Filo", cells: [false, "ek", "ek", "ek", true] },
+  { label: "Filo", cells: [false, "ek", "ek", "ek", "ek"] },
   { label: "E-posta", hint: "Kendi e-posta kutunuz", cells: [false, "ek", "ek", "ek", "ek"] },
   { label: "Öncelikli destek", cells: [false, false, false, false, true] },
 ];

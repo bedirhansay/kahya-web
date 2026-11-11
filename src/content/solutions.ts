@@ -123,7 +123,7 @@ export const solutions: Solution[] = [
     slug: "finans-cari",
     no: "03",
     kicker: "Cari ve tahsilat",
-    name: "Finans & Cari",
+    name: "Finans ve Cari",
     summary: "Cari hesaplar, tahsilat ve ödemeler, taksit planları, alacak raporları.",
     title: "Kim kime borçlu, tek bakışta",
     lead: "Cari hesaplarınız, tahsilat ve ödemeleriniz, vadeleriniz tek yerde.",
@@ -137,7 +137,7 @@ export const solutions: Solution[] = [
       title: "Cari Hesap Takip Programı: Tahsilat, Taksit ve Alacak Takibi",
       h1: "Cari hesap takip programı: kim kime borçlu, tek bakışta",
       description:
-        "Kahya Finans & Cari ile müşteri ve tedarikçi carilerini, tahsilat ve ödemeleri, taksitli ödeme planlarını takip edin. Alacak ve borç raporlarını alın, ekstreyi paylaşın, ay sonunda mali müşavirinize tek dosya gönderin.",
+        "Kahya Finans ve Cari ile müşteri ve tedarikçi carilerini, tahsilat ve ödemeleri, taksitli ödeme planlarını takip edin. Alacak ve borç raporlarını alın, ekstreyi paylaşın, ay sonunda mali müşavirinize tek dosya gönderin.",
     },
     more: {
       title: "Vade gelmeden önünüzde",
