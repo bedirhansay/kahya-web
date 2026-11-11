@@ -1,3 +1,16 @@
+import {
+  Bell,
+  Building2,
+  FileSpreadsheet,
+  LayoutDashboard,
+  RotateCcw,
+  Search,
+  ShieldCheck,
+  Star,
+  Tags,
+  Workflow,
+  type LucideIcon,
+} from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -14,6 +27,19 @@ export const metadata: Metadata = pageMetadata({
   description:
     "Kahya’nın tüm modülleri: cari ve bakiye takibi, ödeme planları, görevler ve takımlar, projeler, e-posta, personel ve izinler, talepler ve onaylar, dokümanlar, raporlar ve Kahya AI.",
 });
+
+const toolIcons: Record<string, LucideIcon> = {
+  "Hızlı ara ve hızlı oluştur": Search,
+  Favoriler: Star,
+  "Bildirimler ve bekleyenler": Bell,
+  "Ana Sayfa’yı düzenleyin": LayoutDashboard,
+  Otomasyonlar: Workflow,
+  "Etiketler ve özel alanlar": Tags,
+  "Excel’den içe aktarma": FileSpreadsheet,
+  "Roller ve yetkiler": ShieldCheck,
+  Şubeler: Building2,
+  Silinenler: RotateCcw,
+};
 
 const tools = [
   ["Hızlı ara ve hızlı oluştur", "⌘K ile her kayda ulaşın. “+” ile açık kayda göre tahsilat, satış ya da not ekleyin."],
@@ -73,12 +99,20 @@ export default function FeaturesPage() {
             Her gün işinizi hızlandıran küçük şeyler
           </h2>
           <dl className="mt-10 grid gap-x-10 border-t border-line sm:grid-cols-2 lg:grid-cols-3">
-            {tools.map(([t, d]) => (
-              <div key={t} className="border-b border-line py-4">
-                <dt className="font-semibold">{t}</dt>
-                <dd className="mt-1 text-[0.95rem] leading-relaxed text-muted">{d}</dd>
-              </div>
-            ))}
+            {tools.map(([t, d]) => {
+              const Icon = toolIcons[t] ?? Search;
+              return (
+                <div key={t} className="flex gap-4 border-b border-line py-5">
+                  <span className="grid size-11 shrink-0 place-items-center rounded-[10px] bg-brand-50 text-brand">
+                    <Icon size={20} aria-hidden strokeWidth={1.75} />
+                  </span>
+                  <div className="min-w-0">
+                    <dt className="font-semibold">{t}</dt>
+                    <dd className="mt-1 text-[0.95rem] leading-relaxed text-muted">{d}</dd>
+                  </div>
+                </div>
+              );
+            })}
           </dl>
         </div>
       </section>
