@@ -39,7 +39,7 @@ export const solutions: Solution[] = [
       { term: "Ana Sayfa · Ekip bugün", text: "kim izinde, ne zaman dönüyor." },
     ],
     seo: {
-      title: "Ofis Yönetim Programı: Görev, Personel, İzin ve Onay Takibi",
+      title: "Ofis yönetim programı: görev, personel, izin ve onay takibi",
       h1: "Ofis yönetim programı: görev, izin ve onaylar tek yerde",
       description:
         "Kahya Ofis yönetimi ile görevleri kişiye ya da takıma verin, izin ve avans taleplerini telefondan alın, onayları tek listeden verin. Görev Özeti ve onay süreleri raporlarıyla ekibin durumunu görün.",
@@ -89,7 +89,7 @@ export const solutions: Solution[] = [
       { term: "Ana Sayfa · Son görüşmeler", text: "kimle en son ne konuşuldu, tek listede." },
     ],
     seo: {
-      title: "CRM Programı: Müşteri Görüşme ve Takip Programı",
+      title: "CRM programı: müşteri görüşme ve takip programı",
       h1: "CRM programı: her müşteri görüşmesi kayıtta, takip günü unutulmaz",
       description:
         "Kahya CRM ile müşteri görüşmelerini kişisi ve notuyla kaydedin, takip günü yazın, takibi gelenler listede önünüze çıksın. Teklif ile kendi antetli teklifinizi hazırlayın (Kurumsal pakette dahil, diğer paketlerde ek hizmet).",
@@ -134,7 +134,7 @@ export const solutions: Solution[] = [
       { term: "Ana Sayfa", text: "para kartları ve vadesi geçenler." },
     ],
     seo: {
-      title: "Cari Hesap Takip Programı: Tahsilat, Taksit ve Alacak Takibi",
+      title: "Cari hesap takip programı: tahsilat, taksit ve alacak takibi",
       h1: "Cari hesap takip programı: kim kime borçlu, tek bakışta",
       description:
         "Kahya Finans ve cari ile müşteri ve tedarikçi carilerini, tahsilat ve ödemeleri, taksitli ödeme planlarını takip edin. Alacak ve borç raporlarını alın, ekstreyi paylaşın, ay sonunda mali müşavirinize tek dosya gönderin.",

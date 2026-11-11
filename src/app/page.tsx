@@ -45,11 +45,11 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   ...pageMetadata({
     path: "/",
-    title: "Kahya | Ofis Yönetim Programı: Görev, CRM, Cari ve Personel Takibi",
+    title: "Kahya | Ofis yönetim programı: görev, CRM, cari ve personel takibi",
     description: site.description,
   }),
   title: {
-    absolute: "Kahya | Ofis Yönetim Programı: Görev, CRM, Cari ve Personel Takibi",
+    absolute: "Kahya | Ofis yönetim programı: görev, CRM, cari ve personel takibi",
   },
 };
 

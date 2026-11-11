@@ -9,7 +9,7 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   path: "/sektorler",
-  title: "Sektörler: Toptan Ticaret, İnşaat, Nakliye, Mali Müşavir ve Daha Fazlası için Kahya",
+  title: "Sektörler: toptan ticaret, inşaat, nakliye, mali müşavir ve daha fazlası için Kahya",
   description:
     "Kahya’nın toptan ticaret, inşaat, lojistik, güvenlik ve temizlik, mali müşavir, eğitim, hukuk, üretim atölyesi, danışmanlık, mimarlık, emlak ve teknik servis firmalarında nasıl kullanıldığını görün.",
 });
