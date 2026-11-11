@@ -57,7 +57,7 @@ export const guides: Guide[] = [
       {
         heading: "Kahya bunları nasıl karşılıyor?",
         body: [
-          "Kahya üç çözümden oluşur: Ofis Yönetimi, CRM (müşteri ilişkileri) ve Finans ve Cari. İhtiyacınız olanı açarsınız; menü yalnızca onları gösterir. Tarayıcıda çalışır, telefonda ana ekrana eklenir.",
+          "Kahya üç çözümden oluşur: Ofis yönetimi, CRM (müşteri ilişkileri) ile Finans ve cari. İhtiyacınız olanı açarsınız; menü yalnızca onları gösterir. Tarayıcıda çalışır, telefonda ana ekrana eklenir.",
           "Kayıt olan her firma 30 gün Kurumsal paketi dener, süre bitince Ücretsiz pakete geçer ve verileri yerinde kalır. Kayıtlar Türkiye'deki sunucularda tutulur ve her gün yedeklenir.",
         ],
       },

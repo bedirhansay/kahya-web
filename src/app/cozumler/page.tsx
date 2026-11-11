@@ -13,9 +13,9 @@ import { faqLd, pageMetadata, softwareLd } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   path: "/cozumler",
-  title: "Çözümler: Ofis Yönetimi, CRM, Finans ve Cari",
+  title: "Çözümler: Ofis yönetimi, CRM, Finans ve cari",
   description:
-    "Kahya üç çözümden oluşur: Ofis Yönetimi, CRM (Müşteri İlişkileri) ve Finans ve Cari. E-posta ve Kahya AI ek hizmettir; Stok Ekip ve üstünde, Teklif Kurumsal pakette dahil. Fiyat kullanıcı sayısına (paket) ve ek hizmetlere göre verilir.",
+    "Kahya üç çözümden oluşur: Ofis yönetimi, CRM (Müşteri İlişkileri) ile Finans ve cari. E-posta ve Kahya AI ek hizmettir; Stok Ekip ve üstünde, Teklif Kurumsal pakette dahil. Fiyat kullanıcı sayısına (paket) ve ek hizmetlere göre verilir.",
 });
 
 const quote = (what: string) => `/iletisim?konu=fiyat&cozum=${encodeURIComponent(what)}`;

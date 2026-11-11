@@ -29,7 +29,7 @@ export const solutions: Solution[] = [
     slug: "ofis-yonetimi",
     no: "01",
     kicker: "Ekip ve işleyiş",
-    name: "Ofis Yönetimi",
+    name: "Ofis yönetimi",
     summary: "Ekip, görev, izin, onay, takvim, belgeler ve talepler.",
     title: "Ekibiniz bugün ne yaptı?",
     lead: "Kimseyi aramadan görün: kim kaç iş bitirdi, nerede gecikme var, hangi onay kimde bekliyor.",
@@ -42,7 +42,7 @@ export const solutions: Solution[] = [
       title: "Ofis Yönetim Programı: Görev, Personel, İzin ve Onay Takibi",
       h1: "Ofis yönetim programı: görev, izin ve onaylar tek yerde",
       description:
-        "Kahya Ofis Yönetimi ile görevleri kişiye ya da takıma verin, izin ve avans taleplerini telefondan alın, onayları tek listeden verin. Görev Özeti ve onay süreleri raporlarıyla ekibin durumunu görün.",
+        "Kahya Ofis yönetimi ile görevleri kişiye ya da takıma verin, izin ve avans taleplerini telefondan alın, onayları tek listeden verin. Görev Özeti ve onay süreleri raporlarıyla ekibin durumunu görün.",
     },
     more: {
       title: "Bütün ekip içeride",
@@ -123,7 +123,7 @@ export const solutions: Solution[] = [
     slug: "finans-cari",
     no: "03",
     kicker: "Cari ve tahsilat",
-    name: "Finans ve Cari",
+    name: "Finans ve cari",
     summary: "Cari hesaplar, tahsilat ve ödemeler, taksit planları, alacak raporları.",
     title: "Kim kime borçlu, tek bakışta",
     lead: "Cari hesaplarınız, tahsilat ve ödemeleriniz, vadeleriniz tek yerde.",
@@ -137,7 +137,7 @@ export const solutions: Solution[] = [
       title: "Cari Hesap Takip Programı: Tahsilat, Taksit ve Alacak Takibi",
       h1: "Cari hesap takip programı: kim kime borçlu, tek bakışta",
       description:
-        "Kahya Finans ve Cari ile müşteri ve tedarikçi carilerini, tahsilat ve ödemeleri, taksitli ödeme planlarını takip edin. Alacak ve borç raporlarını alın, ekstreyi paylaşın, ay sonunda mali müşavirinize tek dosya gönderin.",
+        "Kahya Finans ve cari ile müşteri ve tedarikçi carilerini, tahsilat ve ödemeleri, taksitli ödeme planlarını takip edin. Alacak ve borç raporlarını alın, ekstreyi paylaşın, ay sonunda mali müşavirinize tek dosya gönderin.",
     },
     more: {
       title: "Vade gelmeden önünüzde",
@@ -145,7 +145,7 @@ export const solutions: Solution[] = [
       points: [
         { term: "Ödeme planları", text: "taksit, kira ve aidat vadesinde hatırlatılır." },
         { term: "Ekstre", text: "WhatsApp, e-posta, link, PDF ya da Excel olarak paylaşılır." },
-        { term: "Mali Müşavir Paketi", text: "ayın hareketleri ve ekstreler tek dosyada." },
+        { term: "Mali müşavir paketi", text: "ayın hareketleri ve ekstreler tek dosyada." },
       ],
     },
     features: ["cari-takibi", "odeme-planlari", "raporlar"],
@@ -156,7 +156,7 @@ export const solutions: Solution[] = [
       },
       {
         q: "Muhasebe programımı bırakmam gerekir mi?",
-        a: "Hayır. Kahya fatura kesmez ve resmî kayıt tutmaz. Faturanız ve beyannameniz muhasebe programınızda ya da müşavirinizde kalır. Kahya cari, tahsilat, ekip ve müşteri takibini yönetir. Ay sonunda hareketlerinizi Mali Müşavir Paketi’yle tek dosyada müşavirinize verirsiniz.",
+        a: "Hayır. Kahya fatura kesmez ve resmî kayıt tutmaz. Faturanız ve beyannameniz muhasebe programınızda ya da müşavirinizde kalır. Kahya cari, tahsilat, ekip ve müşteri takibini yönetir. Ay sonunda hareketlerinizi Mali müşavir paketi’yle tek dosyada müşavirinize verirsiniz.",
       },
       {
         q: "Eski carilerimi ve açılış bakiyelerimi aktarabilir miyim?",

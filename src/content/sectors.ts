@@ -108,7 +108,7 @@ export const sectors: Sector[] = [
       },
       {
         q: "Müşterinin taksitlerini nasıl takip ederim?",
-        a: "Finans ve Cari çözümünde ödeme planı kurarsınız. Taksitler tek seferde oluşur, vadesi gelen ödeme Ana Sayfa’da görünür.",
+        a: "Finans ve cari çözümünde ödeme planı kurarsınız. Taksitler tek seferde oluşur, vadesi gelen ödeme Ana Sayfa’da görünür.",
       },
     ],
   },
@@ -387,7 +387,7 @@ export const sectors: Sector[] = [
       title: "Mali Müşavir Büroları için İş Takibi, Mükellef Görüşmeleri ve Ücret Takibi",
       h1: "Mali müşavir büroları için Kahya",
       description:
-        "Büronun işlerini ekibe dağıtın, mükellef görüşmelerini kaydedin, aylık ücretleri takip edin. Kahya kullanan müşterileriniz ayın hareketlerini Mali Müşavir Paketi ile tek dosyada gönderir.",
+        "Büronun işlerini ekibe dağıtın, mükellef görüşmelerini kaydedin, aylık ücretleri takip edin. Kahya kullanan müşterileriniz ayın hareketlerini Mali müşavir paketi ile tek dosyada gönderir.",
     },
     lead: "Her ay tekrar eden işler, çok sayıda mükellef ve aylık ücretler. Büronun kendi işi de düzenli olsun.",
     pains: [
@@ -421,7 +421,7 @@ export const sectors: Sector[] = [
         a: "Hayır. Kahya büronun iş takibini, görüşmelerini ve ücret takibini tutar. Beyanname, e-Defter ve resmî kayıtlar için mevcut programınızı kullanırsınız.",
       },
       {
-        q: "Mali Müşavir Paketi nedir?",
+        q: "Mali müşavir paketi nedir?",
         a: "Kahya kullanan bir firmanın seçtiği ayın hareketlerini, cari bakiyelerini ve ekstrelerini tek dosyada hazırladığı rapordur. Firma bu dosyayı indirip mali müşavirine gönderir.",
       },
     ],

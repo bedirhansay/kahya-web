@@ -65,12 +65,12 @@ const compare = [
     "Cari bakiye her tahsilatta kendiliğinden güncellenir.",
   ],
   ["Taksit ne zaman?", "Takvime not düşülüyor, unutulursa geçiyor.", "Ödeme planı vadesinde hatırlatır."],
-  ["Ay sonunda ne gönderilecek?", "Dosyalar tek tek toplanıyor.", "Mali Müşavir Paketi tek dosya olarak hazırlanır."],
+  ["Ay sonunda ne gönderilecek?", "Dosyalar tek tek toplanıyor.", "Mali müşavir paketi tek dosya olarak hazırlanır."],
 ] as const;
 
-const OFIS = { name: "Ofis Yönetimi", href: "/cozumler/ofis-yonetimi" };
+const OFIS = { name: "Ofis yönetimi", href: "/cozumler/ofis-yonetimi" };
 const CRM = { name: "CRM", href: "/cozumler/crm" };
-const FINANS = { name: "Finans ve Cari", href: "/cozumler/finans-cari" };
+const FINANS = { name: "Finans ve cari", href: "/cozumler/finans-cari" };
 
 const day: DayMoment[] = [
   {

@@ -10,6 +10,11 @@ export type PlanCell = boolean | "ek" | string;
 export const planRows: { label: string; hint?: string; cells: [PlanCell, PlanCell, PlanCell, PlanCell, PlanCell] }[] = [
   { label: "Kullanıcı", cells: ["1", "3", "10", "25", "Sınırsız"] },
   { label: "Dosya alanı", cells: ["200 MB", "3 GB", "5 GB", "20 GB", "100 GB"] },
+  {
+    label: "Şube / cari / personel",
+    hint: "Cari: müşteri ve tedarikçi",
+    cells: ["1 / 50 / 3", "Sınırsız", "Sınırsız", "Sınırsız", "Sınırsız"],
+  },
   { label: "Görev, takvim, proje, toplantı", cells: [true, true, true, true, true] },
   { label: "Talepler, onaylar, duyurular", cells: [true, true, true, true, true] },
   { label: "Müşteri görüşmeleri (CRM)", cells: [false, true, true, true, true] },
@@ -17,6 +22,8 @@ export const planRows: { label: string; hint?: string; cells: [PlanCell, PlanCel
   { label: "Ödeme planları ve vadeler", cells: [false, true, true, true, true] },
   { label: "Dokümanlar, sözleşmeler, demirbaş", cells: [false, true, true, true, true] },
   { label: "Excel ve PDF'e aktarma", cells: [false, true, true, true, true] },
+  { label: "Gelişmiş raporlar", cells: [false, true, true, true, true] },
+  { label: "Mali müşavir paketi", hint: "Ayın kayıtları tek dosyada", cells: [false, true, true, true, true] },
   { label: "Stok", cells: [false, "ek", true, true, true] },
   { label: "Teklif", cells: [false, "ek", "ek", "ek", true] },
   { label: "Filo", cells: [false, "ek", "ek", "ek", "ek"] },

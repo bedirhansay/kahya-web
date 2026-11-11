@@ -60,7 +60,7 @@ const solutionIcons: Record<string, LucideIcon> = {
 const solutionBullets: Record<string, string[]> = {
   "ofis-yonetimi": ["Görevler ve takvim", "İzin ve onaylar", "E-posta → görev", "Talepler ve duyurular"],
   crm: ["Müşteri kartı", "Görüşme kaydı", "Takip günü", "Son görüşmeler"],
-  "finans-cari": ["Cari ve ekstre", "Tahsilat", "Ödeme planları", "Mali Müşavir Paketi"],
+  "finans-cari": ["Cari ve ekstre", "Tahsilat", "Ödeme planları", "Mali müşavir paketi"],
 };
 
 const sectorMeta: Record<string, { icon: LucideIcon; hint: string }> = {

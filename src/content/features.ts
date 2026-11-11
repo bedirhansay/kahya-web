@@ -62,7 +62,7 @@ export const features: Feature[] = [
     faq: [
       {
         q: "Kahya bir muhasebe programı mı?",
-        a: "Hayır. Kahya alacak ve borçlarınızı cari bakiye olarak takip eder. Kasa, banka hesabı ve fatura kesme yoktur. Resmî muhasebe için mali müşavirinize ayın kayıtlarını tek dosyada hazırlayan Mali Müşavir Paketi’ni kullanabilirsiniz.",
+        a: "Hayır. Kahya alacak ve borçlarınızı cari bakiye olarak takip eder. Kasa, banka hesabı ve fatura kesme yoktur. Resmî muhasebe için mali müşavirinize ayın kayıtlarını tek dosyada hazırlayan Mali müşavir paketi’ni kullanabilirsiniz.",
       },
       {
         q: "Müşterim ekstresini nasıl görür?",
@@ -361,7 +361,7 @@ export const features: Feature[] = [
     title: "Ayın durumu tek bakışta",
     lead:
       "Kimden ne alacaklı, kime ne borçlu olduğunuzu, ay ay gelir ve giderinizi ve nakdin gerçekte ne zaman girip çıktığını görün. Ayın kayıtlarını mali müşavirinize tek dosyada gönderin.",
-    screen: { src: "/screens/package.webp", alt: "Kahya Mali Müşavir Paketi ekranı" },
+    screen: { src: "/screens/package.webp", alt: "Kahya Mali müşavir paketi ekranı" },
     tutorials: ["raporlar", "ana-sayfa-ve-kisayollar"],
     points: [
       {
@@ -373,7 +373,7 @@ export const features: Feature[] = [
         body: "Ay ay kâr tablosu, tahsilat ve ödemelerin gerçek tarihleri, büyüyen gider kalemleri.",
       },
       {
-        title: "Mali Müşavir Paketi",
+        title: "Mali müşavir paketi",
         body: "Ayın tüm kayıtları tek dosyada. Paketi hazırla, indir, gönder.",
       },
       {
@@ -384,7 +384,7 @@ export const features: Feature[] = [
     faq: [
       {
         q: "Mali müşavirim Kahya’ya giriş yapmak zorunda mı?",
-        a: "Hayır. Mali Müşavir Paketi’ni hazırlayıp indirir, dosyayı mali müşavirinize gönderirsiniz.",
+        a: "Hayır. Mali müşavir paketi’ni hazırlayıp indirir, dosyayı mali müşavirinize gönderirsiniz.",
       },
     ],
   },

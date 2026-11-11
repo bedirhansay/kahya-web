@@ -4,7 +4,7 @@ import { cn } from "@/lib/cn";
 
 import { Avatar, Badge, Btn, MockPhone, MockWindow, Panel } from "./Mock";
 
-/* Ofis Yönetimi */
+/* Ofis yönetimi */
 
 const taskRows = [
   ["Selin Aydın", 14, 1, 3],
@@ -267,7 +267,7 @@ export function RecentMeetingsMock({ className }: { className?: string }) {
   );
 }
 
-/* Finans ve Cari */
+/* Finans ve cari */
 
 export function MoneyHomeMock({ className }: { className?: string }) {
   return (

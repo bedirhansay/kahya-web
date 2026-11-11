@@ -5,7 +5,7 @@ export const generalFaq = [
   },
   {
     q: "Kahya hangi çözümlerden oluşur?",
-    a: "Üç çözümden: Ofis Yönetimi (ekip, görev, izin ve onaylar), CRM yani Müşteri İlişkileri (görüşmeler ve takip günleri) ve Finans ve Cari (cari, tahsilat, taksit, alacak ve borç raporları). İhtiyacınız olanı seçersiniz, kullanmadıklarınız menüde görünmez.",
+    a: "Üç çözümden: Ofis yönetimi (ekip, görev, izin ve onaylar), CRM yani Müşteri İlişkileri (görüşmeler ve takip günleri) ile Finans ve cari (cari, tahsilat, taksit, alacak ve borç raporları). İhtiyacınız olanı seçersiniz, kullanmadıklarınız menüde görünmez.",
   },
   {
     q: "Kurulum gerekir mi?",
@@ -13,7 +13,7 @@ export const generalFaq = [
   },
   {
     q: "Muhasebe programımı bırakmam gerekir mi?",
-    a: "Hayır. Kahya fatura kesmez ve resmî kayıt tutmaz. Faturanız ve beyannameniz muhasebe programınızda ya da müşavirinizde kalır. Kahya cari, tahsilat, ekip ve müşteri takibini yönetir. Ay sonunda hareketlerinizi Mali Müşavir Paketi’yle tek dosyada müşavirinize verirsiniz.",
+    a: "Hayır. Kahya fatura kesmez ve resmî kayıt tutmaz. Faturanız ve beyannameniz muhasebe programınızda ya da müşavirinizde kalır. Kahya cari, tahsilat, ekip ve müşteri takibini yönetir. Ay sonunda hareketlerinizi Mali müşavir paketi’yle tek dosyada müşavirinize verirsiniz.",
   },
   {
     q: "Kim neyi görebilir?",
