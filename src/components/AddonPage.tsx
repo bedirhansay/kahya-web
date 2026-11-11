@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 
+import { CasePanel } from "@/components/CaseRow";
 import { CtaBand } from "@/components/CtaBand";
 import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
@@ -36,36 +36,27 @@ export function AddonPage({ a }: { a: Addon }) {
         </div>
       </PageHero>
 
-      {a.screen && (
-        <div className="wrap">
-          <figure className="overflow-hidden rounded-[var(--radius-frame)] border border-line bg-surface">
-            <Image
-              src={a.screen.src}
-              alt={a.screen.alt}
-              width={a.screen.width}
-              height={a.screen.height}
-              sizes="(min-width: 1280px) 1200px, 100vw"
-              priority
-              className="h-auto w-full"
-            />
-          </figure>
+      <section aria-labelledby="ne-zaman" className="bg-surface">
+        <div className="wrap grid gap-10 py-14 md:py-20 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.75fr)] lg:items-center lg:gap-14">
+          {a.screen && (
+            <CasePanel tone="pine" priority screen={a.screen} className="aspect-[16/11]" />
+          )}
+          <div>
+            <h2 id="ne-zaman" className="title">
+              Ne zaman gerekir
+            </h2>
+            <ul className="mt-6 grid border-t border-line">
+              {a.when.map((w) => (
+                <li key={w} className="border-b border-line py-4 font-display text-[1.08rem] font-bold leading-snug">
+                  “{w}”
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-      )}
-
-      <section aria-labelledby="ne-zaman" className="wrap py-14 md:py-20">
-        <h2 id="ne-zaman" className="title max-w-2xl">
-          Ne zaman gerekir
-        </h2>
-        <ul className="mt-8 grid border-t border-line md:grid-cols-3 md:gap-x-10">
-          {a.when.map((w) => (
-            <li key={w} className="border-b border-line py-5 font-display text-[1.12rem] font-bold leading-snug">
-              “{w}”
-            </li>
-          ))}
-        </ul>
       </section>
 
-      <section aria-labelledby="neler-var" className="bg-paper">
+      <section aria-labelledby="neler-var" className="bg-mist">
         <div className="wrap grid gap-8 py-14 md:py-20 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)] lg:gap-14">
           <h2 id="neler-var" className="title">
             Neler var
@@ -81,7 +72,8 @@ export function AddonPage({ a }: { a: Addon }) {
         </div>
       </section>
 
-      <section aria-labelledby="nasil-acilir" className="wrap grid gap-8 py-14 md:py-20 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)] lg:gap-14">
+      <section aria-labelledby="nasil-acilir" className="bg-surface">
+        <div className="wrap grid gap-8 py-14 md:py-20 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)] lg:gap-14">
         <h2 id="nasil-acilir" className="title">
           Nasıl açılır
         </h2>
@@ -93,6 +85,7 @@ export function AddonPage({ a }: { a: Addon }) {
             </li>
           ))}
         </ol>
+        </div>
       </section>
 
       <section aria-labelledby="sorular" className="bg-paper">
@@ -111,7 +104,7 @@ export function AddonPage({ a }: { a: Addon }) {
         </div>
       </section>
 
-      <CtaBand title={a.cta.title} body={a.cta.body} />
+      <CtaBand tex title={a.cta.title} body={a.cta.body} />
     </>
   );
 }

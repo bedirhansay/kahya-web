@@ -168,7 +168,7 @@ export const solutions: Solution[] = [
 
 export const solutionBySlug = (slug: string) => solutions.find((s) => s.slug === slug);
 
-/** `plan` says which packages carry it; it is shown only on /fiyatlar (package facts live in one place). */
+/** `plan` says which packages carry it, in one line, with no price (prices live only on /fiyatlar). */
 export type Extra = { name: string; body: string; plan: string; href?: string };
 
 export const extras: Extra[] = [

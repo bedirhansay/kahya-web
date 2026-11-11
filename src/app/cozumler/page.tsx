@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
+
+import { CasePanel, CaseRow, type CaseTone } from "@/components/CaseRow";
 
 import { CtaBand } from "@/components/CtaBand";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
-import { VsAccounting, VsScattered } from "@/components/sections/Comparisons";
 import { Trust } from "@/components/sections/TrustAndPromises";
+import { addons } from "@/content/addons";
 import { extras, services, solutions } from "@/content/solutions";
 import { pageMetadata, softwareLd } from "@/lib/seo";
 
@@ -18,6 +21,13 @@ export const metadata: Metadata = pageMetadata({
 
 const quote = (what: string) => `/iletisim?konu=fiyat&cozum=${encodeURIComponent(what)}`;
 
+/** Each solution's own screens from the demo office (the same shots as the home page's slides). */
+const media: Record<string, { tone: CaseTone; shot: string; phone: string; alt: string; time: string }> = {
+  "ofis-yonetimi": { tone: "pine", shot: "s2-gorev", phone: "s2-gorev", alt: "görev listesi", time: "11:30" },
+  crm: { tone: "sage", shot: "s3-gorusme", phone: "s3-gorusme", alt: "müşteri görüşmeleri", time: "14:00" },
+  "finans-cari": { tone: "cream", shot: "s1-cari", phone: "s1-cari", alt: "cari kart", time: "17:45" },
+};
+
 export default function SolutionsPage() {
   return (
     <>
@@ -26,106 +36,159 @@ export default function SolutionsPage() {
         crumbs={[{ name: "Çözümler", path: "/cozumler" }]}
         title="İhtiyacınız olanı seçin, gerisi gizli kalsın"
         lead="Kahya üç çözümden oluşur. Birini, ikisini ya da üçünü birden kullanabilirsiniz; kullanmadığınız menüden kalkar."
-      />
+      >
+        <nav aria-label="Bu sayfada" className="mt-8 flex flex-wrap gap-2">
+          {solutions.map((s) => (
+            <a key={s.slug} href={`#${s.slug}`} className="jump">
+              {s.name}
+            </a>
+          ))}
+          <a href="#ek-hizmetler" className="jump">
+            Ek hizmetler
+          </a>
+          <a href="#hizmetler" className="jump">
+            Hizmetler
+          </a>
+        </nav>
+      </PageHero>
 
-      <section aria-label="Çözümler" className="bg-paper">
-        <div className="wrap py-12 md:py-20">
-          <ol className="grid gap-px overflow-hidden rounded-[var(--radius-frame)] border border-line bg-line lg:grid-cols-3">
-            {solutions.map((s) => (
-              <li key={s.slug} id={s.slug} className="flex scroll-mt-24 flex-col bg-surface p-6 md:p-8">
-                <h2 className="mt-3 text-2xl font-bold tracking-[-0.02em]">
+      <section aria-label="Çözümler" className="bg-surface">
+        <div className="wrap py-12 md:py-16">
+          {solutions.map((s, i) => {
+            const m = media[s.slug];
+            return (
+              <CaseRow
+                key={s.slug}
+                id={s.slug}
+                flip={i % 2 === 1}
+                panel={
+                  <CasePanel
+                    className="aspect-[16/9]"
+                    tone={m.tone}
+                    no={s.no}
+                    priority={i === 0}
+                    screen={{ src: `/media/home/${m.shot}.webp`, alt: `Kahya ${s.name}: ${m.alt}. Örnek veri.`, width: 2400, height: 1520 }}
+                    phone={{ src: `/media/home/${m.phone}-tel.webp`, alt: `Aynı ekran telefonda: ${m.alt}.`, time: m.time }}
+                  />
+                }
+              >
+                <h2 className="title">
                   <Link href={`/cozumler/${s.slug}`} className="hover:text-brand">
                     {s.name}
                   </Link>
                 </h2>
-                {s.subtitle && <p className="text-sm font-medium text-muted">{s.subtitle}</p>}
-                <p className="mt-2 text-muted">{s.summary}</p>
-                <ul className="mt-6 flex-1 list-disc space-y-2.5 pl-5 marker:text-brand">
-                  {s.points.map((p) => (
-                    <li key={p.term} className="text-[0.97rem]">
-                      <strong className="font-semibold">{p.term}:</strong>{" "}
-                      <span className="text-muted">{p.text}</span>
+                {s.subtitle && <p className="mt-1 font-medium text-muted">{s.subtitle}</p>}
+                <p className="lead mt-4 text-muted">{s.summary}</p>
+                <ul className="mt-6 grid gap-2.5">
+                  {s.points.slice(0, 2).map((p) => (
+                    <li key={p.term} className="border-t border-line pt-2.5">
+                      <strong className="font-semibold">{p.term}:</strong> <span className="text-muted">{p.text}</span>
                     </li>
                   ))}
                 </ul>
-                <div className="mt-8 grid gap-2">
-                  <Link href={`/cozumler/${s.slug}`} className="btn btn-line w-full">
-                    Ayrıntılar
+                <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3">
+                  <Link href={`/cozumler/${s.slug}`} className="btn btn-petrol">
+                    {s.name} çözümünü inceleyin
                   </Link>
-                  <a href={quote(s.name)} className="btn btn-petrol w-full">
-                    Fiyat talep et
+                  <a href={quote(s.name)} className="link inline-flex min-h-11 items-center">
+                    Fiyat talep edin
                   </a>
                 </div>
-              </li>
-            ))}
-          </ol>
-          <p className="mt-6 text-muted">
-            Hangi pakette ne olduğu:{" "}
-            <Link href="/fiyatlar" className="link">
-              Paketler ve fiyatlar
-            </Link>
-          </p>
+              </CaseRow>
+            );
+          })}
         </div>
       </section>
 
-      <section aria-labelledby="ek-hizmetler">
-        <div className="wrap grid gap-10 py-16 md:py-24 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-14">
-          <div>
-            <h2 id="ek-hizmetler" className="title">
+      <section aria-labelledby="ek-hizmetler" className="bg-mist">
+        <div className="wrap py-12 md:py-16">
+          <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-end">
+            <h2 id="ek-hizmetler" className="title scroll-mt-28">
               Ek hizmetler
             </h2>
-            <p className="lead mt-4 text-muted">Hangi çözümü kullanırsanız kullanın, bunları da açtırabilirsiniz.</p>
+            <p className="lead text-muted">
+              Hangi çözümü kullanırsanız kullanın, bunları da açtırabilirsiniz. Fiyatı{" "}
+              <Link href="/fiyatlar#ek-hizmetler" className="link">
+                Paketler ve fiyatlar
+              </Link>{" "}
+              sayfasında.
+            </p>
           </div>
-          <ul data-points className="grid">
-            {extras.map((e) => (
-              <li key={e.name} className="grid gap-2 py-5 sm:grid-cols-[8rem_1fr] sm:gap-6">
-                <h3 className="font-semibold">
-                  {e.href ? (
-                    <Link href={e.href} className="hover:text-brand">
-                      {e.name}
+          <ul className="mt-8 grid gap-x-10 border-t border-line md:grid-cols-2">
+            {extras.map((e) => {
+              const a = addons.find((x) => x.name === e.name);
+              return (
+                <li key={e.name} className="grid grid-cols-[minmax(0,9rem)_minmax(0,1fr)] gap-5 border-b border-line py-6 sm:grid-cols-[minmax(0,12rem)_minmax(0,1fr)]">
+                  {a?.screen && (
+                    <Link href={`/cozumler/${a.slug}`} className="block self-start overflow-hidden rounded-[10px] border border-line bg-surface" tabIndex={-1} aria-hidden>
+                      <Image
+                        src={a.screen.src}
+                        alt=""
+                        width={a.screen.width}
+                        height={a.screen.height}
+                        sizes="12rem"
+                        className="aspect-[16/10] h-auto w-full object-cover object-left-top"
+                      />
                     </Link>
-                  ) : (
-                    e.name
                   )}
-                </h3>
-                <p className="leading-relaxed text-muted">{e.body}</p>
-              </li>
-            ))}
+                  <div className="min-w-0">
+                    <h3 className="text-lg font-bold">
+                      {a ? (
+                        <Link href={`/cozumler/${a.slug}`} className="hover:text-brand">
+                          {e.name}
+                        </Link>
+                      ) : (
+                        e.name
+                      )}
+                    </h3>
+                    <p className="mt-1 leading-relaxed text-muted">{e.body}</p>
+                    <p className="mt-2 text-[0.95rem]">
+                      <span className="font-semibold">Hangi pakette:</span> <span className="text-muted">{e.plan}</span>
+                    </p>
+                    <a href={quote(e.name)} className="link inline-flex min-h-11 items-center">
+                      {e.name} için talep edin
+                    </a>
+                  </div>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </section>
 
-      <section aria-labelledby="hizmetler" className="bg-paper">
-        <div className="wrap grid gap-10 py-16 md:py-24 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-14">
-          <div>
-            <h2 id="hizmetler" className="title">
+      <section aria-labelledby="hizmetler" className="bg-surface">
+        <div className="wrap py-12 md:py-16">
+          <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-end">
+            <h2 id="hizmetler" className="title scroll-mt-28">
               Hizmetler
             </h2>
-            <p className="lead mt-4 text-muted">İsterseniz bu işleri de biz yaparız. Fiyatı işe göre veririz.</p>
+            <p className="lead text-muted">İsterseniz bu işleri de biz yaparız. Fiyatı işe göre veririz.</p>
           </div>
-          <div>
-            <ul data-points className="grid">
-              {services.map((e) => (
-                <li key={e.name} className="grid gap-2 py-5 sm:grid-cols-[12rem_1fr] sm:gap-6">
-                  <h3 className="font-semibold">{e.name}</h3>
-                  <p className="leading-relaxed text-muted">{e.body}</p>
-                </li>
-              ))}
-            </ul>
-            <a href={quote("Hizmetler")} className="btn btn-line mt-6">
+          <ul className="mt-8 grid gap-x-10 border-t border-line md:grid-cols-3">
+            {services.map((e) => (
+              <li key={e.name} className="border-b border-line py-5">
+                <h3 className="font-semibold">{e.name}</h3>
+                <p className="mt-1 leading-relaxed text-muted">{e.body}</p>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
+            <a href={quote("Hizmetler")} className="btn btn-line">
               Hizmet için yazın
             </a>
+            <Link href="/rehber/cari-takibi-excel-mi-program-mi" className="link inline-flex min-h-11 items-center">
+              Excel mi, program mı? Karşılaştırmayı okuyun
+            </Link>
           </div>
         </div>
       </section>
 
-      <VsScattered />
       <div className="bg-paper">
-        <VsAccounting />
+        <Trust />
       </div>
-      <Trust />
       <CtaBand
-        title="Hangi çözümle başlayacağınızı birlikte seçelim"
+        tex
+        title="Size uyan çözümü birlikte seçelim"
         body="Ofisinizin işini iki cümleyle yazın, size uyan çözümü ve ek hizmetleri söyleyelim. Hemen denemek isterseniz ücretsiz başlayın."
       />
     </>

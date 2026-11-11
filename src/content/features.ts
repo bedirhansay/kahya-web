@@ -17,7 +17,6 @@ export type Feature = {
   lead: string;
   /** Media under /public. */
   screen: { src: string; alt: string; phone?: boolean };
-  teaser?: string;
   /** Slugs in src/content/generated/tutorials.json. */
   tutorials: string[];
   points: { title: string; body: string }[];
@@ -38,7 +37,6 @@ export const features: Feature[] = [
     lead:
       "Müşteri ve tedarikçi kartlarında bakiye ve tüm hareketler bir arada durur. Satışı, tahsilatı, alışı ve ödemeyi kaydedin. Bakiye anında güncellenir, ekstreyi paylaşın.",
     screen: { src: "/screens/cari.webp", alt: "Kahya’da bir müşterinin cari kartı: bakiye, hareketler ve yürüyen bakiye" },
-    teaser: "finans",
     tutorials: ["cari", "odeme-planlari-ve-vadeler"],
     parts: [
       {
@@ -126,7 +124,6 @@ export const features: Feature[] = [
     lead:
       "Taksitli anlaşmaları tek seferde kurun, kira ve abonelik gibi düzenli ödemeleri tanımlayın. Vadeler takvime ve Ana Sayfa’ya düşer. Zamanı gelince hatırlatılırsınız.",
     screen: { src: "/screens/home.webp", alt: "Kahya Ana Sayfa: bu hafta vadesi gelen tahsilat ve ödemeler" },
-    teaser: "finans",
     tutorials: ["odeme-planlari-ve-vadeler", "masraflar-ve-kategoriler"],
     points: [
       {
@@ -168,7 +165,6 @@ export const features: Feature[] = [
     lead:
       "Görevleri kişiye ya da takıma verin, panoda Yapılacak’tan Tamamlandı’ya ilerletin. Toplantılar, vadeler, izinler ve teslimler aynı takvimde buluşur.",
     screen: { src: "/screens/claim.webp", alt: "Kahya’da görev detayı: durum, sorumlu, takım ve proje" },
-    teaser: "gorev-takim",
     tutorials: ["gorevler-takimlar-ve-takvim", "projeler"],
     points: [
       {
@@ -210,7 +206,6 @@ export const features: Feature[] = [
     lead:
       "Projeyi müşteriye, sorumluya ve ekibe bağlayın. Teslim tarihi ve bütçesini girin. Proje sayfasında ilerleme, görevler, toplantılar, dosyalar ve geçmiş ayrı sekmelerde durur.",
     screen: { src: "/screens/project.webp", alt: "Kahya proje detayı: ilerleme, bütçe, ekip ve görevler" },
-    teaser: "proje",
     tutorials: ["projeler", "gorevler-takimlar-ve-takvim"],
     points: [
       {
@@ -244,7 +239,6 @@ export const features: Feature[] = [
     lead:
       "Firmanızın e-postası Kahya’nın içinde. Kişiler, faturalar ve bültenler otomatik ayrılır. Gönderenin cari kaydı ve ekler yanında görünür. İş isteyen e-postayı göreve çevirin.",
     screen: { src: "/screens/mail.webp", alt: "Kahya e-posta: gelen kutusu ve açık bir e-posta" },
-    teaser: "eposta",
     tutorials: ["e-posta"],
     points: [
       {
@@ -282,7 +276,6 @@ export const features: Feature[] = [
     lead:
       "Personeli işe giriş tarihi, departmanı ve görevine göre tutun. Çalışan izin talebini telefondan gönderir, yöneticisi onaylar. Çalışana bildirim gider, izin takvime işlenir.",
     screen: { src: "/screens/izinler.webp", alt: "Kahya’da izin talepleri: personel, tarih, gün sayısı, durum ve onaylayan" },
-    teaser: "personel-izin",
     tutorials: ["personel-ve-izinler", "talepler-ve-onaylar"],
     points: [
       {
@@ -324,7 +317,6 @@ export const features: Feature[] = [
     lead:
       "Avans, masraf, satın alma, belge… Talebi açan kişi, talebin kime gideceğini önceden görür. Onaylayan kişi kimin onayladığını ve sırada kimin olduğunu izler.",
     screen: { src: "/screens/talepler.webp", alt: "Kahya Talepler: onayımı bekleyen izin ve avans talepleri" },
-    teaser: "talep-onay",
     tutorials: ["talepler-ve-onaylar"],
     points: [
       {
@@ -440,7 +432,6 @@ export const features: Feature[] = [
     lead:
       "Kahya AI ofisinizin kayıtlarına bakarak yanıt verir ve iş hazırlar: görev, not, tahsilat, toplantı, e-posta taslağı. Her öneri bir kart olarak gelir. Siz Onayla demeden hiçbir şey kaydedilmez.",
     screen: { src: "/screens/receipt.webp", alt: "Kahya AI sohbeti: fişten hazırlanan alış kaydı önerisi" },
-    teaser: "kahya-ai",
     tutorials: ["kahya-ai"],
     points: [
       {

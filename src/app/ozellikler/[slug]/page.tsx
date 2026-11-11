@@ -3,13 +3,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CtaBand } from "@/components/CtaBand";
 import { Faq } from "@/components/Faq";
 import { FeatureParts } from "@/components/FeatureParts";
 import { Frame } from "@/components/Frame";
 import { JsonLd } from "@/components/JsonLd";
-import { PageHero } from "@/components/PageHero";
-import { TeaserLoop } from "@/components/TeaserLoop";
 import { featureBySlug, features } from "@/content/features";
 import { clock, tutorialBySlug } from "@/content/tutorials";
 import { faqLd, pageMetadata } from "@/lib/seo";
@@ -48,80 +47,68 @@ export default async function FeaturePage({ params }: PageProps<"/ozellikler/[sl
   return (
     <>
       <JsonLd data={faqLd(f.faq)} />
-      <PageHero
-        crumbs={[
-          { name: "Özellikler", path: "/ozellikler" },
-          { name: f.name, path: `/ozellikler/${f.slug}` },
-        ]}
-        title={f.title}
-        lead={f.lead}
-      >
-        <div className="mt-8 flex flex-wrap gap-3">
-          <a href={site.app.register} className="btn btn-petrol">
-            Ücretsiz başlayın
-          </a>
-          {main && (
-            <Link href={`/egitim/${main.slug}`} className="btn btn-line">
-              <PlayCircle size={18} aria-hidden />
-              Nasıl kullanılır, {clock(main.seconds)}
-            </Link>
-          )}
-        </div>
-      </PageHero>
-
-      {f.parts ? (
-        <section aria-label={`${f.name}: bölümler`} className="bg-paper pb-16 pt-10 md:pb-24">
-          <div className="wrap">
-            <FeatureParts parts={f.parts} label={f.name} />
-          </div>
-        </section>
-      ) : (
-        <>
-        <section className="bg-paper pb-16 pt-10 md:pb-24">
-          <div className="wrap">
+      <section className="hero-tint pb-12 pt-[104px] md:pb-16 md:pt-[120px]">
+        <div className="wrap">
+          <Breadcrumbs
+            items={[
+              { name: "Özellikler", path: "/ozellikler" },
+              { name: f.name, path: `/ozellikler/${f.slug}` },
+            ]}
+          />
+          <h1 className="display mt-4 max-w-4xl">{f.title}</h1>
+          <div className="mt-8 grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-start lg:gap-14">
+            <div>
+              <p className="lead text-muted">{f.lead}</p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a href={site.app.register} className="btn btn-petrol">
+                  Ücretsiz başlayın
+                </a>
+                {main && (
+                  <Link href={`/egitim/${main.slug}`} className="btn btn-line">
+                    <PlayCircle size={18} aria-hidden />
+                    Nasıl kullanılır, {clock(main.seconds)}
+                  </Link>
+                )}
+              </div>
+            </div>
             <Frame
               src={f.screen.src}
               alt={f.screen.alt}
               phone={f.screen.phone}
               priority
-              sizes="(min-width: 1216px) 1152px, 100vw"
+              sizes="(min-width: 1024px) 680px, 100vw"
             />
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section aria-labelledby="neler" className="bg-paper">
-          <div className="wrap grid gap-12 py-16 md:py-24 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
-            <div>
-              <h2 id="neler" className="title lg:sticky lg:top-24">
-                {f.name}: neler var?
-              </h2>
-            </div>
-            <dl className="grid gap-x-10 gap-y-9 sm:grid-cols-2">
+      {f.parts ? (
+        <section aria-label={`${f.name}: bölümler`} className="bg-mist">
+          <div className="wrap py-14 md:py-20">
+            <FeatureParts parts={f.parts} label={f.name} />
+          </div>
+        </section>
+      ) : (
+        <section aria-labelledby="neler" className="bg-mist">
+          <div className="wrap grid gap-10 py-14 md:py-20 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
+            <h2 id="neler" className="title">
+              {f.name}: neler var?
+            </h2>
+            <dl className="grid gap-x-10 gap-y-7 sm:grid-cols-2">
               {f.points.map((p) => (
-                <div key={p.title} className="border-t border-line pt-5">
+                <div key={p.title} className="border-t border-line pt-4">
                   <dt className="font-semibold">{p.title}</dt>
-                  <dd className="mt-2 leading-relaxed text-muted">{p.body}</dd>
+                  <dd className="mt-1.5 leading-relaxed text-muted">{p.body}</dd>
                 </div>
               ))}
             </dl>
           </div>
         </section>
-        </>
-      )}
-
-      {f.teaser && !f.parts && (
-        <section aria-label={`${f.name} kısa tanıtım`} className="bg-paper">
-          <div className="wrap pb-16 md:pb-24">
-            <div>
-              <TeaserLoop slug={f.teaser} label={`${f.name} kısa tanıtım videosu`} />
-            </div>
-          </div>
-        </section>
       )}
 
       {main && (
-        <section aria-labelledby="adimlar">
-          <div className="wrap py-16 md:py-24">
+        <section aria-labelledby="adimlar" className="bg-surface">
+          <div className="wrap py-14 md:py-20">
             <h2 id="adimlar" className="title max-w-2xl">
               Adım adım
             </h2>
@@ -132,14 +119,14 @@ export default async function FeaturePage({ params }: PageProps<"/ozellikler/[sl
               </Link>{" "}
               eğitim videosunda izleyin.
             </p>
-            <div className="mt-12 grid gap-x-10 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-10 grid gap-x-10 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
               {main.lessons.slice(0, 3).map((lesson) => (
                 <div key={lesson.title}>
                   <h3 className="text-lg font-semibold">{lesson.title}</h3>
                   <ol className="mt-4 space-y-2.5">
                     {lesson.steps.map((step, i) => (
                       <li key={step} className="flex gap-3 text-[0.96rem] leading-snug">
-                        <span className="grid size-7 shrink-0 place-items-center rounded-md bg-surface text-sm font-bold text-brand tabular-nums ring-1 ring-line">
+                        <span className="grid size-7 shrink-0 place-items-center rounded-md bg-mist text-sm font-bold text-brand tabular-nums">
                           {i + 1}
                         </span>
                         <span className="pt-0.5 text-ink/85">{step}</span>
@@ -154,34 +141,27 @@ export default async function FeaturePage({ params }: PageProps<"/ozellikler/[sl
       )}
 
       <section aria-labelledby="sorular" className="bg-paper">
-        <div className="wrap grid gap-10 py-16 md:py-24 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)]">
-          <h2 id="sorular" className="title">
-            Sorular
-          </h2>
+        <div className="wrap grid gap-10 py-14 md:py-20 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)]">
           <div>
-            <Faq items={f.faq} />
+            <h2 id="sorular" className="title">
+              Sorular
+            </h2>
+            <p className="mt-8 text-sm font-semibold">Diğer özellikler</p>
+            <ul className="mt-2 grid gap-1">
+              {others.map((o) => (
+                <li key={o.slug}>
+                  <Link href={`/ozellikler/${o.slug}`} className="link">
+                    {o.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
-        </div>
-      </section>
-
-      <section aria-labelledby="diger" className="bg-paper">
-        <div className="wrap py-16 md:py-20">
-          <h2 id="diger" className="text-2xl font-semibold">
-            Kahya’da bunlar da var
-          </h2>
-          <ul className="mt-6 grid border-t border-line sm:grid-cols-2 sm:gap-x-10">
-            {others.map((o) => (
-              <li key={o.slug} className="border-b border-line">
-                <Link href={`/ozellikler/${o.slug}`} className="group flex min-h-14 flex-col justify-center py-3">
-                  <span className="font-semibold group-hover:text-brand">{o.name}</span>
-                  <span className="text-[0.95rem] text-muted">{o.summary}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <Faq items={f.faq} />
         </div>
       </section>
       <CtaBand
+        tex
         title={`${f.name}: kendi verinizle deneyin`}
         body="Hesabınızı açın ve bu sayfadakileri kendi kayıtlarınızla görün. Sorunuz varsa yazın."
       />

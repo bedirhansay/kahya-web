@@ -19,7 +19,7 @@ function Points({ items, cols }: { items: { term: string; text: string }[]; cols
 export function Trust() {
   return (
     <section aria-labelledby="guven">
-      <div className="wrap py-16 md:py-24">
+      <div className="wrap py-12 md:py-16">
         <SectionHead
           id="guven"
           title="Verileriniz sizin, kontrol sizde"

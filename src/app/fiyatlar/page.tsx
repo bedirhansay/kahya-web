@@ -6,6 +6,7 @@ import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { PlanTable } from "@/components/PlanTable";
+import { VsAccounting } from "@/components/sections/Comparisons";
 import { Promises } from "@/components/sections/TrustAndPromises";
 import { pricingFaq } from "@/content/faq";
 import { extras } from "@/content/solutions";
@@ -98,6 +99,9 @@ export default function PricingPage() {
 
       <div className="bg-paper">
         <Promises />
+      </div>
+      <div className="bg-surface">
+        <VsAccounting />
       </div>
 
       <section aria-labelledby="sorular">

@@ -111,8 +111,8 @@ export default async function SolutionPage({ params }: PageProps<"/cozumler/[slu
         </div>
       </section>
 
-      <section className="bg-paper">
-        <div className="wrap space-y-24 py-20 md:space-y-32 md:py-28">
+      <section className="bg-surface">
+        <div className="wrap space-y-16 py-14 md:space-y-20 md:py-20">
           <FeatureRow
             id="ne-yapar"
             title={s.title}
@@ -135,8 +135,8 @@ export default async function SolutionPage({ params }: PageProps<"/cozumler/[slu
       </section>
 
       {related.length > 0 && (
-        <section aria-labelledby="ozellikler">
-          <div className="wrap py-16 md:py-24">
+        <section aria-labelledby="ozellikler" className="bg-mist">
+          <div className="wrap py-14 md:py-20">
             <SectionHead id="ozellikler" title={`${s.name} içinde neler var?`} />
             <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {related.map((f) => (
@@ -159,7 +159,7 @@ export default async function SolutionPage({ params }: PageProps<"/cozumler/[slu
       )}
 
       <section aria-labelledby="sorular" className="bg-paper">
-        <div className="wrap grid gap-10 py-16 md:py-24 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16">
+        <div className="wrap grid gap-10 py-14 md:py-20 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16">
           <div>
             <SectionHead id="sorular" title={`${s.name} hakkında`} />
             {usedBy.length > 0 && (
@@ -176,33 +176,23 @@ export default async function SolutionPage({ params }: PageProps<"/cozumler/[slu
                 </ul>
               </div>
             )}
+            <p className="mt-8 text-sm font-semibold">Diğer çözümler</p>
+            <ul className="mt-2 space-y-1.5">
+              {others.map((o) => (
+                <li key={o.slug}>
+                  <Link href={`/cozumler/${o.slug}`} className="link">
+                    {o.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
           <Faq items={s.faq} />
         </div>
       </section>
 
-      <section aria-labelledby="diger">
-        <div className="wrap py-16 md:py-20">
-          <SectionHead id="diger" title="Diğer çözümler" />
-          <ul className="mt-8 grid gap-4 md:grid-cols-2">
-            {others.map((o) => (
-              <li key={o.slug}>
-                <Link
-                  href={`/cozumler/${o.slug}`}
-                  className="group block rounded-[14px] border border-line p-6 hover:border-brand"
-                >
-                  <span className="mt-2 block text-xl font-bold group-hover:text-brand">
-                    {o.name}
-                    {o.subtitle && <span className="ml-2 text-sm font-medium text-muted">{o.subtitle}</span>}
-                  </span>
-                  <span className="mt-1 block text-muted">{o.summary}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
       <CtaBand
+        tex
         title={`${s.name} ile başlayın`}
         body="Hesabınızı açın; ilk 30 gün Kurumsal paket açık. Kurulumu birlikte yapmak isterseniz bize yazın."
       />

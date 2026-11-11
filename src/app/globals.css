@@ -715,3 +715,121 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+/*
+ * Paket G (owner 2026-11-11, softmoor rhythm): the home hero's ground (pine gradient, faint grid, one diagonal light
+ * plane) is the site's only dark texture. It carries the closing call band and the pine case panel; no new colour.
+ */
+.pine-tex {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: linear-gradient(160deg, var(--color-pine-900), var(--color-pine-950) 70%);
+}
+.pine-tex::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: -8%;
+  bottom: -18%;
+  width: 62%;
+  height: 78%;
+  background: linear-gradient(135deg, rgb(111 165 141 / 0.38), rgb(111 165 141 / 0.16));
+  clip-path: polygon(38% 0, 100% 0, 100% 100%, 0 100%);
+  pointer-events: none;
+}
+.pine-tex::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(rgb(191 218 200 / 0.06) 1px, transparent 1px) 0 0 / 48px 48px,
+    linear-gradient(90deg, rgb(191 218 200 / 0.06) 1px, transparent 1px) 0 0 / 48px 48px;
+  mask-image: radial-gradient(70% 80% at 75% 55%, #000 20%, transparent 75%);
+}
+
+/* Case rows: a coloured panel holding a real screen, beside its text; panels take turns left and right. */
+.case-panel {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 20px;
+}
+/* the default shape sits in the components layer so a page can pass a Tailwind aspect-* utility */
+@layer components {
+  .case-panel {
+    aspect-ratio: 16 / 10;
+  }
+}
+.case-panel-pine {
+  background: linear-gradient(160deg, var(--color-pine-900), var(--color-pine-950) 70%);
+}
+.case-panel-sage {
+  background: color-mix(in oklab, var(--color-sage) 34%, var(--color-surface));
+}
+.case-panel-cream {
+  background: color-mix(in oklab, var(--color-gold-300) 42%, var(--color-surface));
+}
+.case-panel-mist {
+  background: var(--color-mist);
+}
+/* the desktop screen runs off the panel's right and bottom edge, as if the window were larger than the panel */
+.case-shot {
+  position: absolute;
+  top: 12%;
+  left: 9%;
+  width: 104%;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 30px 60px -30px rgb(3 17 16 / 0.55);
+}
+.case-panel .phone {
+  position: absolute;
+  right: 7%;
+  bottom: -14%;
+  width: 27%;
+}
+.case-no {
+  position: absolute;
+  top: 0.6rem;
+  left: 1.1rem;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: rgb(12 31 28 / 0.09);
+  pointer-events: none;
+}
+.case-panel-pine .case-no {
+  color: rgb(191 218 200 / 0.12);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .case-panel .case-shot {
+    transition: translate 0.15s ease-out;
+  }
+  a:hover > .case-panel .case-shot {
+    translate: -4px -4px;
+  }
+}
+
+/* In-page jump links under a hero: small squared chips (6px corners, never pills). */
+.jump {
+  display: inline-flex;
+  min-height: 2.25rem;
+  align-items: center;
+  border: 1px solid var(--color-line);
+  border-radius: 6px;
+  background: var(--color-surface);
+  padding: 0 0.75rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  transition: border-color 0.15s, color 0.15s;
+}
+.jump:hover {
+  border-color: var(--color-brand);
+  color: var(--color-brand);
+}
