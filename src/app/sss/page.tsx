@@ -4,6 +4,7 @@ import { CtaBand } from "@/components/CtaBand";
 import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
+import { TrustAndPromises } from "@/components/sections/TrustAndPromises";
 import { generalFaq, pricingFaq } from "@/content/faq";
 import { features } from "@/content/features";
 import { faqLd, pageMetadata } from "@/lib/seo";
@@ -40,6 +41,7 @@ export default function FaqPage() {
           ))}
         </div>
       </div>
+      <TrustAndPromises />
       <CtaBand />
     </>
   );

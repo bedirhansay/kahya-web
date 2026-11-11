@@ -339,19 +339,6 @@ body {
       display: none;
     }
   }
-  @media (prefers-reduced-motion: no-preference) {
-    .contact-sat-1 {
-      animation: float 6s ease-in-out infinite;
-    }
-    .contact-sat-2 {
-      animation: float 7s ease-in-out infinite 1.2s;
-    }
-  }
-  @keyframes float {
-    50% {
-      translate: 0 -8px;
-    }
-  }
   /* Kahya's light in type: green into the logo's gold (the hero's last words, the plain facts). */
   .grad {
     background: linear-gradient(100deg, #0f4c47, #127a65 45%, #b8862f 100%);
@@ -430,13 +417,11 @@ body {
     mask-image: radial-gradient(closest-side, #000 35%, transparent);
   }
   .stage-in {
-    animation: stage-in 0.7s var(--ease-out-quint) both;
+    animation: stage-in 0.25s ease-out both;
   }
   @keyframes stage-in {
     from {
       opacity: 0;
-      transform: translateY(18px) scale(0.97);
-      filter: blur(8px);
     }
   }
 
@@ -523,152 +508,97 @@ body {
 }
 
 /*
- * Site motion (SiteMotion.tsx): inner-page openings enter on the first paint (CSS only, the h1 is painted from the
- * first frame); blocks below rise out of a light blur as they enter, 60ms apart; app pictures tip back into place
- * with the scroll; cards carry a cursor light; point lists take turns. Hooks wait for html.sm, so without JS the
- * page is complete.
+ * The home opening: night pine ground, one wide sage plane cutting in from the bottom right under a faint grid, and
+ * the app's real screen in a laptop. Nothing here moves except the slides' cross-fade (HomeHero.tsx).
  */
-@keyframes sm-rise {
+.home-hero {
+  background: linear-gradient(160deg, var(--color-pine-900), var(--color-pine-950) 70%);
+}
+.home-hero-plane {
+  position: absolute;
+  z-index: -1;
+  right: -8%;
+  bottom: -18%;
+  width: 62%;
+  height: 78%;
+  background: linear-gradient(135deg, rgb(111 165 141 / 0.38), rgb(111 165 141 / 0.16));
+  clip-path: polygon(38% 0, 100% 0, 100% 100%, 0 100%);
+  pointer-events: none;
+}
+.home-hero-grid {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(rgb(191 218 200 / 0.06) 1px, transparent 1px) 0 0 / 48px 48px,
+    linear-gradient(90deg, rgb(191 218 200 / 0.06) 1px, transparent 1px) 0 0 / 48px 48px;
+  mask-image: radial-gradient(70% 80% at 75% 55%, #000 20%, transparent 75%);
+}
+@media (max-width: 1023px) {
+  .home-hero-plane {
+    width: 90%;
+    height: 34%;
+    bottom: 0;
+  }
+}
+/* A laptop drawn in CSS: a dark bezel round the screen, a thin base under it. */
+.home-laptop {
+  position: relative;
+}
+.home-laptop-screen {
+  overflow: hidden;
+  border: clamp(6px, 0.9vw, 12px) solid #0a1413;
+  border-radius: 14px 14px 4px 4px;
+  background: #fff;
+  box-shadow:
+    0 0 0 1px rgb(191 218 200 / 0.18),
+    0 40px 80px -30px rgb(0 0 0 / 0.6);
+}
+.home-laptop-base {
+  height: clamp(8px, 1.1vw, 14px);
+  margin-inline: -5%;
+  border-radius: 0 0 14px 14px;
+  background: linear-gradient(#a9b6b2, #6f7d79);
+  box-shadow: 0 18px 30px -18px rgb(0 0 0 / 0.7);
+}
+.home-event {
+  position: absolute;
+  left: -4%;
+  bottom: 18%;
+  min-width: 13rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--color-line);
+  border-radius: 12px;
+  background: var(--color-surface);
+  box-shadow: 0 20px 40px -20px rgb(0 0 0 / 0.6);
+}
+@media (max-width: 639px) {
+  .home-event {
+    position: static;
+    margin-top: 1rem;
+  }
+}
+
+/*
+ * Site motion (SiteMotion.tsx), kept quiet: an inner page's opening fades in once on the first paint; blocks below
+ * fade in (opacity only, 300ms) as they enter; cards carry a cursor light on hover. No loops, no scroll-driven
+ * tilt. Hooks wait for html.sm, so without JS the page is complete; with reduced motion nothing moves.
+ */
+@keyframes sm-fade {
   from {
     opacity: 0;
-    translate: 0 24px;
-  }
-}
-@keyframes sm-head {
-  from {
-    opacity: 0.01;
-    filter: blur(8px);
-    translate: 0 0.25em;
-  }
-}
-@keyframes sm-pic {
-  from {
-    opacity: 0;
-    transform: perspective(1400px) translateY(44px) rotateX(12deg) scale(0.96);
-  }
-}
-@keyframes sm-bar {
-  from {
-    scale: 0 1;
-  }
-}
-@keyframes sm-glint {
-  0% {
-    translate: -60% 0;
-  }
-  60%,
-  100% {
-    translate: 260% 0;
   }
 }
 @media (prefers-reduced-motion: no-preference) {
-  main > section.hero-tint :is(h1) {
-    animation: sm-head 0.8s var(--ease-out-quint) both 0.05s;
-  }
-  main > section.hero-tint :is(nav, .eyebrow) {
-    animation: sm-rise 0.6s var(--ease-out-quint) both;
-  }
-  main > section.hero-tint .lead {
-    animation: sm-rise 0.7s var(--ease-out-quint) both 0.28s;
-  }
-  main > section.hero-tint :is(.btn, ul, dl) {
-    animation: sm-rise 0.7s var(--ease-out-quint) both 0.4s;
-  }
-  main > section.hero-tint :is(.frame, .stage, [role="img"].ui) {
-    animation: sm-pic 1.1s var(--ease-out-quint) both 0.35s;
-  }
-
-  /* Section headings fill with light as they are read: dim ink to full, left to right, driven by the scroll. */
-  html.sm [data-fill] {
-    color: transparent;
-    background: linear-gradient(90deg, var(--color-ink) calc(var(--fp, 0) * 100% - 12%), color-mix(in oklab, var(--color-ink) 28%, transparent) calc(var(--fp, 0) * 100% + 12%));
-    -webkit-background-clip: text;
-    background-clip: text;
-  }
-  /* A brass light runs slowly round the edge of the page's windows. */
-  @property --edge {
-    syntax: "<angle>";
-    inherits: false;
-    initial-value: 0deg;
-  }
-  :is(.window, .od-win, .od-answer)::before {
-    content: "";
-    position: absolute;
-    inset: -1px;
-    border-radius: inherit;
-    padding: 1px;
-    pointer-events: none;
-    background: conic-gradient(from var(--edge), transparent 0deg, transparent 290deg, color-mix(in oklab, var(--color-brass) 75%, transparent) 330deg, transparent 360deg);
-    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    animation: edge 7s linear infinite;
-  }
-  @keyframes edge {
-    to {
-      --edge: 360deg;
-    }
+  main > section.hero-tint > .wrap {
+    animation: sm-fade 0.3s ease-out both;
   }
   html.sm [data-sm=""] {
     opacity: 0;
-    translate: 0 28px;
-    filter: blur(6px);
   }
   html.sm [data-sm="in"] {
-    transition:
-      opacity 0.75s var(--ease-out-quint),
-      translate 0.75s var(--ease-out-quint),
-      filter 0.75s ease;
-    transition-delay: calc(var(--sm-i, 0) * 60ms);
-  }
-
-  html.sm [data-depth] {
-    transform-origin: 50% 100%;
-    transform: perspective(1400px) translateY(calc((1 - var(--sm-v, 1)) * 40px)) rotateX(calc((1 - var(--sm-v, 1)) * 10deg))
-      scale(calc(0.95 + var(--sm-v, 1) * 0.05));
-    opacity: calc(0.3 + var(--sm-v, 1) * 0.7);
-    will-change: transform;
-  }
-
-  [data-turns] > li {
-    position: relative;
-    transition: color 0.4s;
-  }
-  [data-turns] > li > [data-dot] {
-    transition:
-      background-color 0.4s,
-      box-shadow 0.4s;
-  }
-  [data-turns] > li[data-lit] > [data-dot] {
-    background: var(--color-brass);
-    box-shadow: 0 0 0 4px color-mix(in oklab, var(--color-brass) 16%, transparent);
-  }
-  [data-turns] > li[data-lit]::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -1px;
-    height: 1px;
-    background: linear-gradient(90deg, color-mix(in oklab, var(--color-brass) 20%, transparent), var(--color-brass));
-    transform-origin: left;
-    animation: sm-bar 2.6s linear both;
-  }
-
-  .band-dark {
-    position: relative;
-    overflow: hidden;
-    isolation: isolate;
-  }
-  .band-dark::after {
-    content: "";
-    position: absolute;
-    inset: 0 auto 0 0;
-    width: 40%;
-    z-index: -1;
-    pointer-events: none;
-    background: linear-gradient(100deg, transparent, rgb(191 232 218 / 0.07), transparent);
-    animation: sm-glint 9s ease-in-out infinite;
+    transition: opacity 0.3s ease-out;
   }
 }
 [data-card] {
@@ -696,8 +626,7 @@ body {
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
+    animation: none !important;
     transition-duration: 0.01ms !important;
   }
 }

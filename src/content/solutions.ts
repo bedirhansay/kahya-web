@@ -236,25 +236,23 @@ export const trust = [
   { term: "Günlük yedek", text: "Veriler her gün yedeklenir." },
 ];
 
-/** H13 §2 — the three things Kahya does, under the home opening; each sentence is a live feature. */
-export const homeMessages: Point[] = [
-  {
-    term: "Kim ne borçlu, her an önünüzde.",
-    text: "Müşteri ve tedarikçi carileri, tahsilat, taksit ve vadeler. Vadesi gelen ana sayfanıza düşer, ekstreyi müşterinizle bir linkle paylaşırsınız. Bir tahsilat girdiğinizde açık taksitler en eskiden başlayarak kendiliğinden kapanır.",
-  },
-  {
-    term: "Ekibin işi kaybolmaz.",
-    text: "Görev, izin ve onaylar tek listede. Kim neyi bekliyor, onay kimde, görünür.",
-  },
-  {
-    term: "Müşteriyi unutmazsınız.",
-    text: "Görüşme notları ve takip günleri. Takip günü gelen görüşme listede önünüze çıkar; bir müşteriyle temas koptuğunda Kahya sorumlu kişiye haber verir.",
-  },
-];
-
-/** H13 §2 — one sentence under the three messages. */
+/** H13 §2 — one sentence under the trust facts (moved from the home with them, 2026-11-11). */
 export const homeTrustLine =
   "Her firmanın verisi ayrı tutulur ve bu her sürümde testle denetlenir. Verinizin tamamını istediğiniz an dışarı alırsınız.";
+
+/** Questions an office asks every day: scattered tools against Kahya (moved from the home to /ozellikler). */
+export const vsScattered: readonly (readonly [string, string, string])[] = [
+  ["İş kimde, ne durumda?", "Mesaj grubunda soruluyor.", "Görev sorumlusu ve durumuyla herkesin önünde."],
+  ["Bu hafta kim izinli?", "İzin kâğıdı ya da mesaj.", "İzin telefondan istenir, onaylanınca takvime işlenir."],
+  ["Müşteriyle en son ne konuşuldu?", "Görüşen kişinin aklında.", "Görüşme müşteri kartında, takip günüyle."],
+  [
+    "Kim kime ne kadar borçlu?",
+    "Ayrı tablolarda, elle toplanıyor.",
+    "Cari bakiye her tahsilatta kendiliğinden güncellenir.",
+  ],
+  ["Taksit ne zaman?", "Takvime not düşülüyor, unutulursa geçiyor.", "Ödeme planı vadesinde hatırlatır."],
+  ["Ay sonunda ne gönderilecek?", "Dosyalar tek tek toplanıyor.", "Mali müşavir paketi tek dosya olarak hazırlanır."],
+];
 
 /** H13 §4 — what Kahya does and does not do, beside accounting programs in general (no product named). */
 export const vsAccounting: readonly (readonly [string, string, string])[] = [

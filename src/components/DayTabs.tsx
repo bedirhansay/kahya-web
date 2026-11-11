@@ -19,6 +19,8 @@ export type DayMoment = {
 /** One office day as a timeline: pick a moment, its screen opens on the stage. */
 export function DayTabs({ moments }: { moments: DayMoment[] }) {
   const [active, setActive] = useState(moments[0].key);
+  // The stage fades only when the reader picks another hour; nothing moves on load.
+  const [picked, setPicked] = useState(false);
   const m = moments.find((x) => x.key === active)!;
 
   return (
@@ -36,7 +38,7 @@ export function DayTabs({ moments }: { moments: DayMoment[] }) {
               id={`gun-${x.key}`}
               aria-selected={on}
               aria-controls="gun-panel"
-              onClick={() => setActive(x.key)}
+              onClick={() => (setActive(x.key), setPicked(true))}
               className={cn(
                 "relative flex w-full items-start gap-4 rounded-xl px-3 py-3.5 text-left transition-colors duration-300",
                 on ? "text-ink" : "text-ink/55 hover:text-ink/85",
@@ -92,14 +94,14 @@ export function DayTabs({ moments }: { moments: DayMoment[] }) {
         aria-labelledby={`gun-${m.key}`}
         className="stage flex min-h-[26rem] min-w-0 flex-col p-4 sm:p-8 lg:min-h-[32rem]"
       >
-        <div key={m.key} className="stage-in flex flex-1 items-center justify-center lg:[zoom:1.12]">
+        <div key={m.key} className={cn("flex flex-1 items-center justify-center lg:[zoom:1.12]", picked && "stage-in")}>
           {m.visual}
         </div>
         {/* Where this hour lives in Kahya: a small way in, right under the screen. */}
         <Link
           key={`l-${m.key}`}
           href={m.solution.href}
-          className="stage-in group/sl mx-auto mt-6 inline-flex min-h-11 items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] py-1.5 pl-1.5 pr-4 text-[0.92rem] text-ink/80 transition-colors hover:border-brass/40 hover:text-ink"
+          className="group/sl mx-auto mt-6 inline-flex min-h-11 items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] py-1.5 pl-1.5 pr-4 text-[0.92rem] text-ink/80 transition-colors hover:border-brass/40 hover:text-ink"
         >
           <span className="rounded-full bg-brass/15 px-2.5 py-1 text-[0.875rem] font-semibold text-brass">
             {m.solution.name}
