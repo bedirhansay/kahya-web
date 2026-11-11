@@ -109,7 +109,10 @@ export default async function GuidePage({ params }: PageProps<"/rehber/[slug]">)
           </div>
         </div>
       </section>
-      <CtaBand />
+      <CtaBand
+        title="Bu adımları kendi verinizle deneyin"
+        body="Ücretsiz hesap açın ve rehberdeki adımları kendi ofisinizde izleyin. Takıldığınız yeri bize yazın."
+      />
     </>
   );
 }

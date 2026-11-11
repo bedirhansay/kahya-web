@@ -43,7 +43,10 @@ export default function SectorsPage() {
           </ul>
         </div>
       </section>
-      <CtaBand />
+      <CtaBand
+        title="Sektörünüz listede yok mu?"
+        body="İşinizi birkaç cümleyle anlatın, Kahya’yı nasıl kuracağınızı birlikte konuşalım."
+      />
     </>
   );
 }

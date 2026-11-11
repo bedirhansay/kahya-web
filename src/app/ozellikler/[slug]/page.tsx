@@ -1,11 +1,11 @@
 import { PlayCircle } from "lucide-react";
 import type { Metadata } from "next";
-import { Img } from "@/components/Img";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { CtaBand } from "@/components/CtaBand";
 import { Faq } from "@/components/Faq";
+import { FeatureParts } from "@/components/FeatureParts";
 import { Frame } from "@/components/Frame";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
@@ -43,7 +43,7 @@ export default async function FeaturePage({ params }: PageProps<"/ozellikler/[sl
 
   const lessons = f.tutorials.map(tutorialBySlug).filter((t) => t !== undefined);
   const main = lessons[0];
-  const others = features.filter((o) => o.slug !== f.slug).slice(0, 3);
+  const others = features.filter((o) => o.slug !== f.slug);
 
   return (
     <>
@@ -69,37 +69,47 @@ export default async function FeaturePage({ params }: PageProps<"/ozellikler/[sl
         </div>
       </PageHero>
 
-      <section className="bg-paper pb-16 pt-10 md:pb-24">
-        <div className="wrap">
-          <Frame
-            src={f.screen.src}
-            alt={f.screen.alt}
-            phone={f.screen.phone}
-            priority
-            sizes="(min-width: 1216px) 1152px, 100vw"
-          />
-        </div>
-      </section>
-
-      <section aria-labelledby="neler" className="bg-paper">
-        <div className="wrap grid gap-12 py-16 md:py-24 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
-          <div>
-            <h2 id="neler" className="title lg:sticky lg:top-24">
-              {f.name}: neler var?
-            </h2>
+      {f.parts ? (
+        <section aria-label={`${f.name}: bölümler`} className="bg-paper pb-16 pt-10 md:pb-24">
+          <div className="wrap">
+            <FeatureParts parts={f.parts} label={f.name} />
           </div>
-          <dl className="grid gap-x-10 gap-y-9 sm:grid-cols-2">
-            {f.points.map((p) => (
-              <div key={p.title} className="border-t border-line pt-5">
-                <dt className="font-semibold">{p.title}</dt>
-                <dd className="mt-2 leading-relaxed text-muted">{p.body}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-      </section>
+        </section>
+      ) : (
+        <>
+        <section className="bg-paper pb-16 pt-10 md:pb-24">
+          <div className="wrap">
+            <Frame
+              src={f.screen.src}
+              alt={f.screen.alt}
+              phone={f.screen.phone}
+              priority
+              sizes="(min-width: 1216px) 1152px, 100vw"
+            />
+          </div>
+        </section>
 
-      {f.teaser && (
+        <section aria-labelledby="neler" className="bg-paper">
+          <div className="wrap grid gap-12 py-16 md:py-24 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
+            <div>
+              <h2 id="neler" className="title lg:sticky lg:top-24">
+                {f.name}: neler var?
+              </h2>
+            </div>
+            <dl className="grid gap-x-10 gap-y-9 sm:grid-cols-2">
+              {f.points.map((p) => (
+                <div key={p.title} className="border-t border-line pt-5">
+                  <dt className="font-semibold">{p.title}</dt>
+                  <dd className="mt-2 leading-relaxed text-muted">{p.body}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </section>
+        </>
+      )}
+
+      {f.teaser && !f.parts && (
         <section aria-label={`${f.name} kısa tanıtım`} className="bg-paper">
           <div className="wrap pb-16 md:pb-24">
             <div>
@@ -159,29 +169,22 @@ export default async function FeaturePage({ params }: PageProps<"/ozellikler/[sl
           <h2 id="diger" className="text-2xl font-semibold">
             Kahya’da bunlar da var
           </h2>
-          <ul className="mt-8 grid gap-8 md:grid-cols-3">
+          <ul className="mt-6 grid border-t border-line sm:grid-cols-2 sm:gap-x-10">
             {others.map((o) => (
-              <li key={o.slug}>
-                <Link href={`/ozellikler/${o.slug}`} className="group block">
-                  <div className="frame aspect-[16/10] overflow-hidden">
-                    <Img
-                      src={o.screen.src}
-                      alt=""
-                      width={2000}
-                      height={1250}
-                      sizes="(min-width: 768px) 30vw, 100vw"
-                      className="h-full w-full object-cover object-top transition-transform duration-700 ease-[var(--ease-out-quint)]"
-                    />
-                  </div>
-                  <h3 className="mt-4 font-semibold group-hover:text-petrol">{o.name}</h3>
-                  <p className="mt-1 text-[0.95rem] text-muted">{o.summary}</p>
+              <li key={o.slug} className="border-b border-line">
+                <Link href={`/ozellikler/${o.slug}`} className="group flex min-h-14 flex-col justify-center py-3">
+                  <span className="font-semibold group-hover:text-brand">{o.name}</span>
+                  <span className="text-[0.95rem] text-muted">{o.summary}</span>
                 </Link>
               </li>
             ))}
           </ul>
         </div>
       </section>
-      <CtaBand />
+      <CtaBand
+        title={`${f.name}: kendi verinizle deneyin`}
+        body="Hesabınızı açın ve bu sayfadakileri kendi kayıtlarınızla görün. Sorunuz varsa yazın."
+      />
     </>
   );
 }

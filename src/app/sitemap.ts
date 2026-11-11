@@ -3,6 +3,7 @@ import type { MetadataRoute } from "next";
 import { features } from "@/content/features";
 import { guides } from "@/content/guides";
 import { sectors } from "@/content/sectors";
+import { addons } from "@/content/addons";
 import { solutions } from "@/content/solutions";
 import { tutorials } from "@/content/tutorials";
 import { absoluteUrl } from "@/lib/seo";
@@ -24,6 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     page("/cozumler", 0.9),
     page("/fiyatlar", 0.8),
     ...solutions.map((s) => page(`/cozumler/${s.slug}`, 0.9)),
+    ...addons.map((a) => page(`/cozumler/${a.slug}`, 0.7)),
     page("/sektorler", 0.7),
     ...sectors.map((s) => page(`/sektorler/${s.slug}`, 0.7)),
     page("/tanitim-filmi", 0.6, {

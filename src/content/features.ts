@@ -3,6 +3,8 @@
  * recordings in promo-video/out/07-ogrenim and the plan seed). Do not add a
  * capability the product does not ship.
  */
+import type { FeaturePart } from "@/components/FeatureParts";
+
 export type Feature = {
   slug: string;
   /** Short name used in menus and lists. */
@@ -20,7 +22,8 @@ export type Feature = {
   tutorials: string[];
   points: { title: string; body: string }[];
   faq: { q: string; a: string }[];
-  /** Plan note shown under the points, when the module is not on every plan. */
+  /** A feature told in tabbed parts, each with its own real screen; replaces the single screen and the points grid. */
+  parts?: FeaturePart[];
 };
 
 export const features: Feature[] = [
@@ -37,6 +40,44 @@ export const features: Feature[] = [
     screen: { src: "/screens/cari.webp", alt: "Kahya’da bir müşterinin cari kartı: bakiye, hareketler ve yürüyen bakiye" },
     teaser: "finans",
     tutorials: ["cari", "odeme-planlari-ve-vadeler"],
+    parts: [
+      {
+        key: "liste",
+        tab: "Cari listesi",
+        title: "Her müşterinin bakiyesi tek listede",
+        body: "Müşteri ve tedarikçi kartlarında bakiye ve tüm hareketler bir arada durur. Eski borçları açılış bakiyesi olarak girer ya da Excel’den aktarırsınız.",
+        points: [
+          "Satış, tahsilat, alış ve ödeme kaydı; bakiye anında güncellenir.",
+          "Önceden kalan borç açılış bakiyesi olarak girilir.",
+          "Müşteri, tedarikçi ve bakiyeler hazır şablonla Excel’den alınır.",
+        ],
+        screen: { src: "/media/ozellikler/cari-liste.webp", alt: "Kahya’da cari listesi: müşteriler ve bakiyeleri. Örnek veri.", width: 2400, height: 906 },
+      },
+      {
+        key: "ekstre",
+        tab: "Ekstre",
+        title: "Ekstre linkle gider, müşteri giriş yapmadan görür",
+        body: "Cari kartında Ekstre gönder ile WhatsApp, e-posta ya da link seçersiniz. Müşteri dönem hareketlerini ve yürüyen bakiyeyi giriş yapmadan görür.",
+        points: [
+          "WhatsApp, e-posta, link, PDF ya da Excel olarak paylaşılır.",
+          "Her hareket yürüyen bakiyesiyle görünür.",
+          "Linki istediğiniz an kapatırsınız.",
+        ],
+        screen: { src: "/media/ozellikler/cari-ekstre.webp", alt: "Müşterinin linkten açtığı hesap ekstresi: hareketler ve yürüyen bakiye. Örnek veri.", width: 2400, height: 1520 },
+      },
+      {
+        key: "tahsilat",
+        tab: "Tahsilat",
+        title: "Gelen parayı kartın üstünden girin",
+        body: "Cari kartındaki Tahsilat al ile gelen parayı kaydedersiniz; bakiye, sonraki vade ve son tahsilat aynı anda güncellenir.",
+        points: [
+          "Yaptığınız iş satış, gelen para tahsilat olarak girilir.",
+          "Tahsilatı açık vadelere ve taksitlere işaretleyerek dağıtırsınız.",
+          "Vadesi geçen tahsilat ana sayfanıza düşer.",
+        ],
+        screen: { src: "/media/ozellikler/cari-tahsilat.webp", alt: "Kahya’da cari kartından tahsilat girişi: tutar, tarih ve açık taksitler. Örnek veri.", width: 2400, height: 1520 },
+      },
+    ],
     points: [
       {
         title: "Satış, tahsilat, alış, ödeme",

@@ -176,33 +176,37 @@ export const extras: Extra[] = [
     name: "E-posta",
     body: "Kurumsal e-posta adresinizi bağlayın. Her e-posta kendi carisiyle eşleşir, yeni firma tek tıkla cari olur.",
     plan: "Ücretli her pakete ek hizmet olarak eklenir.",
-    href: "/ozellikler/e-posta",
+    href: "/cozumler/e-posta",
   },
   {
     name: "Stok",
     body: "Ürünler ve depolar tek listede. Kritik seviyeye ineni Kahya işaretler, satışta seçilen ürün stoktan düşer.",
     plan: "Ekip, Büyüyen ve Kurumsal’da dahil; Başlangıç’ta ek hizmet.",
+    href: "/cozumler/stok",
   },
   {
     name: "Teklif",
     body: "Kendi antetinizle teklif hazırlarsınız. Müşteri linkten açıp kabul eder, kabul edilen teklif satışa döner.",
     plan: "Kurumsal’da dahil; diğer ücretli paketlerde ek hizmet.",
+    href: "/cozumler/teklif",
   },
   {
     name: "Ticari paket",
     body: "Stok ve Teklif birlikte, tek ek hizmetle.",
     plan: "Stok paketinize dahil değilse ikisini birlikte açmanın yolu.",
+    href: "/cozumler/ticari-paket",
   },
   {
     name: "Kahya AI",
     body: "Sorun, Kahya kendi verinizden yanıtlasın. Görev ve kayıt taslağı hazırlar, siz onaylamadan hiçbir şey kaydedilmez.",
     plan: "Her firmada ayda 100 soru ücretsiz; daha fazlası ek hizmetle.",
-    href: "/ozellikler/kahya-ai",
+    href: "/cozumler/kahya-ai",
   },
   {
     name: "Filo",
     body: "Araçlar, seferler ve araç bazında gelir gider takibi.",
     plan: "Ücretli her pakete ek hizmet olarak eklenir.",
+    href: "/cozumler/filo",
   },
 ];
 

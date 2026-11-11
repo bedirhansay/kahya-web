@@ -11,7 +11,6 @@ import { Points } from "./Points";
  */
 export function FeatureRow({
   id,
-  eyebrow,
   title,
   lead,
   points,
@@ -22,7 +21,6 @@ export function FeatureRow({
   children,
 }: {
   id: string;
-  eyebrow: ReactNode;
   title: ReactNode;
   lead: ReactNode;
   points?: Point[];
@@ -41,8 +39,7 @@ export function FeatureRow({
       )}
     >
       <div className={cn(reverse && "lg:order-2")}>
-        <p className="eyebrow text-brand">{eyebrow}</p>
-        <h2 id={id} className="title mt-3">
+        <h2 id={id} className="title">
           {title}
         </h2>
         <p className="lead mt-4 text-muted">{lead}</p>

@@ -81,7 +81,10 @@ export default function FeaturesPage() {
           </dl>
         </div>
       </section>
-      <CtaBand />
+      <CtaBand
+        title="Bir özellikle başlayın, gerisi yerinde"
+        body="Ücretsiz hesap açın; ilk 30 gün Kurumsal paket açık, E-posta ve Kahya AI ek hizmeti hariç. Nereden başlayacağınızı sorun."
+      />
     </>
   );
 }

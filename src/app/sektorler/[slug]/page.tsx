@@ -10,6 +10,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { SectorMock } from "@/components/mock/SectorMock";
 import { Points } from "@/components/Points";
 import { SectionHead } from "@/components/SectionHead";
+import { addons } from "@/content/addons";
 import { sectorBySlug, sectors } from "@/content/sectors";
 import { solutionBySlug } from "@/content/solutions";
 import { faqLd, pageMetadata } from "@/lib/seo";
@@ -69,7 +70,7 @@ export default async function SectorPage({ params }: PageProps<"/sektorler/[slug
 
       <section aria-labelledby="tanidik" className="bg-paper">
         <div className="wrap grid gap-10 py-16 md:py-24 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16">
-          <SectionHead id="tanidik" eyebrow="Tanıdık geldi mi?" title="Bugün nerede takılıyor?" />
+          <SectionHead id="tanidik" title="Bugün nerede takılıyor?" />
           <ul data-points className="grid">
             {s.pains.map((p) => (
               <li key={p} className="flex gap-3 py-4 text-[1.02rem]">
@@ -83,13 +84,12 @@ export default async function SectorPage({ params }: PageProps<"/sektorler/[slug
 
       <section aria-labelledby="kahya-ile">
         <div className="wrap py-16 md:py-24">
-          <SectionHead id="kahya-ile" eyebrow="Kahya ile" title={`${s.name} Kahya’yı nasıl kullanır?`} />
+          <SectionHead id="kahya-ile" title={`${s.name} Kahya’yı nasıl kullanır?`} />
           <ul className="mt-10 grid gap-5 lg:grid-cols-3">
             {s.uses.map((u) => {
               const sol = solutionBySlug(u.solution)!;
               return (
                 <li key={u.solution} className="flex flex-col rounded-[16px] border border-line bg-paper p-6">
-                  <p className="eyebrow text-brand">{sol.kicker}</p>
                   <h3 className="mt-2 text-xl font-bold">
                     {sol.name}
                     {sol.subtitle && <span className="ml-2 text-sm font-medium text-muted">{sol.subtitle}</span>}
@@ -104,20 +104,23 @@ export default async function SectorPage({ params }: PageProps<"/sektorler/[slug
           <div className="mt-8 max-w-2xl">
             {s.addons && s.addons.length > 0 && (
               <div className="rounded-[16px] border border-line p-6">
-                <p className="eyebrow text-brand">İşinize yarayacak ek hizmetler</p>
-                <p className="mt-3 flex flex-wrap gap-2">
-                  {s.addons.map((a) => (
-                    <span
-                      key={a}
-                      className="rounded-md border border-line bg-paper px-2.5 py-1 text-[0.95rem] font-semibold"
-                    >
-                      {a}
-                    </span>
-                  ))}
-                </p>
-                <Link href="/cozumler#ek-hizmetler" className="link mt-2 inline-flex min-h-11 items-center text-[0.95rem]">
-                  Ek hizmetler ne yapar
-                </Link>
+                <h3 className="font-semibold">İşinize yarayacak ek hizmetler</h3>
+                <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-1">
+                  {s.addons.map((name) => {
+                    const a = addons.find((x) => x.name === name);
+                    return (
+                      <li key={name}>
+                        {a ? (
+                          <Link href={`/cozumler/${a.slug}`} className="link inline-flex min-h-11 items-center">
+                            {name}
+                          </Link>
+                        ) : (
+                          <span className="inline-flex min-h-11 items-center font-semibold">{name}</span>
+                        )}
+                      </li>
+                    );
+                  })}
+                </ul>
               </div>
             )}
           </div>
@@ -130,7 +133,7 @@ export default async function SectorPage({ params }: PageProps<"/sektorler/[slug
       <section aria-labelledby="sorular" className="bg-paper">
         <div className="wrap grid gap-10 py-16 md:py-24 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16">
           <div>
-            <SectionHead id="sorular" eyebrow="Sık sorulanlar" title="Sorular" />
+            <SectionHead id="sorular" title="Sorular" />
             <p className="mt-8 text-sm font-semibold">Diğer sektörler</p>
             <ul className="mt-2 space-y-1.5">
               {others.map((o) => (
@@ -145,7 +148,10 @@ export default async function SectorPage({ params }: PageProps<"/sektorler/[slug
           <Faq items={s.faq} />
         </div>
       </section>
-      <CtaBand />
+      <CtaBand
+        title={`${s.tab} için Kahya’yı kurun`}
+        body="Hesabınızı açın; ilk 30 gün Kurumsal paket açık. Eski kayıtlarınızı taşımak isterseniz bize yazın."
+      />
     </>
   );
 }

@@ -77,13 +77,11 @@ function Card({ item }: { item: NavLink }) {
   return (
     <Link
       href={item.href}
-      className="group/c flex h-full flex-col rounded-xl border border-line bg-surface p-4 transition hover:-translate-y-0.5 hover:border-brand hover:shadow-md"
+      className="group/c flex h-full flex-col rounded-xl border border-line bg-surface p-4 transition-colors duration-200 hover:border-brand"
     >
       <span className="flex items-center justify-between">
         {Icon && (
-          <span className="grid size-10 place-items-center rounded-lg bg-brand-50 text-brand transition group-hover/c:bg-brand group-hover/c:text-paper">
-            <Icon size={19} aria-hidden />
-          </span>
+          <Icon size={20} aria-hidden className="text-brand" />
         )}
       </span>
       <span className="mt-4 block font-bold leading-tight">{item.label}</span>

@@ -33,7 +33,6 @@ export default function SolutionsPage() {
           <ol className="grid gap-px overflow-hidden rounded-[var(--radius-frame)] border border-line bg-line lg:grid-cols-3">
             {solutions.map((s) => (
               <li key={s.slug} id={s.slug} className="flex scroll-mt-24 flex-col bg-surface p-6 md:p-8">
-                <p className="eyebrow text-brand">{s.kicker}</p>
                 <h2 className="mt-3 text-2xl font-bold tracking-[-0.02em]">
                   <Link href={`/cozumler/${s.slug}`} className="hover:text-brand">
                     {s.name}

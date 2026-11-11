@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 
+import { AddonPage } from "@/components/AddonPage";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CtaBand } from "@/components/CtaBand";
 import { Faq } from "@/components/Faq";
@@ -21,6 +22,7 @@ import {
   TaskSummaryMock,
 } from "@/components/mock/screens";
 import { SectionHead } from "@/components/SectionHead";
+import { addonBySlug, addons } from "@/content/addons";
 import { featureBySlug } from "@/content/features";
 import { sectors } from "@/content/sectors";
 import { solutionBySlug, solutions, type Solution } from "@/content/solutions";
@@ -53,11 +55,13 @@ const visuals: Record<
 };
 
 export function generateStaticParams() {
-  return solutions.map((s) => ({ slug: s.slug }));
+  return [...solutions, ...addons].map((s) => ({ slug: s.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps<"/cozumler/[slug]">): Promise<Metadata> {
   const { slug } = await params;
+  const a = addonBySlug(slug);
+  if (a) return pageMetadata({ path: `/cozumler/${a.slug}`, title: a.seo.title, description: a.seo.description });
   const s = solutionBySlug(slug);
   if (!s) return {};
   return pageMetadata({
@@ -69,6 +73,8 @@ export async function generateMetadata({ params }: PageProps<"/cozumler/[slug]">
 
 export default async function SolutionPage({ params }: PageProps<"/cozumler/[slug]">) {
   const { slug } = await params;
+  const a = addonBySlug(slug);
+  if (a) return <AddonPage a={a} />;
   const s = solutionBySlug(slug);
   if (!s) notFound();
   const v = visuals[s.slug];
@@ -109,7 +115,6 @@ export default async function SolutionPage({ params }: PageProps<"/cozumler/[slu
         <div className="wrap space-y-24 py-20 md:space-y-32 md:py-28">
           <FeatureRow
             id="ne-yapar"
-            eyebrow={s.kicker}
             title={s.title}
             lead={s.lead}
             points={s.points}
@@ -120,7 +125,6 @@ export default async function SolutionPage({ params }: PageProps<"/cozumler/[slu
             id="daha-fazla"
             reverse
             phone={v.more[2]}
-            eyebrow={s.name}
             title={s.more.title}
             lead={s.more.lead}
             points={s.more.points}
@@ -133,7 +137,7 @@ export default async function SolutionPage({ params }: PageProps<"/cozumler/[slu
       {related.length > 0 && (
         <section aria-labelledby="ozellikler">
           <div className="wrap py-16 md:py-24">
-            <SectionHead id="ozellikler" eyebrow="Özellikler" title={`${s.name} içinde neler var?`} />
+            <SectionHead id="ozellikler" title={`${s.name} içinde neler var?`} />
             <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {related.map((f) => (
                 <li key={f.slug}>
@@ -141,10 +145,10 @@ export default async function SolutionPage({ params }: PageProps<"/cozumler/[slu
                     href={`/ozellikler/${f.slug}`}
                     className="group flex h-full flex-col rounded-[14px] border border-line p-5 hover:border-brand"
                   >
-                    <span className="grid size-9 place-items-center rounded-lg bg-brand-50 text-brand">
-                      <FeatureIcon slug={f.slug} size={18} />
+                    <span className="flex items-center gap-2.5 font-semibold group-hover:text-brand">
+                      <FeatureIcon slug={f.slug} size={18} className="shrink-0 text-brand" />
+                      {f.name}
                     </span>
-                    <span className="mt-4 font-semibold group-hover:text-brand">{f.name}</span>
                     <span className="mt-1 text-[0.95rem] text-muted">{f.summary}</span>
                   </Link>
                 </li>
@@ -157,7 +161,7 @@ export default async function SolutionPage({ params }: PageProps<"/cozumler/[slu
       <section aria-labelledby="sorular" className="bg-paper">
         <div className="wrap grid gap-10 py-16 md:py-24 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16">
           <div>
-            <SectionHead id="sorular" eyebrow="Sık sorulanlar" title={`${s.name} hakkında`} />
+            <SectionHead id="sorular" title={`${s.name} hakkında`} />
             {usedBy.length > 0 && (
               <div className="mt-8">
                 <p className="text-sm font-semibold">Bu çözümü kullanan sektörler</p>
@@ -179,7 +183,7 @@ export default async function SolutionPage({ params }: PageProps<"/cozumler/[slu
 
       <section aria-labelledby="diger">
         <div className="wrap py-16 md:py-20">
-          <SectionHead id="diger" eyebrow="Üç çözüm, tek uygulama" title="Diğer çözümler" />
+          <SectionHead id="diger" title="Diğer çözümler" />
           <ul className="mt-8 grid gap-4 md:grid-cols-2">
             {others.map((o) => (
               <li key={o.slug}>
@@ -187,7 +191,6 @@ export default async function SolutionPage({ params }: PageProps<"/cozumler/[slu
                   href={`/cozumler/${o.slug}`}
                   className="group block rounded-[14px] border border-line p-6 hover:border-brand"
                 >
-                  <span className="eyebrow text-brand">{o.kicker}</span>
                   <span className="mt-2 block text-xl font-bold group-hover:text-brand">
                     {o.name}
                     {o.subtitle && <span className="ml-2 text-sm font-medium text-muted">{o.subtitle}</span>}
@@ -199,7 +202,10 @@ export default async function SolutionPage({ params }: PageProps<"/cozumler/[slu
           </ul>
         </div>
       </section>
-      <CtaBand />
+      <CtaBand
+        title={`${s.name} ile başlayın`}
+        body="Hesabınızı açın; ilk 30 gün Kurumsal paket açık. Kurulumu birlikte yapmak isterseniz bize yazın."
+      />
     </>
   );
 }

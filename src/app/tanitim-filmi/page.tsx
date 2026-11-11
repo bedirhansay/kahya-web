@@ -113,7 +113,10 @@ export default function FilmPage() {
           </div>
         </div>
       </section>
-      <CtaBand />
+      <CtaBand
+        title="Filmde gördüğünüzü kendi ofisinizde açın"
+        body="Hesabınızı birkaç dakikada açarsınız. Verilerinizi taşımak isterseniz bize yazın."
+      />
     </>
   );
 }

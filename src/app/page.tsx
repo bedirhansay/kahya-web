@@ -121,7 +121,7 @@ const slides: HeroSlide[] = [
     tag: "Teklif ve stok",
     lines: ["Teklif linkle gider,", "müşteri linkten kabul eder,", "tek tıkla satışa döner."],
     points: ["Teklifi kendi antetinizle hazırlarsınız.", "Müşterinin teklifi açtığını görürsünüz.", "Kritik seviyeye inen ürünü Kahya işaretler."],
-    href: "/cozumler#ek-hizmetler",
+    href: "/cozumler/teklif",
     shot: shot("s4-teklif", "Kahya’da kabul edilmiş bir teklif: kalemler, indirim, KDV ve genel toplam, yanında Satışa dönüştür düğmesi."),
     phone: phone("s4-teklif", "kabul edilmiş bir teklif."),
     event: { title: "Teklif kabul edildi", value: "₺10.260,00" },
