@@ -100,7 +100,7 @@ export function HomeHero({ slides }: { slides: HeroSlide[] }) {
             ))}
           </div>
           <p className="lead mt-6 max-w-xl text-muted">
-            Cari, tahsilat, ekip ve müşteri tek yerde. Fatura ve beyanname muhasebe programınızda, müşavirinizde kalır.
+            Cari, tahsilat, kasa ve banka, ekip ve müşteri tek yerde. Fatura ve beyanname muhasebe programınızda, müşavirinizde kalır.
           </p>
           <div className="mt-6 grid">
             {slides.map((x, n) => (

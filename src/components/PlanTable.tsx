@@ -1,4 +1,5 @@
 import { Check, Minus } from "lucide-react";
+import Link from "next/link";
 
 import { planNames, planRows, type PlanCell } from "@/content/plans";
 
@@ -31,7 +32,13 @@ export function PlanTable() {
           {planRows.map((r) => (
             <tr key={r.label} className="border-b border-line last:border-0">
               <th scope="row" className="sticky left-0 bg-surface px-4 py-3.5 text-left font-medium">
-                {r.label}
+                {r.href ? (
+                  <Link href={r.href} className="underline decoration-brand/50 underline-offset-4 hover:text-brand">
+                    {r.label}
+                  </Link>
+                ) : (
+                  r.label
+                )}
                 {r.hint && <span className="block text-sm font-normal text-muted">{r.hint}</span>}
               </th>
               {r.cells.map((c, i) => (

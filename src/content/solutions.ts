@@ -152,7 +152,7 @@ export const solutions: Solution[] = [
     faq: [
       {
         q: "Kahya fatura keser mi, bankama bağlanır mı?",
-        a: "Hayır. Kahya’da finans, cari bakiye takibidir: kimden alacaklı, kime borçlu olduğunuz. Fatura ve e-Fatura kesmez, bankanıza bağlanıp ekstre çekmez.",
+        a: "Hayır. Kahya’da finans, cari bakiye takibidir: kimden alacaklı, kime borçlu olduğunuz. Fatura ve e-Fatura kesmez, bankanıza bağlanıp ekstre çekmez. Kasa ve banka ek hizmetiyle kasa, banka hesabı ve kredi kartı bakiyelerini Kahya’da kendiniz tutarsınız.",
       },
       {
         q: "Muhasebe programımı bırakmam gerekir mi?",
@@ -192,6 +192,11 @@ export const extras: Extra[] = [
     name: "Kahya AI",
     body: "Sorun, Kahya kendi verinizden yanıtlasın. Görev ve kayıt taslağı hazırlar, siz onaylamadan hiçbir şey kaydedilmez. Her firmada ayda 100 soru ücretsiz, daha fazlası Kahya AI ek hizmetiyle.",
     href: "/ozellikler/kahya-ai",
+  },
+  {
+    name: "Kasa ve banka",
+    body: "Hiçbir pakete dahil değil, ek hizmet olarak eklenir. Kasa, banka hesabı ve kredi kartı bakiyeleriyle; açılış bakiyesi, kartın limiti ve son ödeme günü.",
+    href: "/rehber/kasa-ve-banka-takibi-nasil-yapilir",
   },
   {
     name: "Filo",
