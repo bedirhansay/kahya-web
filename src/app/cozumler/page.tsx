@@ -1,16 +1,15 @@
 import { AtSign, Globe, Import } from "lucide-react";
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 
 import { CasePanel, CaseRow, type CaseTone } from "@/components/CaseRow";
 import { CtaBand } from "@/components/CtaBand";
 import { JsonLd } from "@/components/JsonLd";
+import { AddonList } from "@/components/AddonList";
 import { PageHero } from "@/components/PageHero";
 import { SectionJumps } from "@/components/SectionJumps";
 import { Trust } from "@/components/sections/TrustAndPromises";
-import { addons } from "@/content/addons";
-import { extras, services, solutions } from "@/content/solutions";
+import { services, solutions } from "@/content/solutions";
 import { pageMetadata, softwareLd } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -20,17 +19,39 @@ export const metadata: Metadata = pageMetadata({
     "Kahya üç çözümden oluşur: Ofis yönetimi, CRM (müşteri ilişkileri) ile Finans ve cari. E-posta, Stok, Teklif, Kahya AI ve Filo ihtiyacınız olduğunda eklenir. Kahya’nın ne yaptığı ve ne yapmadığı.",
 });
 
-const quote = (what: string) => `/iletisim?konu=fiyat&cozum=${encodeURIComponent(what)}`;
+const quote = (what: string) =>
+  `/iletisim?konu=fiyat&cozum=${encodeURIComponent(what)}`;
 
 /** The three services in src/content/solutions.ts, in order: setup and import, company e-mail, web site. */
 const serviceIcons = [Import, AtSign, Globe];
 const serviceTones: CaseTone[] = ["sage", "cream", "mist"];
 
 /** Each solution's own screens from the demo office (the same shots as the home page's slides). */
-const media: Record<string, { tone: CaseTone; shot: string; phone: string; alt: string; time: string }> = {
-  "ofis-yonetimi": { tone: "pine", shot: "s2-gorev", phone: "s2-gorev", alt: "görev listesi", time: "11:30" },
-  crm: { tone: "sage", shot: "s3-gorusme", phone: "s3-gorusme", alt: "müşteri görüşmeleri", time: "14:00" },
-  "finans-cari": { tone: "cream", shot: "s1-cari", phone: "s1-cari", alt: "cari kart", time: "17:45" },
+const media: Record<
+  string,
+  { tone: CaseTone; shot: string; phone: string; alt: string; time: string }
+> = {
+  "ofis-yonetimi": {
+    tone: "pine",
+    shot: "s2-gorev",
+    phone: "s2-gorev",
+    alt: "görev listesi",
+    time: "11:30",
+  },
+  crm: {
+    tone: "sage",
+    shot: "s3-gorusme",
+    phone: "s3-gorusme",
+    alt: "müşteri görüşmeleri",
+    time: "14:00",
+  },
+  "finans-cari": {
+    tone: "cream",
+    shot: "s1-cari",
+    phone: "s1-cari",
+    alt: "cari kart",
+    time: "17:45",
+  },
 };
 
 export default function SolutionsPage() {
@@ -67,22 +88,37 @@ export default function SolutionsPage() {
                     tone={m.tone}
                     no={s.no}
                     priority={i === 0}
-                    screen={{ src: `/media/home/${m.shot}.webp`, alt: `Kahya ${s.name}: ${m.alt}. Örnek veri.`, width: 2400, height: 1520 }}
-                    phone={{ src: `/media/home/${m.phone}-tel.webp`, alt: `Aynı ekran telefonda: ${m.alt}.`, time: m.time }}
+                    screen={{
+                      src: `/media/home/${m.shot}.webp`,
+                      alt: `Kahya ${s.name}: ${m.alt}. Örnek veri.`,
+                      width: 2400,
+                      height: 1520,
+                    }}
+                    phone={{
+                      src: `/media/home/${m.phone}-tel.webp`,
+                      alt: `Aynı ekran telefonda: ${m.alt}.`,
+                      time: m.time,
+                    }}
                   />
                 }
               >
                 <h2 className="title">
-                  <Link href={`/cozumler/${s.slug}`} className="hover:text-brand">
+                  <Link
+                    href={`/cozumler/${s.slug}`}
+                    className="hover:text-brand"
+                  >
                     {s.name}
                   </Link>
                 </h2>
-                {s.subtitle && <p className="mt-1 font-medium text-muted">{s.subtitle}</p>}
+                {s.subtitle && (
+                  <p className="mt-1 font-medium text-muted">{s.subtitle}</p>
+                )}
                 <p className="lead mt-4 text-muted">{s.summary}</p>
                 <ul className="mt-6 grid gap-2.5">
                   {s.points.slice(0, 2).map((p) => (
                     <li key={p.term} className="border-t border-line pt-2.5">
-                      <strong className="font-semibold">{p.term}:</strong> <span className="text-muted">{p.text}</span>
+                      <strong className="font-semibold">{p.term}:</strong>{" "}
+                      <span className="text-muted">{p.text}</span>
                     </li>
                   ))}
                 </ul>
@@ -90,7 +126,10 @@ export default function SolutionsPage() {
                   <Link href={`/cozumler/${s.slug}`} className="btn btn-petrol">
                     {s.name} çözümünü inceleyin
                   </Link>
-                  <a href={quote(s.name)} className="link inline-flex min-h-11 items-center">
+                  <a
+                    href={quote(s.name)}
+                    className="link inline-flex min-h-11 items-center"
+                  >
                     Fiyat talep edin
                   </a>
                 </div>
@@ -107,59 +146,15 @@ export default function SolutionsPage() {
               Ek hizmetler
             </h2>
             <p className="lead text-muted">
-              Hangi çözümü kullanırsanız kullanın, bunları da açtırabilirsiniz. Fiyatı{" "}
+              Hangi çözümü kullanırsanız kullanın, bunları da açtırabilirsiniz.
+              Fiyatı{" "}
               <Link href="/fiyatlar#ek-hizmetler" className="link">
                 Paketler ve fiyatlar
               </Link>{" "}
               sayfasında.
             </p>
           </div>
-          <ul className="mt-8 grid gap-x-10 border-t border-line md:grid-cols-2">
-            {extras.map((e) => {
-              const a = addons.find((x) => x.name === e.name);
-              return (
-                <li
-                  key={e.name}
-                  className={
-                    a?.screen
-                      ? "grid grid-cols-[minmax(0,9rem)_minmax(0,1fr)] gap-5 border-b border-line py-6 sm:grid-cols-[minmax(0,12rem)_minmax(0,1fr)]"
-                      : "border-b border-line py-6"
-                  }
-                >
-                  {a?.screen && (
-                    <Link href={`/cozumler/${a.slug}`} className="block self-start overflow-hidden rounded-[10px] border border-line bg-surface" tabIndex={-1} aria-hidden>
-                      <Image
-                        src={a.screen.src}
-                        alt=""
-                        width={a.screen.width}
-                        height={a.screen.height}
-                        sizes="12rem"
-                        className="aspect-[16/10] h-auto w-full object-cover object-left-top"
-                      />
-                    </Link>
-                  )}
-                  <div className="min-w-0">
-                    <h3 className="text-lg font-bold">
-                      {a ? (
-                        <Link href={`/cozumler/${a.slug}`} className="hover:text-brand">
-                          {e.name}
-                        </Link>
-                      ) : (
-                        e.name
-                      )}
-                    </h3>
-                    <p className="mt-1 leading-relaxed text-muted">{e.body}</p>
-                    <p className="mt-2 text-[0.95rem]">
-                      <span className="font-semibold">Hangi pakette:</span> <span className="text-muted">{e.plan}</span>
-                    </p>
-                    <a href={quote(e.name)} className="link inline-flex min-h-11 items-center">
-                      {e.name} için talep edin
-                    </a>
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
+          <AddonList className="mt-8" />
         </div>
       </section>
 
@@ -169,20 +164,30 @@ export default function SolutionsPage() {
             <h2 id="hizmetler" className="title scroll-mt-28">
               Hizmetler
             </h2>
-            <p className="lead text-muted">İsterseniz bu işleri de biz yaparız. Fiyatı işe göre veririz.</p>
+            <p className="lead text-muted">
+              İsterseniz bu işleri de biz yaparız. Fiyatı işe göre veririz.
+            </p>
           </div>
           <ul className="mt-8 grid gap-4 md:grid-cols-3">
             {services.map((e, i) => {
               const Icon = serviceIcons[i % serviceIcons.length];
               const tone = serviceTones[i % serviceTones.length];
               return (
-                <li key={e.name} className={`case-panel case-panel-${tone} flex min-h-[17rem] flex-col p-6 sm:p-7`}>
+                <li
+                  key={e.name}
+                  className={`case-panel case-panel-${tone} flex min-h-[17rem] flex-col p-6 sm:p-7`}
+                >
                   <span className="grid size-14 place-items-center rounded-[12px] bg-surface/85 text-brand">
                     <Icon size={26} aria-hidden strokeWidth={1.6} />
                   </span>
-                  <h3 className="mt-auto pt-10 text-[1.25rem] font-bold tracking-[-0.01em]">{e.name}</h3>
+                  <h3 className="mt-auto pt-10 text-[1.25rem] font-bold tracking-[-0.01em]">
+                    {e.name}
+                  </h3>
                   <p className="mt-1.5 leading-relaxed text-ink/80">{e.body}</p>
-                  <a href={quote(e.name)} className="link mt-3 inline-flex min-h-11 items-center">
+                  <a
+                    href={quote(e.name)}
+                    className="link mt-3 inline-flex min-h-11 items-center"
+                  >
                     {e.name} için yazın
                   </a>
                 </li>
@@ -190,8 +195,13 @@ export default function SolutionsPage() {
             })}
           </ul>
           <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-line pt-6">
-            <p className="text-muted">Önce ne gerektiğini konuşalım; fiyatı işe göre söyleriz.</p>
-            <Link href="/rehber/cari-takibi-excel-mi-program-mi" className="link inline-flex min-h-11 items-center">
+            <p className="text-muted">
+              Önce ne gerektiğini konuşalım; fiyatı işe göre söyleriz.
+            </p>
+            <Link
+              href="/rehber/cari-takibi-excel-mi-program-mi"
+              className="link inline-flex min-h-11 items-center"
+            >
               Excel mi, program mı? Karşılaştırmayı okuyun
             </Link>
           </div>
