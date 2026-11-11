@@ -557,33 +557,60 @@ body {
     margin-top: 1rem;
   }
 }
-/* The same slide as an installed app on a phone: an iPhone-like frame around a real 390 px screen. */
-.home-phone {
-  position: relative;
+/*
+ * One iPhone for every phone on the site (hero and "Bir ofis günü"). All measures are shares of the phone's width
+ * (cqw), taken from a 393 pt iPhone: ~4% bezel, screen corner ~13% of the width, the Dynamic Island 126 × 37 pt
+ * sitting in a 47 pt status bar. The 390 × 844 screenshot keeps its own ratio below the status bar.
+ */
+.phone {
+  container-type: inline-size;
   width: 100%;
-  padding: 9px;
-  border-radius: 42px;
+}
+/* avoid-ai-design-ignore: K2 -- the device frame is the one surface that keeps a shadow (maestro 2026-11-11). */
+.phone-body {
+  padding: 3.8cqw;
+  border-radius: 16.5cqw;
   background: #0a1413;
   box-shadow:
+    inset 0 0 0 0.5cqw #23302d,
     0 0 0 1px rgb(191 218 200 / 0.22),
     0 40px 70px -30px rgb(0 0 0 / 0.75);
 }
-.home-phone-screen {
+.phone-screen {
   overflow: hidden;
-  border-radius: 33px;
+  border-radius: 12.8cqw;
   background: #fff;
 }
-.home-phone::before {
-  content: "";
+.phone-status {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 11cqw;
+  padding-inline: 7.5cqw 6.5cqw;
+  color: #0a1413;
+  font-size: 3.7cqw;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.phone-island {
   position: absolute;
-  z-index: 1;
-  top: 18px;
+  top: 2.5cqw;
   left: 50%;
-  width: 30%;
-  height: 22px;
+  width: 29cqw;
+  height: 8.4cqw;
   border-radius: 999px;
   background: #0a1413;
-  transform: translateX(-50%);
+  translate: -50% 0;
+}
+.phone-battery {
+  width: 6.4cqw;
+  height: 3.1cqw;
+  margin-left: auto;
+  padding: 0.45cqw;
+  border: 0.4cqw solid rgb(10 20 19 / 0.45);
+  border-radius: 1cqw;
+  background: #0a1413 content-box;
 }
 /* "Bir ofis günü": three phones, the picked hour's in front and the other two a little behind and lower. */
 .day-phones {
