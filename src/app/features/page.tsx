@@ -1,3 +1,4 @@
+// avoid-ai-design-ignore: I3 -- Star is the icon of the real "Favoriler" feature in the app, not a fake rating star.
 import {
   Bell,
   Building2,
