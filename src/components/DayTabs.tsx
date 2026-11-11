@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
+import { PhoneFrame } from "@/components/PhoneFrame";
 import { cn } from "@/lib/cn";
 
 export type DayMoment = {
@@ -99,18 +100,16 @@ export function DayTabs({ moments, phones }: { moments: DayMoment[]; phones: Day
           {order.map((idx, pos) =>
             idx === undefined ? null : (
               <figure key={phones[idx].src} className={cn("day-phone", pos === 1 ? "day-phone-mid" : "day-phone-side")}>
-                <div className="home-phone">
-                  <div className="home-phone-screen">
+                <PhoneFrame time={phones[idx].time.replace(".", ":")}>
                     <Image
                       src={phones[idx].src}
                       alt={phones[idx].alt}
                       width={1170}
                       height={2532}
                       sizes="(min-width: 1024px) 240px, 70vw"
-                      className="h-auto w-full"
+                      className="block h-auto w-full"
                     />
-                  </div>
-                </div>
+                </PhoneFrame>
                 <figcaption className="mt-3 text-center text-sm font-semibold tabular-nums text-muted">{phones[idx].time}</figcaption>
               </figure>
             ),

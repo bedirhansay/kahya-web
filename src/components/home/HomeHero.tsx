@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
+import { PhoneFrame } from "@/components/PhoneFrame";
 import { cn } from "@/lib/cn";
 import { site } from "@/lib/site";
 
@@ -175,8 +176,8 @@ export function HomeHero({ slides }: { slides: HeroSlide[] }) {
             </div>
             <div aria-hidden className="home-laptop-base" />
           </div>
-          <div className="home-phone home-phone-front mx-auto max-w-[300px] lg:max-w-none">
-            <div className="home-phone-screen grid">
+          <PhoneFrame time="9:41" className="home-phone-front mx-auto max-w-[300px] lg:max-w-none">
+            <div className="grid">
               {slides.map((x, n) => (
                 <Image
                   key={x.phone.src}
@@ -191,7 +192,7 @@ export function HomeHero({ slides }: { slides: HeroSlide[] }) {
                 />
               ))}
             </div>
-          </div>
+          </PhoneFrame>
           <div className="home-event grid" aria-live="off">
             {slides.map((x, n) => (
               <div
