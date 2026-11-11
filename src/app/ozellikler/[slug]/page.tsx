@@ -1,4 +1,4 @@
-import { Check, PlayCircle } from "lucide-react";
+import { PlayCircle } from "lucide-react";
 import type { Metadata } from "next";
 import { Img } from "@/components/Img";
 import Link from "next/link";
@@ -90,11 +90,8 @@ export default async function FeaturePage({ params }: PageProps<"/ozellikler/[sl
           </div>
           <dl className="grid gap-x-10 gap-y-9 sm:grid-cols-2">
             {f.points.map((p) => (
-              <div key={p.title} className="pt-5">
-                <dt className="flex items-start gap-2.5 font-semibold">
-                  <Check size={19} className="mt-0.5 shrink-0 text-petrol" aria-hidden />
-                  {p.title}
-                </dt>
+              <div key={p.title} className="border-t border-line pt-5">
+                <dt className="font-semibold">{p.title}</dt>
                 <dd className="mt-2 leading-relaxed text-muted">{p.body}</dd>
               </div>
             ))}

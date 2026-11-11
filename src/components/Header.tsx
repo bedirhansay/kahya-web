@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight, ChevronDown } from "lucide-react";
+import { ArrowUpRight, ChevronDown } from "lucide-react";
 import Link from "next/link";
 
 import { cn } from "@/lib/cn";
@@ -58,11 +58,6 @@ export function Header() {
               className="btn btn-brass group/cta hidden h-10 min-h-10 gap-1.5 whitespace-nowrap sm:inline-flex"
             >
               Ücretsiz başlayın
-              <ArrowRight
-                size={16}
-                aria-hidden
-                className="transition-transform duration-300 group-hover/cta:translate-x-0.5"
-              />
             </a>
             <MobileMenu />
           </div>

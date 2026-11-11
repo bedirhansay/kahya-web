@@ -1,6 +1,5 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useState, type ReactNode } from "react";
 
@@ -107,11 +106,6 @@ export function DayTabs({ moments }: { moments: DayMoment[] }) {
             {m.solution.name}
           </span>
           çözümünde gör
-          <ArrowRight
-            size={15}
-            aria-hidden
-            className="transition-transform duration-300 group-hover/sl:translate-x-0.5"
-          />
         </Link>
       </div>
     </div>

@@ -41,7 +41,7 @@ export function GET() {
     `Rakamlar sitede yayınlanmaz. Fiyat kullanıcı sayısına (paket: Ücretsiz, Başlangıç, Ekip, Büyüyen ve Kurumsal) ve ek hizmetlere göre verilir: ${site.email}. Kayıt olan firma 30 gün Kurumsal paketi dener, sonra Ücretsiz pakete geçer. Ayrıntılar: ${absoluteUrl("/cozumler")}`,
     "",
     "## Paketler",
-    `Paketler: ${planNames.join(", ")}. Kullanıcı: ${planRows[0].cells.join(" / ")}. Dosya alanı: ${planRows[1].cells.join(" / ")}. Ücretsiz pakette 1 şube, 50 cari (müşteri ve tedarikçi) ve 3 personel; ücretli paketlerde sınırsız. Stok Ekip ve üstünde dahil, Başlangıç'ta ek hizmet. Teklif Kurumsal'da dahil, diğer ücretli paketlerde ek hizmet. Filo ve E-posta her ücretli pakette ek hizmettir. Karşılaştırma: ${absoluteUrl("/cozumler#paketler")}`,
+    `Paketler: ${planNames.join(", ")}. Kullanıcı: ${planRows[0].cells.join(" / ")}. Dosya alanı: ${planRows[1].cells.join(" / ")}. Ücretsiz pakette 1 şube, 50 cari (müşteri ve tedarikçi) ve 3 personel; ücretli paketlerde sınırsız. Stok Ekip ve üstünde dahil, Başlangıç'ta ek hizmet. Teklif Kurumsal'da dahil, diğer ücretli paketlerde ek hizmet. Filo ve E-posta her ücretli pakette ek hizmettir. Karşılaştırma: ${absoluteUrl("/fiyatlar")}`,
     "",
     "## Rehberler",
     ...guides.map((g) => `- [${g.title}](${absoluteUrl(`/rehber/${g.slug}`)}): ${g.answer}`),

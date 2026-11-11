@@ -258,6 +258,7 @@ export const mainNav: NavGroup[] = [
       },
     },
   },
+  { href: "/fiyatlar", label: "Fiyatlar" },
   { href: "/egitim", label: "Eğitim" },
   { href: "/sss", label: "Sık sorulanlar" },
   { href: "/iletisim", label: "İletişim" },

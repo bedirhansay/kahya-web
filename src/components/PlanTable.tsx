@@ -1,9 +1,9 @@
-import { Check, Minus } from "lucide-react";
+import { Minus } from "lucide-react";
 
 import { planNames, planRows, type PlanCell } from "@/content/plans";
 
 function Cell({ v }: { v: PlanCell }) {
-  if (v === true) return <Check size={18} className="mx-auto text-brand" aria-label="Dahil" />;
+  if (v === true) return <span className="text-sm font-medium text-brand">Dahil</span>;
   if (v === false) return <Minus size={16} className="mx-auto text-muted/50" aria-label="Yok" />;
   if (v === "ek") return <span className="text-sm text-muted">Ek hizmet</span>;
   return <span className="font-semibold">{v}</span>;

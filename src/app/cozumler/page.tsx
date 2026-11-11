@@ -1,21 +1,19 @@
-import { Check } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 
 import { CtaBand } from "@/components/CtaBand";
-import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
-import { PlanTable } from "@/components/PlanTable";
 import { PageHero } from "@/components/PageHero";
-import { pricingFaq } from "@/content/faq";
+import { VsAccounting, VsScattered } from "@/components/sections/Comparisons";
+import { Trust } from "@/components/sections/TrustAndPromises";
 import { extras, services, solutions } from "@/content/solutions";
-import { faqLd, pageMetadata, softwareLd } from "@/lib/seo";
+import { pageMetadata, softwareLd } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   path: "/cozumler",
   title: "Çözümler: ofis yönetimi, CRM, finans ve cari",
   description:
-    "Kahya üç çözümden oluşur: Ofis yönetimi, CRM (müşteri ilişkileri) ile Finans ve cari. E-posta ve Kahya AI ek hizmettir; Stok Ekip ve üstünde, Teklif Kurumsal pakette dahil. Fiyat kullanıcı sayısına (paket) ve ek hizmetlere göre verilir.",
+    "Kahya üç çözümden oluşur: Ofis yönetimi, CRM (müşteri ilişkileri) ile Finans ve cari. E-posta, Stok, Teklif, Kahya AI ve Filo ihtiyacınız olduğunda eklenir. Kahya’nın ne yaptığı ve ne yapmadığı.",
 });
 
 const quote = (what: string) => `/iletisim?konu=fiyat&cozum=${encodeURIComponent(what)}`;
@@ -23,11 +21,11 @@ const quote = (what: string) => `/iletisim?konu=fiyat&cozum=${encodeURIComponent
 export default function SolutionsPage() {
   return (
     <>
-      <JsonLd data={[softwareLd(), faqLd(pricingFaq)]} />
+      <JsonLd data={softwareLd()} />
       <PageHero
         crumbs={[{ name: "Çözümler", path: "/cozumler" }]}
         title="İhtiyacınız olanı seçin, gerisi gizli kalsın"
-        lead="Kahya üç çözümden oluşur. Birini, ikisini ya da üçünü birden kullanabilirsiniz. Fiyat kullanıcı sayısına (paket: Ücretsiz, Başlangıç, Ekip, Büyüyen ve Kurumsal) ve ek hizmetlere göre verilir."
+        lead="Kahya üç çözümden oluşur. Birini, ikisini ya da üçünü birden kullanabilirsiniz; kullanmadığınız menüden kalkar."
       />
 
       <section aria-label="Çözümler" className="bg-paper">
@@ -43,14 +41,11 @@ export default function SolutionsPage() {
                 </h2>
                 {s.subtitle && <p className="text-sm font-medium text-muted">{s.subtitle}</p>}
                 <p className="mt-2 text-muted">{s.summary}</p>
-                <ul className="mt-6 flex-1 space-y-2.5">
+                <ul className="mt-6 flex-1 list-disc space-y-2.5 pl-5 marker:text-brand">
                   {s.points.map((p) => (
-                    <li key={p.term} className="flex gap-3 text-[0.97rem]">
-                      <Check size={18} className="mt-0.5 shrink-0 text-brand" aria-hidden />
-                      <span>
-                        <strong className="font-semibold">{p.term}:</strong>{" "}
-                        <span className="text-muted">{p.text}</span>
-                      </span>
+                    <li key={p.term} className="text-[0.97rem]">
+                      <strong className="font-semibold">{p.term}:</strong>{" "}
+                      <span className="text-muted">{p.text}</span>
                     </li>
                   ))}
                 </ul>
@@ -65,29 +60,11 @@ export default function SolutionsPage() {
               </li>
             ))}
           </ol>
-          <p className="mt-6 text-sm text-muted">
-            Hesabınızı açtıktan sonra uygulamadaki Abonelik sayfasından da talep edebilirsiniz.
-          </p>
-        </div>
-      </section>
-
-      <section aria-labelledby="paketler">
-        <div className="wrap py-16 md:py-24">
-          <h2 id="paketler" className="title max-w-2xl">
-            Paketler
-          </h2>
-          <p className="lead mt-4 max-w-2xl text-muted">
-            Paketler kullanıcı sayısına ve dosya alanına göre ayrılır. Ücretli paketlerin hepsinde üç çözüm de açılır.
-            Kayıt olan her firma 30 gün Kurumsal paketi dener.
-          </p>
-          <div className="mt-10">
-            <PlanTable />
-          </div>
-          <p className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-muted">
-            Fiyatı ekibinize ve ek hizmetlere göre veriyoruz.
-            <a href={quote("Paket")} className="link inline-flex min-h-11 items-center">
-              Fiyat talep et
-            </a>
+          <p className="mt-6 text-muted">
+            Hangi pakette ne olduğu:{" "}
+            <Link href="/fiyatlar" className="link">
+              Paketler ve fiyatlar
+            </Link>
           </p>
         </div>
       </section>
@@ -143,15 +120,15 @@ export default function SolutionsPage() {
         </div>
       </section>
 
-      <section aria-labelledby="sorular" className="bg-paper">
-        <div className="wrap grid gap-10 py-16 md:py-24 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-14">
-          <h2 id="sorular" className="title">
-            Satın alma soruları
-          </h2>
-          <Faq items={pricingFaq} />
-        </div>
-      </section>
-      <CtaBand />
+      <VsScattered />
+      <div className="bg-paper">
+        <VsAccounting />
+      </div>
+      <Trust />
+      <CtaBand
+        title="Hangi çözümle başlayacağınızı birlikte seçelim"
+        body="Ofisinizin işini iki cümleyle yazın, size uyan çözümü ve ek hizmetleri söyleyelim. Hemen denemek isterseniz ücretsiz başlayın."
+      />
     </>
   );
 }

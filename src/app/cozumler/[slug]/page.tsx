@@ -1,10 +1,8 @@
-import { ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 
-import { Accent } from "@/components/Accent";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CtaBand } from "@/components/CtaBand";
 import { Faq } from "@/components/Faq";
@@ -92,13 +90,12 @@ export default async function SolutionPage({ params }: PageProps<"/cozumler/[slu
             />
             <p className="chip mt-4">{s.subtitle ? `${s.name}, ${s.subtitle}` : s.name}</p>
             <h1 className="title mt-4 max-w-2xl">
-              <Accent>{s.seo.h1}</Accent>
+              {s.seo.h1}
             </h1>
             <p className="lead mt-5 max-w-xl text-muted">{s.lead}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a href={site.app.register} className="btn btn-brass">
                 Ücretsiz başlayın
-                <ArrowRight size={17} aria-hidden />
               </a>
               <a href={`/iletisim?konu=fiyat&cozum=${encodeURIComponent(s.name)}`} className="btn btn-line">
                 Fiyat talep et

@@ -4,7 +4,6 @@ import Link from "next/link";
 
 import { CtaBand } from "@/components/CtaBand";
 import { PageHero } from "@/components/PageHero";
-import { VsAccounting, VsScattered } from "@/components/sections/Comparisons";
 import { features } from "@/content/features";
 import { pageMetadata } from "@/lib/seo";
 
@@ -82,8 +81,6 @@ export default function FeaturesPage() {
           </dl>
         </div>
       </section>
-      <VsScattered />
-      <VsAccounting />
       <CtaBand />
     </>
   );

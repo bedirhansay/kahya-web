@@ -53,7 +53,7 @@ export default function ContactPage() {
           <Breadcrumbs items={[{ name: "İletişim", path: "/iletisim" }]} />
           <p className="chip mt-4">İletişim</p>
           <h1 className="display mt-5">
-            Bize yazın, <span className="grad grad-b">hemen dönelim</span>
+            Bize yazın, hemen dönelim
           </h1>
           <p className="lead mt-6 max-w-lg text-muted">
             Fiyat teklifi, tanıtım ya da verilerinizi taşımak: formu doldurun, ekibimiz bir iş günü içinde e-postayla

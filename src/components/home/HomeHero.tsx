@@ -1,6 +1,5 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
@@ -16,6 +15,8 @@ export type HeroSlide = {
   points: [string, string, string];
   href: string;
   shot: { src: string; alt: string; width: number; height: number };
+  /** The same screen on a phone, as the installed app (390 px wide, bottom tab bar). */
+  phone: { src: string; alt: string; width: number; height: number };
   /** One real event from the same screen. */
   event: { title: string; value: string };
 };
@@ -32,7 +33,7 @@ const sectorsShort: [string, string][] = [
 const pad = (n: number) => String(n + 1).padStart(2, "0");
 
 /**
- * The home opening: three slides, each a real Kahya screen. The only motion on the page: a cross-fade every 8 s,
+ * The home opening: five slides, each a real Kahya screen on a laptop and on a phone. The only motion on the page: a cross-fade every 8 s,
  * paused under the pointer or keyboard focus; with reduced motion the first slide stays.
  */
 export function HomeHero({ slides }: { slides: HeroSlide[] }) {
@@ -72,14 +73,14 @@ export function HomeHero({ slides }: { slides: HeroSlide[] }) {
       <div aria-hidden className="home-hero-grid" />
 
       <div className="wrap grid gap-10 pb-12 pt-[104px] md:pt-[128px] lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-center lg:gap-14 lg:pb-16">
-        <div className="min-w-0">
+        <div className="home-in min-w-0">
           <h1 id="giris" className="sr-only">
             Kahya: küçük ofisler için ön muhasebe ve iş takibi
           </h1>
           <p className="text-[0.95rem] font-semibold text-brand">
             <span className="tabular-nums">{pad(i)}</span> / {s.tag}
           </p>
-          {/* All three headlines share one cell; only the shown one is read out. */}
+          {/* All headlines share one cell; only the shown one is read out. */}
           <div className="mt-5 grid">
             {slides.map((x, n) => (
               <p
@@ -146,7 +147,6 @@ export function HomeHero({ slides }: { slides: HeroSlide[] }) {
             </div>
             <Link href={s.href} className="link inline-flex min-h-11 items-center gap-1.5">
               İncele <span className="sr-only">: {s.tag}</span>
-              <ArrowRight size={15} aria-hidden />
             </Link>
           </div>
 
@@ -156,8 +156,8 @@ export function HomeHero({ slides }: { slides: HeroSlide[] }) {
           <Trust className="mt-8 max-lg:hidden" />
         </div>
 
-        <figure className="relative min-w-0">
-          <div className="home-laptop">
+        <figure className="home-in relative min-w-0">
+          <div className="home-laptop max-lg:hidden">
             <div className="home-laptop-screen grid">
               {slides.map((x, n) => (
                 <Image
@@ -168,12 +168,29 @@ export function HomeHero({ slides }: { slides: HeroSlide[] }) {
                   height={x.shot.height}
                   priority={n === 0}
                   aria-hidden={n !== i}
-                  sizes="(min-width: 1024px) 52vw, 100vw"
+                  sizes="52vw"
                   className={cn("h-auto w-full [grid-area:1/1]", fade, n === i ? "opacity-100" : "opacity-0")}
                 />
               ))}
             </div>
             <div aria-hidden className="home-laptop-base" />
+          </div>
+          <div className="home-phone home-phone-front mx-auto max-w-[300px] lg:max-w-none">
+            <div className="home-phone-screen grid">
+              {slides.map((x, n) => (
+                <Image
+                  key={x.phone.src}
+                  src={x.phone.src}
+                  alt={x.phone.alt}
+                  width={x.phone.width}
+                  height={x.phone.height}
+                  priority={n === 0}
+                  aria-hidden={n !== i}
+                  sizes="(min-width: 1024px) 15vw, 300px"
+                  className={cn("h-auto w-full [grid-area:1/1]", fade, n === i ? "opacity-100" : "opacity-0")}
+                />
+              ))}
+            </div>
           </div>
           <div className="home-event grid" aria-live="off">
             {slides.map((x, n) => (
@@ -187,7 +204,7 @@ export function HomeHero({ slides }: { slides: HeroSlide[] }) {
               </div>
             ))}
           </div>
-          <figcaption className="mt-4 text-sm text-muted">Uygulamanın kendi ekranı, örnek veriyle.</figcaption>
+          <figcaption className="mt-4 text-sm text-muted max-lg:text-center lg:mt-10">Uygulamanın kendi ekranları, örnek veriyle.</figcaption>
         </figure>
 
         <div className="lg:hidden">
@@ -220,7 +237,6 @@ function Buttons() {
     <>
       <a href={site.app.register} className="btn btn-brass">
         Ücretsiz başlayın
-        <ArrowRight size={17} aria-hidden />
       </a>
       <Link href="#bir-gun" className="btn btn-line-dark">
         Nasıl çalışır

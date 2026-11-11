@@ -22,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     page("/ozellikler", 0.9),
     ...features.map((f) => page(`/ozellikler/${f.slug}`, 0.8, { images: [absoluteUrl(f.screen.src)] })),
     page("/cozumler", 0.9),
+    page("/fiyatlar", 0.8),
     ...solutions.map((s) => page(`/cozumler/${s.slug}`, 0.9)),
     page("/sektorler", 0.7),
     ...sectors.map((s) => page(`/sektorler/${s.slug}`, 0.7)),

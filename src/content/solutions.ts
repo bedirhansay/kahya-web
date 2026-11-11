@@ -36,7 +36,7 @@ export const solutions: Solution[] = [
     points: [
       { term: "Görev özeti", text: "kişi bazında biten, geciken ve açık işler tek raporda." },
       { term: "Onay süreleri", text: "hangi onay ne kadar sürdü, kimde takıldı." },
-      { term: "Ana Sayfa · Ekip bugün", text: "kim izinde, ne zaman dönüyor." },
+      { term: "Ana Sayfa › Ekip bugün", text: "kim izinde, ne zaman dönüyor." },
     ],
     seo: {
       title: "Ofis yönetim programı: görev, personel, izin ve onay takibi",
@@ -86,7 +86,7 @@ export const solutions: Solution[] = [
     points: [
       { term: "Görüşme kaydı", text: "müşteri kartında, kişisi ve notuyla." },
       { term: "Takip günü", text: "takip günü gelen görüşmeler listede önünüze çıkar." },
-      { term: "Ana Sayfa · Son görüşmeler", text: "kimle en son ne konuşuldu, tek listede." },
+      { term: "Ana Sayfa › Son görüşmeler", text: "kimle en son ne konuşuldu, tek listede." },
     ],
     seo: {
       title: "CRM programı: müşteri görüşme ve takip programı",
@@ -168,39 +168,46 @@ export const solutions: Solution[] = [
 
 export const solutionBySlug = (slug: string) => solutions.find((s) => s.slug === slug);
 
-export type Extra = { name: string; body: string; href?: string };
+/** `plan` says which packages carry it; it is shown only on /fiyatlar (package facts live in one place). */
+export type Extra = { name: string; body: string; plan: string; href?: string };
 
 export const extras: Extra[] = [
   {
     name: "E-posta",
     body: "Kurumsal e-posta adresinizi bağlayın. Her e-posta kendi carisiyle eşleşir, yeni firma tek tıkla cari olur.",
+    plan: "Ücretli her pakete ek hizmet olarak eklenir.",
     href: "/ozellikler/e-posta",
   },
   {
     name: "Stok",
-    body: "Ekip ve üstü paketlerde dahil, Başlangıç’ta ek hizmet. Depolar tek listede. Kritik seviyeye ineni Kahya işaretler, satışta seçilen ürün stoktan düşer.",
+    body: "Ürünler ve depolar tek listede. Kritik seviyeye ineni Kahya işaretler, satışta seçilen ürün stoktan düşer.",
+    plan: "Ekip, Büyüyen ve Kurumsal’da dahil; Başlangıç’ta ek hizmet.",
   },
   {
     name: "Teklif",
-    body: "Kurumsal pakette dahil, diğer paketlerde ek hizmet. Kendi antetinizle teklif hazırlarsınız. Müşteri linkten açıp kabul eder, kabul edilen teklif satışa döner.",
+    body: "Kendi antetinizle teklif hazırlarsınız. Müşteri linkten açıp kabul eder, kabul edilen teklif satışa döner.",
+    plan: "Kurumsal’da dahil; diğer ücretli paketlerde ek hizmet.",
   },
   {
     name: "Ticari paket",
-    body: "Stok ve Teklif birlikte. Stok paketinize dahil değilse ikisini tek ek hizmetle açarsınız.",
+    body: "Stok ve Teklif birlikte, tek ek hizmetle.",
+    plan: "Stok paketinize dahil değilse ikisini birlikte açmanın yolu.",
   },
   {
     name: "Kahya AI",
-    body: "Sorun, Kahya kendi verinizden yanıtlasın. Görev ve kayıt taslağı hazırlar, siz onaylamadan hiçbir şey kaydedilmez. Her firmada ayda 100 soru ücretsiz, daha fazlası Kahya AI ek hizmetiyle.",
+    body: "Sorun, Kahya kendi verinizden yanıtlasın. Görev ve kayıt taslağı hazırlar, siz onaylamadan hiçbir şey kaydedilmez.",
+    plan: "Her firmada ayda 100 soru ücretsiz; daha fazlası ek hizmetle.",
     href: "/ozellikler/kahya-ai",
   },
   {
     name: "Filo",
-    body: "Ücretli her pakete ek hizmet olarak eklenir. Araçlar, seferler ve araç bazında gelir gider takibi.",
+    body: "Araçlar, seferler ve araç bazında gelir gider takibi.",
+    plan: "Ücretli her pakete ek hizmet olarak eklenir.",
   },
 ];
 
 /** Work we do for the customer, quoted per job. */
-export const services: Extra[] = [
+export const services: Omit<Extra, "plan">[] = [
   {
     name: "Kurulum ve veri aktarımı",
     body: "Carilerinizi, personelinizi ve açılış bakiyelerinizi Excel’den ya da eski programınızdan biz aktarırız.",

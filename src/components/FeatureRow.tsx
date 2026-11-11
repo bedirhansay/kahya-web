@@ -3,7 +3,6 @@ import type { ReactNode } from "react";
 import type { Point } from "@/content/solutions";
 import { cn } from "@/lib/cn";
 
-import { Accent } from "./Accent";
 import { Points } from "./Points";
 
 /**
@@ -44,7 +43,7 @@ export function FeatureRow({
       <div className={cn(reverse && "lg:order-2")}>
         <p className="eyebrow text-brand">{eyebrow}</p>
         <h2 id={id} className="title mt-3">
-          <Accent>{title}</Accent>
+          {title}
         </h2>
         <p className="lead mt-4 text-muted">{lead}</p>
         {points && <Points items={points} className="mt-6" />}

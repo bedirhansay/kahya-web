@@ -1,6 +1,5 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useState, type ReactNode } from "react";
 
@@ -65,7 +64,6 @@ export function SectorTabs({ sectors, mocks }: { sectors: Sector[]; mocks: Recor
           </p>
           <Link href={`/sektorler/${s.slug}`} className="btn btn-line mt-6">
             {s.tab} için Kahya
-            <ArrowRight size={16} aria-hidden />
           </Link>
         </div>
         <div key={`m-${s.slug}`} className="stage stage-in min-w-0 p-2 sm:p-6">

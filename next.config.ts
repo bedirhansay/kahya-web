@@ -19,7 +19,8 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 60 * 60 * 24 * 30,
   },
   async redirects() {
-    return [{ source: "/fiyatlar", destination: "/cozumler", permanent: true }];
+    // CRM is a solution, not a feature page; its old feature address lands on the solution.
+    return [{ source: "/ozellikler/crm", destination: "/cozumler/crm", permanent: true }];
   },
   async headers() {
     return [

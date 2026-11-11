@@ -1,4 +1,3 @@
-import { ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -37,8 +36,7 @@ export default function SectorsPage() {
                   <h2 className="text-2xl font-bold tracking-[-0.02em] group-hover:text-brand">{s.name}</h2>
                   <p className="mt-3 flex-1 leading-relaxed text-muted">{s.lead}</p>
                   <span className="link mt-6 inline-flex items-center gap-1.5">
-                    Nasıl kullanılır <ArrowRight size={15} aria-hidden />
-                  </span>
+                    Nasıl kullanılır                  </span>
                 </Link>
               </li>
             ))}

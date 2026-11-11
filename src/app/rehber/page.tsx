@@ -1,4 +1,3 @@
-import { ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -33,7 +32,6 @@ export default function GuidesPage() {
                 <p className="mt-3 line-clamp-4 flex-1 leading-relaxed text-muted">{g.answer}</p>
                 <span className="mt-6 inline-flex items-center gap-1.5 font-semibold text-brand">
                   Rehberi okuyun
-                  <ArrowRight size={16} aria-hidden className="transition-transform group-hover:translate-x-0.5" />
                 </span>
               </Link>
             </li>

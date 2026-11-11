@@ -1,4 +1,3 @@
-import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 import { features } from "@/content/features";
@@ -15,6 +14,7 @@ const columns = [
     links: [
       ...solutions.map((s) => ({ href: `/cozumler/${s.slug}`, label: s.name })),
       { href: "/cozumler", label: "Ek hizmetler ve hizmetler" },
+      { href: "/fiyatlar", label: "Paketler ve fiyatlar" },
     ],
   },
   {
@@ -67,7 +67,6 @@ export function Footer() {
             className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-xl border border-line px-4 py-2.5 text-sm font-semibold text-ink transition-colors hover:border-brass/50"
           >
             İletişim, bize yazın
-            <ArrowRight size={15} aria-hidden />
           </Link>
           <p className="mt-3 text-sm">{site.email}</p>
         </div>

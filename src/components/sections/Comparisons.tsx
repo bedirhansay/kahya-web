@@ -1,5 +1,3 @@
-import { Check, X } from "lucide-react";
-
 import { SectionHead } from "@/components/SectionHead";
 import { vsAccounting, vsScattered } from "@/content/solutions";
 
@@ -24,16 +22,14 @@ export function VsScattered() {
               <li key={q} className="grid gap-2 px-5 py-4 md:grid-cols-[1fr_1fr_1.2fr] md:gap-0 md:p-0">
                 <span className="font-semibold md:px-5 md:py-4">{q}</span>
                 <span className="flex gap-2 text-muted md:px-5 md:py-4">
-                  <X size={17} className="mt-0.5 shrink-0 text-danger/80" aria-hidden />
                   <span>
-                    <span className="sr-only">Excel, WhatsApp ve kâğıtla: </span>
+                    <span className="font-semibold text-ink md:sr-only">Bugün: </span>
                     {before}
                   </span>
                 </span>
                 <span className="flex gap-2 md:bg-brand-50/60 md:px-5 md:py-4">
-                  <Check size={17} className="mt-0.5 shrink-0 text-brand" aria-hidden />
                   <span>
-                    <span className="sr-only">Kahya ile: </span>
+                    <span className="font-semibold text-ink md:sr-only">Kahya ile: </span>
                     {after}
                   </span>
                 </span>

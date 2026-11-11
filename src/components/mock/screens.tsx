@@ -1,4 +1,6 @@
-import { Check, Paperclip, Sparkles } from "lucide-react";
+import { Paperclip } from "lucide-react";
+
+import { KahyaGlyph } from "@/components/KahyaGlyph";
 
 import { cn } from "@/lib/cn";
 
@@ -146,7 +148,6 @@ export function LeavePhoneMock({ className }: { className?: string }) {
         <p className="mt-1.5 text-muted">Onaylayan: Selin Aydın</p>
       </div>
       <div className="mt-3 flex items-center gap-2 rounded-[10px] bg-petrol px-3 py-2 text-[11px] font-medium text-white">
-        <Check size={14} className="text-brass" />
         İzin talebiniz iletildi
       </div>
     </MockPhone>
@@ -472,7 +473,7 @@ export function AiMock({ className, dark }: { className?: string; dark?: boolean
     >
       <div aria-hidden>
         <p className="flex items-center gap-2 font-semibold">
-          <Sparkles size={15} className="text-brass" /> Kahya AI
+          <KahyaGlyph size={15} tone={dark ? "dark" : "light"} /> Kahya AI
         </p>
         <p
           className={cn(

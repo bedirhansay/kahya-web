@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, ArrowUpRight, ChevronDown } from "lucide-react";
+import { ArrowUpRight, ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState, type CSSProperties } from "react";
@@ -100,7 +100,6 @@ export function MobileMenu() {
                           className="flex items-center justify-between py-4 font-display text-[1.75rem] font-bold tracking-[-0.02em]"
                         >
                           {item.label}
-                          <ArrowRight size={20} aria-hidden className="text-ink/40" />
                         </Link>
                       )}
                       {subs.length > 0 && (
@@ -121,7 +120,7 @@ export function MobileMenu() {
                                       className="flex min-h-12 items-center gap-3 rounded-xl px-2 py-2 transition-colors active:bg-ink/5"
                                     >
                                       <span className="grid size-9 shrink-0 place-items-center rounded-lg border border-line bg-ink/[0.03] text-brass">
-                                        {Icon ? <Icon size={17} aria-hidden /> : <ArrowRight size={16} aria-hidden />}
+                                        {Icon ? <Icon size={17} aria-hidden /> : null}
                                       </span>
                                       <span className="min-w-0">
                                         <span className="block font-semibold">{c.label}</span>
@@ -149,7 +148,6 @@ export function MobileMenu() {
                       className="flex items-center justify-between py-4 font-display text-[1.75rem] font-bold tracking-[-0.02em]"
                     >
                       {x.label}
-                      <ArrowRight size={20} aria-hidden className="text-ink/40" />
                     </Link>
                   </li>
                 ))}
@@ -161,7 +159,6 @@ export function MobileMenu() {
             >
               <a href={site.app.register} className="btn btn-brass w-full">
                 Ücretsiz başlayın
-                <ArrowRight size={17} aria-hidden />
               </a>
               <a href={site.app.login} className="btn btn-line w-full">
                 Giriş yap

@@ -1,13 +1,12 @@
-import { ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 
 import { DayTabs, type DayMoment } from "@/components/DayTabs";
 import { Faq } from "@/components/Faq";
 import { HomeHero, type HeroSlide } from "@/components/home/HomeHero";
+import { Problems } from "@/components/home/Problems";
 import { JsonLd } from "@/components/JsonLd";
 import { CariMock, LeavePhoneMock, MailToTaskMock, MeetingsMock, TaskSummaryMock } from "@/components/mock/screens";
-import { PlanTable } from "@/components/PlanTable";
 import { generalFaq } from "@/content/faq";
 import { extras, solutionBySlug } from "@/content/solutions";
 import { faqLd, pageMetadata, softwareLd } from "@/lib/seo";
@@ -77,8 +76,15 @@ const shot = (name: string, alt: string) => ({
   width: 2400,
   height: 1520,
 });
+/** The same screen on a phone (390 × 844 at 3×), as the installed app. */
+const phone = (name: string, alt: string) => ({
+  src: `/media/home/${name}-tel.webp`,
+  alt: `Aynı ekran telefonda: ${alt}`,
+  width: 1170,
+  height: 2532,
+});
 
-/** The opening's three slides; every sentence is a live feature, every screen the app's own (local sample office). */
+/** The opening's five slides; every sentence is a live feature, every screen the app's own (local sample office). */
 const slides: HeroSlide[] = [
   {
     tag: "Cari ve tahsilat",
@@ -86,6 +92,7 @@ const slides: HeroSlide[] = [
     points: ["Vadesi geçen ana sayfanıza düşer.", "Ekstreyi müşterinize linkle gönderirsiniz.", "Tahsilat açık taksitleri en eskiden kapatır."],
     href: "/cozumler/finans-cari",
     shot: shot("s1-cari", "Kahya’da bir müşterinin cari kartı: bakiye, gecikmiş ödeme, sonraki vade ve hesap ekstresi."),
+    phone: phone("s1-cari", "cari kart."),
     event: { title: "Tahsilat cariye işlendi", value: "+₺2.500,00" },
   },
   {
@@ -94,6 +101,7 @@ const slides: HeroSlide[] = [
     points: ["Görevi kişiye ya da takıma verirsiniz.", "İzin telefondan istenir, tek dokunuşla onaylanır.", "Onayınızı bekleyenler tek listede."],
     href: "/cozumler/ofis-yonetimi",
     shot: shot("s2-gorev", "Kahya’da görevler listesi: sorumlu, durum ve bitiş tarihi."),
+    phone: phone("s2-gorev", "görevler."),
     event: { title: "Görev tamamlandı", value: "Depo sayımı" },
   },
   {
@@ -102,7 +110,26 @@ const slides: HeroSlide[] = [
     points: ["Görüşme notu müşterinin kartında durur.", "Takip günü gelen görüşme ana sayfada önünüze çıkar.", "Temas koptuğunda sorumlu kişiye haber gider."],
     href: "/cozumler/crm",
     shot: shot("s3-gorusme", "Kahya’da bir müşterinin görüşmeleri: ziyaret, telefon ve e-posta kayıtları."),
+    phone: phone("s3-gorusme", "görüşmeler."),
     event: { title: "Takip günü", value: "13 Kasım" },
+  },
+  {
+    tag: "Teklif ve stok",
+    lines: ["Teklif linkle gider,", "müşteri linkten kabul eder,", "tek tıkla satışa döner."],
+    points: ["Teklifi kendi antetinizle hazırlarsınız.", "Müşterinin teklifi açtığını görürsünüz.", "Kritik seviyeye inen ürünü Kahya işaretler."],
+    href: "/cozumler#ek-hizmetler",
+    shot: shot("s4-teklif", "Kahya’da kabul edilmiş bir teklif: kalemler, indirim, KDV ve genel toplam, yanında Satışa dönüştür düğmesi."),
+    phone: phone("s4-teklif", "kabul edilmiş bir teklif."),
+    event: { title: "Teklif kabul edildi", value: "₺10.260,00" },
+  },
+  {
+    tag: "Personel ve puantaj",
+    lines: ["Kim işte, kim gelmedi,", "kim kaç saat çalıştı:", "devam takibinde."],
+    points: ["Giriş ve çıkış saatleri günlük puantaja yazılır.", "İzin telefondan istenir, onaylanınca işlenir.", "Yevmiye ve aylık hakediş personelin kartında."],
+    href: "/ozellikler/personel-ve-izin",
+    shot: shot("s5-puantaj", "Kahya’da devam takibi: şu an işte olanlar, çalışılan ve gelinmeyen günler, toplam süre."),
+    phone: phone("s5-puantaj", "devam takibi."),
+    event: { title: "Şu an işte", value: "2 kişi" },
   },
 ];
 
@@ -135,10 +162,13 @@ export default function HomePage() {
     <>
       <JsonLd data={[softwareLd(), faqLd(faq)]} />
 
-      {/* 1. Opening: three real screens, one benefit each. */}
+      {/* 1. Opening: five real screens, one benefit each. */}
       <HomeHero slides={slides} />
 
-      {/* 2. What Kahya does: three solutions, the add-ons in one line. */}
+      {/* 2. Which problems it solves: eight sentences from offices, each with its answer. */}
+      <Problems />
+
+      {/* 3. What Kahya does: three solutions, the add-ons in one line. */}
       <section aria-labelledby="ne-yapar" className="band-dark">
         <div className={`wrap ${band}`}>
           <div className="max-w-2xl">
@@ -160,11 +190,6 @@ export default function HomePage() {
                   <p className="mt-3 leading-relaxed text-muted">{m.summary}</p>
                   <span className="mt-auto inline-flex items-center gap-1.5 pt-6 font-semibold text-brand">
                     Çözümü inceleyin
-                    <ArrowRight
-                      size={16}
-                      aria-hidden
-                      className="transition-transform duration-200 group-hover:translate-x-0.5"
-                    />
                   </span>
                 </Link>
               </li>
@@ -179,7 +204,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3. One office day: pick an hour, see its screen. */}
+      {/* 4. One office day: pick an hour, see its screen. */}
       <section aria-labelledby="bir-gun">
         <div className={`wrap ${band}`}>
           <div className="max-w-2xl">
@@ -196,7 +221,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. How to start: three steps, in order. */}
+      {/* 5. How to start: three steps, in order. */}
       <section aria-labelledby="nasil-baslanir" className="bg-mist">
         <div className={`wrap ${band}`}>
           <div className="max-w-2xl">
@@ -214,26 +239,6 @@ export default function HomePage() {
               </li>
             ))}
           </ol>
-        </div>
-      </section>
-
-      {/* 5. Packages: the same table as /cozumler. */}
-      <section aria-labelledby="paketler" className="band-dark">
-        <div className={`wrap ${band}`}>
-          <div className="max-w-2xl">
-            <h2 id="paketler" className="title">
-              Paketler
-            </h2>
-            <p className="lead mt-4 text-ink/75">
-              Fiyat kullanıcı sayısına ve ek hizmetlere göre verilir; bize yazın. Kahya kartınızdan otomatik ödeme almaz.
-            </p>
-          </div>
-          <div className="mt-12">
-            <PlanTable />
-          </div>
-          <Link href="/cozumler#paketler" className="link mt-6 inline-flex min-h-11 items-center gap-1.5">
-            Paketleri ve ek hizmetleri karşılaştırın <ArrowRight size={15} aria-hidden />
-          </Link>
         </div>
       </section>
 

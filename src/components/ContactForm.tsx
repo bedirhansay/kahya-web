@@ -1,6 +1,6 @@
 "use client";
 
-import { AlertCircle, ArrowRight, Check, LoaderCircle } from "lucide-react";
+import { AlertCircle, LoaderCircle } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import { useRef, useState, type FormEvent, type ReactNode } from "react";
 
@@ -118,10 +118,7 @@ export function ContactForm({ konu, cozum }: { konu?: string | null; cozum?: str
   if (state === "sent") {
     return (
       <div className="stage-in flex min-h-[30rem] flex-col items-center justify-center text-center" role="status">
-        <span className="grid size-14 place-items-center rounded-full border border-brass/50 bg-brass/10 text-brass">
-          <Check size={26} aria-hidden />
-        </span>
-        <h2 className="mt-6 font-display text-[1.7rem] font-bold">Mesajınız ulaştı</h2>
+        <h2 className="font-display text-[1.7rem] font-bold">Mesajınız ulaştı</h2>
         <p className="mt-2 max-w-sm leading-relaxed text-muted">Ekibimiz bir iş günü içinde e-postanıza dönüş yapar.</p>
       </div>
     );
@@ -255,11 +252,6 @@ export function ContactForm({ konu, cozum }: { konu?: string | null; cozum?: str
           ) : (
             <>
               Gönder
-              <ArrowRight
-                size={17}
-                aria-hidden
-                className="transition-transform duration-300 group-hover/s:translate-x-0.5"
-              />
             </>
           )}
         </button>

@@ -1,4 +1,3 @@
-import { ArrowRight, Check } from "lucide-react";
 import Link from "next/link";
 
 import { cn } from "@/lib/cn";
@@ -45,11 +44,6 @@ export function MegaPanel({ menu }: { menu: MegaMenu }) {
                     )}
                   >
                     {l.label}
-                    <ArrowRight
-                      size={14}
-                      aria-hidden
-                      className="opacity-50 transition group-hover/a:translate-x-0.5 group-hover/a:opacity-100"
-                    />
                   </Link>
                 </li>
               );
@@ -98,7 +92,6 @@ function Card({ item }: { item: NavLink }) {
         <span className="mt-3 grid gap-1.5 border-t border-line pt-3 text-[0.82rem] font-medium">
           {item.bullets.map((b) => (
             <span key={b} className="flex items-center gap-2">
-              <Check size={13} aria-hidden className="shrink-0 text-sage" />
               {b}
             </span>
           ))}
@@ -106,7 +99,6 @@ function Card({ item }: { item: NavLink }) {
       )}
       <span className="mt-auto inline-flex items-center gap-1 pt-4 text-[0.82rem] font-semibold text-brand">
         İncele
-        <ArrowRight size={13} aria-hidden className="transition group-hover/c:translate-x-0.5" />
       </span>
     </Link>
   );

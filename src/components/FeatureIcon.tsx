@@ -6,11 +6,12 @@ import {
   FolderKanban,
   ListChecks,
   Mail,
-  Sparkles,
   UsersRound,
   Wallet,
   type LucideIcon,
 } from "lucide-react";
+
+import { KahyaGlyph } from "@/components/KahyaGlyph";
 
 const icons: Record<string, LucideIcon> = {
   "cari-takibi": Wallet,
@@ -22,10 +23,10 @@ const icons: Record<string, LucideIcon> = {
   "talep-ve-onay": ClipboardCheck,
   "dokuman-ve-sozlesme": FileText,
   raporlar: ChartColumn,
-  "kahya-ai": Sparkles,
 };
 
 export function FeatureIcon({ slug, size = 20, className }: { slug: string; size?: number; className?: string }) {
-  const Icon = icons[slug] ?? Sparkles;
+  const Icon = icons[slug];
+  if (!Icon) return <KahyaGlyph size={size} className={className} />;
   return <Icon size={size} aria-hidden className={className} />;
 }

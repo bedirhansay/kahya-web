@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
+    "lint": "eslint && node tools/avoid-ai-design/detect.mjs src --min=P1",
+    "lint:design": "node tools/avoid-ai-design/detect.mjs src",
     "media": "node scripts/build-media.mjs",
     "typecheck": "tsc --noEmit",
     "content": "node scripts/build-content.mjs"
