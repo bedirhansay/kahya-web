@@ -5,6 +5,7 @@ import type { ReactNode } from "react";
 
 import { AddonPage } from "@/components/AddonPage";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import type { CaseTone } from "@/components/CaseRow";
 import { CtaBand } from "@/components/CtaBand";
 import { Faq } from "@/components/Faq";
 import { FeatureIcon } from "@/components/FeatureIcon";
@@ -22,6 +23,7 @@ import {
   TaskSummaryMock,
 } from "@/components/mock/screens";
 import { SectionHead } from "@/components/SectionHead";
+import { SectionJumps } from "@/components/SectionJumps";
 import { addonBySlug, addons } from "@/content/addons";
 import { featureBySlug } from "@/content/features";
 import { sectors } from "@/content/sectors";
@@ -53,6 +55,10 @@ const visuals: Record<
     more: [<PaymentPlanMock key="c" />, null, false],
   },
 };
+
+/** Feature tiles rotate the panel tones; the other two solutions keep their own tones from /cozumler. */
+const featureTones: CaseTone[] = ["sage", "cream", "mist"];
+const otherTones: Record<Solution["slug"], CaseTone> = { "ofis-yonetimi": "sage", crm: "cream", "finans-cari": "mist" };
 
 export function generateStaticParams() {
   return [...solutions, ...addons].map((s) => ({ slug: s.slug }));
@@ -106,6 +112,15 @@ export default async function SolutionPage({ params }: PageProps<"/cozumler/[slu
                 Fiyat talep et
               </a>
             </div>
+            <SectionJumps
+              items={[
+                { href: "#ne-yapar", label: "Ne yapar" },
+                { href: "#daha-fazla", label: "Daha fazlası" },
+                ...(related.length > 0 ? [{ href: "#ozellikler", label: "Neler var" }] : []),
+                { href: "#sorular", label: "Sorular" },
+                ...(usedBy.length > 0 ? [{ href: "#sektorler", label: "Sektörler" }] : []),
+              ]}
+            />
           </div>
           <div className="min-w-0">{v.hero}</div>
         </div>
@@ -135,21 +150,21 @@ export default async function SolutionPage({ params }: PageProps<"/cozumler/[slu
       </section>
 
       {related.length > 0 && (
-        <section aria-labelledby="ozellikler" className="bg-mist">
-          <div className="wrap py-14 md:py-20">
-            <SectionHead id="ozellikler" title={`${s.name} içinde neler var?`} />
+        <section aria-labelledby="ozellikler" className="bg-surface">
+          <div className="wrap border-t border-line py-14 md:py-20">
+            <SectionHead id="ozellikler" title={`${s.name} içinde neler var?`} lead="Her biri ayrı bir sayfa; dokunun, ayrıntısını okuyun." />
             <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {related.map((f) => (
+              {related.map((f, i) => (
                 <li key={f.slug}>
                   <Link
                     href={`/ozellikler/${f.slug}`}
-                    className="group flex h-full flex-col rounded-[14px] border border-line p-5 hover:border-brand"
+                    className={`case-panel case-panel-${featureTones[i % featureTones.length]} group flex min-h-[14rem] flex-col p-6 transition-[filter] duration-200 hover:brightness-[0.97]`}
                   >
-                    <span className="flex items-center gap-2.5 font-semibold group-hover:text-brand">
-                      <FeatureIcon slug={f.slug} size={18} className="shrink-0 text-brand" />
-                      {f.name}
+                    <span className="grid size-12 place-items-center rounded-[10px] bg-surface/85 text-brand">
+                      <FeatureIcon slug={f.slug} size={22} className="shrink-0" />
                     </span>
-                    <span className="mt-1 text-[0.95rem] text-muted">{f.summary}</span>
+                    <span className="mt-auto pt-8 text-[1.15rem] font-bold tracking-[-0.01em] group-hover:text-brand">{f.name}</span>
+                    <span className="mt-1 leading-relaxed text-ink/80">{f.summary}</span>
                   </Link>
                 </li>
               ))}
@@ -159,35 +174,52 @@ export default async function SolutionPage({ params }: PageProps<"/cozumler/[slu
       )}
 
       <section aria-labelledby="sorular" className="bg-paper">
-        <div className="wrap grid gap-10 py-14 md:py-20 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16">
-          <div>
-            <SectionHead id="sorular" title={`${s.name} hakkında`} />
-            {usedBy.length > 0 && (
+        <div className="wrap py-14 md:py-20">
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.75fr)] lg:gap-16">
+            <div>
+              <SectionHead id="sorular" title={`${s.name} hakkında`} />
               <div className="mt-8">
-                <p className="text-sm font-semibold">Bu çözümü kullanan sektörler</p>
-                <ul className="mt-2 space-y-1.5">
-                  {usedBy.map((x) => (
-                    <li key={x.slug}>
-                      <Link href={`/sektorler/${x.slug}`} className="link">
-                        {x.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+                <Faq items={s.faq} />
               </div>
-            )}
-            <p className="mt-8 text-sm font-semibold">Diğer çözümler</p>
-            <ul className="mt-2 space-y-1.5">
-              {others.map((o) => (
-                <li key={o.slug}>
-                  <Link href={`/cozumler/${o.slug}`} className="link">
-                    {o.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            </div>
+            <div>
+              <h3 className="text-[1.02rem] font-semibold">Diğer çözümler</h3>
+              <ul className="mt-4 grid gap-4">
+                {others.map((o) => (
+                  <li key={o.slug}>
+                    <Link
+                      href={`/cozumler/${o.slug}`}
+                      className={`case-panel case-panel-${otherTones[o.slug]} group block p-6 transition-[filter] duration-200 hover:brightness-[0.97]`}
+                    >
+                      <span className="font-display text-[0.95rem] font-bold text-ink/50">{o.no}</span>
+                      <span className="mt-2 block text-[1.2rem] font-bold tracking-[-0.01em] group-hover:text-brand">{o.name}</span>
+                      <span className="mt-1 block leading-relaxed text-ink/80">{o.summary}</span>
+                      <span className="link mt-3 inline-flex min-h-11 items-center">{o.name} çözümünü inceleyin</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-          <Faq items={s.faq} />
+
+          {usedBy.length > 0 && (
+            <div id="sektorler" className="mt-14 scroll-mt-28 md:mt-20">
+              <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-end">
+                <h3 className="font-display text-[1.7rem] font-bold leading-tight tracking-[-0.02em]">Bu çözümü kullanan sektörler</h3>
+                <p className="lead text-muted">Her sektörün sayfasında bugün nerede takıldığı ve Kahya’da nasıl çözüldüğü yazar.</p>
+              </div>
+              <ul className="mt-8 grid border-t border-line sm:grid-cols-2 lg:grid-cols-3">
+                {usedBy.map((x) => (
+                  <li key={x.slug} className="border-b border-line">
+                    <Link href={`/sektorler/${x.slug}`} className="group block min-h-full py-5 pr-6">
+                      <span className="block font-semibold group-hover:text-brand">{x.name}</span>
+                      <span className="mt-1 block text-[0.95rem] leading-relaxed text-muted">{x.lead}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </section>
 

@@ -1,12 +1,13 @@
+import { AtSign, Globe, Import } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
 import { CasePanel, CaseRow, type CaseTone } from "@/components/CaseRow";
-
 import { CtaBand } from "@/components/CtaBand";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
+import { SectionJumps } from "@/components/SectionJumps";
 import { Trust } from "@/components/sections/TrustAndPromises";
 import { addons } from "@/content/addons";
 import { extras, services, solutions } from "@/content/solutions";
@@ -20,6 +21,10 @@ export const metadata: Metadata = pageMetadata({
 });
 
 const quote = (what: string) => `/iletisim?konu=fiyat&cozum=${encodeURIComponent(what)}`;
+
+/** The three services in src/content/solutions.ts, in order: setup and import, company e-mail, web site. */
+const serviceIcons = [Import, AtSign, Globe];
+const serviceTones: CaseTone[] = ["sage", "cream", "mist"];
 
 /** Each solution's own screens from the demo office (the same shots as the home page's slides). */
 const media: Record<string, { tone: CaseTone; shot: string; phone: string; alt: string; time: string }> = {
@@ -37,19 +42,14 @@ export default function SolutionsPage() {
         title="İhtiyacınız olanı seçin, gerisi gizli kalsın"
         lead="Kahya üç çözümden oluşur. Birini, ikisini ya da üçünü birden kullanabilirsiniz; kullanmadığınız menüden kalkar."
       >
-        <nav aria-label="Bu sayfada" className="mt-8 flex flex-wrap gap-2">
-          {solutions.map((s) => (
-            <a key={s.slug} href={`#${s.slug}`} className="jump">
-              {s.name}
-            </a>
-          ))}
-          <a href="#ek-hizmetler" className="jump">
-            Ek hizmetler
-          </a>
-          <a href="#hizmetler" className="jump">
-            Hizmetler
-          </a>
-        </nav>
+        <SectionJumps
+          items={[
+            ...solutions.map((s) => ({ href: `#${s.slug}`, label: s.name })),
+            { href: "#ek-hizmetler", label: "Ek hizmetler" },
+            { href: "#hizmetler", label: "Hizmetler" },
+            { href: "#guven", label: "Verileriniz" },
+          ]}
+        />
       </PageHero>
 
       <section aria-label="Çözümler" className="bg-surface">
@@ -118,7 +118,14 @@ export default function SolutionsPage() {
             {extras.map((e) => {
               const a = addons.find((x) => x.name === e.name);
               return (
-                <li key={e.name} className="grid grid-cols-[minmax(0,9rem)_minmax(0,1fr)] gap-5 border-b border-line py-6 sm:grid-cols-[minmax(0,12rem)_minmax(0,1fr)]">
+                <li
+                  key={e.name}
+                  className={
+                    a?.screen
+                      ? "grid grid-cols-[minmax(0,9rem)_minmax(0,1fr)] gap-5 border-b border-line py-6 sm:grid-cols-[minmax(0,12rem)_minmax(0,1fr)]"
+                      : "border-b border-line py-6"
+                  }
+                >
                   {a?.screen && (
                     <Link href={`/cozumler/${a.slug}`} className="block self-start overflow-hidden rounded-[10px] border border-line bg-surface" tabIndex={-1} aria-hidden>
                       <Image
@@ -164,18 +171,26 @@ export default function SolutionsPage() {
             </h2>
             <p className="lead text-muted">İsterseniz bu işleri de biz yaparız. Fiyatı işe göre veririz.</p>
           </div>
-          <ul className="mt-8 grid gap-x-10 border-t border-line md:grid-cols-3">
-            {services.map((e) => (
-              <li key={e.name} className="border-b border-line py-5">
-                <h3 className="font-semibold">{e.name}</h3>
-                <p className="mt-1 leading-relaxed text-muted">{e.body}</p>
-              </li>
-            ))}
+          <ul className="mt-8 grid gap-4 md:grid-cols-3">
+            {services.map((e, i) => {
+              const Icon = serviceIcons[i % serviceIcons.length];
+              const tone = serviceTones[i % serviceTones.length];
+              return (
+                <li key={e.name} className={`case-panel case-panel-${tone} flex min-h-[17rem] flex-col p-6 sm:p-7`}>
+                  <span className="grid size-14 place-items-center rounded-[12px] bg-surface/85 text-brand">
+                    <Icon size={26} aria-hidden strokeWidth={1.6} />
+                  </span>
+                  <h3 className="mt-auto pt-10 text-[1.25rem] font-bold tracking-[-0.01em]">{e.name}</h3>
+                  <p className="mt-1.5 leading-relaxed text-ink/80">{e.body}</p>
+                  <a href={quote(e.name)} className="link mt-3 inline-flex min-h-11 items-center">
+                    {e.name} için yazın
+                  </a>
+                </li>
+              );
+            })}
           </ul>
-          <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
-            <a href={quote("Hizmetler")} className="btn btn-line">
-              Hizmet için yazın
-            </a>
+          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-line pt-6">
+            <p className="text-muted">Önce ne gerektiğini konuşalım; fiyatı işe göre söyleriz.</p>
             <Link href="/rehber/cari-takibi-excel-mi-program-mi" className="link inline-flex min-h-11 items-center">
               Excel mi, program mı? Karşılaştırmayı okuyun
             </Link>

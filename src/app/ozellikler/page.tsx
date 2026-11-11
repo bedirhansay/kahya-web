@@ -4,6 +4,7 @@ import Link from "next/link";
 import { CasePanel, type CaseTone } from "@/components/CaseRow";
 import { CtaBand } from "@/components/CtaBand";
 import { PageHero } from "@/components/PageHero";
+import { SectionJumps } from "@/components/SectionJumps";
 import { features } from "@/content/features";
 import { pageMetadata } from "@/lib/seo";
 
@@ -42,13 +43,7 @@ export default function FeaturesPage() {
         title="Bir ofisin ihtiyaç duyduğu her şey, aynı yerde"
         lead="Her modül diğerlerine bağlı: e-posta göreve, görev projeye, proje müşterinin cari kartına. Kullanmadığınızı kapatın, menüden kalksın."
       >
-        <nav aria-label="Özellikler" className="mt-8 flex flex-wrap gap-2">
-          {features.map((f) => (
-            <a key={f.slug} href={`#${f.slug}`} className="jump">
-              {f.name}
-            </a>
-          ))}
-        </nav>
+        <SectionJumps label="Özellikler" items={features.map((f) => ({ href: `#${f.slug}`, label: f.name }))} />
       </PageHero>
       <section aria-label="Tüm özellikler" className="bg-surface">
         <ul className="wrap grid gap-x-10 gap-y-10 py-12 md:grid-cols-2 md:py-16">

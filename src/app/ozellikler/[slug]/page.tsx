@@ -9,6 +9,7 @@ import { Faq } from "@/components/Faq";
 import { FeatureParts } from "@/components/FeatureParts";
 import { Frame } from "@/components/Frame";
 import { JsonLd } from "@/components/JsonLd";
+import { SectionJumps } from "@/components/SectionJumps";
 import { featureBySlug, features } from "@/content/features";
 import { clock, tutorialBySlug } from "@/content/tutorials";
 import { faqLd, pageMetadata } from "@/lib/seo";
@@ -70,6 +71,13 @@ export default async function FeaturePage({ params }: PageProps<"/ozellikler/[sl
                   </Link>
                 )}
               </div>
+              <SectionJumps
+                items={[
+                  f.parts ? { href: "#bolumler", label: "Bölümler" } : { href: "#neler", label: "Neler var" },
+                  { href: "#adimlar", label: "Adım adım" },
+                  { href: "#sorular", label: "Sorular" },
+                ]}
+              />
             </div>
             <Frame
               src={f.screen.src}
@@ -83,7 +91,7 @@ export default async function FeaturePage({ params }: PageProps<"/ozellikler/[sl
       </section>
 
       {f.parts ? (
-        <section aria-label={`${f.name}: bölümler`} className="bg-mist">
+        <section id="bolumler" aria-label={`${f.name}: bölümler`} className="bg-mist">
           <div className="wrap py-14 md:py-20">
             <FeatureParts parts={f.parts} label={f.name} />
           </div>

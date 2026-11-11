@@ -123,7 +123,7 @@ export function ContactForm({ konu, cozum }: { konu?: string | null; cozum?: str
   return (
     <form ref={form} onSubmit={submit} className="grid gap-5" noValidate>
       <fieldset>
-        <legend className="text-[0.92rem] font-medium text-ink/85">
+        <legend className="text-[0.98rem] font-medium text-ink/85">
           Konu
         </legend>
         <div className="mt-2 grid grid-cols-2 gap-1 rounded-[12px] border border-line bg-mist/60 p-1 sm:grid-cols-4">
@@ -134,7 +134,7 @@ export function ContactForm({ konu, cozum }: { konu?: string | null; cozum?: str
               aria-pressed={topic === t.key}
               onClick={() => setTopic(t.key)}
               className={cn(
-                "min-h-11 rounded-[9px] px-3 py-2.5 text-[0.92rem] font-semibold transition-[background-color,color,box-shadow] duration-300",
+                "min-h-11 rounded-[9px] px-3 py-2.5 text-[0.96rem] font-semibold transition-[background-color,color,box-shadow] duration-300",
                 topic === t.key
                   ? "bg-brass text-paper shadow-[0_6px_20px_-10px_var(--color-brass)]"
                   : "text-ink/60 hover:text-ink",
@@ -146,7 +146,7 @@ export function ContactForm({ konu, cozum }: { konu?: string | null; cozum?: str
         </div>
       </fieldset>
       <div className="grid gap-5 sm:grid-cols-2">
-        <label className="block text-[0.92rem] font-medium text-ink/85">
+        <label className="block text-[0.98rem] font-medium text-ink/85">
           Ad soyad
           <input
             name="name"
@@ -159,12 +159,12 @@ export function ContactForm({ konu, cozum }: { konu?: string | null; cozum?: str
           />
           <Hint id="e-name">{errors.name}</Hint>
         </label>
-        <label className="block text-[0.92rem] font-medium text-ink/85">
+        <label className="block text-[0.98rem] font-medium text-ink/85">
           Firma
           <input name="company" maxLength={160} autoComplete="organization" className={fieldCls()} />
         </label>
       </div>
-      <label className="block text-[0.92rem] font-medium text-ink/85">
+      <label className="block text-[0.98rem] font-medium text-ink/85">
         E-posta
         <input
           name="email"
@@ -179,11 +179,11 @@ export function ContactForm({ konu, cozum }: { konu?: string | null; cozum?: str
         />
         <Hint id="e-email">{errors.email}</Hint>
       </label>
-      <label className="block text-[0.92rem] font-medium text-ink/85">
+      <label className="block text-[0.98rem] font-medium text-ink/85">
         Telefon <span className="font-normal text-muted">(isteğe bağlı)</span>
         <input name="phone" type="tel" maxLength={40} autoComplete="tel" className={fieldCls()} />
       </label>
-      <label className="block text-[0.92rem] font-medium text-ink/85">
+      <label className="block text-[0.98rem] font-medium text-ink/85">
         Mesajınız
         <textarea
           name="message"
@@ -215,7 +215,7 @@ export function ContactForm({ konu, cozum }: { konu?: string | null; cozum?: str
       )}
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div className="max-w-sm">
-          <label className="flex cursor-pointer items-start gap-3 text-[0.88rem] leading-relaxed text-muted">
+          <label className="flex cursor-pointer items-start gap-3 text-[0.94rem] leading-relaxed text-muted">
             <input
               name="kvkk"
               type="checkbox"

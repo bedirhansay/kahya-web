@@ -5,6 +5,7 @@ import { CtaBand } from "@/components/CtaBand";
 import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
+import { SectionJumps } from "@/components/SectionJumps";
 import { PlanTable } from "@/components/PlanTable";
 import { pricingFaq } from "@/content/faq";
 import { promises, vsAccounting } from "@/content/solutions";
@@ -37,6 +38,14 @@ export default function PricingPage() {
             Paketleri karşılaştırın
           </Link>
         </div>
+        <SectionJumps
+          items={[
+            { href: "#paketler", label: "Paketler" },
+            { href: "#soz", label: "Size söz verdiklerimiz" },
+            { href: "#ne-yapmaz", label: "Ne yapar, ne yapmaz" },
+            { href: "#sorular", label: "Satın alma soruları" },
+          ]}
+        />
       </PageHero>
 
       <section aria-labelledby="paketler" className="bg-paper">

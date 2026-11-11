@@ -8,6 +8,7 @@ import { CasePanel, type CaseTone } from "@/components/CaseRow";
 import { CtaBand } from "@/components/CtaBand";
 import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
+import { SectionJumps } from "@/components/SectionJumps";
 import { addons } from "@/content/addons";
 import { sectorBySlug, sectors } from "@/content/sectors";
 import { faqLd, pageMetadata } from "@/lib/seo";
@@ -81,6 +82,12 @@ export default async function SectorPage({ params }: PageProps<"/sektorler/[slug
                 Çözümleri inceleyin
               </Link>
             </div>
+            <SectionJumps
+              items={[
+                { href: "#sorun-cozum", label: "Sorun ve çözüm" },
+                { href: "#sorular", label: "Sorular" },
+              ]}
+            />
           </div>
           <CasePanel
             tone={tone}

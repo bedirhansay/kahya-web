@@ -784,6 +784,11 @@ body {
 }
 
 /* In-page jump links under a hero: small squared chips (6px corners, never pills). */
+/* In-page targets stop under the floating header. */
+[id]:is(h2, h3, section, article, div) {
+  scroll-margin-top: 6.5rem;
+}
+
 .jump {
   display: inline-flex;
   min-height: 2.25rem;

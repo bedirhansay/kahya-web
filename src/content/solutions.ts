@@ -204,7 +204,8 @@ export const extras: Extra[] = [
   },
   {
     name: "Kasa ve banka",
-    body: "Hiçbir pakete dahil değil, ek hizmet olarak eklenir. Kasa, banka hesabı ve kredi kartı bakiyeleriyle; açılış bakiyesi, kartın limiti ve son ödeme günü.",
+    body: "Kasa, banka hesabı ve kredi kartı bakiyeleri; banka ekstresini yükleyip satırları cariye, masrafa ya da virmana işleme; hesaplar arası aktarım.",
+    plan: "Hiçbir pakete dahil değil; talep üzerine her pakete eklenir.",
     href: "/rehber/kasa-ve-banka-takibi-nasil-yapilir",
   },
   {

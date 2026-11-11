@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { CtaBand } from "@/components/CtaBand";
 import { PageHero } from "@/components/PageHero";
+import { SectionJumps } from "@/components/SectionJumps";
 import { sectorBySlug } from "@/content/sectors";
 import { cn } from "@/lib/cn";
 import { pageMetadata } from "@/lib/seo";
@@ -44,13 +45,7 @@ export default function SectorsPage() {
         title="Sizin gibi bir ofiste Kahya"
         lead="Aynı uygulama, farklı işler. Sektörünüzü seçin; bugün nerede takıldığınızı ve Kahya’da nasıl çözüldüğünü görün."
       >
-        <nav aria-label="Sektör grupları" className="mt-8 flex flex-wrap gap-2">
-          {groups.map((g) => (
-            <a key={g.id} href={`#${g.id}`} className="jump">
-              {g.title}
-            </a>
-          ))}
-        </nav>
+        <SectionJumps label="Sektör grupları" items={groups.map((g) => ({ href: `#${g.id}`, label: g.title }))} />
       </PageHero>
       <section className="bg-paper">
         <div className="wrap grid gap-12 py-12 md:gap-16 md:py-20">

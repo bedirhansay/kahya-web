@@ -4,6 +4,7 @@ import { CtaBand } from "@/components/CtaBand";
 import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
+import { SectionJumps } from "@/components/SectionJumps";
 import { generalFaq, pricingFaq } from "@/content/faq";
 import { featureBySlug } from "@/content/features";
 import { faqLd, pageMetadata } from "@/lib/seo";
@@ -37,25 +38,12 @@ export default function FaqPage() {
         crumbs={[{ name: "Sık sorulanlar", path: "/sss" }]}
         title="Sık sorulan sorular"
         lead="Konuya göre ayrıldı. Bir soruya dokunun, cevabı altında açılır."
-      />
+      >
+        <SectionJumps label="Konular" items={topics.map((t) => ({ href: `#${t.id}`, label: `${t.title} (${t.items.length})` }))} />
+      </PageHero>
 
       <section aria-label="Sorular" className="bg-paper">
-        <div className="wrap grid gap-8 py-10 md:py-12 lg:grid-cols-[13rem_minmax(0,1fr)] lg:gap-16">
-          <nav aria-label="Konular" className="lg:sticky lg:top-24 lg:self-start">
-            <ul className="-mx-4 flex gap-x-5 overflow-x-auto border-b border-line px-4 lg:mx-0 lg:block lg:border-0 lg:px-0">
-              {topics.map((t) => (
-                <li key={t.id} className="shrink-0">
-                  <a
-                    href={`#${t.id}`}
-                    className="flex min-h-11 items-center justify-between gap-3 whitespace-nowrap text-[0.97rem] font-medium text-muted hover:text-ink lg:border-b lg:border-line"
-                  >
-                    {t.title}
-                    <span className="tabular-nums text-sm max-lg:hidden">{t.items.length}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
+        <div className="wrap max-w-4xl py-10 md:py-12">
 
           <div className="grid gap-10">
             {topics.map((t) => (
