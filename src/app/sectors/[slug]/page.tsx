@@ -20,7 +20,10 @@ const tones: CaseTone[] = ["sage", "cream", "pine", "mist"];
 const shots: Record<string, { src: string; alt: string; label: string; phone?: string; width?: number; height?: number }> = {
   task: { src: "/media/home/s2-gorev.webp", alt: "Kahya’da görev listesi. Örnek veri.", label: "görevler", phone: "/media/home/s2-gorev-tel.webp" },
   meetings: { src: "/media/home/s3-gorusme.webp", alt: "Kahya’da müşteri görüşmeleri. Örnek veri.", label: "görüşmeler", phone: "/media/home/s3-gorusme-tel.webp" },
-  plan: { src: "/media/home/s1-cari.webp", alt: "Kahya’da cari kart: bakiye, vade ve taksitler. Örnek veri.", label: "cari kart", phone: "/media/home/s1-cari-tel.webp" },
+  plan: { src: "/media/cozumler/finans-planlar.webp", alt: "Kahya’da tahsilat planları: sıradaki taksit, tahsil edilen ve kalan. Örnek veri.", label: "tahsilat planları" },
+  cariList: { src: "/media/ozellikler/cari-liste.webp", alt: "Kahya’da cari listesi: her müşterinin bakiyesi. Örnek veri.", label: "cari listesi", height: 906 },
+  package: { src: "/screens/package.webp", alt: "Kahya’da mali müşavir paketi: ayın kayıtları tek dosyada. Örnek veri.", label: "mali müşavir paketi", width: 2000, height: 1250 },
+  offer: { src: "/media/home/s4-teklif.webp", alt: "Kahya’da müşterinin kabul ettiği teklif. Örnek veri.", label: "teklif", phone: "/media/home/s4-teklif-tel.webp" },
   cari: { src: "/media/home/s1-cari.webp", alt: "Kahya’da cari kart: bakiye, vade ve taksitler. Örnek veri.", label: "cari kart", phone: "/media/home/s1-cari-tel.webp" },
   stock: { src: "/media/cozumler/stok.webp", alt: "Kahya’da ürünler ve stok miktarları. Örnek veri.", label: "stok" },
   approvals: { src: "/media/home/s5-puantaj.webp", alt: "Kahya’da devam takibi: personelin çalıştığı günler. Örnek veri.", label: "devam takibi", phone: "/media/home/s5-puantaj-tel.webp" },
@@ -181,7 +184,7 @@ export default async function SectorPage({ params }: PageProps<"/sectors/[slug]"
       <CtaBand
         tex
         title={`${s.tab} için Kahya’yı kurun`}
-        body="Hesabınızı açın; ilk 30 gün Kurumsal paket açık. Eski kayıtlarınızı taşımak isterseniz bize yazın."
+        body="Hesap açın, ilk kaydı bugün girin. Eski kayıtlarınızı Excel’den taşımak isterseniz bize yazın."
       />
     </>
   );

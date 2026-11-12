@@ -1,26 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import type { ReactNode } from "react";
 
 import { AddonPage } from "@/components/AddonPage";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { CasePanel, type CaseScreen, type CaseTone } from "@/components/CaseRow";
 import { CtaBand } from "@/components/CtaBand";
 import { Faq } from "@/components/Faq";
 import { FeatureIcon } from "@/components/FeatureIcon";
 import { FeatureRow } from "@/components/FeatureRow";
 import { JsonLd } from "@/components/JsonLd";
-import {
-  ApprovalTimesMock,
-  CariMock,
-  LeavePhoneMock,
-  MailToTaskMock,
-  MeetingsMock,
-  MoneyHomeMock,
-  PaymentPlanMock,
-  RecentMeetingsMock,
-  TaskSummaryMock,
-} from "@/components/mock/screens";
 import { SectionHead } from "@/components/SectionHead";
 import { SectionJumps } from "@/components/SectionJumps";
 import { addonBySlug, addons } from "@/content/addons";
@@ -30,28 +19,37 @@ import { solutionBySlug, solutions, type Solution } from "@/content/solutions";
 import { faqLd, pageMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 
+type Phone = { src: string; alt: string; time: string };
+const shot = (src: string, alt: string, width = 2400, height = 1520): CaseScreen => ({ src, alt, width, height });
+
+/**
+ * Real screens from the demo office (sample names, small amounts): the hero carries a desktop screen with a phone,
+ * the two rows below one desktop screen each.
+ */
 const visuals: Record<
   Solution["slug"],
-  {
-    hero: ReactNode;
-    first: [ReactNode, ReactNode];
-    more: [ReactNode, ReactNode, boolean];
-  }
+  { tone: CaseTone; hero: CaseScreen; phone: Phone; first: CaseScreen; more: CaseScreen }
 > = {
   "office-management": {
-    hero: <TaskSummaryMock />,
-    first: [<TaskSummaryMock key="a" />, <ApprovalTimesMock key="b" />],
-    more: [<MailToTaskMock key="c" />, <LeavePhoneMock key="d" />, true],
+    tone: "pine",
+    hero: shot("/media/home/s2-gorev.webp", "Görevler: sorumlusu ve bitiş tarihiyle iş listesi"),
+    phone: { src: "/media/cozumler/ofis-izinler-tel.webp", alt: "Telefonda İzinler: bekleyen izin talepleri", time: "09:30" },
+    first: shot("/screens/talepler.webp", "Talepler sayfası, Onayımı bekleyenler sekmesi", 1440, 898),
+    more: shot("/media/home/s5-puantaj.webp", "Devam takibi: personelin giriş, çıkış ve çalışma süresi"),
   },
   crm: {
-    hero: <MeetingsMock />,
-    first: [<MeetingsMock key="a" />, <RecentMeetingsMock key="b" />],
-    more: [<RecentMeetingsMock key="c" />, null, false],
+    tone: "sage",
+    hero: shot("/screens/cari.webp", "Müşteri kartı: iletişim bilgileri, kişiler ve hareketler", 2000, 1250),
+    phone: { src: "/media/home/s3-gorusme-tel.webp", alt: "Telefonda müşterinin görüşmeleri", time: "14:00" },
+    first: shot("/media/home/s3-gorusme.webp", "Müşteri kartında Görüşmeler: kişi, not ve takip günü"),
+    more: shot("/media/home/s4-teklif.webp", "Müşterinin kabul ettiği teklif"),
   },
   "finance": {
-    hero: <CariMock />,
-    first: [<MoneyHomeMock key="a" />, <CariMock key="b" />],
-    more: [<PaymentPlanMock key="c" />, null, false],
+    tone: "cream",
+    hero: shot("/media/ozellikler/cari-ekstre.webp", "Paylaşılan cari ekstre: bakiye ve hareketler"),
+    phone: { src: "/screens/phone-home.webp", alt: "Telefonda Ana Sayfa: para kartları ve vadesi geçenler", time: "17:45" },
+    first: shot("/media/ozellikler/cari-liste.webp", "Cari listesi: her müşterinin bakiyesi", 2400, 906),
+    more: shot("/media/cozumler/finans-planlar.webp", "Tahsilat planları: sıradaki taksit, tahsil edilen ve kalan"),
   },
 };
 
@@ -88,8 +86,8 @@ export default async function SolutionPage({ params }: PageProps<"/solutions/[sl
     <>
       <JsonLd data={faqLd(s.faq)} />
       <section className="hero-tint overflow-hidden">
-        <div className="wrap grid gap-12 pb-16 pt-8 md:pt-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-center lg:pb-24">
-          <div>
+        <div className="wrap grid grid-cols-[minmax(0,1fr)] gap-12 pb-16 pt-8 md:pt-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-center lg:pb-24">
+          <div className="min-w-0">
             <Breadcrumbs
               items={[
                 { name: "Çözümler", path: "/solutions" },
@@ -111,13 +109,15 @@ export default async function SolutionPage({ params }: PageProps<"/solutions/[sl
             <SectionJumps
               items={[
                 { href: "#ne-yapar", label: "Ne yapar" },
-                { href: "#daha-fazla", label: "Daha fazlası" },
+                { href: "#daha-fazla", label: s.moreJump },
                 { href: "#sorular", label: `${s.name} hakkında` },
                 ...(usedBy.length > 0 ? [{ href: "#sektorler", label: "Sektörler" }] : []),
               ]}
             />
           </div>
-          <div className="min-w-0">{v.hero}</div>
+          <div className="min-w-0">
+            <CasePanel tone={v.tone} priority screen={v.hero} phone={v.phone} className="aspect-[16/11]" />
+          </div>
         </div>
       </section>
 
@@ -126,20 +126,17 @@ export default async function SolutionPage({ params }: PageProps<"/solutions/[sl
           <FeatureRow
             id="ne-yapar"
             title={s.title}
-            lead={s.lead}
+            lead={s.firstLead}
             points={s.points}
-            primary={v.first[0]}
-            secondary={v.first[1]}
+            primary={<CasePanel tone="mist" screen={v.first} />}
           />
           <FeatureRow
             id="daha-fazla"
             reverse
-            phone={v.more[2]}
             title={s.more.title}
             lead={s.more.lead}
             points={s.more.points}
-            primary={v.more[0]}
-            secondary={v.more[1] ?? undefined}
+            primary={<CasePanel tone={v.tone === "sage" ? "cream" : "sage"} screen={v.more} />}
           />
         </div>
       </section>
@@ -213,7 +210,7 @@ export default async function SolutionPage({ params }: PageProps<"/solutions/[sl
       <CtaBand
         tex
         title={`${s.name} ile başlayın`}
-        body="Hesabınızı açın; ilk 30 gün Kurumsal paket açık. Kurulumu birlikte yapmak isterseniz bize yazın."
+        body="Bugün açtığınız hesapla bu sayfadakileri kendi ekibinizle kurun. Kurulumu birlikte yapmak isterseniz bize yazın."
       />
     </>
   );

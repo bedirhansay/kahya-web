@@ -10,9 +10,9 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   path: "/sectors",
-  title: "Sektörler: toptan ticaret, inşaat, nakliye, mali müşavir ve daha fazlası için Kahya",
+  title: "Sektörlere göre ofis yönetim programı: 12 sektörde Kahya",
   description:
-    "Kahya’nın toptan ticaret, inşaat, lojistik, güvenlik ve temizlik, mali müşavir, eğitim, hukuk, üretim atölyesi, danışmanlık, mimarlık, emlak ve teknik servis firmalarında nasıl kullanıldığını görün.",
+    "Toptan ticaret, inşaat, nakliye, mali müşavir, hukuk, emlak ve 6 sektör daha: her sektörde Kahya’nın hangi işi nasıl tuttuğunu görün.",
 });
 
 /** The twelve sectors, grouped by the work that fills their day; each group has its own panel colour. */
@@ -21,8 +21,8 @@ const groups: {
   title: string;
   lead: string;
   tone: CaseTone;
-  screen: { src: string; alt: string };
-  phone?: string;
+  screen: { src: string; alt: string; width?: number; height?: number };
+  phone?: { src: string; alt: string };
   slugs: string[];
 }[] = [
   {
@@ -30,8 +30,8 @@ const groups: {
     title: "Alacak, vade ve stok",
     lead: "Satan, üreten ve servis veren işler: kimin vadesi geçti, hangi teklif kabul edildi, stok nerede?",
     tone: "cream",
-    screen: { src: "/media/home/s1-cari.webp", alt: "Kahya’da cari kart: bakiye, vade ve taksitler. Örnek veri." },
-    phone: "/media/home/s1-cari-tel.webp",
+    screen: { src: "/media/cozumler/stok.webp", alt: "Kahya’da ürünler ve stok miktarları. Örnek veri." },
+    phone: { src: "/media/home/s4-teklif-tel.webp", alt: "Telefonda kabul edilen teklif." },
     slugs: ["wholesale-and-distribution", "manufacturing-workshops", "technical-service", "education-and-courses"],
   },
   {
@@ -39,8 +39,8 @@ const groups: {
     title: "Proje, saha ve personel",
     lead: "Şantiyede, yolda ve sahada çalışan ekipler: iş kimde, kim izinli, proje nerede?",
     tone: "sage",
-    screen: { src: "/media/home/s2-gorev.webp", alt: "Kahya’da görev listesi. Örnek veri." },
-    phone: "/media/home/s2-gorev-tel.webp",
+    screen: { src: "/media/home/s5-puantaj.webp", alt: "Kahya’da devam takibi: personelin çalıştığı günler. Örnek veri." },
+    phone: { src: "/media/cozumler/ofis-izinler-tel.webp", alt: "Telefonda izin talepleri." },
     slugs: ["construction-and-subcontracting", "architecture-and-engineering", "logistics-and-transport", "security-and-cleaning"],
   },
   {
@@ -48,8 +48,8 @@ const groups: {
     title: "Müşteri, görüşme ve belge",
     lead: "Müşteriyle konuşarak iş yapan bürolar: en son ne konuşuldu, hangi belge nerede, hangi tarih yaklaşıyor?",
     tone: "mist",
-    screen: { src: "/media/home/s3-gorusme.webp", alt: "Kahya’da müşteri görüşmeleri. Örnek veri." },
-    phone: "/media/home/s3-gorusme-tel.webp",
+    screen: { src: "/screens/contracts.webp", alt: "Kahya’da sözleşmeler listesi: bitiş tarihi ve kalan süre. Örnek veri.", width: 2000, height: 1250 },
+    phone: { src: "/media/home/s3-gorusme-tel.webp", alt: "Telefonda müşterinin görüşmeleri." },
     slugs: ["consulting-and-agencies", "law-firms", "accounting-firms", "real-estate"],
   },
 ];
@@ -77,8 +77,8 @@ export default function SectorsPage() {
                   className="aspect-[16/11]"
                   tone={g.tone}
                   priority={i === 0}
-                  screen={{ src: g.screen.src, alt: g.screen.alt, width: 2400, height: 1520 }}
-                  phone={g.phone ? { src: g.phone, alt: "Aynı ekran telefonda.", time: "09:30" } : undefined}
+                  screen={{ src: g.screen.src, alt: g.screen.alt, width: g.screen.width ?? 2400, height: g.screen.height ?? 1520 }}
+                  phone={g.phone ? { ...g.phone, time: "09:30" } : undefined}
                 />
               }
             >

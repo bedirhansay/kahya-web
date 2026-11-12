@@ -13,6 +13,9 @@ function Cell({ v }: { v: PlanCell }) {
 /** The packages side by side; on a phone the table scrolls sideways with its first column held. */
 export function PlanTable() {
   return (
+    <div>
+      <p className="mb-2 text-sm text-muted md:hidden">Paketlerin hepsini görmek için tabloyu sağa kaydırın.</p>
+      <div className="relative">
     <div className="overflow-x-auto rounded-[var(--radius-frame)] border border-line bg-surface">
       <table className="w-full min-w-[640px] border-collapse text-[0.95rem]">
         <caption className="sr-only">Paketlere göre kullanıcı, alan ve modüller</caption>
@@ -50,6 +53,12 @@ export function PlanTable() {
           ))}
         </tbody>
       </table>
+    </div>
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-y-px right-px w-8 rounded-r-[var(--radius-frame)] bg-gradient-to-l from-ink/10 to-transparent md:hidden"
+        />
+      </div>
     </div>
   );
 }

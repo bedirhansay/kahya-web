@@ -16,7 +16,7 @@ export type Sector = {
   uses: { solution: Solution["slug"]; points: Point[] }[];
   /** Add-ons that matter for this sector. */
   addons?: string[];
-  mock: "task" | "meetings" | "plan" | "stock" | "cari" | "approvals" | "fleet" | "project" | "contracts";
+  mock: "task" | "meetings" | "plan" | "stock" | "cari" | "cariList" | "package" | "offer" | "approvals" | "fleet" | "project" | "contracts";
   /** What Kahya does not do for this sector, said plainly on the page. */
   notDone: string[];
   faq: { q: string; a: string }[];
@@ -28,10 +28,10 @@ export const sectors: Sector[] = [
     name: "Danışmanlık firmaları ve ajanslar",
     tab: "Danışmanlık ve ajans",
     seo: {
-      title: "Danışmanlık firmaları ve ajanslar için proje, müşteri ve cari takip programı",
+      title: "Danışmanlık ve ajanslar için ofis yönetim programı",
       h1: "Danışmanlık firmaları ve ajanslar için Kahya",
       description:
-        "Müşteri işleri, projeler, görüşmeler ve tahsilatlar tek yerde. Kahya ile hangi işin kimde olduğunu, hangi müşteriyle ne konuşulduğunu ve kimden ne alacaklı olduğunuzu görün.",
+        "Müşteri işleri, projeler, görüşmeler ve tahsilat tek yerde: hangi iş kimde, hangi müşteriyle ne konuşuldu, kimden ne alacaklısınız.",
     },
     lead: "Birden çok müşteriye aynı anda iş yapan ekipler için. Hangi iş kimde, hangi müşteriyle ne konuşuldu, hangi ödeme tahsil edilmedi?",
     rows: [
@@ -58,7 +58,7 @@ export const sectors: Sector[] = [
       },
     ],
     addons: ["E-posta", "Teklif"],
-    mock: "task",
+    mock: "meetings",
     notDone: ["Fatura ve e-Fatura", "Zaman çizelgesi ve saatlik faturalama", "Satış hunisi ve fırsat yönetimi"],
     faq: [
       {
@@ -76,10 +76,10 @@ export const sectors: Sector[] = [
     name: "Mimarlık ve mühendislik ofisleri",
     tab: "Mimarlık ve mühendislik",
     seo: {
-      title: "Mimarlık ve mühendislik ofisleri için proje, sözleşme ve ödeme planı takibi",
+      title: "Mimarlık ve mühendislik için ofis yönetim programı",
       h1: "Mimarlık ve mühendislik ofisleri için Kahya",
       description:
-        "Projeler, sözleşmeler, müşteri ödeme planları ve ekibin izinleri tek yerde. Kahya ile proje ilerlemesini, sözleşme bitiş tarihlerini ve taksitleri takip edin.",
+        "Projeler, sözleşmeler, müşteri ödeme planları ve ekibin izinleri tek yerde. Proje ilerlemesini, sözleşme bitişini ve taksitleri izleyin.",
     },
     lead: "Uzun soluklu projeler, taksitli ödemeler ve sahada çalışan bir ekip. Hepsi aynı yerde takip edilir.",
     rows: [
@@ -120,10 +120,10 @@ export const sectors: Sector[] = [
     name: "Emlak ofisleri",
     tab: "Emlak ofisi",
     seo: {
-      title: "Emlak ofisleri için müşteri görüşme, kira ve sözleşme takip programı",
+      title: "Emlak ofisleri için ofis yönetim programı",
       h1: "Emlak ofisleri için Kahya",
       description:
-        "Müşteri görüşmeleri ve takip günleri, kira ve aidat vadeleri, sözleşme bitiş tarihleri tek yerde. Kahya ile hangi müşteriyi ne zaman arayacağınızı ve hangi ödemenin geldiğini görün.",
+        "Müşteri görüşmeleri ve takip günleri, kira ve aidat vadeleri, sözleşme bitiş tarihleri tek yerde: kimi ne zaman arayacağınız belli.",
     },
     lead: "Çok sayıda müşteri görüşmesi, düzenli kira ve aidat ödemeleri, süresi dolan sözleşmeler.",
     rows: [
@@ -149,7 +149,7 @@ export const sectors: Sector[] = [
         points: [{ term: "Sözleşmeler", text: "bitiş tarihiyle girilir, bitmeden hatırlatılırsınız." }],
       },
     ],
-    mock: "contracts",
+    mock: "plan",
     notDone: ["İlan ve portföy yönetimi", "İlan sitelerine aktarım", "SMS gönderimi"],
     faq: [
       {
@@ -167,10 +167,10 @@ export const sectors: Sector[] = [
     name: "Teknik servis ve bakım firmaları",
     tab: "Teknik servis",
     seo: {
-      title: "Teknik servis ve bakım firmaları için görev, stok ve cari takip programı",
+      title: "Teknik servis için ofis yönetim programı",
       h1: "Teknik servis ve bakım firmaları için Kahya",
       description:
-        "Servis işleri, ekibe dağıtılan görevler, parça stoğu ve müşteri tahsilatları tek yerde. Kahya ile işi kimin üstlendiğini, depoda ne kaldığını ve kimden ne alacaklı olduğunuzu görün.",
+        "Servis işleri, ekibe dağıtılan görevler, parça stoğu ve müşteri tahsilatı tek yerde: işi kim üstlendi, depoda ne kaldı, kim ödemedi.",
     },
     lead: "Gelen iş ekibe dağıtılır, parça depodan çıkar, ödeme müşterinin carisine işlenir.",
     rows: [
@@ -208,10 +208,10 @@ export const sectors: Sector[] = [
     name: "Toptan ticaret ve dağıtım firmaları",
     tab: "Toptan ticaret",
     seo: {
-      title: "Toptancı cari takip programı: vade, tahsilat, stok ve dağıtım takibi",
+      title: "Toptan ticaret için ofis yönetim programı",
       h1: "Toptan ticaret ve dağıtım firmaları için Kahya",
       description:
-        "Çok sayıda müşteri ve tedarikçi carisi, vadeler, taksitler, stok ve dağıtım araçları tek yerde. Kahya ile kimden ne alacaklı olduğunuzu, hangi vadenin geçtiğini ve depoda ne kaldığını görün.",
+        "Müşteri ve tedarikçi carileri, vadeler, taksitler ve stok tek yerde: kimden ne alacaklısınız, hangi vade geçti, depoda ne kaldı.",
     },
     lead: "Yüzlerce müşteri ve tedarikçi, vadeli satış, depodan çıkan mal ve yolda araçlar. Kimin ne borcu olduğu her an önünüzde.",
     rows: [
@@ -236,7 +236,7 @@ export const sectors: Sector[] = [
       },
     ],
     addons: ["Stok", "Teklif", "Filo", "E-posta"],
-    mock: "cari",
+    mock: "cariList",
     notDone: ["Fatura ve e-Fatura", "Bayi sipariş portalı (B2B)", "Plasiyer ve araç içi satış", "Banka bağlantısı (otomatik ekstre çekme)"],
     faq: [
       {
@@ -254,10 +254,10 @@ export const sectors: Sector[] = [
     name: "İnşaat ve taşeron firmaları",
     tab: "İnşaat ve taşeron",
     seo: {
-      title: "İnşaat firmaları için proje, taşeron ödemesi ve saha ekibi takip programı",
+      title: "İnşaat ve taşeron için ofis yönetim programı",
       h1: "İnşaat ve taşeron firmaları için Kahya",
       description:
-        "Projeler, sözleşmeler, taşeron ve tedarikçi ödemeleri, saha ekibinin izinleri ve zimmetli aletler tek yerde. Kahya ile hangi projede ne yapıldığını ve kime ne ödeneceğini görün.",
+        "Projeler, sözleşmeler, taşeron ve tedarikçi ödemeleri, saha ekibinin izinleri tek yerde: hangi projede ne yapıldı, kime ne ödenecek.",
     },
     lead: "Birden çok şantiye, taşeronlar, tedarikçiler ve sahada çalışan ekip. İş ve ödeme aynı yerde takip edilir.",
     rows: [
@@ -303,10 +303,10 @@ export const sectors: Sector[] = [
     name: "Lojistik ve nakliye firmaları",
     tab: "Lojistik ve nakliye",
     seo: {
-      title: "Nakliye firmaları için araç, sefer, cari ve şoför takip programı",
+      title: "Lojistik ve nakliye için ofis yönetim programı",
       h1: "Lojistik ve nakliye firmaları için Kahya",
       description:
-        "Araçlar, seferler, araç bazında gelir ve gider, müşteri carileri ve şoförlerin izin ve masraf talepleri tek yerde. Kahya ile hangi aracın ne kazandırdığını ve kimden ne alacaklı olduğunuzu görün.",
+        "Araçlar, seferler, araç bazında gelir gider (Filo ek hizmeti), müşteri carileri ve şoförlerin izin talepleri tek yerde.",
     },
     lead: "Araçlar yolda, şoförler sahada, müşteriler vadeli. Sefer, masraf ve tahsilat aynı yerde.",
     rows: [
@@ -350,10 +350,10 @@ export const sectors: Sector[] = [
     name: "Güvenlik ve temizlik hizmet firmaları",
     tab: "Güvenlik ve temizlik",
     seo: {
-      title: "Güvenlik ve temizlik şirketleri için personel, izin ve müşteri sözleşmesi takibi",
+      title: "Güvenlik ve temizlik için ofis yönetim programı",
       h1: "Güvenlik ve temizlik hizmet firmaları için Kahya",
       description:
-        "Kalabalık saha personelinin izin ve puantaj takibi, avans talepleri, müşteri sözleşmeleri ve aylık hizmet bedelleri tek yerde. Kahya ile kim izinde, hangi sözleşme bitiyor, kim ödemedi, görün.",
+        "Saha personelinin izin ve devam takibi, avans talepleri, müşteri sözleşmeleri ve aylık hizmet bedelleri tek yerde.",
     },
     lead: "Çok sayıda saha personeli, birçok müşteri sözleşmesi ve her ay kesilen hizmet bedeli.",
     rows: [
@@ -395,10 +395,10 @@ export const sectors: Sector[] = [
     name: "Mali müşavir büroları",
     tab: "Mali müşavir",
     seo: {
-      title: "Mali müşavir büroları için iş takibi, mükellef görüşmeleri ve ücret takibi",
+      title: "Mali müşavir büroları için ofis yönetim programı",
       h1: "Mali müşavir büroları için Kahya",
       description:
-        "Büronun işlerini ekibe dağıtın, mükellef görüşmelerini kaydedin, aylık ücretleri takip edin. Kahya kullanan müşterileriniz ayın hareketlerini Mali müşavir paketi ile tek dosyada gönderir.",
+        "Büronun işlerini ekibe dağıtın, müşteri görüşmelerini kaydedin, aylık ücretleri takip edin; Kahya kullanan müşteri ayı tek dosyada gönderir.",
     },
     lead: "Her ay tekrar eden işler, çok sayıda mükellef ve aylık ücretler. Büronun kendi işi de düzenli olsun.",
     rows: [
@@ -425,7 +425,7 @@ export const sectors: Sector[] = [
       },
     ],
     addons: ["E-posta"],
-    mock: "task",
+    mock: "package",
     notDone: ["Beyanname hazırlama ve gönderme", "e-Defter ve resmî muhasebe kaydı", "Fatura ve e-Fatura"],
     faq: [
       {
@@ -443,10 +443,10 @@ export const sectors: Sector[] = [
     name: "Eğitim kurumları ve kurslar",
     tab: "Eğitim ve kurs",
     seo: {
-      title: "Kurslar ve eğitim kurumları için taksit, veli görüşmesi ve personel takibi",
+      title: "Eğitim ve kurslar için ofis yönetim programı",
       h1: "Eğitim kurumları ve kurslar için Kahya",
       description:
-        "Öğrenci ve veli taksitleri, kayıt adayı görüşmeleri, eğitmen izinleri ve duyurular tek yerde. Kahya ile hangi taksitin geciktiğini ve hangi adayı ne zaman arayacağınızı görün.",
+        "Öğrenci ve veli taksitleri, kayıt adayı görüşmeleri, eğitmen izinleri ve duyurular tek yerde: hangi taksit gecikti, kimi aramalısınız.",
     },
     lead: "Taksitle ödenen kayıtlar, kayıt dönemindeki aday görüşmeleri ve eğitmen kadrosu.",
     rows: [
@@ -491,10 +491,10 @@ export const sectors: Sector[] = [
     name: "Hukuk büroları",
     tab: "Hukuk bürosu",
     seo: {
-      title: "Hukuk büroları için müvekkil görüşmesi, görev, doküman ve ücret takibi",
+      title: "Hukuk büroları için ofis yönetim programı",
       h1: "Hukuk büroları için Kahya",
       description:
-        "Müvekkil görüşmeleri, büro içi görevler, kimin göreceği seçilen dokümanlar, sözleşmeler ve vekâlet ücreti taksitleri tek yerde. Kahya ile büronun işini ve tahsilatını takip edin.",
+        "Müvekkil görüşmeleri, büro içi görevler, yetkiye göre açılan dokümanlar, sözleşmeler ve vekâlet ücreti taksitleri tek yerde.",
     },
     lead: "Müvekkil görüşmeleri, büro içinde dağıtılan işler, gizli tutulması gereken belgeler ve taksitli ücretler.",
     rows: [
@@ -539,10 +539,10 @@ export const sectors: Sector[] = [
     name: "Üretim atölyeleri ve imalathaneler",
     tab: "Üretim atölyesi",
     seo: {
-      title: "Atölye ve imalathaneler için teklif, stok ve tahsilat takibi",
+      title: "Üretim atölyeleri için ofis yönetim programı",
       h1: "Üretim atölyeleri ve imalathaneler için Kahya",
       description:
-        "Müşteriye teklif, depodaki ürün ve malzeme, satış ve tahsilat tek yerde. Kahya ile teklifinizin durumunu, stokta ne kaldığını ve kimden ne alacaklı olduğunuzu görün.",
+        "Müşteriye teklif, depodaki ürün ve malzeme, satış ve tahsilat tek yerde: teklif ne durumda, stokta ne kaldı, kim ödemedi.",
     },
     lead: "Teklif verilir, kabul edilen iş satışa döner, malzeme depodan düşer, tahsilat cariye işlenir.",
     rows: [
@@ -565,7 +565,7 @@ export const sectors: Sector[] = [
       },
     ],
     addons: ["Teklif", "Stok"],
-    mock: "stock",
+    mock: "offer",
     notDone: ["Üretim emri ve iş planlama", "Reçete ve maliyet hesabı", "Fatura ve e-Fatura"],
     faq: [
       {
