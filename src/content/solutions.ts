@@ -165,7 +165,7 @@ export const solutions: Solution[] = [
     faq: [
       {
         q: "Kahya fatura keser mi, bankama bağlanır mı?",
-        a: "Hayır. Kahya’da finans, cari bakiye takibidir: kimden alacaklı, kime borçlu olduğunuz. Fatura ve e-Fatura kesmez, bankanıza bağlanıp ekstre çekmez. Kasa, banka hesabı ve kredi kartı bakiyeleri için Kasa ve banka ek hizmeti hazırlanıyor; henüz satışta değil.",
+        a: "Hayır. Kahya’da finans, cari bakiye takibidir: kimden alacaklı, kime borçlu olduğunuz. Fatura ve e-Fatura kesmez, bankanıza bağlanıp ekstre çekmez. Kasa, banka hesabı ve kredi kartı bakiyelerini Kasa ve banka ek hizmetiyle tutarsınız.",
       },
       {
         q: "Muhasebe programımı bırakmam gerekir mi?",
@@ -218,9 +218,8 @@ export const extras: Extra[] = [
   },
   {
     name: "Kasa ve banka",
-    soon: true,
     body: "Kasa, banka hesabı ve kredi kartı bakiyeleri; banka ekstresini yükleyip satırları cariye, masrafa ya da virmana işleme; hesaplar arası aktarım.",
-    plan: "Yakında. Henüz satışta değil; açıldığında haber almak isterseniz bize yazın.",
+    plan: "Ücretsiz dahil her pakete ek hizmet olarak eklenir.",
     href: "/guides/how-to-track-cash-and-bank",
   },
   {

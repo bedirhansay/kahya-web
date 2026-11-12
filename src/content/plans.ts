@@ -30,9 +30,9 @@ export const planRows: { label: string; hint?: string; href?: string; cells: [Pl
   { label: "E-posta", hint: "Kendi e-posta kutunuz", cells: [false, "ek", "ek", "ek", "ek"] },
   {
     label: "Kasa ve banka",
-    hint: "Yakında; kasa, banka hesabı ve kredi kartı",
+    hint: "Kasa, banka hesabı ve kredi kartı",
     href: "/guides/how-to-track-cash-and-bank",
-    cells: [false, false, false, false, false],
+    cells: ["ek", "ek", "ek", "ek", "ek"],
   },
   { label: "Öncelikli destek", cells: [false, false, false, false, true] },
 ];
