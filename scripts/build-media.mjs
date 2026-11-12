@@ -74,27 +74,22 @@ for (const [size, name] of [[180, "apple-touch-icon.png"], [192, "icon-192.png"]
   if (fresh(t)) await sharp(join(src, "web/public/brand/kahya-app-icon-1024.png")).resize(size).png().toFile(t);
 }
 
-// Hero loop
-const hero = promo("out/06-web-hero");
-ffmpeg(["-i", join(hero, "kahya-hero.mp4"), "-an", ...h264(26)], out("media/hero/kahya-hero.mp4"));
-ffmpeg(["-i", join(hero, "kahya-hero.mp4"), "-an", "-vf", "scale=960:-2", ...h264(27)], out("media/hero/kahya-hero-960.mp4"));
-if (fresh(out("media/hero/kahya-hero.webm"))) copyFileSync(join(hero, "kahya-hero.webm"), out("media/hero/kahya-hero.webm"));
-await still(join(hero, "kahya-hero-static.png"), out("media/hero/kahya-hero.webp"), 1920, 78);
-await still(join(hero, "kahya-og-1200x630.jpg"), out("og/kahya-og.jpg").replace(".jpg", ".webp"), 1200);
-if (fresh(out("og/kahya-og.jpg"))) copyFileSync(join(hero, "kahya-og-1200x630.jpg"), out("og/kahya-og.jpg"));
+// No hero loop (the home page shows app screens) and no OG copy: public/og/kahya-og.{jpg,webp} are kept in
+// this repo because the source card in promo-video/out/06-web-hero still reads "Kâhya AI" (2026-11-12).
 
 // Films (with voice-over and subtitles)
 for (const [dir, name, slug] of [["01-ana-film", "Kahya-tanitim", "kahya-tanitim"], ["02-reklam", "Kahya-reklam", "kahya-reklam"]]) {
   const d = promo("out", dir);
   ffmpeg(["-i", join(d, `${name}.mp4`), ...h264(25, ["-c:a", "aac", "-b:a", "128k"])], out("media/film", `${slug}.mp4`));
   vtt(join(d, `${name}.srt`), out("media/film", `${slug}.vtt`));
-  await still(join(d, `${name}-kapak.jpg`), out("media/film", `${slug}.webp`), 1280, 80);
+  // The source covers show the "Kâhya AI" card; the poster is a frame of the film instead.
+  await frame(join(d, `${name}.mp4`), slug === "kahya-tanitim" ? 20 : 14, out("media/film", `${slug}.webp`));
 }
 {
   const d = promo("out/03-sosyal-dikey");
   ffmpeg(["-i", join(d, "Kahya-reklam-dikey.mp4"), "-vf", "scale=720:-2", ...h264(26, ["-c:a", "aac", "-b:a", "128k"])], out("media/film/kahya-reklam-dikey.mp4"));
   vtt(join(d, "Kahya-reklam-dikey.srt"), out("media/film/kahya-reklam-dikey.vtt"));
-  await still(join(d, "Kahya-reklam-dikey-kapak.jpg"), out("media/film/kahya-reklam-dikey.webp"), 720, 80);
+  await frame(join(d, "Kahya-reklam-dikey.mp4"), 14, out("media/film/kahya-reklam-dikey.webp"), 720);
 }
 
 // Feature teasers (no voice-over)
@@ -117,13 +112,11 @@ for (const f of readdirSync(tutorials).filter((f) => f.endsWith(".mp4"))) {
 
 // App screenshots (desktop 2880×1800, phone 1170×2532)
 const ui = promo("public/ui3");
-for (const f of readdirSync(ui).filter((f) => f.endsWith(".png"))) {
+// Not shown on any page (2026-11-12 audit P2-8); skipped so they do not come back.
+const unused = new Set(["brief.png", "leave-phone.png", "receipt.png"]);
+for (const f of readdirSync(ui).filter((f) => f.endsWith(".png") && !unused.has(f))) {
   const phone = f.includes("phone");
   await still(join(ui, f), out("screens", f.replace(".png", ".webp")), phone ? 780 : 2000, 84);
-}
-const store = promo("out/10-magaza-gorselleri/tr/light/iphone-6.9");
-for (const f of readdirSync(store).filter((f) => f.endsWith(".png"))) {
-  await still(join(store, f), out("screens/mobil", f.replace(".png", ".webp")), 660, 82);
 }
 
 

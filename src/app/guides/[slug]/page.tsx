@@ -5,6 +5,7 @@ import type { Article, WithContext } from "schema-dts";
 
 import { CtaBand } from "@/components/CtaBand";
 import { Faq } from "@/components/Faq";
+import { Frame } from "@/components/Frame";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { SectionJumps } from "@/components/SectionJumps";
@@ -87,6 +88,7 @@ export default async function GuidePage({ params }: PageProps<"/guides/[slug]">)
                     ))}
                   </ul>
                 )}
+                {s.screen && <Frame src={s.screen.src} alt={s.screen.alt} sizes="(min-width: 1024px) 704px, 100vw" className="mt-6" />}
               </section>
             ))}
             <p className="mt-12 text-sm text-muted">

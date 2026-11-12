@@ -15,7 +15,10 @@ const brand = (s) =>
   s
     .replace(/Kâhya/g, "Kahya")
     .replace(/Câri/g, "Cari")
-    .replace(/câri/g, "cari");
+    .replace(/câri/g, "cari")
+    // House style: "ya da" and "ve", not "veya" and "&" (2026-11-12 audit P2-12).
+    .replace(/ veya /g, " ya da ")
+    .replace(/ & /g, " ve ");
 
 const trainingSlug = (tr) => {
   const en = legacyRoutes.slugs.training[tr];

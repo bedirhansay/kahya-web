@@ -18,16 +18,17 @@ export const metadata: Metadata = pageMetadata({
 
 const fromFeature = (slug: string) => featureBySlug(slug)?.faq ?? [];
 
-/** Eight topics; the rest of each module's questions stay on its own page. */
+/** Five topics; the rest of each module's questions stay on its own page. */
 const topics = [
   { id: "genel", title: "Genel", items: generalFaq },
   { id: "satin-alma", title: "Satın alma", items: pricingFaq },
-  { id: "cari", title: "Cari", items: fromFeature("accounts") },
-  { id: "odeme-planlari", title: "Ödeme planları", items: fromFeature("payment-plans") },
-  { id: "e-posta", title: "E-posta", items: fromFeature("email") },
+  { id: "para", title: "Cari ve ödeme planları", items: [...fromFeature("accounts"), ...fromFeature("payment-plans")] },
   { id: "personel", title: "Personel", items: fromFeature("staff-and-leave") },
-  { id: "dokumanlar", title: "Dokümanlar", items: fromFeature("documents-and-contracts") },
-  { id: "kahya-ai", title: "Kahya AI", items: fromFeature("kahya-ai") },
+  {
+    id: "araclar",
+    title: "E-posta, dokümanlar ve Kahya AI",
+    items: [...fromFeature("email"), ...fromFeature("documents-and-contracts"), ...fromFeature("kahya-ai")],
+  },
 ].filter((t) => t.items.length > 0);
 
 export default function FaqPage() {
@@ -48,7 +49,7 @@ export default function FaqPage() {
             <section
               key={t.id}
               aria-labelledby={t.id}
-              className="grid gap-4 border-t border-line py-10 first:border-t-0 md:py-12 lg:grid-cols-[minmax(0,0.34fr)_minmax(0,0.66fr)] lg:gap-16"
+              className="grid gap-4 border-t border-line py-10 first:border-t-0 md:py-12 lg:grid-cols-[minmax(0,0.26fr)_minmax(0,0.74fr)] lg:gap-16"
             >
               <div className="lg:sticky lg:top-28 lg:self-start">
                 <h2 id={t.id} className="font-display text-[1.6rem] font-bold leading-tight tracking-[-0.01em]">

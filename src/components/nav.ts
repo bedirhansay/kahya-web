@@ -207,7 +207,7 @@ export const mainNav: NavGroup[] = [
         links: [
           ...extras.map((e) => ({
             href: e.href ?? "/solutions#ek-hizmetler",
-            label: e.name,
+            label: e.soon ? `${e.name} (yakında)` : e.name,
           })),
           { href: "/solutions", label: "Tüm çözümler ve hizmetler" },
         ],

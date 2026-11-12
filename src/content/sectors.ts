@@ -403,7 +403,7 @@ export const sectors: Sector[] = [
     lead: "Her ay tekrar eden işler, çok sayıda mükellef ve aylık ücretler. Büronun kendi işi de düzenli olsun.",
     rows: [
       { pain: "Ay sonu işleri kime verildi, hangisi bitti, sorarak öğreniliyor.", term: "Görevler ve takımlar", text: "dönem işleri kişiye ya da takıma verilir, durumu herkes görür.", href: "/solutions/office-management" },
-      { pain: "Mükellefle ne konuşulduğu görüşen kişinin aklında.", term: "Görüşmeler", text: "mükellefle yapılan her görüşme kartında, takip günüyle.", href: "/solutions/crm" },
+      { pain: "Mükellefle ne konuşulduğu görüşen kişinin aklında.", term: "Görüşmeler", text: "mükellefinizi müşteri (cari) kartı olarak açarsınız; her görüşme o kartta, takip günüyle.", href: "/solutions/crm" },
       { pain: "Aylık ücreti geciken mükellef gözden kaçıyor.", term: "Aylık ücret", text: "düzenli ödeme olarak tanımlanır, geciken Ana Sayfa’da görünür.", href: "/solutions/finance" },
       { pain: "Büro belgeleri ortak klasörde, kimin gördüğü belli değil.", term: "Dokümanlar", text: "kimin göreceğini seçerek yüklenir.", href: "/solutions/office-management" },
     ],

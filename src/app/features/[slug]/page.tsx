@@ -112,6 +112,11 @@ export default async function FeaturePage({ params }: PageProps<"/features/[slug
               ))}
             </dl>
           </div>
+          {f.second && (
+            <div className="wrap pb-14 md:pb-20">
+              <Frame src={f.second.src} alt={f.second.alt} sizes="(min-width: 1280px) 1200px, 100vw" className="mx-auto max-w-5xl" />
+            </div>
+          )}
         </section>
       )}
 

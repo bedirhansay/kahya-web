@@ -62,7 +62,7 @@ export function FeatureParts({ parts, label }: { parts: FeaturePart[]; label: st
           className="stage-in grid gap-8 pt-8 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:items-start lg:gap-12"
         >
           <div>
-            <h3 className="font-display text-2xl font-bold tracking-[-0.01em]">{p.title}</h3>
+            <h2 className="font-display text-2xl font-bold tracking-[-0.01em]">{p.title}</h2>
             <p className="mt-3 leading-relaxed text-muted">{p.body}</p>
             <ul className="mt-5 list-disc space-y-2 pl-5 marker:text-brand">
               {p.points.map((x) => (

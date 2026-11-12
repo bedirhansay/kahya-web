@@ -48,7 +48,7 @@ export const pricingFaq = [
   },
   {
     q: "Deneme süresi var mı?",
-    a: "Evet. Kayıt olan her firma 30 gün boyunca Kurumsal paketi dener; E-posta ve Kahya AI ek hizmeti bu sürede kapalıdır. Süre bitince firma Ücretsiz pakete geçer, verileri yerinde kalır.",
+    a: "Evet. Kayıt olan her firma 30 gün boyunca Kurumsal paketi dener; E-posta, Filo ve Kahya AI ek hizmeti bu sürede kapalıdır. Süre bitince firma Ücretsiz pakete geçer, verileri yerinde kalır.",
   },
   {
     q: "Nasıl satın alırım?",

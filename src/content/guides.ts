@@ -10,7 +10,8 @@ export type Guide = {
   metaDescription: string;
   /** The short answer, first on the page. */
   answer: string;
-  sections: { heading: string; body: string[]; list?: string[] }[];
+  /** `screen`: a real app screen shown at the end of the section. */
+  sections: { heading: string; body: string[]; list?: string[]; screen?: { src: string; alt: string } }[];
   faq: { q: string; a: string }[];
   /** Feature slugs to read next. */
   related: string[];
@@ -56,6 +57,7 @@ export const guides: Guide[] = [
       },
       {
         heading: "Kahya bunları nasıl karşılıyor?",
+        screen: { src: "/media/home/s2-gorev.webp", alt: "Kahya’da görevler: sorumlusu ve bitiş tarihiyle iş listesi. Örnek veri." },
         body: [
           "Kahya üç çözümden oluşur: Ofis yönetimi, CRM (müşteri ilişkileri) ile Finans ve cari. İhtiyacınız olanı açarsınız; menü yalnızca onları gösterir. Tarayıcıda çalışır, telefonda ana ekrana eklenir.",
           "Kayıt olan her firma 30 gün Kurumsal paketi dener, süre bitince Ücretsiz pakete geçer ve verileri yerinde kalır. Veriler her gün yedeklenir; silinen kayıt 30 gün içinde geri alınır.",
@@ -73,7 +75,7 @@ export const guides: Guide[] = [
       },
     ],
     related: ["tasks", "accounts", "staff-and-leave"],
-    updated: "2026-11-07",
+    updated: "2026-11-12",
   },
   {
     slug: "accounts-excel-or-software",
@@ -109,6 +111,7 @@ export const guides: Guide[] = [
       },
       {
         heading: "Cari takip programı ne kazandırır?",
+        screen: { src: "/media/ozellikler/cari-liste.webp", alt: "Kahya’da cari listesi: her müşterinin bakiyesi. Örnek veri." },
         body: ["Bir cari takip programında:"],
         list: [
           "Her hareket kaydedildiği anda bakiye güncellenir; yürüyen bakiye satır satır görünür.",
@@ -137,7 +140,7 @@ export const guides: Guide[] = [
       },
     ],
     related: ["accounts", "payment-plans", "reports"],
-    updated: "2026-11-07",
+    updated: "2026-11-12",
   },
   {
     slug: "how-to-track-staff-leave",
@@ -179,6 +182,7 @@ export const guides: Guide[] = [
       },
       {
         heading: "Kahya'da izin takibi",
+        screen: { src: "/screens/izinler.webp", alt: "Kahya’da izin talepleri: personel, tarih, gün sayısı ve durum. Örnek veri." },
         body: [
           "Kahya'da çalışan izni telefondan ister; talep yöneticinin Onayınızı bekleyenler listesine düşer. Onaylanan izin takvime ve puantaja işlenir, kalan hak personel kartında görünür.",
           "Avans, masraf ve satın alma talepleri de aynı onay akışından geçer. Onay adımlarını siz belirlersiniz, yokken yerinize birine vekâlet verebilirsiniz.",
@@ -196,7 +200,7 @@ export const guides: Guide[] = [
       },
     ],
     related: ["staff-and-leave", "requests-and-approvals", "tasks"],
-    updated: "2026-11-07",
+    updated: "2026-11-12",
   },
   {
     slug: "how-to-track-cash-and-bank",
@@ -250,7 +254,7 @@ export const guides: Guide[] = [
       },
     ],
     related: ["accounts", "payment-plans", "reports"],
-    updated: "2026-11-11",
+    updated: "2026-11-12",
   },
 ];
 

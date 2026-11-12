@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import type { BreadcrumbList, FAQPage, Organization, SoftwareApplication, VideoObject, WebSite, WithContext } from "schema-dts";
+import type { BreadcrumbList, FAQPage, Organization, VideoObject, WebApplication, WebSite, WithContext } from "schema-dts";
 
 import { features } from "@/content/features";
 import { site } from "@/lib/site";
@@ -75,10 +75,10 @@ export function websiteLd(): WithContext<WebSite> {
   };
 }
 
-export function softwareLd(): WithContext<SoftwareApplication> {
+export function softwareLd(): WithContext<WebApplication> {
   return {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
+    "@type": "WebApplication",
     "@id": `${SITE_URL}/#software`,
     name: site.fullName,
     alternateName: "Kahya",
@@ -86,7 +86,8 @@ export function softwareLd(): WithContext<SoftwareApplication> {
     description: site.description,
     applicationCategory: "BusinessApplication",
     applicationSubCategory: "Ofis yönetim yazılımı",
-    operatingSystem: "Web, iOS, Android (tarayıcı)",
+    operatingSystem: "Web",
+    browserRequirements: "Güncel bir tarayıcı (Chrome, Safari, Edge ya da Firefox); telefonda ana ekrana eklenebilir.",
     inLanguage: "tr-TR",
     image: absoluteUrl("/og/kahya-og.jpg"),
     screenshot: ["home", "cari", "mail", "project"].map((n) => absoluteUrl(`/screens/${n}.webp`)),
@@ -142,7 +143,8 @@ export function videoLd(v: {
     contentUrl: absoluteUrl(v.contentUrl),
     thumbnailUrl: absoluteUrl(v.thumbnailUrl),
     embedUrl: absoluteUrl(v.pagePath),
-    uploadDate: "2026-10-19",
+    // Every film and tutorial went live together (first commit of public/media, 2026-10-20).
+    uploadDate: "2026-10-20",
     inLanguage: "tr-TR",
     publisher: { "@id": orgId },
     ...(v.transcript ? { transcript: v.transcript } : {}),

@@ -160,7 +160,7 @@ export const addons: Addon[] = [
     },
     title: "Sorun, Kahya hazırlasın, siz onaylayın",
     lead: "Kahya AI ofisinizin kayıtlarına bakarak yanıt verir ve iş hazırlar: görev, not, tahsilat, toplantı, e-posta taslağı. Her öneri bir kart olarak gelir; siz Onayla demeden hiçbir şey kaydedilmez.",
-    screen: { src: "/screens/receipt.webp", alt: "Kahya AI: hazır sorular, mesaj alanı ve kalan kredi.", width: 2000, height: 1250 },
+    screen: { src: "/screens/ai.webp", alt: "Kahya AI: vadesi geçen iki müşteri için hazırlanan hatırlatma kartı, onay bekliyor.", width: 2000, height: 1250 },
     when: [
       "Gün başında neyin geciktiğini birkaç ekrandan topluyorsunuz.",
       "Fişleri akşam tek tek elle giriyorsunuz.",

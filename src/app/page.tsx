@@ -138,7 +138,7 @@ const slides: HeroSlide[] = [
 ];
 
 /** The three solutions, in the order an office meets them: money first. */
-const modules = (["finance", "office-management", "crm"] as const).map((slug) => solutionBySlug(slug)!);
+const modules = (["office-management", "crm", "finance"] as const).map((slug) => solutionBySlug(slug)!);
 
 /** How an office starts: each sentence is the app's own (SSS, Veri aktarımı, roles). */
 const steps = [
@@ -203,7 +203,7 @@ export default function HomePage() {
             <Link href="/solutions#ek-hizmetler" className="link">
               Ek hizmetler
             </Link>
-            : {extras.map((x) => x.name).join(", ").replace(/, ([^,]*)$/, " ve $1")}. İhtiyacınız olduğunda eklenir.
+            : {extras.filter((x) => !x.soon).map((x) => x.name).join(", ").replace(/, ([^,]*)$/, " ve $1")}. İhtiyacınız olduğunda eklenir.
           </p>
         </div>
       </section>

@@ -98,16 +98,18 @@ export default function FilmPage() {
               </Link>{" "}
               bulabilirsiniz.
             </p>
-            <details className="group mt-6 border-t border-line">
+            <ol className="mt-6 space-y-3 border-t border-line pt-4">
+              {cues.slice(0, 5).map((c) => (
+                <Cue key={c.t + c.text} t={c.t} text={c.text} />
+              ))}
+            </ol>
+            <details className="group mt-3 border-t border-line">
               <summary className="flex min-h-11 cursor-pointer items-center py-3 font-semibold">
-                Metnin tamamını okuyun
+                Metnin devamını okuyun
               </summary>
-              <ol className="space-y-3 pb-2">
-                {cues.map((c) => (
-                  <li key={c.t + c.text} className="grid grid-cols-[3.5rem_1fr] gap-4 leading-relaxed">
-                    <time className="pt-0.5 text-sm font-bold text-muted tabular-nums">{clock(c.t)}</time>
-                    <p>{c.text}</p>
-                  </li>
+              <ol start={6} className="space-y-3 pb-2">
+                {cues.slice(5).map((c) => (
+                  <Cue key={c.t + c.text} t={c.t} text={c.text} />
                 ))}
               </ol>
             </details>
@@ -120,5 +122,14 @@ export default function FilmPage() {
         body="Hesabınızı birkaç dakikada açarsınız. Verilerinizi taşımak isterseniz bize yazın."
       />
     </>
+  );
+}
+
+function Cue({ t, text }: { t: number; text: string }) {
+  return (
+    <li className="grid grid-cols-[3.5rem_1fr] gap-4 leading-relaxed">
+      <time className="pt-0.5 text-sm font-bold text-muted tabular-nums">{clock(t)}</time>
+      <p>{text}</p>
+    </li>
   );
 }

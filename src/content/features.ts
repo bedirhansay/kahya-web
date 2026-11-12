@@ -21,6 +21,8 @@ export type Feature = {
   tutorials: string[];
   points: { title: string; body: string }[];
   faq: { q: string; a: string }[];
+  /** A second real screen, shown under "neler var" (features without parts). */
+  second?: { src: string; alt: string };
   /** A feature told in tabbed parts, each with its own real screen; replaces the single screen and the points grid. */
   parts?: FeaturePart[];
 };
@@ -124,6 +126,7 @@ export const features: Feature[] = [
     lead:
       "Taksitli anlaşmaları tek seferde kurun, kira ve abonelik gibi düzenli ödemeleri tanımlayın. Vadeler takvime ve Ana Sayfa’ya düşer. Zamanı gelince hatırlatılırsınız.",
     screen: { src: "/screens/home.webp", alt: "Kahya tahsilat planı: üç taksit, tahsil edilen ve kalan tutar" },
+    second: { src: "/media/cozumler/finans-planlar.webp", alt: "Tahsilat planları listesi: sıradaki taksit, tahsil edilen ve kalan. Örnek veri." },
     tutorials: ["payment-plans-and-due-dates", "expenses-and-categories"],
     points: [
       {
@@ -165,6 +168,7 @@ export const features: Feature[] = [
     lead:
       "Görevleri kişiye ya da takıma verin, panoda Yapılacak’tan Tamamlandı’ya ilerletin. Toplantılar, vadeler, izinler ve teslimler aynı takvimde buluşur.",
     screen: { src: "/screens/claim.webp", alt: "Kahya’da görev detayı: durum, sorumlu, takım ve proje" },
+    second: { src: "/media/home/s2-gorev.webp", alt: "Görevler panosu: yapılacak, devam eden ve biten işler. Örnek veri." },
     tutorials: ["tasks-teams-and-calendar", "projects"],
     points: [
       {
@@ -276,6 +280,7 @@ export const features: Feature[] = [
     lead:
       "Personeli işe giriş tarihi, departmanı ve görevine göre tutun. Çalışan izin talebini telefondan gönderir, yöneticisi onaylar. Çalışana bildirim gider, izin takvime işlenir.",
     screen: { src: "/screens/izinler.webp", alt: "Kahya’da izin talepleri: personel, tarih, gün sayısı, durum ve onaylayan" },
+    second: { src: "/media/home/s5-puantaj.webp", alt: "Devam takibi: personelin çalıştığı günler ve süreler. Örnek veri." },
     tutorials: ["staff-and-leave", "requests-and-approvals"],
     points: [
       {
@@ -431,7 +436,7 @@ export const features: Feature[] = [
     title: "Söyleyin, Kahya hazırlasın, siz onaylayın",
     lead:
       "Kahya AI ofisinizin kayıtlarına bakarak yanıt verir ve iş hazırlar: görev, not, tahsilat, toplantı, e-posta taslağı. Her öneri bir kart olarak gelir. Siz Onayla demeden hiçbir şey kaydedilmez.",
-    screen: { src: "/screens/receipt.webp", alt: "Kahya AI: hazır sorular, mesaj alanı ve kalan kredi" },
+    screen: { src: "/screens/ai.webp", alt: "Kahya AI: vadesi geçen iki müşteri için hazırlanan hatırlatma kartı, onay bekliyor. Örnek veri." },
     tutorials: ["kahya-ai"],
     points: [
       {

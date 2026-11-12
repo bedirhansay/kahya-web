@@ -8,8 +8,9 @@ import { solutions } from "@/content/solutions";
 import { tutorials } from "@/content/tutorials";
 import { absoluteUrl } from "@/lib/seo";
 
-// Bump when content changes meaningfully; a fixed date keeps the build static.
-const updated = new Date("2026-11-07");
+// The last meaningful content change (bump it with the next one); a fixed date keeps the build static.
+// Guides carry their own date.
+const updated = new Date("2026-11-12");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const page = (path: string, priority: number, extra: Partial<MetadataRoute.Sitemap[number]> = {}) => ({
