@@ -10,8 +10,17 @@ export const filmTranscripts = films;
 
 export const clock = (seconds: number) => `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, "0")}`;
 
-export const tutorialDescription = (t: Tutorial) =>
-  `Kahya eğitim videosu: ${t.lessons.map((l) => l.title.toLocaleLowerCase("tr")).join(", ")}. Adım adım, ${clock(t.seconds)} dakika.`;
+/** The lessons that fit a search snippet (155 characters), in order. */
+export const tutorialDescription = (t: Tutorial) => {
+  const tail = `. Adım adım, ${clock(t.seconds)} dakika.`;
+  let list = "";
+  for (const l of t.lessons) {
+    const next = `${list ? `${list}, ` : ""}${l.title.toLocaleLowerCase("tr")}`;
+    if (`Kahya eğitim videosu: ${next}${tail}`.length > 155) break;
+    list = next;
+  }
+  return `Kahya eğitim videosu: ${list}${tail}`;
+};
 
 export const anchor = (s: string) =>
   s

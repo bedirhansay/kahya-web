@@ -16,6 +16,10 @@ export type Solution = {
   summary: string;
   title: string;
   lead: string;
+  /** Lead of the first section on the solution page; the hero already shows `lead`. */
+  firstLead: string;
+  /** Label of the in-page jump to the second section. */
+  moreJump: string;
   points: Point[];
   /** Search-facing page title and h1 for /solutions/[slug]. */
   seo: { title: string; h1: string; description: string };
@@ -33,6 +37,9 @@ export const solutions: Solution[] = [
     summary: "Ekip, görev, izin, onay, takvim, belgeler ve talepler.",
     title: "Ekibiniz bugün ne yaptı?",
     lead: "Kimseyi aramadan görün: kim kaç iş bitirdi, nerede gecikme var, hangi onay kimde bekliyor.",
+    firstLead:
+      "Talepler sayfası hangi onayın kimde beklediğini, Görev özeti raporu kişi kişi biten ve geciken işi, Onay süreleri raporu talebin kaç gündür beklediğini gösterir.",
+    moreJump: "Ekip tarafı",
     points: [
       { term: "Görev özeti", text: "kişi bazında biten, geciken ve açık işler tek raporda." },
       { term: "Onay süreleri", text: "hangi onay ne kadar sürdü, kimde takıldı." },
@@ -42,7 +49,7 @@ export const solutions: Solution[] = [
       title: "Ofis yönetim programı: görev, personel, izin ve onay takibi",
       h1: "Ofis yönetim programı: görev, izin ve onaylar tek yerde",
       description:
-        "Kahya Ofis yönetimi ile görevleri kişiye ya da takıma verin, izin ve avans taleplerini telefondan alın, onayları tek listeden verin. Görev özeti ve onay süreleri raporlarıyla ekibin durumunu görün.",
+        "Görevleri kişiye ya da takıma verin, izin ve avans taleplerini telefondan alın, onayları tek listeden verin; Görev özeti raporu ekibin durumunu gösterir.",
     },
     more: {
       title: "Bütün ekip içeride",
@@ -80,19 +87,22 @@ export const solutions: Solution[] = [
     kicker: "Müşteri ve görüşme",
     name: "CRM",
     subtitle: "Müşteri ilişkileri",
-    summary: "Müşteri görüşmeleri ve takip günleri. Teklif Kurumsal pakette dahil.",
+    summary: "Müşteri kartı, görüşme kaydı ve takip günleri.",
     title: "Her görüşme kayıtta",
     lead: "Müşteriyle ne konuşuldu, sırada ne var? Ekipten kim bakarsa baksın aynı bilgiyi görür.",
+    firstLead:
+      "Görüşmeyi kişisi ve notuyla müşteri kartına yazın, takip gününü seçin. Gün gelince görüşme Ana Sayfa’daki Son görüşmeler listesinde önünüze çıkar.",
+    moreJump: "Müşteri kartı",
     points: [
       { term: "Görüşme kaydı", text: "müşteri kartında, kişisi ve notuyla." },
       { term: "Takip günü", text: "takip günü gelen görüşmeler listede önünüze çıkar." },
       { term: "Ana Sayfa › Son görüşmeler", text: "kimle en son ne konuşuldu, tek listede." },
     ],
     seo: {
-      title: "CRM programı: müşteri görüşme ve takip programı",
+      title: "CRM programı: müşteri görüşme ve takip",
       h1: "CRM programı: her müşteri görüşmesi kayıtta, takip günü unutulmaz",
       description:
-        "Kahya CRM ile müşteri görüşmelerini kişisi ve notuyla kaydedin, takip günü yazın, takibi gelenler listede önünüze çıksın. Teklif ile kendi antetli teklifinizi hazırlayın (Kurumsal pakette dahil, diğer paketlerde ek hizmet).",
+        "Müşteri görüşmelerini kişisi ve notuyla kaydedin, takip günü yazın; günü gelen görüşme önünüze çıksın. Müşteri kartı, kişiler ve görüşme geçmişi tek yerde.",
     },
     more: {
       title: "Müşteri bilgisi bir kişinin aklında kalmaz",
@@ -127,6 +137,9 @@ export const solutions: Solution[] = [
     summary: "Cari hesaplar, tahsilat ve ödemeler, taksit planları, alacak raporları.",
     title: "Kim kime borçlu, tek bakışta",
     lead: "Cari hesaplarınız, tahsilat ve ödemeleriniz, vadeleriniz tek yerde.",
+    firstLead:
+      "Cari listesinde her müşterinin ve tedarikçinin bakiyesi yazar. Karta girince hareketleri ve ekstreyi görürsünüz; ekstreyi linkle paylaşırsınız.",
+    moreJump: "Vadeler",
     points: [
       { term: "Cari", text: "bakiye ve hesap ekstresi her müşteri ve tedarikçide." },
       { term: "Tahsilat", text: "anında kayıtta, bakiyeye hemen yansır." },
@@ -137,7 +150,7 @@ export const solutions: Solution[] = [
       title: "Cari hesap takip programı: tahsilat, taksit ve alacak takibi",
       h1: "Cari hesap takip programı: kim kime borçlu, tek bakışta",
       description:
-        "Kahya Finans ve cari ile müşteri ve tedarikçi carilerini, tahsilat ve ödemeleri, taksitli ödeme planlarını takip edin. Alacak ve borç raporlarını alın, ekstreyi paylaşın, ay sonunda mali müşavirinize tek dosya gönderin.",
+        "Müşteri ve tedarikçi carilerini, tahsilat ve ödemeleri, taksitli planları takip edin; ekstreyi paylaşın, ay sonunda mali müşavire tek dosya gönderin.",
     },
     more: {
       title: "Vade gelmeden önünüzde",
@@ -152,7 +165,7 @@ export const solutions: Solution[] = [
     faq: [
       {
         q: "Kahya fatura keser mi, bankama bağlanır mı?",
-        a: "Hayır. Kahya’da finans, cari bakiye takibidir: kimden alacaklı, kime borçlu olduğunuz. Fatura ve e-Fatura kesmez, bankanıza bağlanıp ekstre çekmez. Kasa ve banka ek hizmetiyle kasa, banka hesabı ve kredi kartı bakiyelerini Kahya’da kendiniz tutarsınız.",
+        a: "Hayır. Kahya’da finans, cari bakiye takibidir: kimden alacaklı, kime borçlu olduğunuz. Fatura ve e-Fatura kesmez, bankanıza bağlanıp ekstre çekmez. Kasa, banka hesabı ve kredi kartı bakiyeleri için Kasa ve banka ek hizmeti hazırlanıyor; henüz satışta değil.",
       },
       {
         q: "Muhasebe programımı bırakmam gerekir mi?",
@@ -205,7 +218,7 @@ export const extras: Extra[] = [
   {
     name: "Kasa ve banka",
     body: "Kasa, banka hesabı ve kredi kartı bakiyeleri; banka ekstresini yükleyip satırları cariye, masrafa ya da virmana işleme; hesaplar arası aktarım.",
-    plan: "Hiçbir pakete dahil değil; talep üzerine her pakete eklenir.",
+    plan: "Yakında. Henüz satışta değil; açıldığında haber almak isterseniz bize yazın.",
     href: "/guides/how-to-track-cash-and-bank",
   },
   {
@@ -305,6 +318,6 @@ export const promises: Point[] = [
   },
   {
     term: "Verinizin tamamını istediğiniz an dışarı alırsınız.",
-    text: "Ücretsiz pakete geçseniz de verileriniz durur. Hesabınızı kapatırsanız ya da 6 ay hiç kullanmazsanız, önceden haber vererek sileriz.",
+    text: "Ücretsiz pakete geçseniz de verileriniz durur. Hesabınızın silinmesini isteyip bize yazarsanız ya da 6 ay hiç kullanmazsanız, önceden haber vererek sileriz.",
   },
 ];

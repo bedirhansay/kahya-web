@@ -427,7 +427,7 @@ export const features: Feature[] = [
     summary: "Sorun, hazırlasın, siz onaylayın.",
     metaTitle: "Kahya AI: ofisiniz için yapay zekâ asistanı",
     metaDescription:
-      "Kahya AI kayıtlarınızı okuyup soruları yanıtlar, günün özetini çıkarır, fiş fotoğrafından kayıt ve tahsilat hatırlatması hazırlar. Hiçbir şeyi onayınız olmadan kaydetmez.",
+      "Kahya AI kayıtlarınızı okuyup soruları yanıtlar, günün özetini çıkarır, fişten kayıt taslağı hazırlar. Onayınız olmadan hiçbir şeyi kaydetmez.",
     title: "Söyleyin, Kahya hazırlasın, siz onaylayın",
     lead:
       "Kahya AI ofisinizin kayıtlarına bakarak yanıt verir ve iş hazırlar: görev, not, tahsilat, toplantı, e-posta taslağı. Her öneri bir kart olarak gelir. Siz Onayla demeden hiçbir şey kaydedilmez.",

@@ -12,7 +12,7 @@ export const metadata: Metadata = pageMetadata({
   path: "/training",
   title: "Eğitim videoları: Kahya nasıl kullanılır?",
   description:
-    "Kahya’yı modül modül anlatan 14 eğitim videosu: başlarken, cari, ödeme planları, görevler, e-posta, personel ve izinler, talepler, raporlar, ayarlar ve Kahya AI.",
+    "Kahya’yı modül modül anlatan 14 eğitim videosu: başlarken, cari, ödeme planları, görevler, e-posta, personel, talepler, raporlar ve Kahya AI.",
 });
 
 export default function TutorialsPage() {

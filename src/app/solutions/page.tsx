@@ -16,7 +16,7 @@ export const metadata: Metadata = pageMetadata({
   path: "/solutions",
   title: "Çözümler: ofis yönetimi, CRM, finans ve cari",
   description:
-    "Kahya üç çözümden oluşur: Ofis yönetimi, CRM (müşteri ilişkileri) ile Finans ve cari. E-posta, Stok, Teklif, Kahya AI ve Filo ihtiyacınız olduğunda eklenir. Kahya’nın ne yaptığı ve ne yapmadığı.",
+    "Kahya üç çözümden oluşur: Ofis yönetimi, CRM ile Finans ve cari. E-posta, Stok, Teklif, Filo ve Kahya AI gerektiğinde ek hizmet olarak açılır.",
 });
 
 const quote = (what: string) =>

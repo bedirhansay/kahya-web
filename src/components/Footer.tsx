@@ -60,7 +60,7 @@ export function Footer() {
         <div className="max-w-xs">
           <Logo />
           <p className="mt-5 text-[0.95rem] leading-relaxed">
-            İşletmenizin yönetim merkezi. Ekip, müşteri ve cari tek uygulamada.
+            Ofisinizin bütün parçaları, bir arada.
           </p>
           <Link
             href="/contact"
@@ -70,10 +70,12 @@ export function Footer() {
           </Link>
           <p className="mt-3 text-sm">{site.email}</p>
         </div>
-        {columns.map((col) => (
+        {columns.map((col, n) => (
           <div key={col.title}>
-            <h2 className="text-sm font-bold text-ink">{col.title}</h2>
-            <ul className="mt-4 space-y-2.5 text-[0.93rem]">
+            <p id={`footer-col-${n}`} className="text-sm font-bold text-ink">
+              {col.title}
+            </p>
+            <ul aria-labelledby={`footer-col-${n}`} className="mt-4 space-y-2.5 text-[0.93rem]">
               {col.links.map((l) => (
                 <li key={l.href}>
                   {l.href.startsWith("http") ? (

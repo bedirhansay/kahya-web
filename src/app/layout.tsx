@@ -31,7 +31,7 @@ const body = Instrument_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Kahya | Ofis Yönetim Programı: Cari, Görev, Personel ve İzin Takibi",
+    default: "Kahya | Ofis yönetim programı: cari, görev, personel ve izin takibi",
     template: "%s | Kahya",
   },
   description: site.description,

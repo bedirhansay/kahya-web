@@ -29,11 +29,11 @@ export const generalFaq = [
   },
   {
     q: "Verilerimi dışarı alabilir miyim?",
-    a: "Evet. Firma ayarlarından verinizin tamamını dışa aktarırsınız. Ücretsiz pakete geçseniz de verileriniz durur. Hesabınızı kapatırsanız ya da 6 ay hiç kullanmazsanız, önceden haber vererek sileriz.",
+    a: "Evet. Firma ayarlarından verinizin tamamını dışa aktarırsınız. Ücretsiz pakete geçseniz de verileriniz durur. Hesabınızın silinmesini isteyip bize yazarsanız ya da 6 ay hiç kullanmazsanız, önceden haber vererek sileriz.",
   },
   {
     q: "Yanlışlıkla sildiğim kaydı geri alabilir miyim?",
-    a: "Evet. Silinen kayıtlar bir süre Silinenler sayfasında bekler. Geri yükle ile eski yerine döner.",
+    a: "Evet. Silinen kayıtlar 30 gün Silinenler sayfasında bekler. Geri yükle ile eski yerine döner.",
   },
   {
     q: "Destek nasıl çalışır, ne kadar sürede dönersiniz?",

@@ -23,7 +23,7 @@ export const guides: Guide[] = [
     title: "Ofis yönetim programı nedir, nasıl seçilir?",
     metaTitle: "Ofis yönetim programı nedir? Seçerken bakılacak 7 şey",
     metaDescription:
-      "Ofis yönetim programı görevleri, müşteri ve tedarikçi carilerini, personel izinlerini ve onayları tek yerde toplar. Seçerken nelere bakılacağını sade bir dille anlattık.",
+      "Ofis yönetim programı görevleri, carileri, personel izinlerini ve onayları tek yerde toplar. Seçerken nelere bakılacağını sade bir dille anlattık.",
     answer:
       "Ofis yönetim programı, bir ofisin günlük işlerini tek uygulamada toplayan yazılımdır: kimin hangi işi yaptığı, müşteri ve tedarikçilerle alacak-borç durumu, personelin izni, onay bekleyen talepler ve belgeler. Amaç, bu bilgilerin Excel dosyalarına, mesaj gruplarına ve kâğıtlara dağılmasını önlemektir.",
     sections: [
@@ -58,7 +58,7 @@ export const guides: Guide[] = [
         heading: "Kahya bunları nasıl karşılıyor?",
         body: [
           "Kahya üç çözümden oluşur: Ofis yönetimi, CRM (müşteri ilişkileri) ile Finans ve cari. İhtiyacınız olanı açarsınız; menü yalnızca onları gösterir. Tarayıcıda çalışır, telefonda ana ekrana eklenir.",
-          "Kayıt olan her firma 30 gün Kurumsal paketi dener, süre bitince Ücretsiz pakete geçer ve verileri yerinde kalır. Kayıtlar Türkiye'deki sunucularda tutulur ve her gün yedeklenir.",
+          "Kayıt olan her firma 30 gün Kurumsal paketi dener, süre bitince Ücretsiz pakete geçer ve verileri yerinde kalır. Veriler her gün yedeklenir; silinen kayıt 30 gün içinde geri alınır.",
         ],
       },
     ],
@@ -142,7 +142,7 @@ export const guides: Guide[] = [
   {
     slug: "how-to-track-staff-leave",
     title: "Personel izin takibi nasıl yapılır?",
-    metaTitle: "Personel izin takibi nasıl yapılır? Yıllık izin hakları ve pratik yöntem",
+    metaTitle: "Personel izin takibi nasıl yapılır? Pratik bir yöntem",
     metaDescription:
       "Personel izin takibinde yıllık izin hakları, izin talebi ve onayı, kalan izin hesabı ve takvim. Küçük bir ofiste izin takibini düzenli tutmanın yolu.",
     answer:
@@ -201,7 +201,7 @@ export const guides: Guide[] = [
   {
     slug: "how-to-track-cash-and-bank",
     title: "Kasa ve banka takibi nasıl yapılır?",
-    metaTitle: "Kasa ve banka takibi nasıl yapılır? Kasa, banka hesabı ve kredi kartı",
+    metaTitle: "Kasa ve banka takibi nasıl yapılır? Hesap ve kart bakiyesi",
     metaDescription:
       "Kasa, banka hesabı ve kredi kartı bakiyelerini düzenli izlemenin yolu. Küçük bir ofiste paranın nerede durduğunu düzenli tutmak için pratik bir sıra.",
     answer:
@@ -228,21 +228,21 @@ export const guides: Guide[] = [
       {
         heading: "Kahya'da kasa ve banka",
         body: [
-          "Kahya'da Kasa ve banka ek hizmetiyle kasalarınızı, banka hesaplarınızı ve kredi kartlarınızı bakiyeleriyle tutarsınız. Hesap eklerken ad yeter; banka, şube, IBAN, kartın son 4 hanesi, limiti, hesap kesim ve son ödeme günü isteğe bağlıdır. Hesap TL, dolar ya da euro olarak açılır.",
-          "Hesabı eklerken açılış bakiyesini ve tarihini yazarsınız; kredi kartında açılıştaki kart borcunu. Kasa ve bankada bakiye, kartta kart borcu görünür; kartta kullanılabilir limit ve son ödeme günü de yazar. Kullanmadığınız hesabı pasife alırsınız; kaydı silinmez.",
+          "Kahya'da Kasa ve banka ek hizmeti hazırlanıyor; henüz satışta değil. Açıldığında kasalarınızı, banka hesaplarınızı ve kredi kartlarınızı bakiyeleriyle tutacaksınız. Hesap eklerken ad yetecek; banka, şube, IBAN, kartın son 4 hanesi, limiti, hesap kesim ve son ödeme günü isteğe bağlı. Hesap TL, dolar ya da euro olarak açılacak.",
+          "Hesabı eklerken açılış bakiyesini ve tarihini, kredi kartında açılıştaki kart borcunu yazacaksınız. Kasa ve bankada bakiye, kartta kart borcu, kullanılabilir limit ve son ödeme günü görünecek. Ek hizmet açılana kadar bu sıra Excel'de ya da defterde de aynı işler.",
         ],
       },
       {
         heading: "Kahya ne yapmaz?",
         body: [
-          "Kahya bankanıza bağlanmaz, hesap hareketlerini kendiliğinden çekmez ve fatura kesmez. Banka ekstresini dosyadan yükleyip satırları cariye işlemek ile çek ve senet takibi sonraki sürümlerde gelecek.",
+          "Kahya bankanıza bağlanmaz, hesap hareketlerini kendiliğinden çekmez ve fatura kesmez. Çek ve senet takibi sonraki sürümlerde gelecek.",
         ],
       },
     ],
     faq: [
       {
-        q: "Kasa ve banka her pakette var mı?",
-        a: "Hayır. Kasa ve banka ek hizmettir, hiçbir paketin içinde değildir ve deneme süresinde kapalıdır. Uygulamada Abonelik sayfasından talep edersiniz ya da bize yazarsınız.",
+        q: "Kasa ve banka Kahya'da var mı?",
+        a: "Henüz değil. Kasa ve banka yakında ek hizmet olarak açılacak; hiçbir paketin içinde olmayacak. Açıldığında haber almak isterseniz bize yazın.",
       },
       {
         q: "Kasa ve banka kayıtları resmî kaydın yerine geçer mi?",

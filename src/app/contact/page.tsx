@@ -102,7 +102,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="min-w-0 p-6 sm:p-9 lg:p-11">
+            <div className="min-w-0 p-6 max-lg:order-first sm:p-9 lg:p-11">
               <h2 className="font-display text-[1.7rem] font-bold leading-tight tracking-[-0.02em]">Mesaj gönderin</h2>
               <p className="mt-2 mb-7 text-[1.02rem] leading-relaxed text-muted">
                 Konuyu seçin, iki cümle yeter. Yanıt e-postanıza gelir.

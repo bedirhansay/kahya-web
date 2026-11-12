@@ -9,7 +9,7 @@ import { site } from "@/lib/site";
  */
 const TOPICS: Record<string, string> = {
   fiyat: "Fiyat teklifi",
-  demo: "Tanıtım",
+  demo: "Canlı tanıtım",
   aktarim: "Veri aktarımı",
   diger: "Diğer",
 };

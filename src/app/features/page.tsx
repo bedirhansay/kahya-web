@@ -15,7 +15,6 @@ import {
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { AddonList } from "@/components/AddonList";
 import { CasePanel, type CaseTone } from "@/components/CaseRow";
 import { CtaBand } from "@/components/CtaBand";
 import { PageHero } from "@/components/PageHero";
@@ -27,7 +26,7 @@ export const metadata: Metadata = pageMetadata({
   path: "/features",
   title: "Özellikler: cari, görev, e-posta, personel, onay",
   description:
-    "Kahya’nın tüm modülleri: cari ve bakiye takibi, ödeme planları, görevler ve takımlar, projeler, e-posta, personel ve izinler, talepler ve onaylar, dokümanlar, raporlar ve Kahya AI.",
+    "Kahya’nın modülleri: cari takibi, ödeme planları, görevler, projeler, e-posta, personel ve izin, talep ve onay, dokümanlar, raporlar ve Kahya AI.",
 });
 
 const toolIcons: Record<string, LucideIcon> = {
@@ -80,7 +79,7 @@ const tools = [
     "Şubeler",
     "Birden fazla ofisiniz varsa her şubenin kayıtları ayrı tutulur.",
   ],
-  ["Silinenler", "Silinen kayıt bir süre bekler, Geri yükle ile döner."],
+  ["Silinenler", "Silinen kayıt 30 gün bekler, Geri yükle ile döner."],
 ];
 
 const tones: CaseTone[] = ["pine", "sage", "cream", "mist"];
@@ -116,7 +115,6 @@ export default function FeaturesPage() {
                   <CasePanel
                     className="aspect-[2/1]"
                     tone={tones[i % tones.length]}
-                    no={String(i + 1).padStart(2, "0")}
                     priority={i < 2}
                     screen={{
                       src: f.screen.src,
@@ -138,17 +136,16 @@ export default function FeaturesPage() {
         </ul>
       </section>
       <section aria-labelledby="ek-hizmetler" className="bg-mist">
-        <div className="wrap py-12 md:py-16">
-          <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-end">
-            <h2 id="ek-hizmetler" className="title">
-              Ek hizmetler
-            </h2>
-            <p className="lead text-muted">
-              Hiçbir pakete baştan dahil değil; ihtiyacınız olunca talep
-              edersiniz, onaylanınca firmanızda açılır, kullanmayan görmez.
-            </p>
-          </div>
-          <AddonList className="mt-8" />
+        <div className="wrap flex flex-col gap-3 py-10 md:flex-row md:items-baseline md:justify-between md:gap-10">
+          <h2 id="ek-hizmetler" className="text-2xl font-bold tracking-[-0.02em]">
+            Ek hizmetler
+          </h2>
+          <p className="max-w-2xl leading-relaxed text-muted">
+            E-posta, Stok, Teklif, Filo ve Kahya AI gibi ek hizmetler ihtiyacınız olunca açılır.{" "}
+            <Link href="/solutions#ek-hizmetler" className="link">
+              Ek hizmetlerin hepsi
+            </Link>
+          </p>
         </div>
       </section>
 
@@ -180,7 +177,7 @@ export default function FeaturesPage() {
       <CtaBand
         tex
         title="Bir özellikle başlayın, gerisi yerinde"
-        body="Ücretsiz hesap açın; ilk 30 gün Kurumsal paket açık, E-posta ve Kahya AI ek hizmeti hariç. Nereden başlayacağınızı sorun."
+        body="Bu ekranları kendi carilerinizle görün: hesap açın, kayıtlarınızı Excel’den aktarın. Nereden başlayacağınızı sorun."
       />
     </>
   );

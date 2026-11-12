@@ -9,7 +9,7 @@ import { site } from "@/lib/site";
 
 const topics = [
   { key: "fiyat", label: "Fiyat teklifi" },
-  { key: "demo", label: "Tanıtım" },
+  { key: "demo", label: "Canlı tanıtım" },
   { key: "aktarim", label: "Veri aktarımı" },
   { key: "diger", label: "Diğer" },
 ] as const;
@@ -144,6 +144,11 @@ export function ContactForm({ konu, cozum }: { konu?: string | null; cozum?: str
             </button>
           ))}
         </div>
+        {topic === "demo" && (
+          <p className="mt-2 text-[0.95rem] leading-relaxed text-muted">
+            Size e-postayla uygun bir saat sorarız; görüntülü görüşmede Kahya’yı ofisinizin işine göre birlikte gezeriz.
+          </p>
+        )}
       </fieldset>
       <div className="grid gap-5 sm:grid-cols-2">
         <label className="block text-[0.98rem] font-medium text-ink/85">

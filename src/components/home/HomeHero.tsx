@@ -76,7 +76,7 @@ export function HomeHero({ slides }: { slides: HeroSlide[] }) {
       <div className="wrap grid gap-10 pb-12 pt-[104px] md:pt-[128px] lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-center lg:gap-14 lg:pb-16">
         <div className="home-in min-w-0">
           <h1 id="giris" className="sr-only">
-            Kahya: küçük ofisler için ön muhasebe ve iş takibi
+            Kahya: küçük ve orta ölçekli ofisler için ofis yönetim programı; cari, görev, personel ve müşteri takibi tek yerde
           </h1>
           <p className="text-[0.95rem] font-semibold text-brand">
             <span className="tabular-nums">{pad(i)}</span> / {s.tag}
@@ -102,7 +102,7 @@ export function HomeHero({ slides }: { slides: HeroSlide[] }) {
             ))}
           </div>
           <p className="lead mt-6 max-w-xl text-muted">
-            Cari, tahsilat, kasa ve banka, ekip ve müşteri tek yerde. Fatura ve beyanname muhasebe programınızda, müşavirinizde kalır.
+            Cari, tahsilat, ekip ve müşteri tek yerde; fatura ve beyanname muhasebe programınızda kalır. Kurulum yok, 30 gün Kurumsal paket, kart bilgisi istenmez.
           </p>
           <div className="mt-6 grid">
             {slides.map((x, n) => (
@@ -151,7 +151,7 @@ export function HomeHero({ slides }: { slides: HeroSlide[] }) {
             </Link>
           </div>
 
-          <div className="mt-6 flex flex-wrap gap-3 max-lg:hidden">
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <Buttons />
           </div>
           <Trust className="mt-8 max-lg:hidden" />
@@ -208,12 +208,7 @@ export function HomeHero({ slides }: { slides: HeroSlide[] }) {
           <figcaption className="mt-4 text-sm text-muted max-lg:text-center lg:mt-10">Uygulamanın kendi ekranları, örnek veriyle.</figcaption>
         </figure>
 
-        <div className="lg:hidden">
-          <div className="flex flex-col gap-3 sm:flex-row">
-            <Buttons />
-          </div>
-          <Trust className="mt-6" />
-        </div>
+        <Trust className="lg:hidden" />
       </div>
 
       <nav aria-label="Kahya'nın hazır geldiği sektörler" className="relative border-t border-line">

@@ -115,7 +115,7 @@ export const addons: Addon[] = [
     seo: {
       title: "Teklif ek hizmeti: linkle teklif, tek adımda satış",
       description:
-        "Kendi şablonunuzla teklif hazırlayın, bağlantı, WhatsApp ya da e-postayla gönderin. Müşteri giriş yapmadan açar ve kabul eder; kabul edilen teklif tek adımda satışa döner.",
+        "Kendi şablonunuzla teklif hazırlayın, link, WhatsApp ya da e-postayla gönderin. Müşteri giriş yapmadan açıp kabul eder, teklif tek adımda satışa döner.",
     },
     title: "Teklif linkle gider, kabul edilince satışa döner",
     lead: "Müşterinize ya da henüz cari olmayan bir adaya fiyat teklifi hazırlar, bağlantıyla gönderir ve kararını izlersiniz. Kabul edilen teklif tek adımda satışa dönüşür.",

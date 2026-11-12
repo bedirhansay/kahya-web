@@ -15,7 +15,7 @@ export const metadata: Metadata = pageMetadata({
   path: "/pricing",
   title: "Paketler ve fiyatlar",
   description:
-    "Kahya paketleri yan yana: Ücretsiz, Başlangıç, Ekip, Büyüyen ve Kurumsal. Kullanıcı sayısı, dosya alanı, modüller ve ek hizmetler. Fiyatı ekibinize ve ek hizmetlere göre veririz.",
+    "Kahya paketleri yan yana: Ücretsiz, Başlangıç, Ekip, Büyüyen, Kurumsal. Kullanıcı, dosya alanı, modüller ve ek hizmetler; fiyat talep üzerine.",
 });
 
 const quote = (what: string) => `/contact?konu=fiyat&cozum=${encodeURIComponent(what)}`;
