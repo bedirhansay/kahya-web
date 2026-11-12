@@ -1,4 +1,4 @@
-import { DatabaseBackup, Headset, RotateCcw, ShieldCheck, type LucideIcon } from "lucide-react";
+import { DatabaseBackup, Headset, KeyRound, MonitorSmartphone, RotateCcw, ShieldCheck, type LucideIcon } from "lucide-react";
 
 import { SectionHead } from "@/components/SectionHead";
 import { homeTrustLine, trust } from "@/content/solutions";
@@ -8,6 +8,8 @@ const icons: Record<string, LucideIcon> = {
   Silinenler: RotateCcw,
   "Destek erişimi": Headset,
   "Günlük yedek": DatabaseBackup,
+  "İki adımlı doğrulama": KeyRound,
+  Oturumlar: MonitorSmartphone,
 };
 
 /** "Verileriniz sizin, kontrol sizde": the trust facts (on /solutions), each with its sign in a brand tile. */

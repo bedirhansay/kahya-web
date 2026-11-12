@@ -265,6 +265,14 @@ export const trust = [
   { term: "Silinenler", text: "Silinen kayıt 30 gün Silinenler sayfasında bekler, Geri yükle ile döner." },
   { term: "Destek erişimi", text: "Destek ekibi hesabınıza yalnız siz izin verirseniz girer, giriş kayıt altına alınır." },
   { term: "Günlük yedek", text: "Veriler her gün yedeklenir." },
+  {
+    term: "İki adımlı doğrulama",
+    text: "İsteyen kullanıcı girişte şifresine ek olarak telefonundaki doğrulama uygulamasından bir kod girer.",
+  },
+  {
+    term: "Oturumlar",
+    text: "Hesabınızın açık olduğu cihazları görür, tanımadığınız cihazdan tek tıkla çıkış yaparsınız.",
+  },
 ];
 
 /** H13 §2 — one sentence under the trust facts (moved from the home with them, 2026-11-11). */

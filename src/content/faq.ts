@@ -24,12 +24,16 @@ export const generalFaq = [
     a: "Hazır roller vardır: İşletme sahibi, Ofis yöneticisi, Ekip yöneticisi ve Personel. Her modülde görüntüleme, oluşturma, güncelleme, silme ve onaylama yetkisi ayrı ayrı verilir. Kendi rolünüzü de oluşturabilirsiniz.",
   },
   {
+    q: "Hesabımı nasıl korurum?",
+    a: "Kayıttan sonra e-posta adresinize gelen 6 haneli kodla adresinizi doğrularsınız; doğrulayana kadar ekip daveti, toplu gönderim ve tam dışa aktarım kapalı kalır. Hesap güvenliği sayfasında iki adımlı doğrulamayı açabilir, hesabınızın açık olduğu cihazları görüp istemediğinizden çıkış yapabilirsiniz.",
+  },
+  {
     q: "Birden fazla şubem var, kullanabilir miyim?",
     a: "Evet. Çoklu şubeyi açtığınızda her ofisin kayıtları ayrı tutulur. Ekibi şubelere Kullanıcılar sayfasından atarsınız.",
   },
   {
     q: "Verilerimi dışarı alabilir miyim?",
-    a: "Evet. Firma ayarlarından verinizin tamamını dışa aktarırsınız. Ücretsiz pakete geçseniz de verileriniz durur. Hesabınızın silinmesini isteyip bize yazarsanız ya da 6 ay hiç kullanmazsanız, önceden haber vererek sileriz.",
+    a: "Evet. E-postanız doğrulandıktan sonra Firma ayarlarından verinizin tamamını dışa aktarırsınız. Ücretsiz pakete geçseniz de verileriniz durur. Hesabınızın silinmesini isteyip bize yazarsanız ya da 6 ay hiç kullanmazsanız, önceden haber vererek sileriz.",
   },
   {
     q: "Yanlışlıkla sildiğim kaydı geri alabilir miyim?",
