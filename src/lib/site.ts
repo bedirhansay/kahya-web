@@ -2,24 +2,24 @@
  * Company and product facts the site relies on. Prices are not published: solutions and
  * add-ons are quoted on request (src/content/solutions.ts).
  */
-// The web app lives on its own subdomain; this site is kahya.bihesap.co.
-export const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "https://kahyaapp.bihesap.co";
+// The web app lives on its own subdomain; this site is kahya.sayos.com.tr.
+export const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "https://kahyaapp.sayos.com.tr";
 
 export const site = {
   name: "Kahya",
-  fullName: "Kahya by biHesap",
+  fullName: "Kahya by Sayos",
   tagline: "Ofisinizin bütün parçaları, bir arada.",
   description:
     "Kahya; cari, görev, personel, izin, talep ve onayları tek yerde toplayan web tabanlı ofis yönetim programı. Küçük ve orta ölçekli ofisler için.",
   // The marketing site's own address. Set NEXT_PUBLIC_SITE_URL in each environment.
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://kahya.bihesap.co",
-  email: "info@bihesap.co",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://kahya.sayos.com.tr",
+  email: "info@sayos.com.tr",
   // WhatsApp Business number, digits only with the country code (905xxxxxxxxx); the chat button shows once it is set.
   whatsapp: process.env.NEXT_PUBLIC_WHATSAPP ?? "",
   // The contact form posts to the site's own endpoint (src/app/api/contact), which mails support through Resend.
   contactApi: "/api/contact",
-  company: "biHesap",
-  companyUrl: "https://bihesap.co",
+  company: "Sayos",
+  companyUrl: "https://sayos.com.tr",
   city: "Bolu",
   app: {
     url: appUrl,

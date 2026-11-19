@@ -31,7 +31,7 @@ export async function ogImage({ title, kicker }: { title: string; kicker: string
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={`data:image/svg+xml;base64,${mark}`} width={64} height={64} alt="" />
           <div style={{ fontSize: 40, fontWeight: 800, letterSpacing: -1 }}>Kahya</div>
-          <div style={{ fontSize: 24, fontWeight: 600, color: "rgba(248,246,239,0.55)", marginTop: 8 }}>by biHesap</div>
+          <div style={{ fontSize: 24, fontWeight: 600, color: "rgba(248,246,239,0.55)", marginTop: 8 }}>by Sayos</div>
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 22 }}>
           <div style={{ fontSize: 28, fontWeight: 600, color: "#e3b261" }}>{kicker}</div>

@@ -1,11 +1,11 @@
 /** H14 §1 (owner decision 2026-11-11): support hours and response times; also in llms.txt. */
 export const supportAnswer =
-  "Sorununuzu uygulamada Destek › Yeni talep ile yazarsınız; her talebin bir numarası olur ve yanıtımız aynı yerde görünür. Hafta içi 09.00–18.00 (İstanbul) arasında çalışırız, resmî tatillerde çalışmayız. İlk yanıtı en geç 1 iş günü içinde veririz, sorunu 3 iş günü içinde çözmeyi hedefleriz; daha uzun sürecekse talebe yazarız. Giriş yapamıyorsanız ya da verileriniz kaybolduysa info@bihesap.co adresine firma adınızla yazın: acil durumlara 1 iş saati içinde döneriz, 1 iş günü içinde çözmeyi hedefleriz. Yeni özellik önerilerine 3 iş günü içinde yanıt veririz. Destek her pakette aynıdır.";
+  "Sorununuzu uygulamada Destek › Yeni talep ile yazarsınız; her talebin bir numarası olur ve yanıtımız aynı yerde görünür. Hafta içi 09.00–18.00 (İstanbul) arasında çalışırız, resmî tatillerde çalışmayız. İlk yanıtı en geç 1 iş günü içinde veririz, sorunu 3 iş günü içinde çözmeyi hedefleriz; daha uzun sürecekse talebe yazarız. Giriş yapamıyorsanız ya da verileriniz kaybolduysa info@sayos.com.tr adresine firma adınızla yazın: acil durumlara 1 iş saati içinde döneriz, 1 iş günü içinde çözmeyi hedefleriz. Yeni özellik önerilerine 3 iş günü içinde yanıt veririz. Destek her pakette aynıdır.";
 
 export const generalFaq = [
   {
     q: "Kahya nedir?",
-    a: "Kahya, küçük ve orta ölçekli ofisler için web tabanlı bir ofis yönetim yazılımıdır. Cari bakiyeleri, ödeme planlarını, görevleri ve projeleri, e-postayı, personel ve izinleri, talep ve onayları, dokümanları ve raporları tek yerde toplar. biHesap’ın ürünüdür.",
+    a: "Kahya, küçük ve orta ölçekli ofisler için web tabanlı bir ofis yönetim yazılımıdır. Cari bakiyeleri, ödeme planlarını, görevleri ve projeleri, e-postayı, personel ve izinleri, talep ve onayları, dokümanları ve raporları tek yerde toplar. Sayos’un ürünüdür.",
   },
   {
     q: "Kahya hangi çözümlerden oluşur?",

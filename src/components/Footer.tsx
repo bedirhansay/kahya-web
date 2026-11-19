@@ -98,7 +98,7 @@ export function Footer() {
           <p>
             Kahya, bir{" "}
             <a href={site.companyUrl} className="font-semibold text-ink hover:text-brass">
-              biHesap
+              Sayos
             </a>{" "}
             ürünüdür.
           </p>
