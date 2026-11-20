@@ -1,6 +1,6 @@
 /**
  * The packages side by side, without prices (prices are quoted on request). From the live plan catalogue
- * (plans + plan_features + addons, 2026-11-07, via kahya-backend); change it only when the catalogue changes.
+ * (plans + plan_features + addons, 2026-11-20, via kahya-backend); change it only when the catalogue changes.
  */
 export const planNames = ["Ücretsiz", "Başlangıç", "Ekip", "Büyüyen", "Kurumsal"] as const;
 
@@ -20,6 +20,13 @@ export const planRows: { label: string; hint?: string; href?: string; cells: [Pl
   { label: "Müşteri görüşmeleri (CRM)", cells: [false, true, true, true, true] },
   { label: "Personel, izin ve puantaj", cells: [false, true, true, true, true] },
   { label: "Ödeme planları ve vadeler", cells: [false, true, true, true, true] },
+  {
+    label: "Kasa ve banka",
+    hint: "Kasa, banka hesabı ve kredi kartı",
+    href: "/guides/how-to-track-cash-and-bank",
+    cells: [false, true, true, true, true],
+  },
+  { label: "Abonelikler", hint: "Kira, yazılım, hat ve sigorta yenilemeleri", cells: [false, true, true, true, true] },
   { label: "Dokümanlar, sözleşmeler, demirbaş", cells: [false, true, true, true, true] },
   { label: "Excel ve PDF'e aktarma", cells: [false, true, true, true, true] },
   { label: "Gelişmiş raporlar", cells: [false, true, true, true, true] },
@@ -28,12 +35,6 @@ export const planRows: { label: string; hint?: string; href?: string; cells: [Pl
   { label: "Teklif", cells: [false, "ek", "ek", "ek", true] },
   { label: "Filo", cells: [false, "ek", "ek", "ek", "ek"] },
   { label: "E-posta", hint: "Kendi e-posta kutunuz", cells: [false, "ek", "ek", "ek", "ek"] },
-  {
-    label: "Kasa ve banka",
-    hint: "Kasa, banka hesabı ve kredi kartı",
-    href: "/guides/how-to-track-cash-and-bank",
-    cells: ["ek", "ek", "ek", "ek", "ek"],
-  },
   { label: "Müşteri portalı", hint: "Müşteriniz kendi hesabını görür", cells: [false, "ek", "ek", "ek", "ek"] },
   {
     label: "Eğitim",

@@ -232,7 +232,7 @@ export const guides: Guide[] = [
       {
         heading: "Kahya'da kasa ve banka",
         body: [
-          "Kahya'da Kasa ve banka ek hizmetiyle kasalarınızı, banka hesaplarınızı ve kredi kartlarınızı bakiyeleriyle tutarsınız. Hesap eklerken ad yeter; banka, şube, IBAN, kartın son 4 hanesi, limiti, hesap kesim ve son ödeme günü isteğe bağlı. Hesap TL, dolar ya da euro olarak açılır.",
+          "Kahya'da Kasa ve banka bölümüyle kasalarınızı, banka hesaplarınızı ve kredi kartlarınızı bakiyeleriyle tutarsınız. Hesap eklerken ad yeter; banka, şube, IBAN, kartın son 4 hanesi, limiti, hesap kesim ve son ödeme günü isteğe bağlı. Hesap TL, dolar ya da euro olarak açılır.",
           "Hesabı eklerken açılış bakiyesini ve tarihini, kredi kartında açılıştaki kart borcunu yazarsınız. Kasa ve bankada bakiye, kartta kart borcu, kullanılabilir limit ve son ödeme günü görünür.",
         ],
       },
@@ -246,7 +246,7 @@ export const guides: Guide[] = [
     faq: [
       {
         q: "Kasa ve banka Kahya'da var mı?",
-        a: "Evet, ek hizmet olarak. Kasa ve banka hiçbir paketin içinde değil; Ücretsiz dahil her pakete ayrıca eklenir.",
+        a: "Evet. Kasa ve banka ücretli paketlerin hepsinde dahildir; Ücretsiz pakette yoktur. Yalnız cari takibi yapıyorsanız Ayarlar › Modüller’den kapatırsınız.",
       },
       {
         q: "Kasa ve banka kayıtları resmî kaydın yerine geçer mi?",

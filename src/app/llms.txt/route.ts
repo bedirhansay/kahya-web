@@ -15,7 +15,7 @@ export function GET() {
     "",
     `> ${site.description}`,
     "",
-    "Kahya bir ofis yönetim yazılımıdır, muhasebe programı değildir. Finans tarafı cari bakiye takibidir. Kasa, banka hesabı ve kredi kartı bakiyeleri Kasa ve banka ek hizmetiyle tutulur. Müşteri portalı ek hizmetiyle müşteri kendi hesabını, belgelerini ve duyuruları görür; Eğitim ek hizmeti kurslar için öğrenci, ders programı ve yoklama tutar. Fatura kesmez ve bankaya canlı bağlanmaz. Tarayıcıda çalışır, telefonda ana ekrana eklenebilir. Kayıttan sonra e-posta doğrulanır; iki adımlı doğrulama isteğe bağlıdır ve kullanıcı açık oturumlarını görüp kapatabilir.",
+    "Kahya bir ofis yönetim yazılımıdır, muhasebe programı değildir. Finans tarafı cari bakiye takibidir. Kasa, banka hesabı ve kredi kartı bakiyeleri ücretli paketlerdeki Kasa ve banka bölümünde tutulur. Müşteri portalı ek hizmetiyle müşteri kendi hesabını, belgelerini ve duyuruları görür; Eğitim ek hizmeti kurslar için öğrenci, ders programı ve yoklama tutar. Fatura kesmez ve bankaya canlı bağlanmaz. Tarayıcıda çalışır, telefonda ana ekrana eklenebilir. Kayıttan sonra e-posta doğrulanır; iki adımlı doğrulama isteğe bağlıdır ve kullanıcı açık oturumlarını görüp kapatabilir.",
     "",
     "## Özellikler",
     ...features.map((f) => `- [${f.name}](${absoluteUrl(`/features/${f.slug}`)}): ${f.metaDescription}`),

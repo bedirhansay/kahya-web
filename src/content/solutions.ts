@@ -144,6 +144,7 @@ export const solutions: Solution[] = [
       { term: "Cari", text: "bakiye ve hesap ekstresi her müşteri ve tedarikçide." },
       { term: "Tahsilat", text: "anında kayıtta, bakiyeye hemen yansır." },
       { term: "Taksit", text: "ödeme planıyla vadeler takipte." },
+      { term: "Kasa ve banka", text: "paranın hangi kasada, hangi hesapta durduğu; istemeyen kapatır." },
       { term: "Ana Sayfa", text: "para kartları ve vadesi geçenler." },
     ],
     seo: {
@@ -157,6 +158,7 @@ export const solutions: Solution[] = [
       lead: "Taksitli anlaşmayı bir kez kurarsınız, taksitler tek seferde oluşur. Vadesi gelen ödeme Ana Sayfa’ya düşer.",
       points: [
         { term: "Ödeme planları", text: "taksit, kira ve aidat vadesinde hatırlatılır." },
+        { term: "Abonelikler", text: "kira, yazılım, hat ve sigortanın yenileme ve iptal günü önceden haber verilir." },
         { term: "Ekstre", text: "WhatsApp, e-posta, link, PDF ya da Excel olarak paylaşılır." },
         { term: "Mali müşavir paketi", text: "ayın hareketleri ve ekstreler tek dosyada." },
       ],
@@ -165,7 +167,7 @@ export const solutions: Solution[] = [
     faq: [
       {
         q: "Kahya fatura keser mi, bankama bağlanır mı?",
-        a: "Hayır. Kahya’da finans, cari bakiye takibidir: kimden alacaklı, kime borçlu olduğunuz. Fatura ve e-Fatura kesmez, bankanıza bağlanıp ekstre çekmez. Kasa, banka hesabı ve kredi kartı bakiyelerini Kasa ve banka ek hizmetiyle tutarsınız.",
+        a: "Hayır. Kahya’da finans, cari bakiye takibidir: kimden alacaklı, kime borçlu olduğunuz. Fatura ve e-Fatura kesmez, bankanıza bağlanıp ekstre çekmez. Kasa, banka hesabı ve kredi kartı bakiyelerini ücretli paketlerdeki Kasa ve banka bölümünde tutarsınız; yalnız cari takibi yapıyorsanız bölümü kapatırsınız.",
       },
       {
         q: "Muhasebe programımı bırakmam gerekir mi?",
@@ -215,12 +217,6 @@ export const extras: Extra[] = [
     body: "Sorun, Kahya kendi verinizden yanıtlasın. Görev ve kayıt taslağı hazırlar, siz onaylamadan hiçbir şey kaydedilmez.",
     plan: "Her firmada ayda 100 soru ücretsiz; daha fazlası ek hizmetle.",
     href: "/solutions/kahya-ai",
-  },
-  {
-    name: "Kasa ve banka",
-    body: "Kasa, banka hesabı ve kredi kartı bakiyeleri; banka ekstresini yükleyip satırları cariye, masrafa ya da virmana işleme; hesaplar arası aktarım.",
-    plan: "Ücretsiz dahil her pakete ek hizmet olarak eklenir.",
-    href: "/guides/how-to-track-cash-and-bank",
   },
   {
     name: "Filo",
@@ -315,7 +311,7 @@ export const vsAccounting: readonly (readonly [string, string, string])[] = [
     "Ürüne göre",
   ],
   ["Telefonda uygulama gibi kullanım", "Var (ana ekrana eklenir, bildirim gelir)", "Ürüne göre"],
-  ["Kasa, banka ve kredi kartı bakiyesi", "Ek hizmet: hesaplar elle açılır, banka ekstresi dosya olarak yüklenip işlenir", "Var"],
+  ["Kasa, banka ve kredi kartı bakiyesi", "Var (ücretli paketlerde): hesaplar elle açılır, banka ekstresi dosya olarak yüklenip işlenir", "Var"],
   ["Bankaya canlı bağlantı", "Yok", "Ürüne göre"],
   ["Fatura, e-Fatura, e-Arşiv", "Yok. Faturanız muhasebe programınızda ya da müşavirinizde kalır", "Var"],
   ["Resmî muhasebe kaydı", "Yok. Ayın hareketleri müşavirinize tek pakette gider", "Ürüne göre"],
