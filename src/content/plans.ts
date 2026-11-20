@@ -34,5 +34,12 @@ export const planRows: { label: string; hint?: string; href?: string; cells: [Pl
     href: "/guides/how-to-track-cash-and-bank",
     cells: ["ek", "ek", "ek", "ek", "ek"],
   },
+  { label: "Müşteri portalı", hint: "Müşteriniz kendi hesabını görür", cells: [false, "ek", "ek", "ek", "ek"] },
+  {
+    label: "Eğitim",
+    hint: "Öğrenci, ders programı, yoklama",
+    href: "/sectors/education-and-courses",
+    cells: [false, "ek", "ek", "ek", "ek"],
+  },
   { label: "Öncelikli destek", cells: [false, false, false, false, true] },
 ];
