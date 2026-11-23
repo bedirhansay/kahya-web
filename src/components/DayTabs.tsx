@@ -48,7 +48,7 @@ export function DayTabs({ moments, phones }: { moments: DayMoment[]; phones: Day
               onClick={() => (setActive(x.key), x.phone !== undefined && setFront(x.phone))}
               className={cn(
                 "relative flex w-full items-start gap-4 rounded-xl px-3 py-3.5 text-left transition-colors duration-300",
-                on ? "text-ink" : "text-ink/55 hover:text-ink/85",
+                on ? "text-ink" : "text-ink/75 hover:text-ink",
               )}
             >
               <span

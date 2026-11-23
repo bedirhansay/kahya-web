@@ -638,15 +638,21 @@ body {
     translate: 0 12px;
   }
 }
+/* the text column only rises: it stays opaque so the LCP paragraph paints on the first frame */
+@keyframes home-rise {
+  from {
+    translate: 0 12px;
+  }
+}
 @media (prefers-reduced-motion: no-preference) {
   main > section.hero-tint > .wrap {
     animation: sm-fade 0.3s ease-out both;
   }
   .home-hero .home-in {
-    animation: home-in 0.36s ease-out both;
+    animation: home-rise 0.36s ease-out both;
   }
   .home-hero figure.home-in {
-    animation-delay: 0.08s;
+    animation: home-in 0.36s ease-out 0.08s both;
   }
   /* a tap on "Tümünü gör" answers with the folded rows rising in */
   .reveal-in {
