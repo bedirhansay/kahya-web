@@ -117,7 +117,7 @@ export const features: Feature[] = [
   },
   {
     slug: "payment-plans",
-    name: "Ödeme planları ve vadeler",
+    name: "Tahsilat ve ödeme planları",
     summary: "Taksit, kira ve aidat vadesinde hatırlatılır.",
     metaTitle: "Vade ve taksit takibi, ödeme planı",
     metaDescription:

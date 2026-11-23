@@ -157,8 +157,8 @@ export const solutions: Solution[] = [
       title: "Vade gelmeden önünüzde",
       lead: "Taksitli anlaşmayı bir kez kurarsınız, taksitler tek seferde oluşur. Vadesi gelen ödeme Ana Sayfa’ya düşer.",
       points: [
-        { term: "Ödeme planları", text: "taksit, kira ve aidat vadesinde hatırlatılır." },
-        { term: "Abonelikler", text: "kira, yazılım, hat ve sigortanın yenileme ve iptal günü önceden haber verilir." },
+        { term: "Tahsilat ve ödeme planları", text: "taksit, kira, aidat ve abonelik vadesinde hatırlatılır." },
+        { term: "Yenileme takibi", text: "sözleşmeli ödemelerde yenileme ve iptal günü önceden haber verilir." },
         { term: "Ekstre", text: "WhatsApp, e-posta, link, PDF ya da Excel olarak paylaşılır." },
         { term: "Mali müşavir paketi", text: "ayın hareketleri ve ekstreler tek dosyada." },
       ],
