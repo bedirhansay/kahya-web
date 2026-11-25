@@ -80,9 +80,9 @@ export const addons: Addon[] = [
     slug: "inventory",
     name: "Stok",
     seo: {
-      title: "Stok ek hizmeti: ürün, depo ve stok hareketleri",
+      title: "Stok ek hizmeti: barkod, depo sayımı ve stok raporları",
       description:
-        "Ürünler ve depolar tek listede. Satış ve alışta seçilen ürünün miktarı kendiliğinden düşer ya da eklenir; kritik seviyeye inen ürün işaretlenir.",
+        "Ürünü barkodla bulun, depoyu tek oturumda sayın. Satış ve alışta miktar kendiliğinden düşer ya da eklenir; stok kaç gün yeter ve atıl stok raporları hazır.",
     },
     title: "Satış girildikçe stok kendiliğinden düşer",
     lead: "Sattığınız ve aldığınız ürünlerin depodaki miktarını tutar. Satış ve alışta ürün seçtiğinizde miktar kendiliğinden düşer ya da eklenir; elle giriş, çıkış, sayım ve transfer de yapılır.",
@@ -96,11 +96,16 @@ export const addons: Addon[] = [
       { term: "Ürünler ve hizmetler", text: "Üründe stok tutulur, hizmette tutulmaz; ikisi de satışta satır olarak seçilir." },
       { term: "Depolar", text: "Her ürünün toplam miktarı ve depo depo dağılımı. Varsayılan depo önce önerilir." },
       { term: "Kritik seviye", text: "Kartta girilen seviyeye inen ürün Kritik filtresinde görünür." },
-      { term: "Giriş, çıkış, sayım, transfer", text: "Elle düzeltmeler. Sayımda fark tek bir sayım hareketi olarak yazılır." },
+      { term: "Barkod", text: "Kartta barkod tutulur; barkodla aradığınızda o ürün ilk sırada gelir. Excel’de Barkod sütunuyla içe ve dışa aktarılır." },
+      { term: "Depo sayımı", text: "Bir depoyu tek sayım oturumunda sayarsınız: sayılanla sistemdeki miktarın farkını, fazla ve eksik kalemleri görür, onaylayınca stoğu düzeltirsiniz." },
+      { term: "Son alış maliyeti", text: "Ürünün en son tedarikçi alışındaki birim fiyatı ve tarihi; yalnız yetkisi olan görür." },
+      { term: "Stok kaç gün yeter", text: "Seçtiğiniz dönemdeki satışlara göre her ürünün kaç gün yeteceği; en önce bitecek olan en üstte." },
+      { term: "Atıl stok", text: "Belirli bir süredir satılmayan ürünler, depoda bağlı kalan değeriyle; değeri yalnız yetkisi olan görür." },
+      { term: "Giriş, çıkış, transfer", text: "Elle düzeltmeler ve depolar arası transfer; her biri stok geçmişine yazılır." },
       { term: "Stok geçmişi", text: "Ürünün tüm hareketleri; satış ve alış satırları ilgili harekete bağlanır." },
       { term: "Ürün talebi", text: "Çalışan Talepler’den ürün ister; onaydan sonra teslim edilince stok düşer." },
     ],
-    open: [request, "Ayarlar › Modüller’den Stok’u açın, depolarınızı ekleyin.", "Ürünlerinizi tek tek girin ya da Excel’den içe aktarın."],
+    open: [request, "Ayarlar › Modüller’den Stok’u açın, depolarınızı ekleyin.", "Ürünlerinizi barkodlarıyla tek tek girin ya da Excel’den içe aktarın."],
     faq: [
       {
         q: "Depoda yeterli ürün yoksa ne olur?",
@@ -111,8 +116,8 @@ export const addons: Addon[] = [
         a: "Silinen satışın ürünleri depoya geri girer; satışı Silinenler’den geri yüklerseniz yeniden düşer. Geçmişte iki kayıt da görünür.",
       },
       {
-        q: "Alış fiyatını herkes görür mü?",
-        a: "Hayır. Alış fiyatını görme yetkisi rollerde ayrı verilir.",
+        q: "Alış fiyatını ve stok değerini herkes görür mü?",
+        a: "Hayır. Alış fiyatını, son alış maliyetini ve atıl stok değerini görme yetkisi rollerde ayrı verilir.",
       },
     ],
     cta: { title: "Ürün listenizle başlayalım", body: "Excel’deki ürün listenizi gönderin, içe aktarmayı birlikte yapalım." },
