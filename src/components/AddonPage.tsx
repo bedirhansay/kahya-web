@@ -104,7 +104,12 @@ export function AddonPage({ a }: { a: Addon }) {
         </div>
       </section>
 
-      <CtaBand tex title={a.cta.title} body={a.cta.body} />
+      <CtaBand
+        tex
+        title={a.cta.title}
+        body={a.cta.body}
+        request={a.requestOnly ? { href: quote(a.name), label: `${a.name} için talep edin` } : undefined}
+      />
     </>
   );
 }

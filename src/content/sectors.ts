@@ -286,15 +286,15 @@ export const sectors: Sector[] = [
     ],
     addons: ["Filo", "Stok"],
     mock: "project",
-    notDone: ["Hakediş ve metraj hesabı", "Şantiye günlük raporu", "Fatura ve e-Fatura"],
+    notDone: ["Metraj ve iş ilerlemesine göre ödeme hesabı", "Şantiye günlük raporu", "Fatura ve e-Fatura"],
     faq: [
       {
         q: "Taşeron ödemelerini nasıl takip ederim?",
         a: "Taşeronu tedarikçi carisi olarak açarsınız. Ödemeleri ödeme planıyla tanımlarsınız, vadesi gelen ödeme Ana Sayfa’da görünür.",
       },
       {
-        q: "Hakediş hesabı yapar mı?",
-        a: "Hayır. Kahya’da hakediş ve metraj hesabı yoktur. Anlaşılan tutarları ödeme planıyla ve cari bakiyesiyle takip edersiniz.",
+        q: "Metraja göre ödeme hesaplar mı?",
+        a: "Hayır. Kahya metraj ve iş ilerlemesine göre ödeme hesaplamaz. Anlaşılan tutarları ödeme planıyla ve cari bakiyesiyle takip edersiniz.",
       },
     ],
   },

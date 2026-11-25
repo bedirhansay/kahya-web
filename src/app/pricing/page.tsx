@@ -56,8 +56,8 @@ export default function PricingPage() {
           <PlanTable />
           <div className="mt-5 grid gap-2 text-sm leading-relaxed text-muted md:grid-cols-2 md:gap-10">
             <p>
-              Ücretli paketlerin hepsinde üç çözüm de açılır. Hesabınızı açtıktan sonra uygulamadaki Abonelik sayfasından
-              da talep edebilirsiniz.
+              Ücretli paketlerin hepsinde üç çözüm de açılır. Hesabınızı açtıktan sonra uygulamada Ayarlar › Paket’ten
+              de talep edebilirsiniz.
             </p>
             <p>
               Tabloda olmayan iki ek hizmet: <span className="font-semibold text-ink">Kahya AI</span> (her firmada ayda 100

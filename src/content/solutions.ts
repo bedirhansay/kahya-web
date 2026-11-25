@@ -258,7 +258,7 @@ export const services: Omit<Extra, "plan">[] = [
 export const notIncluded = [
   "Fatura, e-Fatura ve resmî muhasebe kaydı",
   "Banka bağlantısı (otomatik ekstre çekme)",
-  "Toplu SMS / kampanya gönderimi",
+  "Toplu SMS gönderimi",
   "Satış hunisi ve fırsat yönetimi",
   "Online ödeme ve kartla satın alma",
   "Başka programlarla entegrasyon",

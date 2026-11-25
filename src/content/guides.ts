@@ -237,9 +237,16 @@ export const guides: Guide[] = [
         ],
       },
       {
+        heading: "Çek ve senet",
+        body: [
+          "Alınan ve verilen çek ile senetleri aynı bölümde, Çek ve senet sekmesinde tutarsınız. Kaydı eklerken cari hareketi de birlikte işlenir; çek portföyde, tahsilde, verilen ya da kapanan olarak izlenir.",
+          "Tahsil edilen çek seçtiğiniz kasaya ya da banka hesabına girer, ödenen verilen çek seçtiğiniz hesaptan çıkar. Alınan çeki bir tedarikçiye ciro edebilirsiniz. Karşılıksız çıkan ya da iade edilen çekte cari hareketi geri alınır; müşteri yeniden borçlu görünür. Vadesi yaklaşan ve gelen çek için bildirim gelir.",
+        ],
+      },
+      {
         heading: "Kahya ne yapmaz?",
         body: [
-          "Kahya bankanıza bağlanmaz, hesap hareketlerini kendiliğinden çekmez ve fatura kesmez. Çek ve senet takibi sonraki sürümlerde gelecek.",
+          "Kahya bankanıza bağlanmaz, hesap hareketlerini kendiliğinden çekmez ve fatura kesmez.",
         ],
       },
     ],
@@ -254,7 +261,7 @@ export const guides: Guide[] = [
       },
     ],
     related: ["accounts", "payment-plans", "reports"],
-    updated: "2026-11-12",
+    updated: "2026-11-25",
   },
 ];
 

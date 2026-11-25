@@ -23,10 +23,15 @@ export type Addon = {
   /** The feature page that explains the add-on in depth, when there is one. */
   more?: { href: string; label: string };
   cta: { title: string; body: string };
+  /**
+   * Opened only on request, not in the 30-day trial (Eğitim, 2026-11-25): the closing call asks for it instead of
+   * "Ücretsiz başlayın", which would open an account without it. Off again once the add-on is on sale.
+   */
+  requestOnly?: boolean;
 };
 
 const request =
-  "Uygulamada Abonelik sayfasından talep edin ya da bize yazın. Ödeme gelince ek hizmet firmanızda açılır.";
+  "Uygulamada Ayarlar › Modüller’den talep edin ya da bize yazın. Ödeme gelince ek hizmet firmanızda açılır.";
 
 export const addons: Addon[] = [
   {
@@ -51,6 +56,7 @@ export const addons: Addon[] = [
       { term: "E-postadan göreve", text: "Göreve çevir ile başlık e-postadan gelir; sorumlu, proje ve tarih siz verirsiniz." },
       { term: "Birden fazla hesap", text: "Firma e-postanızı, Gmail ya da iCloud hesabınızı ekleyebilirsiniz. Kutularınızı yalnız siz görürsünüz." },
       { term: "İmza, şablon, kurallar", text: "İmzalar, şablonlar, tekrarlı gönderimler ve kurallar E-posta ayarlarında." },
+      { term: "Toplu gönderim", text: "Firma e-posta hesabınızdan kampanya gönderirsiniz; abonelikten çıkanlar listesi kendiliğinden tutulur." },
     ],
     open: [request, "Ayarlar › E-posta › Hesaplarım’dan hesabınızı ekleyin (IMAP ve SMTP bilgileriyle).", "Gelen kutunuz birkaç dakika içinde dolmaya başlar."],
     faq: [
@@ -178,7 +184,7 @@ export const addons: Addon[] = [
     open: [
       "Her firmada ayda 100 soru ücretsizdir; denemek için bir şey açmanız gerekmez.",
       "Firma yöneticisi veri işleme koşullarını onaylar; yetkisi olan kullanıcılar kullanmaya başlar.",
-      "Daha fazla soru için Abonelik sayfasından Kahya AI ek hizmetini talep edin.",
+      "Daha fazla soru için Ayarlar › Modüller’den Kahya AI ek hizmetini talep edin.",
     ],
     faq: [
       {
@@ -302,7 +308,7 @@ export const addons: Addon[] = [
     ],
     open: [
       request,
-      "Ayarlar › Müşteri portalı’ndan müşterinin göreceği bölümleri seçin.",
+      "Ayarlar › Portal’dan müşterinin göreceği bölümleri seçin.",
       "Cari kartında Portala davet et ile müşterinize giriş bağlantısını gönderin.",
     ],
     faq: [
@@ -343,14 +349,16 @@ export const addons: Addon[] = [
       { term: "Sınıflar ve program", text: "Sınıflar, öğretmenleri ve haftalık ders programı; çakışan ders satırda uyarılır." },
       { term: "Yoklama", text: "Öğretmen bugünkü dersini açar, herkes Geldi gelir; gelmeyene dokunur, kaydeder." },
       { term: "Sınav, ödev, karne", text: "Sonuçlar ve ödevler girilir; veli yalnız sizin yayınladığınızı görür." },
-      { term: "Veli mesajları", text: "Veli öğretmene portaldan yazar; yazışma öğrenciye bağlı kalır, öğrenci kartından açılır." },
+      { term: "Etkinlikler", text: "Gezi ya da gösteriyi sınıfa veya öğrenciye açarsınız; veli portaldan Geliyor ya da Gelmiyor der; ücretliyse Borç yaz ile gelenlerin carisine borç işlenir." },
+      { term: "Duyurular", text: "Duyuruyu bütün velilere ya da seçtiğiniz sınıflara yayınlarsınız; kimin okuduğunu görürsünüz." },
+      { term: "Mesajlar", text: "Veli öğretmene portaldan yazar; yazışma öğrenciye bağlı kalır, öğrenci kartından açılır." },
       { term: "Taksitler", text: "Kayıt ücreti öğrenciye bağlı ödeme planıdır; tahsilat cari bakiyesine işlenir." },
       { term: "Öğretmen rolü", text: "Öğretmen yalnız atandığı sınıfların öğrencilerini görür; velinin bakiyesini, ekstresini ve taksitlerini görmez." },
     ],
     open: [
       request,
       "Dönemi, sınıflarınızı ve öğretmenlerinizi ekleyin; haftalık ders programını girin.",
-      "Öğrencileri Excel’den içe aktarın; velileri Müşteri portalına davet edin.",
+      "Öğrencileri Excel’den içe aktarın; velileri Portala davet edin.",
     ],
     faq: [
       {
@@ -368,6 +376,7 @@ export const addons: Addon[] = [
     ],
     more: { href: "/sectors/education-and-courses", label: "Kurslar ve eğitim kurumları için Kahya" },
     cta: { title: "Kurumunuzu Kahya’ya taşıyalım", body: "Öğrenci listenizi gönderin, sınıfları ve velileri birlikte açalım." },
+    requestOnly: true,
   },
 ];
 

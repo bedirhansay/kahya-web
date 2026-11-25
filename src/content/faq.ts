@@ -52,11 +52,11 @@ export const pricingFaq = [
   },
   {
     q: "Deneme süresi var mı?",
-    a: "Evet. Kayıt olan her firma 30 gün boyunca Kurumsal paketi dener; E-posta, Filo ve Kahya AI ek hizmeti bu sürede kapalıdır. Süre bitince firma Ücretsiz pakete geçer, verileri yerinde kalır.",
+    a: "Evet. Kayıt olan her firma 30 gün boyunca Kurumsal paketi dener. E-posta, Filo, Kahya AI, Portal ve Eğitim ek hizmetleri bu sürede kapalıdır, talep ile açılır. Süre bitince firma Ücretsiz pakete geçer, verileri yerinde kalır.",
   },
   {
     q: "Nasıl satın alırım?",
-    a: "Uygulamada Abonelik sayfasından talep edersiniz ya da bize e-posta gönderirsiniz. Ödeme bilgilerini size iletiriz. Ödeme gelince çözümünüz açılır ve faturanız kesilir.",
+    a: "Paketi uygulamada Ayarlar › Paket’ten, ek hizmeti Ayarlar › Modüller’den talep edersiniz ya da bize e-posta gönderirsiniz. Ödeme bilgilerini size iletiriz. Ödeme gelince çözümünüz açılır ve faturanız kesilir.",
   },
   {
     q: "Kahya kartımdan otomatik ödeme alır mı?",
@@ -64,7 +64,7 @@ export const pricingFaq = [
   },
   {
     q: "Sonradan başka bir çözüm ya da ek hizmet ekleyebilir miyim?",
-    a: "Evet. Abonelik sayfasından talep edersiniz, onaylanınca hesabınızda açılır. Kullanmadığınız bölümler menüde görünmez.",
+    a: "Evet. Uygulamada Ayarlar › Modüller’den talep edersiniz, onaylanınca hesabınızda açılır. Kullanmadığınız bölümler menüde görünmez.",
   },
   {
     q: "Paketimden fazla kullanıcı gerekirse?",
