@@ -291,8 +291,8 @@ export const addons: Addon[] = [
     },
     title: "Müşteriniz borcunu ve taksitini kendisi görür, sizi aramaz",
     lead: "Müşterinize kendi hesabını açarsınız. Firmanızın adı ve logosuyla açılan portalda bakiyesini, sıradaki ödemesini, hesap ekstresini, paylaştığınız belgeleri ve duyurularınızı görür; ödediğini oradan bildirir.",
-    screen: { src: "/media/portal/odemeler.webp", alt: "Kahya müşteri portalı: velinin ödenecek tutarı, gecikmiş ödemesi ve taksitleri. Örnek veri.", width: 2400, height: 1500 },
-    phone: { src: "/media/portal/odemeler-tel.webp", alt: "Telefonda müşteri portalı: ödemeler ve sıradaki taksit. Örnek veri.", time: "09.41" },
+    screen: { src: "/media/portal/musteri-hesap.webp", alt: "Kahya müşteri portalı: bir firma müşterisinin ödenecek tutarı, sıradaki ödemesi ve ödeme planları. Örnek veri.", width: 2400, height: 1500 },
+    phone: { src: "/media/portal/odemeler-tel.webp", alt: "Telefonda veli portalı: ödemeler ve sıradaki taksit. Örnek veri.", time: "09.41" },
     when: [
       "Ne kadar borcu kaldığını soran müşteri her gün telefon ediyor.",
       "Ekstreyi ve sözleşmeyi her istendiğinde tek tek gönderiyorsunuz.",
