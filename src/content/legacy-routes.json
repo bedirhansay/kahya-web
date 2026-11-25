@@ -21,7 +21,9 @@
       "teklif": "quotes",
       "kahya-ai": "kahya-ai",
       "filo": "fleet",
-      "ticari-paket": "business-pack"
+      "ticari-paket": "business-pack",
+      "musteri-portali": "customer-portal",
+      "egitim": "education"
     },
     "features": {
       "cari-takibi": "accounts",

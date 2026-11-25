@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 import { DayTabs, type DayMoment, type DayPhone } from "@/components/DayTabs";
@@ -6,6 +7,7 @@ import { Faq } from "@/components/Faq";
 import { HomeHero, type HeroSlide } from "@/components/home/HomeHero";
 import { Problems } from "@/components/home/Problems";
 import { JsonLd } from "@/components/JsonLd";
+import { PhoneFrame } from "@/components/PhoneFrame";
 import { generalFaq } from "@/content/faq";
 import { extras, solutionBySlug } from "@/content/solutions";
 import { faqLd, pageMetadata, softwareLd } from "@/lib/seo";
@@ -140,6 +142,26 @@ const slides: HeroSlide[] = [
 /** The three solutions, in the order an office meets them: money first. */
 const modules = (["office-management", "crm", "finance"] as const).map((slug) => solutionBySlug(slug)!);
 
+/** The two faces the office opens to the outside (add-ons): the customer's portal and the school's day. */
+const faces: { href: string; tag: string; title: string; text: string; cta: string; phone?: { src: string; alt: string; time: string } }[] = [
+  {
+    href: "/solutions/customer-portal",
+    tag: "Müşteri portalı",
+    title: "Müşteriniz borcunu ve taksitini kendisi görür",
+    text: "E-postasına gelen kodla girer; bakiyesini, ekstresini, belgelerini görür, ödediğini oradan bildirir.",
+    cta: "Portalı inceleyin",
+    phone: { src: "/media/portal/odemeler-tel.webp", alt: "Telefonda müşteri portalı: ödemeler ve taksitler. Örnek veri.", time: "09.41" },
+  },
+  {
+    href: "/solutions/education",
+    tag: "Eğitim",
+    title: "Yoklama telefondan, not ve taksit velinin cebinde",
+    text: "Sınıflar, ders programı, yoklama, sınav ve ödev. Veli çocuğunu portaldan izler, öğretmene oradan yazar.",
+    cta: "Eğitim’i inceleyin",
+    phone: { src: "/media/egitim-modul/veli-ana-tel.webp", alt: "Veli portalı telefonda: çocuklar, devam ve ödeme. Örnek veri.", time: "09.41" },
+  },
+];
+
 /** How an office starts: each sentence is the app's own (SSS, Veri aktarımı, roles). */
 const steps = [
   {
@@ -172,7 +194,7 @@ export default function HomePage() {
       {/* 2. Which problems it solves: eight sentences from offices, each with its answer. */}
       <Problems />
 
-      {/* 3. What Kahya does: three solutions, the add-ons in one line. */}
+      {/* 3. What Kahya does: three solutions, the two outward faces (portal, education), the add-ons in one line. */}
       <section aria-labelledby="ne-yapar" className="band-dark">
         <div className={`wrap ${band}`}>
           <div className="max-w-2xl">
@@ -195,6 +217,28 @@ export default function HomePage() {
                   <span className="mt-auto inline-flex items-center gap-1.5 pt-6 font-semibold text-brand">
                     Çözümü inceleyin
                   </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <ul className="mt-4 grid gap-4 md:grid-cols-2">
+            {faces.map((f) => (
+              <li key={f.href}>
+                <Link
+                  href={f.href}
+                  className="group grid h-full gap-5 rounded-2xl border border-line bg-surface p-7 transition-colors hover:border-brand/50 sm:grid-cols-[minmax(0,1fr)_8.5rem] sm:items-center"
+                >
+                  <div>
+                    <p className="text-sm font-semibold text-brand">{f.tag}</p>
+                    <h3 className="mt-2 text-xl font-semibold">{f.title}</h3>
+                    <p className="mt-3 leading-relaxed text-muted">{f.text}</p>
+                    <span className="mt-5 inline-flex items-center gap-1.5 font-semibold text-brand">{f.cta}</span>
+                  </div>
+                  {f.phone && (
+                    <PhoneFrame time={f.phone.time} className="mx-auto hidden w-[8.5rem] sm:block">
+                      <Image src={f.phone.src} alt={f.phone.alt} width={1170} height={2532} sizes="136px" className="block h-auto w-full" />
+                    </PhoneFrame>
+                  )}
                 </Link>
               </li>
             ))}

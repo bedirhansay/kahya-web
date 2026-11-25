@@ -39,7 +39,7 @@ export function AddonPage({ a }: { a: Addon }) {
       <section aria-labelledby="ne-zaman" className="bg-surface">
         <div className="wrap grid gap-10 py-14 md:py-20 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.75fr)] lg:items-center lg:gap-14">
           {a.screen && (
-            <CasePanel tone="pine" priority screen={a.screen} className="aspect-[16/11]" />
+            <CasePanel tone="pine" priority screen={a.screen} phone={a.phone} className="aspect-[16/11]" />
           )}
           <div>
             <h2 id="ne-zaman" className="title">

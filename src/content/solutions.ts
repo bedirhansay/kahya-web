@@ -228,12 +228,13 @@ export const extras: Extra[] = [
     name: "Müşteri portalı",
     body: "Müşteriniz e-postasına gelen kodla girer; hesap ekstresini, taksitlerini, belgelerini, tekliflerini ve duyurularınızı görür. Neyi göreceğini siz seçersiniz.",
     plan: "Ücretli her pakete ek hizmet olarak eklenir.",
+    href: "/solutions/customer-portal",
   },
   {
     name: "Eğitim",
-    body: "Kurslar ve eğitim kurumları için: öğrenci kaydı ve sınıflar, ders programı, yoklama. Veli portaldan çocuğunun programını ve taksitlerini görür.",
+    body: "Kurslar ve eğitim kurumları için: öğrenci ve sınıflar, ders programı, telefondan yoklama, sınav, ödev ve karne. Veli portaldan çocuğunun programını, notlarını ve taksitlerini görür.",
     plan: "Ücretli her pakete ek hizmet olarak eklenir.",
-    href: "/sectors/education-and-courses",
+    href: "/solutions/education",
   },
 ];
 

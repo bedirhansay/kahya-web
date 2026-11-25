@@ -4,13 +4,15 @@
  * Package facts (which plan carries what) live only on /pricing, so each page links there.
  */
 export type Addon = {
-  slug: "email" | "inventory" | "quotes" | "kahya-ai" | "fleet" | "business-pack";
+  slug: "email" | "inventory" | "quotes" | "kahya-ai" | "fleet" | "business-pack" | "customer-portal" | "education";
   name: string;
   seo: { title: string; description: string };
   title: string;
   lead: string;
   /** The real app screen shown at the top; null until one is shot. */
   screen: { src: string; alt: string; width: number; height: number } | null;
+  /** The same work on a phone (390 × 844), drawn in front of the screen when there is one. */
+  phone?: { src: string; alt: string; time: string };
   /** "Ne zaman gerekir": three situations in the customer's words. */
   when: [string, string, string];
   /** "Neler var": what the add-on holds, as plain term/text rows. */
@@ -272,6 +274,100 @@ export const addons: Addon[] = [
       },
     ],
     cta: { title: "Teklif ve stokla başlayalım", body: "Ürün listenizi ve teklif şablonunuzu gönderin, ikisini birlikte kuralım." },
+  },
+  {
+    slug: "customer-portal",
+    name: "Müşteri portalı",
+    seo: {
+      title: "Müşteri portalı: müşteriniz borcunu ve taksitlerini kendisi görür",
+      description:
+        "Müşteriniz e-postasına gelen kodla şifresiz girer; bakiyesini, sıradaki taksitini, hesap ekstresini, belgelerini, tekliflerini ve duyurularınızı telefonundan görür.",
+    },
+    title: "Müşteriniz borcunu ve taksitini kendisi görür, sizi aramaz",
+    lead: "Müşterinize kendi hesabını açarsınız. Firmanızın adı ve logosuyla açılan portalda bakiyesini, sıradaki ödemesini, hesap ekstresini, paylaştığınız belgeleri ve duyurularınızı görür; ödediğini oradan bildirir.",
+    screen: { src: "/media/portal/odemeler.webp", alt: "Kahya müşteri portalı: velinin ödenecek tutarı, gecikmiş ödemesi ve taksitleri. Örnek veri.", width: 2400, height: 1500 },
+    phone: { src: "/media/portal/odemeler-tel.webp", alt: "Telefonda müşteri portalı: ödemeler ve sıradaki taksit. Örnek veri.", time: "09.41" },
+    when: [
+      "Ne kadar borcu kaldığını soran müşteri her gün telefon ediyor.",
+      "Ekstreyi ve sözleşmeyi her istendiğinde tek tek gönderiyorsunuz.",
+      "Müşteri ödediğini söylüyor, siz dekontu WhatsApp’ta arıyorsunuz.",
+    ],
+    has: [
+      { term: "Şifresiz giriş", text: "Müşteri e-postasına gelen kodla ya da sizin gönderdiğiniz bağlantıyla girer; cihazı hatırlanır." },
+      { term: "Hesabım", text: "Bakiye, sıradaki ödeme ve kaç gün kaldığı, taksitler ve canlı hesap ekstresi." },
+      { term: "Ödedim bildirimi", text: "Müşteri ödediğini ya da ödeyeceği tarihi bildirir; bildirim size düşer, siz onaylarsınız." },
+      { term: "Belgeler ve teklifler", text: "Yalnız Portalda olarak işaretlediğiniz belgeler görünür; gönderdiğiniz teklifleri açıp yanıtlar." },
+      { term: "Duyurular", text: "Müşterilerinize duyuru yayınlarsınız; önemli olanı üste sabitler, kimin okuduğunu görürsünüz." },
+      { term: "Firmanızın görünümü", text: "Portal firmanızın adı ve logosuyla açılır; telefonda uygulama gibi kullanılır." },
+    ],
+    open: [
+      request,
+      "Ayarlar › Müşteri portalı’ndan müşterinin göreceği bölümleri seçin.",
+      "Cari kartında Portala davet et ile müşterinize giriş bağlantısını gönderin.",
+    ],
+    faq: [
+      {
+        q: "Müşterim başka müşterilerin bilgisini görebilir mi?",
+        a: "Hayır. Her müşteri yalnız kendi carisini görür. Birden fazla carisi olan kişi girişten sonra hangi hesabı açacağını seçer.",
+      },
+      {
+        q: "Müşterinin şifre hatırlaması gerekir mi?",
+        a: "Hayır. Girişte e-postasına bir kod gelir ya da sizin gönderdiğiniz bağlantıyla girer. Erişimi istediğiniz an kapatırsınız.",
+      },
+      {
+        q: "Hangi belgeleri görür?",
+        a: "Yalnız sizin Portalda olarak işaretlediğiniz belgeleri. Diğer dosyalarınız ve iç notlarınız görünmez.",
+      },
+    ],
+    cta: { title: "Portalı müşterilerinize açalım", body: "Kaç müşterinize açmak istediğinizi yazın, ilk davetleri birlikte gönderelim." },
+  },
+  {
+    slug: "education",
+    name: "Eğitim",
+    seo: {
+      title: "Eğitim ek hizmeti: kurs ve okul için öğrenci, yoklama, sınav, veli",
+      description:
+        "Kurslar ve eğitim kurumları için öğrenci ve sınıflar, ders programı, telefondan yoklama, sınav, ödev ve karne. Veli çocuğunun programını, notlarını ve taksitlerini portaldan görür.",
+    },
+    title: "Yoklama telefondan, not ve taksit velinin cebinde",
+    lead: "Öğrencilerinizi, sınıflarınızı ve ders programınızı Kahya’da tutarsınız. Öğretmen yoklamayı telefondan alır, sınav ve ödevi girer; veli çocuğunun programını, yoklamasını, notlarını ve taksitlerini portaldan görür.",
+    screen: { src: "/media/egitim-modul/ogrenci.webp", alt: "Kahya Eğitim: öğrenci kartı; veli, devam, ödeme, haftalık program ve kardeşler. Örnek veri.", width: 2400, height: 1500 },
+    phone: { src: "/media/egitim-modul/veli-ana-tel.webp", alt: "Veli portalı telefonda: çocuklar, devam, gecikmiş ödeme ve bölümler. Örnek veri.", time: "09.41" },
+    when: [
+      "Yoklama kâğıtta, devamsızlığı ay sonunda sayıyorsunuz.",
+      "Sınav sonucunu velilere tek tek mesajla yazıyorsunuz.",
+      "Hangi velinin hangi taksidi kaldı, ayrı tablodan bakıyorsunuz.",
+    ],
+    has: [
+      { term: "Öğrenci ve veli", text: "Her öğrenci velisinin carisine bağlı; kardeşler aynı veli kaydında durur." },
+      { term: "Sınıflar ve program", text: "Sınıflar, öğretmenleri ve haftalık ders programı; çakışan ders satırda uyarılır." },
+      { term: "Yoklama", text: "Öğretmen bugünkü dersini açar, herkes Geldi gelir; gelmeyene dokunur, kaydeder." },
+      { term: "Sınav, ödev, karne", text: "Sonuçlar ve ödevler girilir; veli yalnız sizin yayınladığınızı görür." },
+      { term: "Veli mesajları", text: "Veli öğretmene portaldan yazar; yazışma öğrenciye bağlı kalır, öğrenci kartından açılır." },
+      { term: "Taksitler", text: "Kayıt ücreti öğrenciye bağlı ödeme planıdır; tahsilat cari bakiyesine işlenir." },
+      { term: "Öğretmen rolü", text: "Öğretmen yalnız atandığı sınıfların öğrencilerini görür; velinin bakiyesini, ekstresini ve taksitlerini görmez." },
+    ],
+    open: [
+      request,
+      "Dönemi, sınıflarınızı ve öğretmenlerinizi ekleyin; haftalık ders programını girin.",
+      "Öğrencileri Excel’den içe aktarın; velileri Müşteri portalına davet edin.",
+    ],
+    faq: [
+      {
+        q: "Velinin görmesi için Müşteri portalı gerekir mi?",
+        a: "Evet. Eğitim tek başına da çalışır; velinin program, yoklama, not ve taksitleri görmesi için Müşteri portalı açık olmalıdır.",
+      },
+      {
+        q: "Öğretmen velinin borcunu görür mü?",
+        a: "Hayır. Öğretmen yalnız atandığı sınıfların yoklamasını, ödevini ve sınavını görür; velinin bakiyesi, ekstresi ve taksitleri görünmez.",
+      },
+      {
+        q: "Kahya AI öğrenci bilgilerini okur mu?",
+        a: "Hayır. Kahya AI öğrenci kayıtlarını, notları ve sağlık bilgisini okumaz.",
+      },
+    ],
+    more: { href: "/sectors/education-and-courses", label: "Kurslar ve eğitim kurumları için Kahya" },
+    cta: { title: "Kurumunuzu Kahya’ya taşıyalım", body: "Öğrenci listenizi gönderin, sınıfları ve velileri birlikte açalım." },
   },
 ];
 

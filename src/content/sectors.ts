@@ -454,9 +454,10 @@ export const sectors: Sector[] = [
       { pain: "Hangi velinin taksidi gecikti, tek tek bakılıyor.", term: "Vadesi geçenler", text: "geciken taksit Ana Sayfa’da, gün sayısıyla.", href: "/solutions/finance" },
       { pain: "Kayıt için arayan adayın ne zaman tekrar aranacağı unutuluyor.", term: "Aday görüşmeleri", text: "her görüşme kayıtta, takip günü gelen aday önünüze çıkar.", href: "/solutions/crm" },
       { pain: "Eğitmen izinleri ve duyurular mesaj gruplarında kayboluyor.", term: "İzin ve duyurular", text: "eğitmen izni telefondan, duyuru tüm ekibe tek yerden.", href: "/solutions/office-management" },
-      { pain: "Ders programı Excel’de hazırlanıp velilere tek tek gönderiliyor.", term: "Ders programı", text: "sınıfa girilen program her öğrencinin programına düşer; öğretmen ve derslik çakışması engellenir.", href: "/solutions#ek-hizmetler" },
-      { pain: "Yoklama kâğıtta tutuluyor, veli gelmeyen çocuğunu akşam öğreniyor.", term: "Yoklama", text: "derse gelen ve gelmeyen işaretlenir, veliye haber gider.", href: "/solutions#ek-hizmetler" },
-      { pain: "Veliler borcunu, programı ve duyuruyu öğrenmek için kurumu arıyor.", term: "Veli portalı", text: "veli e-postasına gelen kodla girer; programı, taksitleri ve duyuruları kendisi görür.", href: "/solutions#ek-hizmetler" },
+      { pain: "Ders programı Excel’de hazırlanıp velilere tek tek gönderiliyor.", term: "Ders programı", text: "sınıfa girilen program her öğrencinin programına düşer; öğretmen ya da derslik çakışırsa satırda uyarılır.", href: "/solutions/education" },
+      { pain: "Yoklama kâğıtta tutuluyor, devamsızlık ay sonunda sayılıyor.", term: "Yoklama", text: "öğretmen telefondan alır; herkes Geldi gelir, yalnız gelmeyene dokunulur. Veli portaldan görür.", href: "/solutions/education" },
+      { pain: "Sınav sonucu ve ödev velilere tek tek mesajla yazılıyor.", term: "Sınav, ödev, karne", text: "sonuçlar girilir, yayınladığınız an veli portalda görür.", href: "/solutions/education" },
+      { pain: "Veliler borcunu, programı ve duyuruyu öğrenmek için kurumu arıyor.", term: "Veli portalı", text: "veli e-postasına gelen kodla girer; programı, yoklamayı, notları, taksitleri ve duyuruları kendisi görür.", href: "/solutions/customer-portal" },
     ],
     uses: [
       {
@@ -485,11 +486,11 @@ export const sectors: Sector[] = [
       },
       {
         q: "Ders programı ve yoklama var mı?",
-        a: "Evet, Eğitim ek hizmetiyle. Öğrencileri sınıflara ayırır, sınıfın ders programını girersiniz; program her öğrenciye düşer, öğretmen ve derslik çakışması engellenir. Yoklamayı dersten alırsınız.",
+        a: "Evet, Eğitim ek hizmetiyle. Öğrencileri sınıflara ayırır, sınıfın ders programını girersiniz; program her öğrenciye düşer, öğretmen ya da derslik çakışırsa uyarılır. Öğretmen yoklamayı telefondan alır; sınav, ödev ve karne de aynı yerde.",
       },
       {
         q: "Veliler kendi bilgilerini görebilir mi?",
-        a: "Evet, Müşteri portalıyla. Veli e-postasına gelen kodla girer, şifre gerekmez; çocuğunun programını, taksitlerini ve duyurularınızı görür. İki çocuğu olan veli tek hesapla ikisini de görür.",
+        a: "Evet, Müşteri portalıyla. Veli e-postasına gelen kodla girer, şifre gerekmez; çocuğunun programını, yoklamasını, notlarını, taksitlerini ve duyurularınızı görür; öğretmene oradan yazar. İki çocuğu olan veli tek hesapla ikisini de görür.",
       },
     ],
   },

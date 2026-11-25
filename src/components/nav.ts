@@ -248,7 +248,7 @@ export const mainNav: NavGroup[] = [
         items: g.slugs.map(featureLink),
       })),
       aside: {
-        eyebrow: "Eğitim",
+        eyebrow: "Videolar",
         title: "Kısa videolarla öğrenin",
         text: "Her özelliğin nasıl kullanıldığını birkaç dakikalık videolarda gösteriyoruz.",
         links: [
@@ -259,7 +259,7 @@ export const mainNav: NavGroup[] = [
     },
   },
   { href: "/pricing", label: "Fiyatlar" },
-  { href: "/training", label: "Eğitim" },
+  { href: "/training", label: "Eğitim videoları" },
   { href: "/faq", label: "Sık sorulanlar" },
   { href: "/contact", label: "İletişim" },
 ];
